@@ -1,5 +1,8 @@
 # W3C Website redesign - HTML prototype
 
+## URLS
+Development: https://w3c-dev.studio24.dev
+
 ## Deployment
 We use [Deployer](https://deployer.org) for deployment.
 
