@@ -10,7 +10,7 @@ set('http_user', 'apache');
 set('application', 'W3C Website redesign - HTML prototype');
 
 // Project repository
-set('repository', 'git@github.com:ukparliament/parliweek.git');
+set('repository', 'git@github.com:w3c/w3c-website-redesign-html.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
