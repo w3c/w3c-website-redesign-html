@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html dir="ltr" lang="en" class="no-js">
 
 <head>
 	<meta charset="utf-8"/>
@@ -26,16 +26,27 @@
 	<link rel="stylesheet" href="assets/styles/core.css" media="screen"/>
 
 	<!--
-    CSS Mustard Cut
-    Print (Edge doesn't apply to print otherwise)
-    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
-    FF 47+
-    -->
-	<link rel="stylesheet" href="assets/styles/advanced.css" media="
+		CSS Mustard Cut
+		Print (Edge doesn't apply to print otherwise)
+		Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+		FF 47+
+		-->
+	<link rel="stylesheet" id="advanced-stylesheet" href="assets/styles/advanced.css" media="
     only print,
     only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
     only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
 ">
+	<script>
+		(function() {
+			var linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				var script = document.createElement('script');
+				script.src = 'assets/js/main.js';
+				script.defer = true;
+				document.querySelector('head').appendChild(script);
+			}
+		})();
+	</script>
 
 	<style>
 		/* Temporary prototype styles */
@@ -52,7 +63,7 @@
 </head>
 
 <body>
-	<main class="stack">
+	<main id="main" class="stack">
 		<p><a href="index.html">Back to index</a></p>
 		<h1>Typography</h1>
 

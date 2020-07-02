@@ -472,7 +472,6 @@ main:focus,
 body {
 
 	font-family: 'Trebuchet MS', Geneva, sans-serif;
-	letter-spacing: 0.47px;
 	line-height: 1.5;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -489,7 +488,6 @@ body {
 
 	font-size: 2.125rem; /* 34px */
 	font-weight: 600;
-	letter-spacing: 0.25px;
 	line-height: calc(43 / 34);
 
 }
@@ -505,7 +503,7 @@ body {
 	.txt-mercury {
 
 		font-size: 3.75rem; /* 60px */
-		letter-spacing: -0.5px;
+		letter-spacing: -0.01em;
 		line-height: calc(72 / 60);
 
 	}
@@ -536,7 +534,7 @@ body {
 	.txt-venus {
 
 		font-size: 3rem; /* 48px */
-		letter-spacing: -0.5px;
+		letter-spacing: -0.01em;
 		line-height: calc(67.2 / 48);
 
 	}
@@ -596,7 +594,6 @@ body {
 
 	font-size: 1.25rem; /* 20px */
 	font-weight: 600;
-	letter-spacing: 0.15px;
 	line-height: calc(32 / 20);
 
 }
@@ -610,7 +607,7 @@ body {
 .txt-saturn {
 
 	font-weight: 600;
-	letter-spacing: 0.12px;
+	letter-spacing: 0.0075em;
 	line-height: calc(22 / 16);
 
 }
@@ -624,7 +621,7 @@ body {
 .txt-pluto {
 
 	color: #565656;
-	letter-spacing: 0.12px;
+	letter-spacing: 0.0075em;
 	line-height: calc(22.4 / 16);
 
 }
@@ -633,7 +630,7 @@ body {
 
 	color: #6b6b6b;
 	font-size: 0.875rem; /* 14px */
-	letter-spacing: 0.1px;
+	letter-spacing: 0.0075em;
 	line-height: calc(21 / 14);
 
 }
@@ -650,6 +647,7 @@ body {
 
 	color: #777;
 	font-size: 0.75rem; /* 12px */
+	letter-spacing: 0.01em;
 	line-height: calc(17 / 12);
 
 }
@@ -689,5 +687,22 @@ a.bold {
 	cursor: pointer;
 	text-decoration: underline;
 	text-decoration-skip-ink: auto;
+
+}
+
+/*------------------------------------*\
+    #Buttons
+\*------------------------------------*/
+button,
+.button {
+
+	align-self: flex-start;
+	background-color: #023dde;
+	border: none;
+	border-radius: 1.5rem;
+	color: #fff;
+	font-weight: 600;
+	line-height: calc(19 / 14);
+	padding: 0.625em 1.5em;
 
 }
