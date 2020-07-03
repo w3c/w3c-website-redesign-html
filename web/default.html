@@ -1,0 +1,118 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Default page | W3C Redesign Prototypes</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<meta property="og:description" name="description" content="Default page prototype for the W3C website redesign"/>
+
+	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+
+	<script src="assets/js/fontface-observer.js"></script>
+
+	<script>
+		var myFont = new FontFaceObserver('Noto Sans');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+	</script>
+
+	<link rel="stylesheet" href="assets/styles/core.css" media="screen"/>
+
+	<!--
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="assets/styles/advanced.css" media="
+    only print,
+    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+    only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+">
+	<script>
+		(function() {
+			var linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				var script = document.createElement('script');
+				script.src = 'assets/js/main.js';
+				script.defer = true;
+				document.querySelector('head').appendChild(script);
+			}
+		})();
+	</script>
+
+	<style>
+		/* Temporary prototype styles */
+		main {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 1120px;
+			position: relative;
+		}
+
+		article > * + * {
+			margin-top: 1rem;
+		}
+
+		@media screen and (min-width: 64em) {
+			article {
+				display: grid;
+				grid-column-gap: 10.71%;
+				grid-template-columns: minmax(68.75%, 770px) minmax(20.54%, 230px);
+				grid-template-areas:
+						"lead sidebar"
+						"content sidebar";
+			}
+
+			article .lead {
+				grid-area: lead;
+			}
+
+			article nav {
+				grid-area: sidebar;
+			}
+
+			article .content {
+				grid-area: content;
+			}
+		}
+	</style>
+</head>
+
+<body>
+<main id="main" class="stack">
+	<p><a href="index.html">Back to index</a></p>
+	<article>
+		<div class="lead stack">
+			<h1 class="txt-mercury">An example default page</h1>
+			<p class="txt-mars">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis.</p>
+		</div>
+		<nav aria-labelledby="toc">
+			<h2 id="toc" class="txt-jupiter">Contents</h2>
+			<ul>
+				<li><a href="#1">Example standard</a></li>
+				<li><a href="#1">Example blog post to be linked to</a></li>
+				<li><a href="#1">Example standard</a></li>
+				<li><a href="#1">Example</a></li>
+			</ul>
+		</nav>
+		<div class="content stack">
+			<h2 class="txt-jupiter">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</h2>
+			<p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
+			<ul>
+				<li>Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede</li>
+				<li>Vitae, justo. Nullam dictum felis eu pede</li>
+			</ul>
+		</div>
+	</article>
+</main>
+</body>
+
+</html>
