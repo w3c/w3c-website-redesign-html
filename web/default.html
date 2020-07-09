@@ -58,21 +58,27 @@
 		}
 
 		main {
+			box-sizing: content-box;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 1200px;
+			padding-left: 20px;
+			padding-right: 20px;
+			position: relative;
+		}
+
+		article {
 			margin-left: auto;
 			margin-right: auto;
 			max-width: 1120px;
 			position: relative;
 		}
 
-		article > * + * {
-			margin-top: 1rem;
-		}
-
 		@media screen and (min-width: 64em) {
 			article {
 				display: grid;
 				grid-column-gap: 10.71%;
-				grid-template-columns: minmax(68.75%, 770px) minmax(20.54%, 230px);
+				grid-template-columns: 68.75% 20.54%;
 				grid-template-areas:
 						"lead sidebar"
 						"content sidebar";
@@ -89,6 +95,10 @@
 			article .content {
 				grid-area: content;
 			}
+		}
+
+		article > * + * {
+			margin-top: 1rem;
 		}
 	</style>
 </head>
