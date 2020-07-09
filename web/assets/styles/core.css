@@ -510,7 +510,6 @@ h1 {
 	.txt-mercury {
 
 		font-size: 3.75rem; /* 60px */
-		letter-spacing: -0.01em;
 		line-height: calc(72 / 60);
 
 	}
@@ -541,7 +540,6 @@ h1 {
 	.txt-venus {
 
 		font-size: 3rem; /* 48px */
-		letter-spacing: -0.01em;
 		line-height: calc(67.2 / 48);
 
 	}
@@ -614,7 +612,6 @@ h1 {
 .txt-saturn {
 
 	font-weight: 600;
-	letter-spacing: 0.0075em;
 	line-height: calc(22 / 16);
 
 }
@@ -628,7 +625,6 @@ h1 {
 .txt-pluto {
 
 	color: #565656;
-	letter-spacing: 0.0075em;
 	line-height: calc(22.4 / 16);
 
 }
@@ -637,7 +633,6 @@ h1 {
 
 	color: #6b6b6b;
 	font-size: 0.875rem; /* 14px */
-	letter-spacing: 0.0075em;
 	line-height: calc(21 / 14);
 
 }
@@ -654,7 +649,6 @@ h1 {
 
 	color: #777;
 	font-size: 0.75rem; /* 12px */
-	letter-spacing: 0.01em;
 	line-height: calc(17 / 12);
 
 }
