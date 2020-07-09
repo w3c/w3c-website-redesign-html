@@ -56,6 +56,41 @@
 			max-width: 1120px;
 			position: relative;
 		}
+
+		.btn {
+    		position: relative;
+   		 	display: inline-block;
+    		padding: 1rem 4.2rem;
+    		text-decoration: none;
+    		color: #000;
+			border: 1px solid #023dde;
+			border-radius: 3px;
+			max-width: 50px;
+			max-height: 13px;
+			text-align: center;
+		}
+		.btn::after{
+			content:'';
+			display:block;
+			position:absolute;
+			top:0;left:0;right:100%;
+			background:#023dde;
+			height:100%;
+			z-index:-1;
+			transition:all 0.2s cubic-bezier(.85,.45,.3,.74);
+		}	
+		.btn:hover::after,
+		.btn:focus::after{
+			right:0;
+			background: gray;
+		}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 	</style>
 </head>
 
@@ -65,6 +100,7 @@
 		<h1>Buttons</h1>
 
 		<button>Button text</button>
+		<a href="#contact" class="btn">BTN</a>
 	</main>
 </body>
 
