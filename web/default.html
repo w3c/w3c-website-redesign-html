@@ -50,6 +50,13 @@
 
 	<style>
 		/* Temporary prototype styles */
+		footer,
+		header {
+			background-color: #ddd;
+			padding: 20px 0;
+			text-align: center;
+		}
+
 		main {
 			margin-left: auto;
 			margin-right: auto;
@@ -87,32 +94,40 @@
 </head>
 
 <body>
-<main id="main" class="stack">
+<div class="wrap">
 	<p><a href="index.html">Back to index</a></p>
-	<article>
-		<div class="lead stack">
-			<h1 class="txt-mercury">An example default page</h1>
-			<p class="txt-mars">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis.</p>
-		</div>
-		<nav aria-labelledby="toc">
-			<h2 id="toc" class="txt-jupiter">Contents</h2>
-			<ul>
-				<li><a href="#1">Example standard</a></li>
-				<li><a href="#1">Example blog post to be linked to</a></li>
-				<li><a href="#1">Example standard</a></li>
-				<li><a href="#1">Example</a></li>
-			</ul>
-		</nav>
-		<div class="content stack">
-			<h2 class="txt-jupiter">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</h2>
-			<p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-			<ul>
-				<li>Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede</li>
-				<li>Vitae, justo. Nullam dictum felis eu pede</li>
-			</ul>
-		</div>
-	</article>
-</main>
+	<header class="global-header">
+		Header stuff
+	</header>
+	<main id="main" class="stack">
+		<article>
+			<div class="lead stack">
+				<h1 class="txt-mercury">An example default page</h1>
+				<p class="txt-mars">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis.</p>
+			</div>
+			<nav aria-labelledby="toc">
+				<h2 id="toc" class="txt-jupiter">Contents</h2>
+				<ul>
+					<li><a href="#1">Example standard</a></li>
+					<li><a href="#1">Example blog post to be linked to</a></li>
+					<li><a href="#1">Example standard</a></li>
+					<li><a href="#1">Example</a></li>
+				</ul>
+			</nav>
+			<div class="content stack">
+				<h2 class="txt-jupiter">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</h2>
+				<p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
+				<ul>
+					<li>Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede</li>
+					<li>Vitae, justo. Nullam dictum felis eu pede</li>
+				</ul>
+			</div>
+		</article>
+	</main>
+</div>
+<footer class="global-footer">
+	Footer stuff
+</footer>
 </body>
 
 </html>
