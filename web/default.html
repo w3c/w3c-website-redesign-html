@@ -72,6 +72,7 @@
 			margin-right: auto;
 			max-width: 1120px;
 			position: relative;
+			width: 100%;
 		}
 
 		@media screen and (min-width: 64em) {
@@ -100,6 +101,12 @@
 		article > * + * {
 			margin-top: 1rem;
 		}
+
+		.lead > *,
+		.component--text {
+			max-width: 729px;
+		}
+
 	</style>
 </head>
 
@@ -125,12 +132,14 @@
 				</ul>
 			</nav>
 			<div class="content stack">
-				<h2 class="txt-jupiter">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</h2>
-				<p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-				<ul>
-					<li>Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede</li>
-					<li>Vitae, justo. Nullam dictum felis eu pede</li>
-				</ul>
+				<div class="component component--text stack">
+					<h2 class="txt-jupiter">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</h2>
+					<p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
+					<ul>
+						<li>Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede</li>
+						<li>Vitae, justo. Nullam dictum felis eu pede</li>
+					</ul>
+				</div>
 			</div>
 		</article>
 	</main>
