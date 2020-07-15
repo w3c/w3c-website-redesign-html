@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    #Inline elements
+\*------------------------------------*/
+
+b,
+strong,
+.bold {
+
+	font-weight: $emphasis;
+
+}
+
+
+em,
+i {
+
+	font-style: italic;
+
+}
+
+
+small,
+.small,
+.small-caps {
+
+	@include txt-eris;
+
+}
+
+
+.small-caps {
+
+	text-shadow: 0 0 0 $black;
+	text-transform: uppercase;
+
+}
+
+
+code {
+
+	background-color: $navy;
+	color: $green;
+	font-family: $mono-family;
+	padding-left: $size-minus3;
+	padding-right: $size-minus3;
+
+}

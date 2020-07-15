@@ -1,0 +1,171 @@
+/*------------------------------------*\
+    #Typography
+\*------------------------------------*/
+
+body {
+
+	font-family: $font-family;
+	font-size: 1rem; // Equivalent to 16px browser default
+	font-style: $font-style;
+	font-weight: $font-weight;
+	line-height: 1.5;
+
+}
+
+
+
+/**
+All headings start off at the same size by default, so we focus on the semantic hierarchy.
+ */
+h1, h2, h3, h4, h5, h6 {
+
+	font-size: 1.25rem;
+	font-weight: $emphasis;
+	margin: 0;
+
+}
+
+
+
+/**
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+.fonts-loaded {
+
+	body {
+
+		font-family: $font-loaded-family;
+
+	}
+
+}
+
+
+.txt-mercury {
+
+	@include txt-mercury;
+
+}
+
+.txt-mercury + * {
+
+	margin-top: rem(34);
+
+	@include mq($bp-tab-small) {
+
+		margin-top: rem(60);
+
+	}
+
+}
+
+
+.txt-venus {
+
+	@include txt-venus;
+
+}
+
+.txt-venus + * {
+
+	margin-top: rem(33);
+
+	@include mq($bp-tab-small) {
+
+		margin-top: rem(48);
+
+	}
+
+}
+
+
+.txt-earth {
+
+	@include txt-earth;
+
+}
+
+.txt-earth + * {
+
+	margin-top: rem(27);
+
+	@include mq($bp-tab-small) {
+
+		margin-top: rem(34);
+
+	}
+
+}
+
+
+.txt-mars {
+
+	@include txt-mars;
+
+}
+
+.txt-mars + * {
+
+	margin-top: rem(24);
+
+}
+
+
+.txt-jupiter {
+
+	@include txt-jupiter;
+
+}
+
+.txt-jupiter + * {
+
+	margin-top: rem(20);
+
+}
+
+
+.txt-saturn {
+
+	@include txt-saturn;
+
+}
+
+.txt-pluto {
+
+	@include txt-pluto;
+
+}
+
+.txt-saturn + *,
+.txt-pluto + * {
+
+	margin-top: 1rem;
+
+}
+
+
+.txt-body-alt {
+
+	@include txt-body-alt;
+
+}
+
+.txt-body-alt + * {
+
+	margin-top: rem(15);
+
+}
+
+
+.txt-eris {
+
+	@include txt-eris;
+
+}
+
+.txt-eris + * {
+
+	margin-top: rem(14);
+
+}

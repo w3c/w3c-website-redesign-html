@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    #Font sizes
+\*------------------------------------*/
+
+@mixin txt-mercury {
+
+	font-size: rem(34);
+	font-weight: $emphasis;
+	line-height: calc(43 / 34);
+
+	@include mq($bp-tab-small) {
+
+		font-size: rem(60);
+		line-height: calc(72 / 60);
+
+	}
+
+}
+
+
+@mixin txt-venus {
+
+	font-size: rem(33);
+	line-height: calc(43 / 33);
+
+	@include mq($bp-tab-small) {
+
+		font-size: rem(48);
+		line-height: calc(67.2 / 48);
+
+	}
+
+}
+
+
+@mixin txt-earth {
+
+	font-size: rem(27);
+	line-height: calc(33.6 / 27);
+
+	@include mq($bp-tab-small) {
+
+		font-size: rem(34);
+		line-height: calc(43 / 34);
+
+	}
+
+}
+
+
+@mixin txt-mars {
+
+	font-size: rem(24);
+	line-height: calc(33.6 / 24);
+
+}
+
+
+@mixin txt-jupiter {
+
+	font-size: rem(20);
+	font-weight: $emphasis;
+	line-height: calc(32 / 20);
+
+}
+
+
+@mixin txt-saturn {
+
+	font-weight: 600;
+	line-height: calc(22 / 16);
+
+}
+
+
+@mixin txt-pluto {
+
+	color: #565656;
+	line-height: calc(22.4 / 16);
+
+}
+
+
+@mixin txt-body-alt {
+
+	color: #525252;
+	font-size: rem(15);
+	line-height: calc(22.5 / 15);
+
+}
+
+
+@mixin txt-eris {
+
+	color: #777;
+	font-size: rem(14);
+	line-height: calc(17 / 12);
+
+}

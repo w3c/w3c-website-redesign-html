@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    #Animation
+\*------------------------------------*/
+
+/*
+ * Use smooth-scrolling if user has not specified that they
+ * prefer reduced motion in their browser. See
+ * https://css-tricks.com/almanac/properties/s/scroll-behavior/
+ */
+@media (prefers-reduced-motion: no-preference) {
+
+    :root {
+
+        scroll-behavior: smooth;
+
+    }
+
+}
+
+/*
+ * Respect the choices of users who do not want animations.
+ */
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        animation-play-state: paused!important;
+        scroll-behavior: auto!important;
+        transition: none!important;
+
+    }
+
+}

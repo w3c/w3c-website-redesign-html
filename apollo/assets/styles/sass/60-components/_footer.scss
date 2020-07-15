@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    #Global footer
+\*------------------------------------*/
+
+.global-footer {
+
+	grid-row-start: 2; // Needed for sticky footer
+	grid-row-end: 3; // Needed for sticky footer
+
+}

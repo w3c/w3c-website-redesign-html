@@ -23,7 +23,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="assets/styles/core.css" media="screen"/>
+	<link rel="stylesheet" href="dist/assets/styles/core.css" media="screen"/>
 
 	<!--
 		CSS Mustard Cut
@@ -31,7 +31,7 @@
 		Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
 		FF 47+
 		-->
-	<link rel="stylesheet" id="advanced-stylesheet" href="assets/styles/advanced.css" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="dist/assets/styles/advanced.css" media="
     only print,
     only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
     only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -56,6 +56,9 @@
 			max-width: 1120px;
 			position: relative;
 		}
+		main > * + * {
+			margin-top: 1rem;
+		}
 		.measure {
 			max-width: 729px;
 		}
@@ -66,7 +69,7 @@
 <div class="wrap">
 	<p><a href="index.html">Back to index</a></p>
 	<header></header>
-	<main id="main" class="stack">
+	<main id="main">
 		<h1>Typography</h1>
 
 		<p>Mercury</p>
@@ -91,10 +94,8 @@
 		<p>Saturn</p>
 		<p class="txt-saturn measure">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</p>
 		<hr />
-		<p>Pluto 1</p>
+		<p>Pluto</p>
 		<p class="txt-pluto measure">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</p>
-		<p>Pluto 2</p>
-		<p class="txt-pluto-alt measure">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</p>
 		<hr />
 		<p>Body 1</p>
 		<p class="measure">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</p>
@@ -108,7 +109,7 @@
 		<p dir="rtl" class="txt-eris measure">عندما يتم تصميم مواقع الويب وأدوات الويب وترميزها بشكل صحيح، يمكن للأشخاص ذوي الإعاقة استخدامها. ومع ذلك، يتم حاليا تطوير العديد من المواقع </p>
 		<hr />
 		<p>Link bold</p>
-		<p class="measure"><a class="bold" href="#1">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</a></p>
+		<p class="measure bold"><a href="#1">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</a></p>
 		<p>Link</p>
 		<p class="measure"><a href="#1">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis. Nulla turpis neque, imperdiet.</a></p>
 	</main>

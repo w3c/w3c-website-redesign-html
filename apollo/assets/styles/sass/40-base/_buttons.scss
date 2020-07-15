@@ -1,0 +1,162 @@
+/*------------------------------------*\
+    #Buttons
+\*------------------------------------*/
+
+/**
+1. Because the `stack` mixin applies flexbox in the column direction,
+we need to prevent buttons from stretching horizontally
+ */
+button,
+.button {
+
+	align-self: flex-start; /* 1 */
+	background-color: $grey;
+	border: none;
+	border-radius: 0;
+	color: inherit;
+	font-weight: $font-weight;
+	letter-spacing: 0.015em;
+	padding: em(10) em(15);
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($grey, 10%);
+
+	}
+
+}
+
+
+
+/**
+2. High contrast themes tend to eliminate background-color. If there is no
+border set, we need to apply a transparent outline to maintain the shape
+of the button. The negative outline-offset moves the outline inside the
+perimeter so it behaves like a border and doesn't add to the overall size.
+ */
+.button {
+
+	border: 0;
+	display: block;
+	outline: $size-minus4 solid transparent; /* 2 */
+	outline-offset: $size-minus4 * -1; /* 2 */
+	text-decoration: none; // Remove link styling from links styled as buttons
+
+}
+
+
+
+
+button.button,
+input[type="submit"].button {
+
+	text-decoration: none; // Remove link styling from actual buttons styled as buttons
+
+}
+
+
+
+/**
+Double specificity so links as buttons keep their styling even within
+elements that would otherwise override it, without using !important
+ */
+.button--alert.button--alert {
+
+	background-color: $alert-color;
+	color: $black-pure;
+
+	&:visited {
+
+		background-color: $alert-color;
+		color: $black-pure;
+
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($alert-color, 10%);
+
+	}
+
+}
+
+
+.button--success.button--success {
+
+	background-color: $success-color;
+	color: $black-pure;
+
+	&:visited {
+
+		background-color: $success-color;
+		color: $black-pure;
+
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($success-color, 10%);
+
+	}
+
+}
+
+
+.button--warning.button--warning {
+
+	background-color: $warning-color;
+	color: $black-pure;
+
+	&:visited {
+
+		background-color: $warning-color;
+		color: $black-pure;
+
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: lighten($warning-color, 10%);
+
+	}
+
+}
+
+
+// For full-width buttons
+.button--wide {
+
+	text-align: center;
+	width: 100%;
+
+}
+
+
+// For disabled buttons
+.button[disabled],
+.button.is-disabled {
+
+	background-color: $grey;
+	box-shadow: none;
+	color: #3f3f3f;
+	cursor: not-allowed;
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: $grey;
+		color: #3f3f3f;
+		outline: 0;
+
+	}
+
+}

@@ -1,0 +1,140 @@
+/*------------------------------------*\
+    #Cards
+\*------------------------------------*/
+
+.card {
+
+	background-color: $mercury-grey;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: relative;
+
+	.card__image::before {
+		background-color: transparent;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 1;
+	}
+
+	/**
+	Do not include the `hover` and `focus-within` styles in the same block - otherwise
+	the hover style will be lost in browsers that don't support focus-within
+	 */
+
+	&:hover {
+		background-color: darken($mercury-grey, 10%);
+
+		.card__image::before {
+			background-color: rgba(0, 0, 0, 0.25);
+		}
+	}
+
+	&:focus-within {
+		background-color: darken($mercury-grey, 10%);
+	}
+
+}
+
+.card__text {
+	@include stack(1rem);
+
+	flex-grow: 1;
+	order: 1;
+}
+
+.card__heading {
+	//@include text-h4;
+}
+
+.card__link {
+
+	color: $black;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+		text-decoration: underline; // For browsers not supporting `focus-within`
+	}
+
+	&::after {
+		bottom: 0;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 5;
+	}
+
+}
+
+.card--cta .card__text {
+
+	/**
+	Look for focus within the card header and use the general sibling combinator to
+	delegate the focus style to the call-to-action button.
+	 */
+	.card__heading:focus-within ~ .card__cta {
+		outline: $size-minus3 solid $focus-color;
+		outline-offset: -$size-minus3;
+	}
+
+	/**
+	Minimum spacing between the call-to-action button and the preceding element.
+	Matches the measure used for the stack mixin on `.card`
+	 */
+	> :nth-last-child(2) {
+		margin-bottom: 1rem;
+	}
+
+	/**
+	Pushes all call-to-action buttons to the bottom of the card.
+	 */
+	.card__cta {
+		margin-top: auto;
+	}
+
+}
+
+.card--horizontal {
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: auto;
+}
+
+.card--horizontal .card__image {
+	flex-basis: 50%;
+	flex-grow: 1;
+	min-width: rem(300);
+}
+
+.card--horizontal .card__text {
+	flex-basis: 0;
+	flex-grow: 999;
+	justify-content: center;
+	min-width: calc(50%);
+}
+
+.card--horizontal .card__text__inner {
+
+	@include stack(1rem);
+
+	> :nth-last-child(2) {
+		margin-bottom: 1rem;
+	}
+
+}
+
+/**
+This needs to sit here to cascade correctly. If focus-within is supported by the browser,
+remove the default focus style from `.card__link`.
+ */
+.card:focus-within .card__link:focus {
+	text-decoration: none;
+}

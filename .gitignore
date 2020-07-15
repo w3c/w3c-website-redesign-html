@@ -1,0 +1,17 @@
+##
+# Add any project-specific ignore rules here
+# e.g. cache, package, build and file upload folders
+##
+
+# Composer
+vendor
+
+# NPM
+node_modules
+npm-debug.log
+
+# SASS
+.sass_cache
+
+# dist
+web/dist
