@@ -39,7 +39,7 @@ host('development')
 
 // Tasks
 desc('W3C Website redesign - HTML prototype');
-task('build', function () {
+task('local:build', function () {
 //  Set home path;
     $home = getenv('HOME');
 
@@ -66,7 +66,7 @@ task('build', function () {
     }
 
 //  Clone the required branch to the local build directory
-    run('git clone --single-branch --branch {{branch}} {{repository}} '.$home.'/.deployer/'.$directory);
+    run('git clone --single-branch --branch {{branch}} {{repository}} '.$homebuild.'/'.$directory);
 
 
 //  Set NVM via the .nvmrc file
@@ -79,11 +79,26 @@ task('build', function () {
     run('cd '.$homebuild.'/'.$directory  .' && npm run build');
 })->local();
 
+task('deploy:update_code', function () {
+    $home = getenv('HOME');
+    $directory = run('basename {{repository}} .git');
+    writeln("<info>Uploading files to server</info>");
+    upload($home.'/.deployer/'.$directory.'/', '{{release_path}}');
+});
+
+
 task('deploy', [
-    'build',
-//    'release',
-//    'cleanup',
-//    'success'
+    'deploy:info',
+    'deploy:prepare',
+    'deploy:lock',
+    'deploy:release',
+    'local:build',
+    'deploy:update_code',
+    'deploy:clear_paths',
+    'deploy:symlink',
+    'deploy:unlock',
+    'cleanup',
+    'success'
 ]);
 
 // [Optional] If deploy fails automatically unlock.
