@@ -26,7 +26,7 @@ set('allow_anonymous_stats', false);
 
 // Custom
 set('keep_releases', 10);
-
+set('build_root', getenv('HOME') . '/.deployer');
 
 // Hosts
 
@@ -40,50 +40,57 @@ host('development')
 // Tasks
 desc('W3C Website redesign - HTML prototype');
 task('local:build', function () {
-//  Set home path;
-    $home = getenv('HOME');
+    
+    //  Set local Deployment directory
+    $buildRoot = get('build_root');
 
-//  Set local Deployment directory
-    $homebuild = $home.'/.deployer';
-
-//  Create local Deployment directory
-    if (!file_exists($home.'/.deployer')) {
+    //  Create local Deployment directory
+    if (!file_exists($buildRoot)) {
         writeln('Creating Deployment Directory');
-        run('mkdir $HOME/.deployer'); }
-    else {
+        mkdir($buildRoot);
+    } else {
         writeln('Deployment Directory exists, skipping');
     }
 
-//  Set project root directory for build
-    $directory = run('basename {{repository}} .git');
+    //  Set project root directory for build
+    $buildPath = $buildRoot.'/'.run('basename {{repository}} .git');
 
-//  Remove previous local build
-    if (!file_exists($home.'/.deployer/'.$directory)) {
-        writeln('No Previous Build'); }
-        else {
-        writeln('Removing previous build');
-        run('rm -rf '.$home.'/.deployer/'.$directory);
+    //  Remove previous local build
+    if (!file_exists($buildPath)) {
+        writeln('No previous build');
+    } else {
+        run('rm -rf '.$buildPath);
+        writeln('Removed previous build');
     }
 
-//  Clone the required branch to the local build directory
-    run('git clone --single-branch --branch {{branch}} {{repository}} '.$homebuild.'/'.$directory);
+    writeln('Cloning Repository (Branch: <info>{{branch}}</info>)');
 
+    //  Clone the required branch to the local build directory
+    run('git clone --single-branch --branch {{branch}} {{repository}} '.$buildPath);
 
-//  Set NVM via the .nvmrc file
-    run('cd '.$homebuild.'/'.$directory  .' && source ~/.nvm/nvm.sh && nvm use');
+    writeln('Clone complete');
 
-//  Run the NPM install
-    run('cd '.$homebuild.'/'.$directory  .' && npm install');
+    cd($buildPath);
 
-//  Run NPM build
-    run('cd '.$homebuild.'/'.$directory  .' && npm run build');
+    writeln('Running NPM tasks');
+
+    //  Set NVM via the .nvmrc file and run NPM build commands.
+    run('source ~/.nvm/nvm.sh && nvm use');
+    run('npm install');
+    run('npm run build');
+
+    writeln('Build complete.');
+
 })->local();
 
+
 task('deploy:update_code', function () {
-    $home = getenv('HOME');
+
+    $buildRoot = get('build_root');
     $directory = run('basename {{repository}} .git');
+
     writeln("<info>Uploading files to server</info>");
-    upload($home.'/.deployer/'.$directory.'/', '{{release_path}}');
+    upload($buildRoot.'/'.$directory.'/', '{{release_path}}');
 });
 
 
