@@ -40,9 +40,13 @@ host('development')
 // Tasks
 desc('W3C Website redesign - HTML prototype');
 task('build', function () {
-//    run('mkdir $HOME/.deployer');
+//  Set home path;
     $home = getenv('HOME');
+
+//  Set local Deployment directory
     $homebuild = $home.'/.deployer';
+
+//  Create local Deployment directory
     if (!file_exists($home.'/.deployer')) {
         writeln('Creating Deployment Directory');
         run('mkdir $HOME/.deployer'); }
@@ -50,21 +54,29 @@ task('build', function () {
         writeln('Deployment Directory exists, skipping');
     }
 
+//  Set project root directory for build
     $directory = run('basename {{repository}} .git');
 
-    if (file_exists($home.'/.deployer/'.$directory)) {
-        writeln('Removing previous files');
-        run('rm -rf '.$home.'/.deployer/'.$directory);
-        run('git clone --single-branch --branch {{branch}} {{repository}} '.$home.'/.deployer/'.$directory); }
+//  Remove previous local build
+    if (!file_exists($home.'/.deployer/'.$directory)) {
+        writeln('No Previous Build'); }
         else {
-        writeln('OOOps');
+        writeln('Removing previous build');
+        run('rm -rf '.$home.'/.deployer/'.$directory);
     }
 
+//  Clone the required branch to the local build directory
+    run('git clone --single-branch --branch {{branch}} {{repository}} '.$home.'/.deployer/'.$directory);
 
-    run('cd '.$homebuild.'/'.$directory);
-//    run('cd ../.deployer/'.$directory  .' && source ~/.nvm/nvm.sh && nvm use');
-//    run('cd ../.deployer/'.$directory  .' && npm install');
-//    run('cd ../.deployer/'.$directory  .' && npm run build');
+
+//  Set NVM via the .nvmrc file
+    run('cd '.$homebuild.'/'.$directory  .' && source ~/.nvm/nvm.sh && nvm use');
+
+//  Run the NPM install
+    run('cd '.$homebuild.'/'.$directory  .' && npm install');
+
+//  Run NPM build
+    run('cd '.$homebuild.'/'.$directory  .' && npm run build');
 })->local();
 
 task('deploy', [
