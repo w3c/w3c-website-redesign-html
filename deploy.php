@@ -4,6 +4,7 @@ namespace Deployer;
 
 require 'recipe/common.php';
 
+
 set('http_user', 'apache');
 
 // Project name
@@ -38,19 +39,39 @@ host('development')
 
 // Tasks
 desc('W3C Website redesign - HTML prototype');
+task('build', function () {
+//    run('mkdir $HOME/.deployer');
+    $home = getenv('HOME');
+    $homebuild = $home.'/.deployer';
+    if (!file_exists($home.'/.deployer')) {
+        writeln('Creating Deployment Directory');
+        run('mkdir $HOME/.deployer'); }
+    else {
+        writeln('Deployment Directory exists, skipping');
+    }
+
+    $directory = run('basename {{repository}} .git');
+
+    if (file_exists($home.'/.deployer/'.$directory)) {
+        writeln('Removing previous files');
+        run('rm -rf '.$home.'/.deployer/'.$directory);
+        run('git clone --single-branch --branch {{branch}} {{repository}} '.$home.'/.deployer/'.$directory); }
+        else {
+        writeln('OOOps');
+    }
+
+
+    run('cd '.$homebuild.'/'.$directory);
+//    run('cd ../.deployer/'.$directory  .' && source ~/.nvm/nvm.sh && nvm use');
+//    run('cd ../.deployer/'.$directory  .' && npm install');
+//    run('cd ../.deployer/'.$directory  .' && npm run build');
+})->local();
+
 task('deploy', [
-    'deploy:info',
-    'deploy:prepare',
-    'deploy:lock',
-    'deploy:release',
-    'deploy:update_code',
-//    'deploy:shared',
-//    'deploy:writable',
-    'deploy:clear_paths',
-    'deploy:symlink',
-    'deploy:unlock',
-    'cleanup',
-    'success'
+    'build',
+//    'release',
+//    'cleanup',
+//    'success'
 ]);
 
 // [Optional] If deploy fails automatically unlock.
