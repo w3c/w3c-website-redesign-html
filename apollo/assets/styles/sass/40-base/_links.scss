@@ -9,16 +9,19 @@ Default global link styles that do not interfere with component link styles
 1. Don't rely on colour alone for styling links - see
 https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
 
-2. Remove the outline on focused links when they are also active/hovered.
+2. Use box-shadow instead of default underlining, which does not work
+well with e.g. Arabic. Replace this box-shadow with default underlining
+and `text-decoration-skip-ink: auto;` where supported.
+
+3. Remove the outline on focused links when they are also active/hovered.
  */
 a:not([class]) {
 
 	border: 0;
+	box-shadow: 0 -1px 0 0 inset; /* 1 */
 	color: $link-color;
 	cursor: pointer;
-	padding: $size-minus3;
-	text-decoration: underline; /* 1 */
-	text-decoration-skip-ink: auto;
+	text-decoration: none; /* 2 */
 
 	&:visited {
 
@@ -30,8 +33,21 @@ a:not([class]) {
 	&:active {
 
 		color: $link-color--hover;
-		outline-width: 0; /* 2 */
-		text-decoration: none;
+		outline-width: 0; /* 3 */
+
+	}
+
+}
+
+@supports (text-decoration-skip-ink: auto) {
+
+	a:not([class]),
+	a.bold {
+
+		box-shadow: none;
+		text-decoration: underline;
+		text-decoration-skip-ink: auto;
+		text-underline-offset: rem(4);
 
 	}
 

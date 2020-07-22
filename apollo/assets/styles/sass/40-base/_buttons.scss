@@ -10,19 +10,18 @@ button,
 .button {
 
 	align-self: flex-start; /* 1 */
-	background-color: $grey;
+	background-color: #023dde;
 	border: none;
-	border-radius: 0;
-	color: inherit;
-	font-weight: $font-weight;
-	letter-spacing: 0.015em;
-	padding: em(10) em(15);
+	border-radius: rem(24);
+	color: $white-pure;
+	font-weight: $emphasis;
+	padding: rem(10) rem(24);
 
 	&:hover,
 	&:focus,
 	&:active {
 
-		background-color: lighten($grey, 10%);
+		background-color: darken(#023dde, 10%);
 
 	}
 
