@@ -40,7 +40,7 @@ host('development')
 // Tasks
 desc('W3C Website redesign - HTML prototype');
 task('local:build', function () {
-    
+
     //  Set local Deployment directory
     $buildRoot = get('build_root');
 
@@ -72,11 +72,14 @@ task('local:build', function () {
 
     cd($buildPath);
 
-    writeln('Running NPM tasks');
+    writeln('Installing NPM build dependencies');
 
     //  Set NVM via the .nvmrc file and run NPM build commands.
     run('source ~/.nvm/nvm.sh && nvm use');
     run('npm install');
+
+    writeln('Running NPM tasks');
+
     run('npm run build');
 
     writeln('Build complete.');
