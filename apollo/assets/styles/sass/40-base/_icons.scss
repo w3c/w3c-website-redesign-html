@@ -27,26 +27,105 @@ svg.icon {
 
 }
 
+svg.icon--larger {
+
+	height: rem(30);
+	width: rem(30);
+
+}
+
 
 /**
 Use the `with-icon` class on the SVG's parent, if there
 is a need to specify the spacing between text and icon.
+Pay attention to whether the icon is before the text or after.
 
 2. Logical property creates appropriate spacing irrespective of text direction
  */
-.with-icon {
+
+.with-icon--before,
+.with-icon--after {
 
 	align-items: baseline;
 	display: inline-flex;
 
-	.icon {
+}
 
-		margin-right: $size-minus1; // IE fallback for next rule - only works for ltr languages
+.with-icon--larger {
 
-		@supports (margin-inline-end: 1em) {
+	align-items: center;
 
-			margin-inline-end: $size-minus1; /* 2 */
-			margin-right: 0;
+}
+
+[dir="ltr"] {
+
+	.with-icon--before {
+
+		.icon {
+
+			margin-right: $size-minus1; // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-end: 1em) {
+
+				margin-right: 0;
+				margin-inline-end: $size-minus1; /* 2 */
+
+			}
+
+		}
+
+	}
+
+	.with-icon--after {
+
+		.icon {
+
+			margin-left: $size-minus1; // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+
+				margin-left: 0;
+				margin-inline-start: $size-minus1; /* 2 */
+
+			}
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.with-icon--before {
+
+		.icon {
+
+			margin-left: $size-minus1; // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+
+				margin-left: 0;
+				margin-inline-end: $size-minus1; /* 2 */
+
+			}
+
+		}
+
+	}
+
+	.with-icon--after {
+
+		.icon {
+
+			margin-right: $size-minus1; // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+
+				margin-right: 0;
+				margin-inline-start: $size-minus1; /* 2 */
+
+			}
 
 		}
 
