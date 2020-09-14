@@ -50,11 +50,7 @@
 
 	<style>
 		/* Temporary prototype styles */
-		.global-header {
-			align-items: center;
-			display: flex;
-			justify-content: space-between;
-		}
+
 	</style>
 
 
@@ -63,53 +59,29 @@
 <body>
 <div class="wrap">
 	<p><a href="index.html">Back to index</a></p>
-	<nav>
-		<h2 class="visuallyhidden">Skip link and language selector</h2>
+	<nav aria-labelledby="skip-heading">
+		<h2 id="skip-heading" class="visuallyhidden">Skip link and language selector</h2>
 		<ul class="clean-list">
 			<li>
 				<a class="skip-link" href="#main">Skip to content</a>
 			</li>
 			<li>
-				<a class="skip-link" href="">Select language</a>
+				<a class="skip-link" href="#lang">Select language</a>
 			</li>
 		</ul>
 	</nav>
 	<header class="global-header">
-		<a href="https://www.w3.org/">
-			<svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 68 34" width="80px" height="40px"><g><path d="m16.117 1.006 5.759 19.58 5.759-19.58h4.17 11.444v1.946l-5.879 10.128c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879.781.702 1.701 1.052 2.76 1.052 1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397l-9.53-32.168h4.17l5.759 19.58 3.892-13.185-1.906-6.395z"></path><path d="m64.92 1.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178s.313 1.545.887 2.128c.583.591 1.334.912 2.145.912.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136-.584-.592-1.344-.904-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832-.524.507-1.174.777-1.892.777-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891c.481-.49 1.131-.751 1.84-.751.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65v-1.469h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14z"></path><path d="m59.807.825.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721z"></path><path d="m60.102 24.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317s-1.664-1.369-2.34-2.322-1.733-2.859-1.733-2.859.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97s1.346-1.042 1.924-1.66c.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092z"></path></g></svg>
+		<a class="logo" href="https://www.w3.org/">
+			<svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" overflow="visible" viewBox="0 0 72 48" width="72px" height="48px"><defs/><g image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path fill="#FFF" fill-rule="evenodd" d="M0 0h72v48H0z" clip-rule="evenodd"/><path fill="#005A9C" d="M18.117 8.006l5.759 19.58 5.759-19.58h15.614v1.946L39.37 20.08c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879a3.993 3.993 0 002.76 1.052c1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397L2.032 8.006h4.17l5.759 19.58 3.892-13.185-1.906-6.395h4.17z"/><path fill-rule="evenodd" d="M66.92 8.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178a3 3 0 00.887 2.128 2.979 2.979 0 002.145.912c.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136a3 3 0 00-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832a2.671 2.671 0 01-1.892.777c-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891a2.54 2.54 0 011.84-.751c.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65V11.24h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14h.533z" clip-rule="evenodd"/><g><path d="M61.807 7.825l.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721l2.356-4.696zM62.102 31.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317-.468-.347-1.664-1.369-2.34-2.322-.676-.953-1.733-2.859-1.733-2.859s.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97.433-.277 1.346-1.042 1.924-1.66.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092l-.608-3.171z"/></g></g></svg>
 			<span class="visuallyhidden">W3C homepage</span>
 		</a>
-		<button type="button" class="with-icon--after with-icon--larger"><span>Log in</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 01-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 01-6 3.22z"/></svg>
-		</button>
-		<button type="button" class="with-icon--after with-icon--larger"><span>Menu</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+		<a href="#1" class="global-header__login with-icon--after with-icon--larger"><span>Log in</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 01-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 01-6 3.22z"/></svg>
+		</a>
+		<button type="button" class="global-header__menu button button--ghost with-icon--after with-icon--larger"><span>Menu</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
 		</button>
 	</header>
 	<main id="main">
-		<article>
-			<div class="lead">
-				<h1 class="txt-mercury">An example default page</h1>
-				<p class="txt-mars">Morbi eleifend ante quis arcu euismod ultrices. Curabitur eu euismod neque. Curabitur vel placerat felis.</p>
-			</div>
-			<nav aria-labelledby="toc">
-				<h2 id="toc" class="txt-jupiter">Contents</h2>
-				<ul class="clean-list">
-					<li><a href="#1">Example standard</a></li>
-					<li><a href="#1">Example blog post to be linked to</a></li>
-					<li><a href="#1">Example standard</a></li>
-					<li><a href="#1">Example</a></li>
-				</ul>
-			</nav>
-			<div class="content">
-				<div class="component component--text">
-					<h2 class="txt-jupiter">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</h2>
-					<p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi</p>
-					<ul>
-						<li>Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede</li>
-						<li>Vitae, justo. Nullam dictum felis eu pede</li>
-					</ul>
-				</div>
-			</div>
-		</article>
+		<h1 class="txt-mercury">Prototyping the global navigation</h1>
 	</main>
 </div>
 <footer class="global-footer">

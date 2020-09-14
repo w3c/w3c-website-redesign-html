@@ -29,8 +29,8 @@ svg.icon {
 
 svg.icon--larger {
 
-	height: rem(30);
-	width: rem(30);
+	height: rem(35);
+	width: rem(35);
 
 }
 
@@ -63,12 +63,12 @@ Pay attention to whether the icon is before the text or after.
 
 		.icon {
 
-			margin-right: $size-minus1; // IE fallback for next rule - only works for ltr languages
+			margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
 
 			@supports (margin-inline-end: 1em) {
 
 				margin-right: 0;
-				margin-inline-end: $size-minus1; /* 2 */
+				margin-inline-end: rem(8); /* 2 */
 
 			}
 
@@ -80,12 +80,12 @@ Pay attention to whether the icon is before the text or after.
 
 		.icon {
 
-			margin-left: $size-minus1; // IE fallback for next rule - only works for ltr languages
+			margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
 
 			@supports (margin-inline-start: 1em) {
 
 				margin-left: 0;
-				margin-inline-start: $size-minus1; /* 2 */
+				margin-inline-start: rem(8); /* 2 */
 
 			}
 
@@ -101,12 +101,12 @@ Pay attention to whether the icon is before the text or after.
 
 		.icon {
 
-			margin-left: $size-minus1; // IE fallback for next rule - only works for ltr languages
+			margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
 
 			@supports (margin-inline-start: 1em) {
 
 				margin-left: 0;
-				margin-inline-end: $size-minus1; /* 2 */
+				margin-inline-end: rem(8); /* 2 */
 
 			}
 
@@ -118,12 +118,12 @@ Pay attention to whether the icon is before the text or after.
 
 		.icon {
 
-			margin-right: $size-minus1; // IE fallback for next rule - only works for ltr languages
+			margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
 
 			@supports (margin-inline-start: 1em) {
 
 				margin-right: 0;
-				margin-inline-start: $size-minus1; /* 2 */
+				margin-inline-start: rem(8); /* 2 */
 
 			}
 

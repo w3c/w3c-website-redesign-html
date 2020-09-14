@@ -5,17 +5,16 @@
 .logo {
 
 	display: block;
-	height: rem(50);
-	position: relative;
-	width: rem(100);
+	height: rem(48);
+	width: rem(72);
 
-	svg {
-		box-sizing: content-box;
-		left: 0;
-		height: auto;
-		max-width: none;
-		position: absolute;
-		top: 0;
+	@include mq($bp-tab-large) {
+
+		height: rem(67);
+		width: rem(100);
+
 	}
+
+	svg {}
 
 }

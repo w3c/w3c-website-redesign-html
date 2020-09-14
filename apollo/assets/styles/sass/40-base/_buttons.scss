@@ -9,7 +9,7 @@ we need to prevent buttons from stretching horizontally
 button,
 .button {
 
-	align-self: flex-start; /* 1 */
+	//align-self: flex-start; /* 1 */
 	background-color: #023dde;
 	border: none;
 	border-radius: rem(24);
@@ -55,6 +55,55 @@ input[type="submit"].button {
 
 }
 
+
+// For full-width buttons
+.button--wide {
+
+	text-align: center;
+	width: 100%;
+
+}
+
+
+// For disabled buttons
+.button[disabled],
+.button.is-disabled {
+
+	background-color: $grey;
+	box-shadow: none;
+	color: #3f3f3f;
+	cursor: not-allowed;
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: $grey;
+		color: #3f3f3f;
+		outline: 0;
+
+	}
+
+}
+
+
+// For buttons with no background colour
+.button--ghost {
+
+	background-color: transparent;
+	border: solid 1px;
+	color: inherit;
+	font-weight: normal;
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: transparent;
+
+	}
+
+}
 
 
 /**
@@ -124,37 +173,6 @@ elements that would otherwise override it, without using !important
 	&:active {
 
 		background-color: lighten($warning-color, 10%);
-
-	}
-
-}
-
-
-// For full-width buttons
-.button--wide {
-
-	text-align: center;
-	width: 100%;
-
-}
-
-
-// For disabled buttons
-.button[disabled],
-.button.is-disabled {
-
-	background-color: $grey;
-	box-shadow: none;
-	color: #3f3f3f;
-	cursor: not-allowed;
-
-	&:hover,
-	&:focus,
-	&:active {
-
-		background-color: $grey;
-		color: #3f3f3f;
-		outline: 0;
 
 	}
 

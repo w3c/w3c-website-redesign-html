@@ -4,12 +4,69 @@
 
 .global-header {
 
-	> div {
-		align-items: center;
-		justify-content: space-between;
-		margin-left: auto;
-		margin-right: auto;
-		max-width: rem($max-width);
+	align-items: center;
+	box-sizing: content-box;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+}
+
+.global-header__login,
+.global-header__menu {
+
+	font-size: rem(14);
+	padding: rem(6) rem(9);
+
+}
+
+[dir="ltr"] {
+
+	.global-header__login {
+
+		color: $link-color;
+
+		@include mq(375) {
+
+			margin-left: auto;
+
+		}
+
+	}
+
+	.global-header__menu {
+
+		@include mq(375) {
+
+			margin-left: rem(25);
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.global-header__login {
+
+		@include mq(375) {
+
+			margin-right: auto;
+
+		}
+
+	}
+
+	.global-header__menu {
+
+		@include mq(375) {
+
+			margin-right: rem(25);
+
+		}
+
 	}
 
 }

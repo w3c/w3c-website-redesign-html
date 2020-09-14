@@ -72,6 +72,16 @@
 
 
 /*------------------------------------*\
+    #Components
+\*------------------------------------*/
+@import "sass/60-components/footer";
+@import "sass/60-components/header";
+@import "sass/60-components/logo";
+@import "sass/60-components/main";
+
+
+
+/*------------------------------------*\
     #Utilities
 \*------------------------------------*/
 @import "sass/90-utilities/alignments";
