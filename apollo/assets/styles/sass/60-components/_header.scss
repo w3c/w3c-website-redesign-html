@@ -2,6 +2,16 @@
     #Global header
 \*------------------------------------*/
 
+.no-js {
+
+	.global-header__menu-btn {
+
+		display: none;
+
+	}
+
+}
+
 .global-header {
 
 	align-items: center;
