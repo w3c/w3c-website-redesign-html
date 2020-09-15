@@ -88,6 +88,38 @@
 
 	}
 
+	&[aria-expanded="false"] {
+
+		#close-icon {
+
+			display: none;
+
+		}
+
+		#menu-icon {
+
+			display: block;
+
+		}
+
+	}
+
+	&[aria-expanded="true"] {
+
+		#close-icon {
+
+			display: block;
+
+		}
+
+		#menu-icon {
+
+			display: none;
+
+		}
+
+	}
+
 	@include mq($bp-tab-large) {
 
 		display: none;
