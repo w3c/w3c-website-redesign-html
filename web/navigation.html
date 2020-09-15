@@ -76,7 +76,7 @@
 		</a>
 		<a href="/login" class="global-header__login with-icon--after with-icon--larger"><span>Log in</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 01-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 01-6 3.22z"/></svg>
 		</a>
-		<button type="button" class="global-header__menu-btn button button--ghost with-icon--after with-icon--larger"><span>Menu</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+		<button type="button" class="global-header__menu-btn button button--ghost with-icon--after with-icon--larger" data-button="menu-toggle"><span>Menu</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
 		</button>
 	</header>
 	<nav aria-labelledby="nav-main-heading" class="nav-global">
@@ -109,6 +109,68 @@
 <footer class="global-footer">
 	Footer stuff
 </footer>
+
+<script>
+
+	const globalNavToggle = function () {
+
+		const mq = window.matchMedia('(min-width: 1024px)');
+		const menuToggler = document.querySelector('[data-button="menu-toggle"]');
+		const menuTogglerTarget = document.querySelector('.nav-global');
+
+		if (menuToggler && menuTogglerTarget) {
+
+			if (mq.matches) {
+
+				menuToggler.setAttribute('aria-expanded', 'true');
+				menuTogglerTarget.setAttribute('aria-hidden', 'false');
+
+			} else {
+
+				menuToggler.setAttribute('aria-expanded', 'false');
+				menuTogglerTarget.setAttribute('aria-hidden', 'true');
+
+			}
+
+			document.addEventListener('click', function (event) {
+
+				if (event.target.matches('.global-header__menu-btn')) {
+					const state = event.target.getAttribute('aria-expanded') === 'false' ? true : false;
+					event.target.setAttribute('aria-expanded', state);
+					menuTogglerTarget.setAttribute('aria-hidden', !state);
+				}
+
+			}, false);
+
+		}
+
+	}
+
+	globalNavToggle();
+
+	let timeout;
+
+	window.addEventListener('resize', function (event) {
+
+		// If timer is null, reset it to 66ms and run desired functions.
+		// Otherwise, wait until timer is cleared
+		if (!timeout) {
+			timeout = setTimeout(function () {
+
+				// Reset timeout
+				timeout = null;
+
+				// Run our resize functions
+				globalNavToggle();
+
+			}, 66);
+		}
+
+	}, false);
+
+
+</script>
+
 </body>
 
 </html>

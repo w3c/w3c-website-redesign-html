@@ -79,3 +79,19 @@
 	}
 
 }
+
+.global-header__menu-btn {
+
+	> * {
+
+		pointer-events: none;
+
+	}
+
+	@include mq($bp-tab-large) {
+
+		display: none;
+
+	}
+
+}

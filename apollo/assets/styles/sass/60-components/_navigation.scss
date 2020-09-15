@@ -16,6 +16,19 @@
 
 	padding: rem(45) 0;
 
+	// The aria-hidden attribute is managed by JS
+	&[aria-hidden="true"] {
+
+		display: none;
+
+	}
+
+	&[aria-hidden="false"] {
+
+		display: block;
+
+	}
+
 	li {
 
 		border-bottom: solid 1px #2f2f2f;
