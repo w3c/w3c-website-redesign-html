@@ -89,7 +89,7 @@
 			<li><a href="/news">News and insights</a></li>
 			<li><a href="get-involved">Get involved</a></li>
 		</ul>
-		<button type="button" class="nav-global__close-btn button button--ghost">Close</button>
+		<button type="button" class="nav-global__close-btn button button--ghost" data-button="menu-close">Close</button>
 	</nav>
 	<nav id="lang" aria-labelledby="nav-lang-heading" class="nav-lang">
 		<span id="nav-lang-heading" class="txt-body-alt">Translate this page</span>
@@ -112,7 +112,7 @@
 
 <script>
 
-	const globalNavToggle = function () {
+	const toggleGlobalNav = function () {
 
 		const mq = window.matchMedia('(min-width: 1024px)');
 		const menuToggler = document.querySelector('[data-button="menu-toggle"]');
@@ -146,7 +146,32 @@
 
 	}
 
-	globalNavToggle();
+	toggleGlobalNav();
+
+	const closeGlobalNav = function () {
+
+		const menuCloser = document.querySelector('[data-button="menu-close"]');
+		const menuToClose = document.querySelector('.nav-global');
+		const menuToggler = document.querySelector('[data-button="menu-toggle"]');
+
+		if (menuCloser && menuToClose) {
+
+			document.addEventListener('click', function (event) {
+
+				if (event.target.matches('.nav-global__close-btn')) {
+
+					menuToClose.setAttribute('aria-hidden', 'true');
+					menuToggler.setAttribute('aria-expanded', 'false');
+
+				}
+
+			}, false);
+
+		}
+
+	}
+
+	closeGlobalNav();
 
 	let timeout;
 

@@ -50,6 +50,12 @@
 	margin-left: 5vw;
 	margin-top: rem(45);
 
+	@include mq($bp-tab-large) {
+
+		display: none;
+
+	}
+
 }
 
 .nav-lang {
