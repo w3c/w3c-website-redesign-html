@@ -2,3 +2,42 @@
     #Navigation
 \*------------------------------------*/
 
+.nav-global {
+
+	padding: rem(45) 0;
+
+	li {
+
+		border-bottom: solid 1px #2f2f2f;
+
+	}
+
+	a {
+
+		display: block;
+		padding: rem(12) 5vw;
+		text-decoration: none;
+
+	}
+
+}
+
+.nav-global__close-btn {
+
+	margin-left: 5vw;
+	margin-top: rem(45);
+
+}
+
+.nav-lang {
+
+	background-color: #f5f5f5;
+	padding: rem(20) 5vw rem(10) 5vw;
+
+	ul {
+
+		font-size: rem(14);
+
+	}
+
+}

@@ -8,13 +8,12 @@
 	box-sizing: content-box;
 	display: flex;
 	justify-content: space-between;
-	padding-left: 5vw;
-	padding-right: 5vw;
+	padding: rem(12) 5vw;
 
 }
 
 .global-header__login,
-.global-header__menu {
+.global-header__menu-btn {
 
 	font-size: rem(14);
 	padding: rem(6) rem(9);
@@ -35,7 +34,7 @@
 
 	}
 
-	.global-header__menu {
+	.global-header__menu-btn {
 
 		@include mq(375) {
 
@@ -59,7 +58,7 @@
 
 	}
 
-	.global-header__menu {
+	.global-header__menu-btn {
 
 		@include mq(375) {
 
