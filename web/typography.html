@@ -11,8 +11,6 @@
 
 	<meta property="og:description" name="description" content="Typography prototype for the W3C website redesign"/>
 
-	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-
 	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
@@ -44,6 +42,7 @@
 				script.src = 'assets/js/main.js';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 			}
 		})();
 	</script>

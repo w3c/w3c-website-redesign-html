@@ -11,8 +11,6 @@
 
 	<meta property="og:description" name="description" content="Global navigation prototype for the W3C website redesign"/>
 
-	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-
 	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
@@ -32,10 +30,10 @@
     FF 47+
     -->
 	<link rel="stylesheet" id="advanced-stylesheet" href="dist/assets/styles/advanced.css" media="
-    only print,
-    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
-    only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
-">
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
 	<script>
 		(function() {
 			var linkEl = document.getElementById('advanced-stylesheet');
@@ -44,6 +42,7 @@
 				script.src = 'assets/js/main.js';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 			}
 		})();
 	</script>
