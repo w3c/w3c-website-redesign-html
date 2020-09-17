@@ -4,7 +4,8 @@
 
 .no-js {
 
-	.nav-global__close-btn {
+	.nav-global__close-btn,
+	.submenu-close-btn {
 
 		display: none;
 
@@ -14,7 +15,9 @@
 
 .nav-global {
 
-	padding: rem(45) 0;
+	margin-top: rem(45);
+	padding-bottom: rem(45);
+	position: relative;
 
 	// The aria-hidden attribute is managed by JS
 	&[aria-hidden="true"] {
@@ -51,6 +54,115 @@
 	margin-top: rem(45);
 
 	@include mq($bp-tab-large) {
+
+		display: none;
+
+	}
+
+}
+
+.nav-global__primary .has-children {
+
+	align-items: center;
+	display: flex;
+
+	> * {
+
+		pointer-events: none;
+
+	}
+
+}
+
+[dir="ltr"] {
+
+	.nav-global__primary a svg {
+
+		margin-left: auto;
+
+		.arrow-left-ltr {
+
+			display: none;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.nav-global__primary a svg {
+
+		margin-right: auto;
+
+		.arrow-right-ltr {
+
+			display: none;
+
+		}
+
+	}
+
+}
+
+.nav-global__submenu {
+
+	background-color: inherit;
+	padding-bottom: rem(45);
+	width: 100%;
+
+	// The aria-hidden attribute is managed by JS
+	&[aria-hidden="true"] {
+
+		display: none;
+
+	}
+
+	&[aria-hidden="false"] {
+
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+
+	}
+
+}
+
+.submenu-close-btn {
+
+	background-color: transparent;
+	border: 0;
+	border-bottom: solid 1px;
+	border-radius: 0;
+	color: inherit;
+	font-size: rem(20);
+	margin-bottom: rem(15);
+	padding-bottom: rem(12);
+	padding-top: rem(12);
+
+	> * {
+
+		pointer-events: none;
+
+	}
+
+}
+
+[dir="ltr"] {
+
+	.submenu-close-btn .arrow-right-ltr {
+
+		display: none;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.submenu-close-btn .arrow-left-ltr {
 
 		display: none;
 
