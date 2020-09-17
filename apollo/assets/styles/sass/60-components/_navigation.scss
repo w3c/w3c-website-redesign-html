@@ -4,10 +4,38 @@
 
 .no-js {
 
+	.global-header__menu-btn,
 	.nav-mobile__close-btn,
-	.submenu-back-btn {
+	.submenu-back-btn,
+	.nav-mobile .has-children svg,
+	.nav-mobile__submenu > ul > li:first-of-type > a:first-child {
 
 		display: none;
+
+	}
+
+	.nav-mobile {
+
+		margin-top: 0;
+
+	}
+
+	.nav-mobile li {
+
+		border-bottom: 0;
+
+	}
+
+	.nav-mobile__submenu {
+
+		padding-bottom: 0;
+		padding-left: rem(25);
+
+	}
+
+	.nav-mobile__primary > li {
+
+		border-bottom: solid 1px #2f2f2f;
 
 	}
 
