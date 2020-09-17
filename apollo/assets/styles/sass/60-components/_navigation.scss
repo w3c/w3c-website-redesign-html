@@ -4,8 +4,8 @@
 
 .no-js {
 
-	.nav-global__close-btn,
-	.submenu-close-btn {
+	.nav-mobile__close-btn,
+	.submenu-back-btn {
 
 		display: none;
 
@@ -13,7 +13,7 @@
 
 }
 
-.nav-global {
+.nav-mobile {
 
 	margin-top: rem(45);
 	padding-bottom: rem(45);
@@ -48,7 +48,7 @@
 
 }
 
-.nav-global__close-btn {
+.nav-mobile__close-btn {
 
 	margin-left: 5vw;
 	margin-top: rem(45);
@@ -61,7 +61,7 @@
 
 }
 
-.nav-global__primary .has-children {
+.nav-mobile__primary .has-children {
 
 	align-items: center;
 	display: flex;
@@ -76,7 +76,7 @@
 
 [dir="ltr"] {
 
-	.nav-global__primary a svg {
+	.nav-mobile__primary a svg {
 
 		margin-left: auto;
 
@@ -92,7 +92,7 @@
 
 [dir="rtl"] {
 
-	.nav-global__primary a svg {
+	.nav-mobile__primary a svg {
 
 		margin-right: auto;
 
@@ -106,7 +106,7 @@
 
 }
 
-.nav-global__submenu {
+.nav-mobile__submenu {
 
 	background-color: inherit;
 	padding-bottom: rem(45);
@@ -130,7 +130,7 @@
 
 }
 
-.submenu-close-btn {
+.submenu-back-btn {
 
 	background-color: transparent;
 	border: 0;
@@ -152,7 +152,7 @@
 
 [dir="ltr"] {
 
-	.submenu-close-btn .arrow-right-ltr {
+	.submenu-back-btn .arrow-right-ltr {
 
 		display: none;
 
@@ -162,7 +162,7 @@
 
 [dir="rtl"] {
 
-	.submenu-close-btn .arrow-left-ltr {
+	.submenu-back-btn .arrow-left-ltr {
 
 		display: none;
 

@@ -79,12 +79,13 @@
 		<button type="button" class="global-header__menu-btn button button--ghost with-icon--after with-icon--larger" data-button="menu-toggle">Menu <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path id="menu-icon" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/><path id="close-icon" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
 		</button>
 	</header>
-	<nav aria-labelledby="nav-main-heading" class="nav-global">
-		<span id="nav-main-heading" class="visuallyhidden">Main</span>
-		<ul class="clean-list nav-global__primary">
-			<li><a class="has-children" href="/standards">Standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-				<div class="nav-global__submenu">
-					<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+	<nav aria-labelledby="nav-mobile-heading" class="nav-mobile">
+		<span id="nav-mobile-heading" class="visuallyhidden">Main</span>
+		<ul class="clean-list nav-mobile__primary">
+			<li>
+				<a class="has-children" href="/standards">Standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+				<div class="nav-mobile__submenu">
+					<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 					<ul class="clean-list">
 						<li>
 							<a href="#1">Explore Standards</a>
@@ -98,11 +99,13 @@
 						<li><a href="#1">Promote web standards</a></li>
 						<li><a href="#1">Standards FAQ</a></li>
 					</ul>
+					<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 				</div>
 			</li>
-			<li><a class="has-children" href="/groups">Groups <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-				<div class="nav-global__submenu">
-					<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+			<li>
+				<a class="has-children" href="/groups">Groups <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+				<div class="nav-mobile__submenu">
+					<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 					<ul class="clean-list">
 						<li>
 							<a href="#1">Explore Groups</a>
@@ -110,13 +113,14 @@
 						</li>
 						<li><a href="#1">Find group by activity</a></li>
 						<li><a class="has-children" href="#1">Working groups <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Working groups</a>
 										<a href="#1">Accessibility Guidelines Working Group</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">Interest groups</a></li>
@@ -126,9 +130,10 @@
 						<li><a href="#1">Advisory Board</a></li>
 						<li><a href="#1">Task forces</a></li>
 						<li><a href="#1">Organizations</a></li>
-						<li><a class="has-children" href="#1">Invited Experts <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Invited Experts <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Invited Experts</a>
@@ -138,22 +143,26 @@
 									<li><a href="#1">External contributions</a></li>
 									<li><a href="#1">Invited Expert policies</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">Liaisons <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Liaisons <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Liaisons</a>
 										<a href="#1">Participation in W3C by EU-funded projects</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">Participant guidebook</a></li>
-						<li><a class="has-children" href="#1">Mailing lists <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Mailing lists <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Mailing lists</a>
@@ -164,21 +173,24 @@
 									<li><a href="#1">Email FAQ</a></li>
 									<li><a href="#1">Posting guides</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">Groups FAQ</a></li>
 					</ul>
+					<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 				</div>
 			</li>
-			<li><a class="has-children" href="get-involved">Get involved <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-				<div class="nav-global__submenu">
-					<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+			<li>
+				<a class="has-children" href="get-involved">Get involved <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+				<div class="nav-mobile__submenu">
+					<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 					<ul class="clean-list">
 						<li>
 							<a href="#1">Explore Get involved</a>
 							<a class="has-children" href="#1">Business areas <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Business areas</a>
@@ -191,11 +203,13 @@
 									<li><a href="#1">Web and telecommunications</a></li>
 									<li><a href="#1">Web of Things</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">Supporting W3C <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Supporting W3C <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Supporting W3C</a>
@@ -207,11 +221,13 @@
 									<li><a href="#1">Web for All sponsor</a></li>
 									<li><a href="#1">Developer sponsor</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">W3C membership <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">W3C membership <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore W3C Membership</a>
@@ -223,11 +239,13 @@
 									<li><a href="#1">Membership testimonials</a></li>
 									<li><a href="#1">Membership FAQ</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">How to get an account <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">How to get an account <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore How to get an account</a>
@@ -237,34 +255,40 @@
 									<li><a href="#1">Other users</a></li>
 									<li><a href="#1">Code of ethics and professional conduct</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">Promote web standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Promote web standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Promote web standards</a>
 										<a href="#1">Logos and icons</a>
 									</li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 					</ul>
+					<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 				</div>
 			</li>
-			<li><a class="has-children" href="/resources">Resources <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-				<div class="nav-global__submenu">
-					<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+			<li>
+				<a class="has-children" href="/resources">Resources <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+				<div class="nav-mobile__submenu">
+					<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 					<ul class="clean-list">
 						<li>
 							<a href="#1">Explore Resources</a>
 							<a href="#1">Tutorials and courses</a>
 						</li>
 						<li><a href="#1">Podcasts and video</a></li>
-						<li><a class="has-children" href="#1">Events <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Events <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Events</a>
@@ -274,6 +298,7 @@
 									<li><a href="#1">Meetings</a></li>
 									<li><a href="#1">Conferences endorsed by W3C</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">Developers</a></li>
@@ -284,11 +309,13 @@
 						<li><a href="#1">Validators</a></li>
 						<li><a href="#1">W3C API</a></li>
 					</ul>
+					<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 				</div>
 			</li>
-			<li><a class="has-children" href="/news">News and insights <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-				<div class="nav-global__submenu">
-					<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+			<li>
+				<a class="has-children" href="/news">News and insights <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+				<div class="nav-mobile__submenu">
+					<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 					<ul class="clean-list">
 						<li>
 							<a href="#1">Explore News and Insights</a>
@@ -299,17 +326,19 @@
 						<li><a href="#1">In the media</a></li>
 						<li><a href="#1">Weekly newsletter</a></li>
 					</ul>
+					<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 				</div>
 			</li>
-			<li><a class="has-children" href="/about">About <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-				<div class="nav-global__submenu">
-					<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+			<li>
+				<a class="has-children" href="/about">About <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+				<div class="nav-mobile__submenu">
+					<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 					<ul class="clean-list">
 						<li>
 							<a href="#1">Explore About</a>
 							<a class="has-children" href="#1">Our mission <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Our mission</a>
@@ -319,14 +348,16 @@
 									<li><a href="#1">Privacy</a></li>
 									<li><a href="#1">Security</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">History</a></li>
 						<li><a href="#1">Leadership</a></li>
 						<li><a href="#1">People</a></li>
-						<li><a class="has-children" href="#1">Evangelists <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Evangelists <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Evangelists</a>
@@ -337,12 +368,14 @@
 									<li><a href="#1">Positive work environment</a></li>
 									<li><a href="#1">Code of ethics and professional conduct</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">Careers</a></li>
-						<li><a class="has-children" href="#1">Press and media <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Press and media <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Press and media</a>
@@ -350,11 +383,13 @@
 									</li>
 									<li><a href="#1">W3C in the media</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">Contact <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Contact <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Contact</a>
@@ -364,11 +399,13 @@
 									<li><a href="#1">Keio University</a></li>
 									<li><a href="#1">MIT</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
-						<li><a class="has-children" href="#1">Policies and legal information <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
-							<div class="nav-global__submenu">
-								<button type="button" class="submenu-close-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
+						<li>
+							<a class="has-children" href="#1">Policies and legal information <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+							<div class="nav-mobile__submenu">
+								<button type="button" class="submenu-back-btn button button--wide" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Back</button>
 								<ul class="clean-list">
 									<li>
 										<a href="#1">Explore Policies and legal information</a>
@@ -377,15 +414,17 @@
 									<li><a href="#1">Agreements</a></li>
 									<li><a href="#1">Copyright and trademarks</a></li>
 								</ul>
+								<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 							</div>
 						</li>
 						<li><a href="#1">Help</a></li>
 					</ul>
+					<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 				</div>
 
 			</li>
 		</ul>
-		<button type="button" class="nav-global__close-btn button button--ghost" data-button="menu-close">Close</button>
+		<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 	</nav>
 	<nav id="lang" aria-labelledby="nav-lang-heading" class="nav-lang">
 		<span id="nav-lang-heading" class="txt-body-alt">Translate this page</span>
@@ -426,70 +465,161 @@
 		};
 	}
 
-	let last_known_scroll_position;
+	const runMobileNav = function () {
 
-	const toggleGlobalNav = function () {
-
+		let last_known_scroll_position;
+		let timeout;
 		const mq = window.matchMedia('(min-width: 1024px)');
-		const menuToggler = document.querySelector('[data-button="menu-toggle"]');
-		const menuTogglerTarget = document.querySelector('.nav-global');
+		const mobileNav = document.querySelector('.nav-mobile');
+		const mobileNavToggler = document.querySelector('[data-button="menu-toggle"]');
+		const mobileNavClose = document.querySelector('[data-button="menu-close"]');
+		const subnavTrigger = Array.from(mobileNav.querySelectorAll('.has-children'));
 
-		if (menuToggler && menuTogglerTarget) {
+		// Close all open submenus
+		const closeSubmenus = function () {
 
-			if (mq.matches) {
+			subnavTrigger.forEach(function (trigger) {
 
-				menuToggler.setAttribute('aria-expanded', 'true');
-				menuTogglerTarget.setAttribute('aria-hidden', 'false');
+				trigger.setAttribute('aria-expanded', 'false');
+				trigger.parentElement.querySelector('.nav-mobile__submenu').setAttribute('aria-hidden', 'true');
 
-			} else {
+			});
 
-				menuToggler.setAttribute('aria-expanded', 'false');
-				menuTogglerTarget.setAttribute('aria-hidden', 'true');
+		}
+
+		// Toggle mobile navigation
+		const toggleMobileNav = function () {
+
+			if (mobileNavToggler && mobileNav) {
+
+				if (mq.matches) {
+
+					mobileNavToggler.setAttribute('aria-expanded', 'true');
+					mobileNav.setAttribute('aria-hidden', 'false');
+
+				} else {
+
+					mobileNavToggler.setAttribute('aria-expanded', 'false');
+					mobileNav.setAttribute('aria-hidden', 'true');
+
+				}
+
+				document.addEventListener('click', function (event) {
+
+					if (event.target.matches('.global-header__menu-btn')) {
+
+						if (event.target.getAttribute('aria-expanded') === 'false') {
+
+							event.target.setAttribute('aria-expanded', 'true');
+							event.target.childNodes[0].nodeValue = 'Close ';
+							mobileNav.setAttribute('aria-hidden', 'false');
+
+						} else {
+
+							event.target.setAttribute('aria-expanded', 'false');
+							event.target.childNodes[0].nodeValue = 'Menu ';
+							mobileNav.setAttribute('aria-hidden', 'true');
+
+						}
+
+					}
+
+				}, false);
 
 			}
 
+		}
+		toggleMobileNav();
+
+		// Debounce
+		window.addEventListener('resize', function (event) {
+
+			// If timer is null, reset it to 66ms and run desired functions.
+			// Otherwise, wait until timer is cleared
+			if (!timeout) {
+				timeout = setTimeout(function () {
+
+					// Reset timeout
+					timeout = null;
+
+					// Run our resize functions
+					toggleMobileNav();
+
+				}, 66);
+			}
+
+		}, false);
+
+		// Toggle mobile navigation submenus
+		if (subnavTrigger.length > 0) {
+
+			subnavTrigger.forEach(function (trigger) {
+
+				trigger.setAttribute('aria-expanded', 'false');
+				trigger.parentElement.querySelector('.nav-mobile__submenu').setAttribute('aria-hidden', 'true');
+
+			});
+
 			document.addEventListener('click', function (event) {
 
-				if (event.target.matches('.global-header__menu-btn')) {
+				if (event.target.matches('.nav-mobile .has-children')) {
+
+					event.preventDefault();
+
+					last_known_scroll_position = window.scrollY;
+
+					const subMenu = event.target.parentElement.querySelector('.nav-mobile__submenu');
 
 					if (event.target.getAttribute('aria-expanded') === 'false') {
 
 						event.target.setAttribute('aria-expanded', 'true');
-						event.target.childNodes[0].nodeValue = 'Close ';
-						menuTogglerTarget.setAttribute('aria-hidden', 'false');
+						subMenu.setAttribute('aria-hidden', 'false');
+						const prevMenu = subMenu.parentElement.parentElement.parentElement;
+						subMenu.style.minHeight = prevMenu.offsetHeight + 'px';
+						window.scrollTo({
+							top: 0,
+							left: 0,
+							behaviour: 'auto'
+						});
 
 					} else {
 
-						event.target.setAttribute('aria-expanded', 'false');
-						event.target.childNodes[0].nodeValue = 'Menu ';
-						menuTogglerTarget.setAttribute('aria-hidden', 'true');
+						closeSubmenus();
 
 					}
 
 				}
 
-			}, false);
+				if (event.target.matches('.nav-mobile .submenu-back-btn')) {
+
+					event.target.parentElement.setAttribute('aria-hidden', 'true');
+					event.target.closest('li').querySelector('.has-children').setAttribute('aria-expanded', 'false');
+
+					if (last_known_scroll_position > 0) {
+						window.scrollTo({
+							top: last_known_scroll_position,
+							left: 0,
+							behaviour: 'auto'
+						});
+					}
+
+				}
+
+			});
 
 		}
 
-	}
-	toggleGlobalNav();
-
-	const closeGlobalNav = function () {
-
-		const menuCloser = document.querySelector('[data-button="menu-close"]');
-		const menuToClose = document.querySelector('.nav-global');
-		const menuToggler = document.querySelector('[data-button="menu-toggle"]');
-
-		if (menuCloser && menuToClose) {
+		// Close mobile navigation
+		if (mobileNavClose && mobileNav) {
 
 			document.addEventListener('click', function (event) {
 
-				if (event.target.matches('.nav-global__close-btn')) {
+				if (event.target.matches('.nav-mobile__close-btn')) {
 
-					menuToClose.setAttribute('aria-hidden', 'true');
-					menuToggler.setAttribute('aria-expanded', 'false');
-					menuToggler.childNodes[0].nodeValue = 'Menu ';
+					mobileNav.setAttribute('aria-hidden', 'true');
+					mobileNavToggler.setAttribute('aria-expanded', 'false');
+					mobileNavToggler.childNodes[0].nodeValue = 'Menu ';
+					closeSubmenus();
 
 				}
 
@@ -498,101 +628,7 @@
 		}
 
 	}
-	closeGlobalNav();
-
-	const openSubNav = function () {
-
-		const globalNav = document.querySelector('.nav-global');
-		const subnavTrigger = Array.from(globalNav.querySelectorAll('.has-children'));
-
-		subnavTrigger.forEach(function (trigger) {
-
-			trigger.setAttribute('aria-expanded', 'false');
-			trigger.parentElement.querySelector('.nav-global__submenu').setAttribute('aria-hidden', 'true');
-
-		});
-
-		document.addEventListener('click', function (event) {
-
-			if (event.target.matches('.nav-global .has-children')) {
-
-				event.preventDefault();
-
-				last_known_scroll_position = window.scrollY;
-				console.log(last_known_scroll_position);
-
-				const subMenu = event.target.parentElement.querySelector('.nav-global__submenu');
-
-				if (event.target.getAttribute('aria-expanded') === 'false') {
-
-					event.target.setAttribute('aria-expanded', 'true');
-					subMenu.setAttribute('aria-hidden', 'false');
-					const prevMenu = subMenu.parentElement.parentElement.parentElement;
-					subMenu.style.minHeight = prevMenu.offsetHeight + 'px';
-					window.scrollTo({
-						top: 0,
-						left: 0,
-						behaviour: 'auto'
-					});
-
-				} else {
-
-					event.target.setAttribute('aria-expanded', 'false');
-					subMenu.setAttribute('aria-hidden', 'true');
-
-				}
-
-			}
-
-		});
-
-	}
-	openSubNav();
-
-	const closeSubNav = function () {
-
-		document.addEventListener('click', function (event) {
-
-			if (event.target.matches('.nav-global .submenu-close-btn')) {
-
-				event.target.parentElement.setAttribute('aria-hidden', 'true');
-				event.target.closest('li').querySelector('.has-children').setAttribute('aria-expanded', 'false');
-
-				if (last_known_scroll_position > 0) {
-					window.scrollTo({
-						top: last_known_scroll_position,
-						left: 0,
-						behaviour: 'auto'
-					});
-				}
-
-			}
-
-		});
-
-	}
-	closeSubNav();
-
-	let timeout;
-
-	window.addEventListener('resize', function (event) {
-
-		// If timer is null, reset it to 66ms and run desired functions.
-		// Otherwise, wait until timer is cleared
-		if (!timeout) {
-			timeout = setTimeout(function () {
-
-				// Reset timeout
-				timeout = null;
-
-				// Run our resize functions
-				globalNavToggle();
-
-			}, 66);
-		}
-
-	}, false);
-
+	runMobileNav();
 
 </script>
 
