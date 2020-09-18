@@ -468,12 +468,20 @@
 	const runMobileNav = function () {
 
 		let last_known_scroll_position;
-		let timeout;
-		const mq = window.matchMedia('(min-width: 1024px)');
 		const mobileNav = document.querySelector('.nav-mobile');
 		const mobileNavToggler = document.querySelector('[data-button="menu-toggle"]');
 		const mobileNavClose = document.querySelector('[data-button="menu-close"]');
 		const subnavTrigger = Array.from(mobileNav.querySelectorAll('.has-children'));
+
+		// I18N for button value
+		let closeText = 'Close ';
+		if (document.documentElement.lang === 'fr') {
+			closeText = 'Fermer '
+		} else if (document.documentElement.lang === 'ja') {
+			closeText = '閉じる '
+		} else if (document.documentElement.lang === 'zh-Hans') {
+			closeText = '关闭 '
+		}
 
 		// Close all open submenus
 		const closeSubmenus = function () {
@@ -492,17 +500,8 @@
 
 			if (mobileNavToggler && mobileNav) {
 
-				if (mq.matches) {
-
-					mobileNavToggler.setAttribute('aria-expanded', 'true');
-					mobileNav.setAttribute('aria-hidden', 'false');
-
-				} else {
-
-					mobileNavToggler.setAttribute('aria-expanded', 'false');
-					mobileNav.setAttribute('aria-hidden', 'true');
-
-				}
+				mobileNavToggler.setAttribute('aria-expanded', 'false');
+				mobileNav.setAttribute('aria-hidden', 'true');
 
 				document.addEventListener('click', function (event) {
 
@@ -511,7 +510,7 @@
 						if (event.target.getAttribute('aria-expanded') === 'false') {
 
 							event.target.setAttribute('aria-expanded', 'true');
-							event.target.childNodes[0].nodeValue = 'Close ';
+							event.target.childNodes[0].nodeValue = closeText;
 							mobileNav.setAttribute('aria-hidden', 'false');
 
 						} else {
@@ -519,6 +518,7 @@
 							event.target.setAttribute('aria-expanded', 'false');
 							event.target.childNodes[0].nodeValue = 'Menu ';
 							mobileNav.setAttribute('aria-hidden', 'true');
+							closeSubmenus();
 
 						}
 
@@ -530,25 +530,6 @@
 
 		}
 		toggleMobileNav();
-
-		// Debounce
-		window.addEventListener('resize', function (event) {
-
-			// If timer is null, reset it to 66ms and run desired functions.
-			// Otherwise, wait until timer is cleared
-			if (!timeout) {
-				timeout = setTimeout(function () {
-
-					// Reset timeout
-					timeout = null;
-
-					// Run our resize functions
-					toggleMobileNav();
-
-				}, 66);
-			}
-
-		}, false);
 
 		// Toggle mobile navigation submenus
 		if (subnavTrigger.length > 0) {

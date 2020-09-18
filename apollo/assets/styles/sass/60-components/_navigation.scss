@@ -41,11 +41,22 @@
 
 }
 
+
+/**
+Mobile navigation styles
+ */
 .nav-mobile {
 
+	display: block;
 	margin-top: rem(45);
 	padding-bottom: rem(45);
 	position: relative;
+
+	@include mq($bp-tab-large) {
+
+		display: none;
+
+	}
 
 	// The aria-hidden attribute is managed by JS
 	&[aria-hidden="true"] {
@@ -57,6 +68,12 @@
 	&[aria-hidden="false"] {
 
 		display: block;
+
+		@include mq($bp-tab-large) {
+
+			display: none;
+
+		}
 
 	}
 
@@ -198,6 +215,16 @@
 
 }
 
+
+/**
+Desktop navigation styles
+ */
+.nav-desktop {}
+
+
+/**
+Language navigation styles
+ */
 .nav-lang {
 
 	background-color: #f5f5f5;
