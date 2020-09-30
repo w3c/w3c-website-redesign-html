@@ -23,6 +23,7 @@
 }
 
 .global-header__login,
+.global-header__join,
 .global-header__menu-btn {
 
 	font-size: rem(14);
@@ -30,11 +31,21 @@
 
 }
 
+.global-header__login {
+
+	color: $link-color;
+
+	svg {
+
+		color: #666;
+
+	}
+
+}
+
 [dir="ltr"] {
 
 	.global-header__login {
-
-		color: $link-color;
 
 		@include mq(375) {
 
@@ -75,6 +86,20 @@
 			margin-right: rem(25);
 
 		}
+
+	}
+
+}
+
+.global-header__join {
+
+	display: none;
+
+	@include mq($bp-tab-large) {
+
+		display: block;
+		font-size: rem(16);
+		padding: rem(12) rem(20);
 
 	}
 

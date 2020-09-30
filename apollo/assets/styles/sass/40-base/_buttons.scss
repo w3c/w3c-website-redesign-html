@@ -4,15 +4,15 @@
 
 /**
 1. Because the `stack` mixin applies flexbox in the column direction,
-we need to prevent buttons from stretching horizontally
+we may need to prevent buttons from stretching horizontally
  */
 button,
 .button {
 
 	//align-self: flex-start; /* 1 */
-	background-color: #023dde;
+	background-color: $link-color;
 	border: none;
-	border-radius: rem(24);
+	border-radius: rem(4);
 	color: $white-pure;
 	font-weight: $emphasis;
 	padding: rem(10) rem(24);
