@@ -15,10 +15,10 @@
 .global-header {
 
 	align-items: center;
-	box-sizing: content-box;
 	display: flex;
 	justify-content: space-between;
-	padding: rem(12) 5vw;
+	padding-bottom: rem(12);
+	padding-top: rem(12);
 
 }
 
