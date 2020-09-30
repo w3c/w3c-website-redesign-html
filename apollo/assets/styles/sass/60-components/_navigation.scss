@@ -8,7 +8,8 @@
 	.nav-mobile__close-btn,
 	.submenu-back-btn,
 	.nav-mobile .has-children svg,
-	.nav-mobile__submenu > ul > li:first-of-type > a:first-child {
+	.nav-mobile__submenu > ul > li:first-of-type > a:first-child,
+	.nav-wide__submenu > div {
 
 		display: none;
 
@@ -77,19 +78,19 @@ Mobile navigation styles
 
 	}
 
-	li {
+}
 
-		border-bottom: solid 1px #2f2f2f;
+.nav-mobile li {
 
-	}
+	border-bottom: solid 1px #2f2f2f;
 
-	a {
+}
 
-		display: block;
-		padding: rem(12) 5vw;
-		text-decoration: none;
+.nav-mobile a {
 
-	}
+	display: block;
+	padding: rem(12) 5vw;
+	text-decoration: none;
 
 }
 
@@ -110,12 +111,6 @@ Mobile navigation styles
 
 	align-items: center;
 	display: flex;
-
-	> * {
-
-		pointer-events: none;
-
-	}
 
 }
 
@@ -187,12 +182,6 @@ Mobile navigation styles
 	padding-bottom: rem(12);
 	padding-top: rem(12);
 
-	> * {
-
-		pointer-events: none;
-
-	}
-
 }
 
 [dir="ltr"] {
@@ -217,9 +206,179 @@ Mobile navigation styles
 
 
 /**
-Desktop navigation styles
+Wide navigation styles
  */
-.nav-desktop {}
+.nav-wide {
+
+	display: none;
+
+	@include mq($bp-tab-large) {
+
+		border-bottom: solid 1px #2f2f2f;
+		display: block;
+
+	}
+
+}
+
+.nav-wide > ul {
+
+	display: flex;
+	flex-wrap: nowrap;
+	margin-left: 5vw;
+	margin-right: 5vw;
+	position: relative;
+
+}
+
+[dir="ltr"] {
+
+	.nav-wide > ul > li + li {
+
+		margin-left: rem(8);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.nav-wide > ul > li + li {
+
+		margin-right: rem(8);
+
+	}
+
+}
+
+.nav-wide > ul > li > a {
+
+	display: block;
+	font-weight: $emphasis;
+	padding: rem(12) rem(10);
+	text-decoration: none;
+
+}
+
+.nav-wide__submenu {
+
+	border: solid 1px #2f2f2f;
+	left: 0;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+
+	// The aria-hidden attribute is managed by JS
+	&[aria-hidden="true"] {
+
+		display: none;
+
+	}
+
+	&[aria-hidden="false"] {
+
+		display: block;
+
+	}
+
+}
+
+.nav-wide__submenu > div {
+
+	align-items: center;
+	border-bottom: solid 1px #2f2f2f;
+	display: flex;
+	padding: rem(20);
+
+}
+
+[dir="ltr"] {
+
+	.nav-wide__submenu > div a {
+
+		margin-left: rem(27);
+		padding-bottom: rem(12);
+		padding-top: rem(12);
+
+	}
+
+	.nav-wide__submenu > div button {
+
+		font-size: rem(14);
+		margin-left: auto;
+		padding: rem(6) rem(9);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.nav-wide__submenu > div a {
+
+		margin-right: rem(27);
+
+	}
+
+	.nav-wide__submenu > div button {
+
+		margin-right: auto;
+
+	}
+
+}
+
+.nav-wide__submenu > ul {
+
+	columns: 3 rem(250);
+	column-gap: rem(50);
+	padding: rem(40) rem(20);
+
+}
+
+.nav-wide__submenu > ul > li {
+
+	break-inside: avoid;
+	margin-bottom: rem(40);
+
+}
+
+.nav-wide__submenu a {
+
+	display: block;
+	padding-bottom: rem(12);
+	padding-top: rem(12);
+
+}
+
+.nav-heading {
+
+	@include txt-jupiter;
+
+	+ ul {
+
+		margin-top: rem(15);
+
+	}
+
+}
+
+
+/**
+Disable pointer events on e.g. SVGs within links/buttons
+ */
+.nav-mobile__primary .has-children,
+.submenu-back-btn,
+.nav-wide .has-children,
+[data-button="wide-nav-close"] {
+
+	> * {
+
+		pointer-events: none;
+
+	}
+
+}
 
 
 /**
