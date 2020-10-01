@@ -34,14 +34,21 @@
 
 	}
 
-	.nav-mobile__primary > li {
-
-		border-bottom: solid 1px #2f2f2f;
-
-	}
+	//.nav-mobile__primary > li {
+	//
+	//	border-bottom: solid 1px #2f2f2f;
+	//
+	//}
 
 }
 
+.nav-heading {
+
+	@include txt-jupiter;
+
+	display: block;
+
+}
 
 /**
 Mobile navigation styles
@@ -107,7 +114,7 @@ Mobile navigation styles
 
 }
 
-.nav-mobile__primary .has-children {
+.nav-mobile .has-children {
 
 	align-items: center;
 	display: flex;
@@ -116,7 +123,7 @@ Mobile navigation styles
 
 [dir="ltr"] {
 
-	.nav-mobile__primary a svg {
+	.nav-mobile .has-children svg {
 
 		margin-left: auto;
 
@@ -132,7 +139,7 @@ Mobile navigation styles
 
 [dir="rtl"] {
 
-	.nav-mobile__primary a svg {
+	.nav-mobile .has-children svg {
 
 		margin-right: auto;
 
@@ -170,23 +177,53 @@ Mobile navigation styles
 
 }
 
-.submenu-back-btn {
+.nav-mobile__submenu > div {
 
-	background-color: transparent;
-	border: 0;
-	border-bottom: solid 1px;
-	border-radius: 0;
-	color: inherit;
-	font-size: rem(20);
-	margin-bottom: rem(15);
-	padding-bottom: rem(12);
-	padding-top: rem(12);
+	align-items: center;
+	border-bottom: solid 1px #2f2f2f;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: rem(20);
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+}
+
+.nav-mobile__submenu > div .nav-heading {
+
+	flex-basis: 100%;
+	text-align: center;
+
+}
+
+.nav-mobile__submenu > div > a {
+
+	margin-left: -5vw;
+
+}
+
+.nav-mobile__submenu > ul > li {
+
+	border-bottom: 0;
+
+}
+
+.nav-mobile__submenu > ul .nav-heading {
+
+	padding-left: 5vw;
+	padding-top: rem(20);
 
 }
 
 [dir="ltr"] {
 
-	.submenu-back-btn .arrow-right-ltr {
+	[data-button="submenu-close"] {
+
+		margin-left: auto;
+
+	}
+
+	[data-button="submenu-close"] .arrow-right-ltr {
 
 		display: none;
 
@@ -196,7 +233,13 @@ Mobile navigation styles
 
 [dir="rtl"] {
 
-	.submenu-back-btn .arrow-left-ltr {
+	[data-button="submenu-close"] {
+
+		margin-right: auto;
+
+	}
+
+	[data-button="submenu-close"] .arrow-left-ltr {
 
 		display: none;
 
@@ -361,15 +404,9 @@ Wide navigation styles
 
 }
 
-.nav-heading {
+.nav-wide .nav-heading + ul {
 
-	@include txt-jupiter;
-
-	+ ul {
-
-		margin-top: rem(15);
-
-	}
+	margin-top: rem(15);
 
 }
 
@@ -378,7 +415,7 @@ Wide navigation styles
 Disable pointer events on e.g. SVGs within links/buttons
  */
 .nav-mobile__primary .has-children,
-.submenu-back-btn,
+[data-button="submenu-close"],
 .nav-wide .has-children,
 [data-button="wide-nav-close"] {
 
