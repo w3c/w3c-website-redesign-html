@@ -6,10 +6,10 @@
 
 	.global-header__menu-btn,
 	.nav-mobile__close-btn,
-	.submenu-back-btn,
+	.nav-mobile__submenu,
 	.nav-mobile .has-children svg,
-	.nav-mobile__submenu > ul > li:first-of-type > a:first-child,
-	.nav-wide__submenu > div {
+	.nav-wide .has-children svg,
+	.nav-wide__submenu {
 
 		display: none;
 
@@ -49,6 +49,7 @@
 	display: block;
 
 }
+
 
 /**
 Mobile navigation styles
