@@ -2,49 +2,48 @@
     #Social links
 \*------------------------------------*/
 
-//.social-links {}
+//ul.social-links {}
 
 
 .social-links__item {
 
-	color: $white;
-	padding: .25em;
+	height: rem(48);
+	padding: rem(14);
+	width: rem(48);
 
 	.icon {
 
-		background-color: $link-color;
-		height: 2em;
-		padding: .5em;
-		width: 2em;
+		height: rem(20);
+		width: rem(20);
 
 	}
 
 	&:hover .icon {
 
-		background-color: $link-color--hover;
+		color: $link-color--hover;
 
 	}
 
 }
 
-.social-links__item.with-icon {
-
-	align-items: center;
-	color: $link-color;
-
-	.icon {
-
-		background-color: transparent;
-		height: 1em;
-		padding: 0;
-		width: 1em;
-
-	}
-
-	&:hover {
-
-		text-decoration: none;
-
-	}
-
-}
+//.social-links__item.with-icon {
+//
+//	align-items: center;
+//	color: $link-color;
+//
+//	.icon {
+//
+//		background-color: transparent;
+//		height: 1em;
+//		padding: 0;
+//		width: 1em;
+//
+//	}
+//
+//	&:hover {
+//
+//		text-decoration: none;
+//
+//	}
+//
+//}

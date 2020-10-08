@@ -17,13 +17,13 @@
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
+	max-width: 100%;
 	padding-bottom: rem(12);
 	padding-top: rem(12);
 
 }
 
 .global-header__login,
-.global-header__join,
 .global-header__menu-btn {
 
 	font-size: rem(14);
@@ -86,20 +86,6 @@
 			margin-right: rem(25);
 
 		}
-
-	}
-
-}
-
-.global-header__join {
-
-	display: none;
-
-	@include mq($bp-tab-large) {
-
-		display: block;
-		font-size: rem(16);
-		padding: rem(12) rem(20);
 
 	}
 

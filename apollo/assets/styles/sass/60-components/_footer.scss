@@ -6,5 +6,63 @@
 
 	grid-row-start: 2; // Needed for sticky footer
 	grid-row-end: 3; // Needed for sticky footer
+	padding-bottom: rem(20);
+	padding-top: rem(20);
+
+}
+
+.global-footer > div {
+
+	@include mq($bp-tab-small) {
+
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+
+	}
+
+}
+
+.global-footer .l-cluster ul {
+
+	// Override for WCAG 2.5.8 (AA)
+	margin: rem(-11);
+
+}
+
+.global-footer .l-cluster li {
+
+	// Override for WCAG 2.5.8 (AA)
+	margin: rem(11);
+
+}
+
+.global-footer .l-cluster a {
+
+	box-shadow: none;
+	display: block;
+	font-size: rem(15);
+	min-width: rem(44); // WCAG 2.5.8 (AA)
+	text-align: center;
+
+	&:hover {
+
+		box-shadow: 0 -1px 0 0 inset;
+
+	}
+
+}
+
+.global-footer > div > a {
+
+	display: block;
+	margin-top: rem(10);
+
+	@include mq($bp-tab-small) {
+
+		margin-left: auto;
+		margin-top: 0;
+
+	}
 
 }
