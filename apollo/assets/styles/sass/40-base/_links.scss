@@ -22,6 +22,8 @@ a:not([class]) {
 	box-shadow: 0 -1px 0 0 inset; /* 1, 2 */
 	color: $link-color;
 	cursor: pointer;
+	padding-left: rem(2);
+	padding-right: rem(2);
 	text-decoration: none; /* 2 */
 
 	&:visited {

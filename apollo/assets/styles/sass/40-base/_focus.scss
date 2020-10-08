@@ -4,8 +4,8 @@
 
 :focus {
 
-	outline: $size-minus3 solid $focus-color;
-	//outline-offset: -$size-minus3;
+	outline: rem(2) solid $focus-color;
+	outline-offset: rem(-2);
 
 }
 
