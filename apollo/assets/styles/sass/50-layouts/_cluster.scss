@@ -26,15 +26,12 @@ in some circumstances.
 We use flexbox to configure the elements into clusters without creating
 white space. We can control how we align items within the cluster,
 by using 'align-items` and `justify-content`.
-
-1. Multiply by -1 to create negative margins to pull the items back to the
-edges.
  */
 .l-cluster > * {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin: calc(#{$size} / 2 * -1); /* 1 */
+	margin: rem(-10);
 }
 
 
@@ -44,5 +41,5 @@ out, but halve it to to account for 'doubling up' at the edges.
  */
 .l-cluster.l-cluster > * > * {
 	display: inline-block; // IE9
-	margin: calc(#{$size} / 2);
+	margin: rem(10);
 }

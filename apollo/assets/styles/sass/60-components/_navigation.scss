@@ -434,15 +434,24 @@ Language navigation styles
 .nav-lang {
 
 	background-color: #f5f5f5;
-	padding: rem(20) rem(20) rem(10);
+	padding: rem(20);
 	margin-left: auto;
 	margin-right: auto;
 	max-width: rem($max-width);
 
-	ul {
+}
 
-		font-size: rem(14);
+.nav-lang .l-cluster ul {
 
-	}
+	// Override for WCAG 2.5.8 (AA)
+	margin: rem(-11);
+
+}
+
+.nav-lang .l-cluster li {
+
+	font-size: rem(15);
+	// Override for WCAG 2.5.8 (AA)
+	margin: rem(11);
 
 }

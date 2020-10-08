@@ -3,49 +3,99 @@
     See: https://scottaohara.github.io/a11y_breadcrumbs/
 \*------------------------------------*/
 
-.breadcrumbs.breadcrumbs {
+#breadcrumb {
 
-	li {
-		display: inline-block; // IE9
-		padding-right: 0.5em;
-		position: relative;
+	padding-bottom: rem(20);
+	padding-top: rem(20);
 
-		&::before {
-			content: "\2000";
-			position: absolute;
-			z-index: -1;
-		}
+}
+
+#breadcrumb .breadcrumbs li {
+
+	display: inline-block; // IE9
+	position: relative;
+
+}
+
+.breadcrumbs a {
+
+	color: $black;
+
+}
+
+#breadcrumb .breadcrumbs li:not(:last-child) {
+
+	&::after {
+
+		border-style: solid;
+		content: '';
+		display: block;
+		height: 0.5em;
+		position: absolute;
+		top: 50%;
+		transform: rotate(45deg) translateY(-50%);
+		width: 0.5em;
 
 	}
 
-	/**
-	Separator chevron - see https://codepen.io/jonneal/pen/kptBs
-	 */
-	li:not(:last-child) {
+}
+
+#breadcrumb .breadcrumbs [aria-current] {
+
+	box-shadow: none;
+	font-weight: $emphasis;
+
+	&:hover,
+	&:focus {
+
+		outline-color: $black;
+
+	}
+
+}
+
+
+/**
+Separator chevron - see https://codepen.io/jonneal/pen/kptBs
+*/
+[dir="ltr"] {
+
+	#breadcrumb .breadcrumbs li {
+
+		padding-right: 0.5em;
+
+	}
+
+	#breadcrumb .breadcrumbs li:not(:last-child) {
 
 		&::after {
-			border-style: solid;
-			border-width: 0.2em 0.2em 0 0;
-			content: '';
-			display: block;
-			height: 0.45em;
-			position: absolute;
+
+			border-width: 0.1em 0.1em 0 0;
 			right: -0.2em;
-			top: 50%;
-			transform: rotate(45deg) translateY(-50%);
-			width: 0.45em;
+
 		}
 
 	}
 
-	[aria-current] {
-		color: $black;
-		text-decoration: none;
+}
 
-		&:hover,
-		&:focus {
-			outline-color: $black;
+[dir="rtl"] {
+
+	#breadcrumb .breadcrumbs li {
+
+		padding-left: 0.5em;
+
+	}
+
+	#breadcrumb .breadcrumbs li:not(:last-child) {
+
+		&::after {
+
+			border-width: 0 0 0.1em 0.1em;
+			right: 100%;
+
 		}
+
 	}
 
 }
