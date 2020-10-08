@@ -60,8 +60,27 @@
 
 	@include mq($bp-tab-small) {
 
-		margin-left: auto;
 		margin-top: 0;
+
+	}
+
+}
+
+[dir="ltr"] .global-footer > div > a {
+
+	@include mq($bp-tab-small) {
+
+		margin-left: auto;
+
+	}
+
+}
+
+[dir="rtl"] .global-footer > div > a {
+
+	@include mq($bp-tab-small) {
+
+		margin-right: auto;
 
 	}
 
