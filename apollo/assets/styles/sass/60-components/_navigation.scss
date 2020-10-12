@@ -44,11 +44,27 @@
 
 }
 
-.nav-heading {
 
-	@include txt-jupiter;
+/**
+Shared navigation styles
+ */
+li.extra a {
 
-	display: block;
+	color: $link-color;
+
+	&:visited,
+	&:hover,
+	&:active {
+
+		color: $link-color;
+
+	}
+
+	span {
+
+		box-shadow: 0 -1px 0 0 inset;
+
+	}
 
 }
 
@@ -58,6 +74,7 @@ Mobile navigation styles
  */
 .nav-mobile {
 
+	box-shadow: 0 16px 16px 0 rgba(55,70,95,0.07);
 	display: block;
 	margin-top: rem(45);
 	padding-bottom: rem(45);
@@ -99,7 +116,7 @@ Mobile navigation styles
 
 .nav-mobile ul li:not(.extra) {
 
-	border-bottom: solid 1px #d8d8d8;
+	border-bottom: solid 1px #DFDFDF;
 
 }
 
@@ -116,26 +133,6 @@ Mobile navigation styles
 	&:active {
 
 		color: $black;
-
-	}
-
-}
-
-.nav-mobile li.extra a {
-
-	color: $link-color;
-
-	&:visited,
-	&:hover,
-	&:active {
-
-		color: $link-color;
-
-	}
-
-	span {
-
-		box-shadow: 0 -1px 0 0 inset;
 
 	}
 
@@ -202,7 +199,7 @@ Mobile navigation styles
 
 .nav-mobile__submenu {
 
-	background-color: inherit;
+	box-shadow: 0 16px 16px 0 rgba(55,70,95,0.07);
 	padding-bottom: rem(45);
 	width: 100%;
 
@@ -367,7 +364,8 @@ Wide navigation styles
 
 .nav-wide__submenu {
 
-	border: solid 1px #2f2f2f;
+	border: solid 1px #DFDFDF;
+	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 	left: 50%;
 	max-width: rem(1162);
 	position: absolute;
@@ -444,7 +442,7 @@ Wide navigation styles
 
 }
 
-.nav-wide__submenu > ul > li {
+.nav-wide__submenu > ul div {
 
 	break-inside: avoid;
 	margin-bottom: rem(40);
@@ -453,15 +451,45 @@ Wide navigation styles
 
 .nav-wide__submenu a {
 
+	box-shadow: none;
+	color: $black;
 	display: block;
 	padding-bottom: rem(12);
 	padding-top: rem(12);
 
+	&:visited,
+	&:hover,
+	&:active {
+
+		color: $black;
+
+	}
+
 }
 
-.nav-wide .nav-heading + ul {
+.nav-wide__submenu > div a {
 
-	margin-top: rem(15);
+	color: $link-color;
+
+	span {
+
+		box-shadow: 0 -1px 0 0 inset;
+
+	}
+
+}
+
+.nav-heading {
+
+	@include txt-jupiter;
+
+	display: block;
+
+}
+
+.nav-heading + a span {
+
+
 
 }
 
