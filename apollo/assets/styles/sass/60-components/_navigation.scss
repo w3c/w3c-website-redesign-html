@@ -5,7 +5,6 @@
 .no-js {
 
 	.global-header__menu-btn,
-	.nav-mobile__close-btn,
 	.submenu-back-btn,
 	.nav-mobile__submenu,
 	.nav-mobile .has-children svg,
@@ -139,19 +138,6 @@ Mobile navigation styles
 	&:active {
 
 		color: $black;
-
-	}
-
-}
-
-.nav-mobile__close-btn {
-
-	margin-left: 5vw;
-	margin-top: rem(45);
-
-	@include mq($bp-tab-large) {
-
-		display: none;
 
 	}
 

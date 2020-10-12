@@ -266,7 +266,6 @@
 				</div>
 			</li>
 		</ul>
-		<button type="button" class="nav-mobile__close-btn button button--ghost" data-button="menu-close">Close</button>
 	</nav>
 
 	<nav aria-labelledby="nav-wide-heading" class="nav-wide">
@@ -460,6 +459,7 @@
 			</li>
 		</ul>
 	</nav>
+
 	<nav id="lang" aria-labelledby="nav-lang-heading" class="nav-lang">
 		<span id="nav-lang-heading" class="txt-body-alt">Language options</span>
 		<div class="l-cluster">
@@ -532,7 +532,6 @@
 
 		const mobileNav = document.querySelector('.nav-mobile');
 		const mobileNavToggler = document.querySelector('[data-button="mobile-nav-toggle"]');
-		const mobileNavClose = document.querySelector('[data-button="menu-close"]');
 		const subnavTrigger = Array.from(mobileNav.querySelectorAll('.has-children'));
 
 		// I18N for button value
@@ -639,24 +638,6 @@
 				}
 
 			});
-
-		}
-
-		// Close mobile navigation
-		if (mobileNavClose && mobileNav) {
-
-			document.addEventListener('click', function (event) {
-
-				if (event.target.matches('.nav-mobile__close-btn')) {
-
-					mobileNav.setAttribute('aria-hidden', 'true');
-					mobileNavToggler.setAttribute('aria-expanded', 'false');
-					mobileNavToggler.childNodes[0].nodeValue = 'Menu ';
-					closeSubmenus();
-
-				}
-
-			}, false);
 
 		}
 
