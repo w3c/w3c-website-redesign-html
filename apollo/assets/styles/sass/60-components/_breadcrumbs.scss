@@ -21,6 +21,14 @@
 
 	color: $black;
 
+	&:visited,
+	&:hover,
+	&:active {
+
+		color: $black;
+
+	}
+
 }
 
 #breadcrumb .breadcrumbs li:not(:last-child) {

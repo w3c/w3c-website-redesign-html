@@ -40,14 +40,28 @@
 .global-footer .l-cluster a {
 
 	box-shadow: none;
+	color: $black;
 	display: block;
 	font-size: rem(15);
 	min-width: rem(44); // WCAG 2.5.8 (AA)
 	text-align: center;
 
+	&:visited {
+
+		color: $black;
+
+	}
+
 	&:hover {
 
 		box-shadow: 0 -1px 0 0 inset;
+		color: $black;
+
+	}
+
+	&:active {
+
+		color: $black;
 
 	}
 

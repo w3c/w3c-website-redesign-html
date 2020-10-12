@@ -345,10 +345,20 @@ Wide navigation styles
 
 	> a {
 
+		box-shadow: none;
+		color: $black;
 		display: block;
 		font-weight: $emphasis;
 		padding: rem(12) rem(10);
 		text-decoration: none;
+
+		&:visited,
+		&:hover,
+		&:active {
+
+			color: $black;
+
+		}
 
 	}
 
