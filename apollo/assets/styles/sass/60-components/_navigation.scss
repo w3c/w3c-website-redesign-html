@@ -36,9 +36,9 @@
 
 	}
 
-	.nav-mobile__primary > li {
+	.nav-mobile > ul > li {
 
-		border-bottom: solid 1px #2f2f2f;
+		border-bottom: solid 1px #d8d8d8;
 
 	}
 
@@ -97,16 +97,16 @@ Mobile navigation styles
 
 }
 
-.nav-mobile > ul > li {
+.nav-mobile ul li:not(.extra) {
 
-	border-bottom: solid 1px #2f2f2f;
+	border-bottom: solid 1px #d8d8d8;
 
 }
 
 .nav-mobile a {
 
 	box-shadow: none;
-	color: #111;
+	color: $black;
 	display: block;
 	padding: 0.75rem 0;
 	text-decoration: none;
@@ -115,7 +115,27 @@ Mobile navigation styles
 	&:hover,
 	&:active {
 
-		color: #111;
+		color: $black;
+
+	}
+
+}
+
+.nav-mobile li.extra a {
+
+	color: $link-color;
+
+	&:visited,
+	&:hover,
+	&:active {
+
+		color: $link-color;
+
+	}
+
+	span {
+
+		box-shadow: 0 -1px 0 0 inset;
 
 	}
 
@@ -208,7 +228,7 @@ Mobile navigation styles
 .nav-mobile__submenu > div {
 
 	align-items: center;
-	border-bottom: solid 1px #2f2f2f;
+	border-bottom: solid 1px #d8d8d8;
 	display: flex;
 	flex-wrap: wrap;
 	padding-bottom: rem(20);
@@ -223,24 +243,11 @@ Mobile navigation styles
 
 }
 
-.nav-mobile__submenu > ul > li {
-
-	border-bottom: 0;
-
-}
-
-.nav-mobile__submenu > ul .nav-heading {
-
-	padding-left: 5vw;
-	padding-top: rem(20);
-
-}
-
 [data-button="submenu-close"] {
 
 	background-color: transparent;
 	border: 0;
-	border-bottom: solid 1px;
+	border-bottom: solid 1px #d8d8d8;
 	border-radius: 0;
 	color: inherit;
 	font-size: rem(20);
@@ -288,6 +295,12 @@ Mobile navigation styles
 
 }
 
+[data-button="submenu-close"] + a span {
+
+	box-shadow: 0 -1px 0 0 inset;
+
+}
+
 
 /**
 Wide navigation styles
@@ -298,7 +311,7 @@ Wide navigation styles
 
 	@include mq($bp-tab-large) {
 
-		border-bottom: solid 1px #2f2f2f;
+		border-bottom: solid 1px #d8d8d8;
 		display: block;
 
 	}
@@ -381,7 +394,7 @@ Wide navigation styles
 .nav-wide__submenu > div {
 
 	align-items: center;
-	border-bottom: solid 1px #2f2f2f;
+	border-bottom: solid 1px #d8d8d8;
 	display: flex;
 	padding: rem(20);
 
