@@ -235,11 +235,11 @@ Mobile navigation styles
 [data-button="submenu-close"] {
 
 	background-color: transparent;
-	border: 0;
 	border-bottom: solid 1px #d8d8d8;
 	border-radius: 0;
 	color: inherit;
 	font-size: rem(20);
+	font-weight: $emphasis;
 	margin-bottom: rem(15);
 	padding: rem(12) 0 rem(12) 5vw;
 
