@@ -39,7 +39,7 @@
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
 				var script = document.createElement('script');
-				script.src = 'assets/js/main.js';
+				script.src = 'dist/assets/js/main.js';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
