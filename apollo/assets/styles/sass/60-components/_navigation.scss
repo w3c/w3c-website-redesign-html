@@ -483,9 +483,9 @@ Wide navigation styles
 
 .nav-heading {
 
-	@include txt-jupiter;
-
 	display: block;
+	font-size: rem(18);
+	font-weight: $emphasis;
 
 }
 
