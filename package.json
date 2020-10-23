@@ -42,6 +42,7 @@
     "accessible-autocomplete": "^2.0.3",
     "autoprefixer-cli": "^1.0.0",
     "copyfiles": "^2.3.0",
+    "decompress": "^4.2.1",
     "fontfaceobserver": "^2.1.0",
     "imagemin-cli": "^3.0.0",
     "node-sass": "^4.14.1",
