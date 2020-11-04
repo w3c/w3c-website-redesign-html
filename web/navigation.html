@@ -49,6 +49,259 @@
 
 	<style>
 		/* Temporary prototype styles */
+
+		/*------------------------------------*\
+    #Navigation
+\*------------------------------------*/
+		.no-js .global-header__menu-btn,
+		.no-js .submenu-back-btn,
+		.no-js .nav-mobile__submenu,
+		.no-js .nav-mobile .has-children svg,
+		.no-js .nav-mobile__submenu > ul > li:first-of-type > a:first-child,
+		.no-js .nav-wide .has-children svg,
+		.no-js .nav-wide__submenu {
+			display: none; }
+
+		.no-js .nav-mobile {
+			margin-top: 0; }
+
+		.no-js .nav-mobile li {
+			border-bottom: 0; }
+
+		.no-js .nav-mobile__submenu {
+			padding-bottom: 0;
+			padding-left: 1.5625rem; }
+
+		.no-js .nav-mobile > ul > li {
+			border-bottom: solid 1px #d8d8d8; }
+
+		/**
+		Shared navigation styles
+		 */
+		.nav-link {
+			text-decoration: none; }
+
+		.nav-heading {
+			font-weight: 600; }
+
+		/**
+		Mobile navigation styles
+		 */
+		.nav-mobile {
+			box-shadow: 0 16px 16px 0 rgba(55, 70, 95, 0.07);
+			display: block;
+			margin-top: 2.8125rem;
+			padding-bottom: 2.8125rem;
+			position: relative; }
+		@media screen and (min-width: 64em) {
+			.nav-mobile {
+				display: none; } }
+		.nav-mobile[aria-hidden="true"] {
+			display: none; }
+		.nav-mobile[aria-hidden="false"] {
+			display: block; }
+		@media screen and (min-width: 64em) {
+			.nav-mobile[aria-hidden="false"] {
+				display: none; } }
+
+		.nav-mobile > ul {
+			margin-left: 5vw;
+			margin-right: 5vw; }
+
+		.nav-mobile ul li:not(.extra) {
+			border-bottom: solid 1px #DFDFDF; }
+
+		.nav-mobile ul li.extra {
+			margin-top: 0.9375rem; }
+
+		.nav-mobile .nav-link {
+			display: block;
+			padding: 0.75rem 0; }
+
+		.nav-mobile .has-children {
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: flex; }
+
+		.nav-mobile .has-children svg {
+			-webkit-margin-start: auto;
+			margin-inline-start: auto; }
+
+		[dir="ltr"] .nav-mobile .has-children .arrow-left-ltr {
+			display: none; }
+
+		[dir="rtl"] .nav-mobile .has-children .arrow-right-ltr {
+			display: none; }
+
+		.nav-mobile > ul .nav-mobile__submenu {
+			padding-left: 5vw;
+			padding-right: 5vw; }
+
+		.nav-mobile__submenu {
+			box-shadow: 0 16px 16px 0 rgba(55, 70, 95, 0.07);
+			padding-bottom: 2.8125rem;
+			width: 100%; }
+		.nav-mobile__submenu[aria-hidden="true"] {
+			display: none; }
+		.nav-mobile__submenu[aria-hidden="false"] {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 5; }
+
+		.nav-mobile__submenu > div {
+			-ms-flex-align: center;
+			align-items: center;
+			border-bottom: solid 1px #d8d8d8;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			padding-bottom: 1.25rem;
+			padding-left: 5vw;
+			padding-right: 5vw; }
+
+		.nav-mobile__submenu > div > a {
+			margin-left: -5vw; }
+
+		[data-button="submenu-close"] {
+			background-color: transparent;
+			border-color: transparent transparent #d8d8d8;
+			border-radius: 0;
+			color: inherit;
+			font-size: 1.25rem;
+			font-weight: 600;
+			margin-bottom: 0.9375rem;
+			padding: 0.75rem 5vw; }
+
+		[dir="ltr"] [data-button="submenu-close"] {
+			text-align: left; }
+
+		[dir="ltr"] [data-button="submenu-close"] .arrow-right-ltr {
+			display: none; }
+
+		[dir="rtl"] [data-button="submenu-close"] {
+			text-align: right; }
+
+		[dir="rtl"] [data-button="submenu-close"] .arrow-left-ltr {
+			display: none; }
+
+		[data-button="submenu-close"] + a {
+			font-size: 1.125rem;
+			font-weight: 600; }
+
+		/**
+		Wide navigation styles
+		 */
+		nav.nav-wide {
+			display: none; }
+		@media screen and (min-width: 64em) {
+			nav.nav-wide {
+				border-bottom: solid 1px #d8d8d8;
+				display: block; } }
+
+		.nav-wide > ul {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: nowrap;
+			flex-wrap: nowrap;
+			position: relative; }
+
+		[dir="ltr"] .nav-wide > ul > li + li {
+			margin-left: 0.5rem; }
+
+		[dir="rtl"] .nav-wide > ul > li + li {
+			margin-right: 0.5rem; }
+
+		.nav-wide > ul > li > a {
+			border-bottom: solid 3px transparent;
+			display: block;
+			font-weight: 600;
+			padding: 0.75rem 0.625rem 0.5625rem; }
+		.nav-wide > ul > li > a:hover, .nav-wide > ul > li > a:active, .nav-wide > ul > li > a.active {
+			border-bottom-color: #0079b8; }
+
+		.nav-wide__submenu {
+			border: solid 1px #DFDFDF;
+			box-shadow: 0 8px 16px 0 rgba(55, 70, 95, 0.07);
+			left: 50%;
+			max-width: 72.625rem;
+			position: absolute;
+			top: 100%;
+			transform: translateX(-50%);
+			width: 100%; }
+		.nav-wide__submenu[aria-hidden="true"] {
+			display: none; }
+		.nav-wide__submenu[aria-hidden="false"] {
+			display: block;
+			z-index: 5; }
+
+		.nav-wide__submenu > div {
+			-ms-flex-align: center;
+			align-items: center;
+			border-bottom: solid 1px #d8d8d8;
+			display: -ms-flexbox;
+			display: flex;
+			padding: 1.25rem; }
+
+		.nav-wide__submenu > div a {
+			padding-bottom: 0.75rem;
+			padding-top: 0.75rem; }
+
+		.nav-wide__submenu > div button {
+			font-size: 0.875rem;
+			-webkit-margin-start: auto;
+			margin-inline-start: auto;
+			padding: 0.375rem 0.5625rem; }
+
+		.nav-wide__submenu > ul {
+			columns: 3 15.625rem;
+			column-gap: 3.125rem;
+			padding: 2.5rem 1.25rem; }
+
+		.nav-wide__submenu > ul div {
+			break-inside: avoid;
+			margin-bottom: 2.5rem; }
+
+		.nav-wide__submenu a {
+			display: block;
+			padding-bottom: 0.75rem;
+			padding-top: 0.75rem; }
+		.nav-wide__submenu a:hover span,
+		.nav-wide__submenu a:active span {
+			box-shadow: 0 -1px 0 0 inset; }
+
+		.nav-wide .nav-heading {
+			display: block;
+			font-size: 1.125rem; }
+
+		/**
+		Disable pointer events on e.g. SVGs within links/buttons
+		 */
+		.nav-mobile__primary .has-children > *,
+		[data-button="submenu-close"] > *,
+		.nav-wide .has-children > *,
+		[data-button="wide-nav-close"] > * {
+			pointer-events: none; }
+
+		/**
+		Language navigation styles
+		 */
+		.nav-lang {
+			background-color: #f5f5f5;
+			padding: 1.25rem;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 70rem; }
+
+		.nav-lang .l-cluster ul {
+			margin: -0.6875rem; }
+
+		.nav-lang .l-cluster li {
+			font-size: 0.9375rem;
+			margin: 0.6875rem; }
 	</style>
 
 

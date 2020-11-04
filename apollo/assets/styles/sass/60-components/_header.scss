@@ -24,7 +24,8 @@
 }
 
 .global-header__login,
-.global-header__menu-btn {
+.global-header__menu-btn,
+[data-trigger="mobile-nav"] {
 
 	font-size: rem(14);
 	padding: rem(6) rem(9);
@@ -62,7 +63,8 @@
 
 	}
 
-	.global-header__menu-btn {
+	.global-header__menu-btn,
+	[data-trigger="mobile-nav"] {
 
 		@include mq(375) {
 
@@ -86,7 +88,8 @@
 
 	}
 
-	.global-header__menu-btn {
+	.global-header__menu-btn,
+	[data-trigger="mobile-nav"] {
 
 		@include mq(375) {
 
@@ -98,7 +101,8 @@
 
 }
 
-.global-header__menu-btn {
+.global-header__menu-btn,
+[data-trigger="mobile-nav"] {
 
 	> * {
 
