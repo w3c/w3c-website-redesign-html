@@ -514,6 +514,15 @@
 			});
 		}
 
+		// Function to close all open level 2 menus
+		var closeLevelTwoMenus = function () {
+			var levelTwoTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="level-two"]'));
+			levelTwoTriggers.forEach(function (trigger) {
+				trigger.setAttribute('aria-expanded', 'false');
+				trigger.parentElement.querySelector('.nav__submenu').setAttribute('aria-hidden', 'true');
+			});
+		}
+
 		// Toggle mobile navigation
 		var toggleMobileNav = function () {
 
@@ -672,6 +681,7 @@
 
 					if (event.target.getAttribute('aria-expanded') == 'false') {
 
+						closeLevelTwoMenus();
 						event.target.setAttribute('aria-expanded', 'true');
 						targetMenu.setAttribute('aria-hidden', 'false');
 						targetMenu.style.minHeight = prevMenu.offsetHeight + 'px';
