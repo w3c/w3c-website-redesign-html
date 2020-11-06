@@ -44,7 +44,7 @@
     "copyfiles": "^2.3.0",
     "decompress": "^4.2.1",
     "fontfaceobserver": "^2.1.0",
-    "imagemin-cli": "^3.0.0",
+    "imagemin-cli": "^6.0.0",
     "js-yaml": "^3.13.1",
     "lodash.template": "^4.5.0",
     "node-sass": "^4.14.1",
