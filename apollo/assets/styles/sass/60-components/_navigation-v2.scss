@@ -62,7 +62,8 @@
 
 }
 
-#global-nav > ul > li > * {
+#global-nav > ul > li > a,
+#global-nav [data-trigger="level-one"] {
 
 	@include mq($bp-tab-large) {
 
