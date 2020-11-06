@@ -50,18 +50,24 @@
 
 		color: $off-black;
 
+		&::after {
+
+			background-color: $off-black;
+
+		}
+
 	}
 
-	&:hover {
-
-		box-shadow: 0 -1px 0 0 inset;
-		color: $off-black;
-
-	}
-
+	&:hover,
 	&:active {
 
 		color: $off-black;
+
+		&::after {
+
+			background-color: $off-black;
+
+		}
 
 	}
 

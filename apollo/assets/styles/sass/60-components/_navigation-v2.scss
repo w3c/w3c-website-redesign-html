@@ -113,7 +113,31 @@
 
 }
 
-.nav__submenu > a {
+#global-nav .nav__submenu a {
+
+	@include mq($bp-tab-large) {
+
+		display: inline-block;
+		position: relative;
+
+		&:hover::after {
+
+			background-color: $off-black;
+			bottom: 0.75em;
+			content: '';
+			display: block;
+			height: 1px;
+			left: 0;
+			position: absolute;
+			width: 100%;
+
+		}
+
+	}
+
+}
+
+#global-nav .nav__submenu > a {
 
 	border-bottom: solid 1px $border-color;
 
@@ -271,7 +295,7 @@ svg.nav-wide {
 
 			display: grid;
 			gap: 1rem rem(100);
-			grid-gap: 1rem rem(100);
+			grid-gap: rem(12) rem(100);
 			grid-template-columns: 1fr 1fr 1fr;
 			grid-template-rows: auto;
 
@@ -367,10 +391,9 @@ svg.nav-wide {
 
 	@include mq($bp-tab-large) {
 
-		display: inline-block;
 		font-size: rem(18);
-		padding-left: rem(20);
-		padding-right: rem(20);
+		margin-left: rem(20);
+		margin-right: rem(20);
 
 	}
 

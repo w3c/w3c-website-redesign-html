@@ -21,11 +21,30 @@
 
 	color: $off-black;
 
+	&::after {
+
+		background-color: $link-color;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 1px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+
+	}
+
 	&:visited,
 	&:hover,
 	&:active {
 
 		color: $off-black;
+
+		&::after {
+
+			background-color: $off-black;
+
+		}
 
 	}
 
@@ -52,6 +71,12 @@
 
 	box-shadow: none;
 	font-weight: $emphasis;
+
+	&::after {
+
+		display: none;
+
+	}
 
 	&:hover,
 	&:focus {
