@@ -3,11 +3,16 @@
 \*------------------------------------*/
 
 /**
-Base colours that can be used when prototyping. Taken from http://clrs.cc/
+Base colors that can be used when prototyping. Taken from http://clrs.cc/
 
 1. We ideally avoid using pure white on pure black, because the contrast is
 so great that it creates the illusion that text is vibrating on screen.
  */
+$black: #000;
+$off-black: #111; /* 1 */
+$white: #fff;
+$off-white: #fafafa; /* 1 */
+
 $aqua: #7fdbff;
 $blue: #0073d8;
 $fuchsia: #f012be;
@@ -24,25 +29,49 @@ $red: #ff4136;
 $silver: #ddd;
 $teal: #39cccc;
 $yellow: #ffdc00;
-$black: #111; /* 1 */
-$black-pure: #000;
-$white: #fafafa; /* 1 */
-$white-pure: #fff;
 
 
-$link-color:                            #00589c;
-$link-color--visited:                   $purple;
-$link-color--hover:                     #00589c;
+/**
+Theme colors.
+ */
+$aqua: #1bc0d7;
+$azure: #0075ff;
+$coral: #fc7750;
+$deep-blue: #024488;
+$deep-green: #0a4343;
+$deep-yellow: #f9c818;
+$light-blue: #cbe0fb;
+$light-coral: #fea78d;
+$light-pink: #eeccdc;
+$light-red: #ec7070;
+$mist-gray: #f8f8fb;
+$pink: #ddb0c8;
+$red: #e93737;
+$sky-blue: #6bc8fe;
+$storm-gray: #585858;
+$teal-green: #237978;
+$twiki-gray: #bdbdbd;
+$w3c-blue: #005a9c;
+$yellow: #f9dc4a;
 
 
-$success-color:							$green;
-$warning-color:							$yellow;
-$alert-color:                           $red;
-$focus-color:							#8b0084;
+/**
+Sass variables.
+ */
+$border-color:                  $twiki-gray;
+$focus-color:                   #8b0084;
 
-$input-border-color:                    $grey;
-$input-error-color:                     $red;
-$segment-selected-bg-color:             $olive;
+$link-color:                    $w3c-blue;
+$link-color--visited:           $purple;
+$link-color--hover:             $deep-blue;
+
+$input-border-color:            $storm-gray;
+$input-error-color:             $red;
+$segment-selected-bg-color:     $olive;
+
+$success-color:                 $green;
+$warning-color:                 $yellow;
+$alert-color:                   $red;
 
 
 /**

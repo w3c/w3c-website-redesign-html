@@ -19,13 +19,13 @@
 
 .breadcrumbs a {
 
-	color: $black;
+	color: $off-black;
 
 	&:visited,
 	&:hover,
 	&:active {
 
-		color: $black;
+		color: $off-black;
 
 	}
 
@@ -56,7 +56,7 @@
 	&:hover,
 	&:focus {
 
-		outline-color: $black;
+		outline-color: $off-black;
 
 	}
 

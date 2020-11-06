@@ -48,11 +48,11 @@ See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
     .table-wrap {
 
         background-attachment: local, scroll, local, scroll;
-        background-color: $white-pure;
+        background-color: $white;
         background-image:
-                linear-gradient(90deg, $white-pure 0%, rgba(255, 255, 255, 0) 3rem),
+                linear-gradient(90deg, $white 0%, rgba(255, 255, 255, 0) 3rem),
                 linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem),
-                linear-gradient(270deg, $white-pure 0%, rgba(255, 255, 255, 0) 3rem),
+                linear-gradient(270deg, $white 0%, rgba(255, 255, 255, 0) 3rem),
                 linear-gradient(270deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem);
         background-repeat: no-repeat;
         overflow-x: auto;
@@ -71,7 +71,7 @@ See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
     .js-sticky th {
 
         background-clip: padding-box; // Stops border disappearing if <th> is sticky
-        background-color: $white;
+        background-color: $off-white;
         position: sticky;
         top: 0;
 
@@ -80,7 +80,7 @@ See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
 		 */
         &::after {
 
-            background-color: $black;
+            background-color: $off-black;
             bottom: 0;
             content: '';
             height: $size-minus4 / 2;

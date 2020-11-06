@@ -14,8 +14,8 @@ html {
  */
 body {
 
-	background-color: $white-pure;
-	color: $black;
+	background-color: $white;
+	color: $off-black;
 	display: grid; // Needed for sticky footer
 	grid-template-columns: 100%; // Needed for sticky footer
 	grid-template-rows: 1fr auto; // Needed for sticky footer

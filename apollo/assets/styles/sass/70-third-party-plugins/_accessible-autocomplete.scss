@@ -5,7 +5,7 @@
  */
 
 .autocomplete__wrapper {
-	background-color: $white;
+	background-color: $off-white;
 	position: relative;
 
 	&:hover {
@@ -64,10 +64,10 @@
 }
 
 .autocomplete__menu {
-	background-color: $white;
-	border: $size-minus4 solid $black;
+	background-color: $off-white;
+	border: $size-minus4 solid $off-black;
 	border-top: 0;
-	color: $black;
+	color: $off-black;
 	margin: 0;
 	max-height: 342px;
 	overflow-x: hidden;
@@ -128,7 +128,7 @@
 }
 
 .autocomplete__option--no-results {
-	background-color: $white;
+	background-color: $off-white;
 	color: #646b6f;
 	cursor: not-allowed;
 }

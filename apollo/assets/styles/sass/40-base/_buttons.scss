@@ -13,7 +13,7 @@ button,
 	background-color: $link-color;
 	border: none;
 	border-radius: rem(4);
-	color: $white-pure;
+	color: $white;
 	font-weight: $emphasis;
 	padding: rem(10) rem(24);
 
@@ -113,12 +113,12 @@ elements that would otherwise override it, without using !important
 .button--alert.button--alert {
 
 	background-color: $alert-color;
-	color: $black-pure;
+	color: $black;
 
 	&:visited {
 
 		background-color: $alert-color;
-		color: $black-pure;
+		color: $black;
 
 	}
 
@@ -136,12 +136,12 @@ elements that would otherwise override it, without using !important
 .button--success.button--success {
 
 	background-color: $success-color;
-	color: $black-pure;
+	color: $black;
 
 	&:visited {
 
 		background-color: $success-color;
-		color: $black-pure;
+		color: $black;
 
 	}
 
@@ -159,12 +159,12 @@ elements that would otherwise override it, without using !important
 .button--warning.button--warning {
 
 	background-color: $warning-color;
-	color: $black-pure;
+	color: $black;
 
 	&:visited {
 
 		background-color: $warning-color;
-		color: $black-pure;
+		color: $black;
 
 	}
 

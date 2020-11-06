@@ -66,10 +66,10 @@ input,
 select,
 textarea {
 
-	background-color: $white-pure;
+	background-color: $white;
 	border: 2px solid $input-border-color;
 	border-radius: 0;
-	color: contrast($white);
+	color: contrast($off-white);
 	display: block;
 	font-family: inherit; /* 1 */
 	font-size: inherit; /* 1 */
@@ -82,8 +82,8 @@ textarea {
 	&:focus,
 	&:active {
 
-		background-color: $white;
-		border-color: $black;
+		background-color: $off-white;
+		border-color: $off-black;
 		outline-offset: 0;
 
 	}
@@ -201,10 +201,10 @@ textarea[required] {
 	&:focus,
 	&:active {
 
-		box-shadow: inset 2px 2px 0 0 $black,
-		inset 2px -2px 0 0 $black,
-		inset -2px -2px 0 0 $black,
-		inset -2px 2px 0 0 $black;
+		box-shadow: inset 2px 2px 0 0 $off-black,
+		inset 2px -2px 0 0 $off-black,
+		inset -2px -2px 0 0 $off-black,
+		inset -2px 2px 0 0 $off-black;
 
 	}
 
@@ -437,7 +437,7 @@ Checkboxes
 /* Box */
 .checkbox-label:before {
 
-	background-color: $white-pure;
+	background-color: $white;
 	border: 2px solid $input-border-color;
 	border-radius: 0;
 	height: 1.25em;
@@ -451,7 +451,7 @@ Checkboxes
 /* Check */
 .checkbox-label:after {
 
-	background-color: $white-pure;
+	background-color: $white;
 	border: 0.2em solid transparent;
 	border-width: 0 0.2em 0.2em 0; // creates the inverted "L" shape
 	display: block;
@@ -467,7 +467,7 @@ Checkboxes
 /* Focused */
 .input--checkbox:focus + .checkbox-label:before {
 
-	border-color: $black;
+	border-color: $off-black;
 
 }
 
@@ -475,14 +475,14 @@ Checkboxes
 /* Checked and Focused */
 .input--checkbox:checked:focus + .checkbox-label:before {
 
-	background-color: $black;
-	border-color: $black;
+	background-color: $off-black;
+	border-color: $off-black;
 
 }
 
 .input--checkbox:checked:focus + .checkbox-label:after {
 
-	border-color: $white-pure;
+	border-color: $white;
 
 }
 
@@ -490,15 +490,15 @@ Checkboxes
 /* Checked */
 .input--checkbox:checked + .checkbox-label:before {
 
-	background-color: $black;
-	border-color: $black;
+	background-color: $off-black;
+	border-color: $off-black;
 
 }
 
 .input--checkbox:checked + .checkbox-label:after {
 
 	background: none;
-	border-color: $white-pure;
+	border-color: $white;
 
 }
 
@@ -506,7 +506,7 @@ Checkboxes
 /* Hover */
 .checkbox-group label:hover .checkbox-label:before {
 
-	border-color: $black !important;
+	border-color: $off-black !important;
 
 }
 
@@ -564,7 +564,7 @@ Radio buttons
 /* Box */
 .radio-label:before {
 
-	background-color: $white-pure;
+	background-color: $white;
 	border: 2px solid $input-border-color;
 	border-radius: 50%;
 	height: 1.4em;
@@ -579,7 +579,7 @@ Radio buttons
 /* Check */
 .radio-label:after {
 
-	background-color: $white-pure;
+	background-color: $white;
 	border-radius: 50%;
 	height: 0.7em;
 	left: 1.125em;
@@ -593,7 +593,7 @@ Radio buttons
 /* Focused */
 .input--radio:focus + .radio-label:before {
 
-	border-color: $black;
+	border-color: $off-black;
 
 }
 
@@ -615,13 +615,13 @@ Radio buttons
 /* Checked */
 .input--radio:checked + .radio-label:before {
 
-	border-color: $black;
+	border-color: $off-black;
 
 }
 
 .input--radio:checked + .radio-label:after {
 
-	background-color: $black;
+	background-color: $off-black;
 
 }
 
@@ -629,7 +629,7 @@ Radio buttons
 /* Hover */
 .radio-group label:hover .radio-label:before {
 
-	border-color: $black !important;
+	border-color: $off-black !important;
 
 }
 
@@ -742,8 +742,8 @@ show all available options outright, rather than hide them behind a <select>
 .segmented-label:before {
 
 	border: 2px solid $input-border-color;
-	box-shadow: inset 0 4px 0 rgba($white-pure, 0.2),
-	inset 0 4px 0 rgba($black-pure, 0.2);
+	box-shadow: inset 0 4px 0 rgba($white, 0.2),
+	inset 0 4px 0 rgba($black, 0.2);
 	height: calc(100% - 4px);
 	left: 2px;
 	top: 2px;
@@ -774,7 +774,7 @@ show all available options outright, rather than hide them behind a <select>
 /* Focused */
 .input--radio:focus + .segmented-label:before {
 
-	border-color: $black;
+	border-color: $off-black;
 	outline: em(2) solid $focus-color;
 
 }
