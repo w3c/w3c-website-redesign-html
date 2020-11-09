@@ -373,7 +373,6 @@ svg.nav-wide {
 	@include mq($bp-tab-large) {
 
 		border-bottom: solid 1px $border-color;
-		border-top: solid 1px $border-color;
 
 		&[aria-expanded="true"] {
 
