@@ -295,7 +295,7 @@ svg.nav-wide {
 
 			display: grid;
 			gap: 1rem rem(100);
-			grid-gap: rem(12) rem(100);
+			grid-gap: 0 rem(100);
 			grid-template-columns: 1fr 1fr 1fr;
 			grid-template-rows: auto;
 
@@ -373,6 +373,20 @@ svg.nav-wide {
 	@include mq($bp-tab-large) {
 
 		border-bottom: solid 1px $border-color;
+		position: relative;
+
+		&::before {
+
+			background-color: $border-color;
+			content: '';
+			display: block;
+			height: 1px;
+			left: 0;
+			position: absolute;
+			top: -1px;
+			width: 100%;
+
+		}
 
 		&[aria-expanded="true"] {
 
