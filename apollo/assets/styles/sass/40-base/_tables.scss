@@ -14,7 +14,7 @@ table {
 
 th {
 
-    border: $size-minus4 solid;
+    border: 1px solid;
     padding: 0.75rem;
     text-align: left; // IE fallback for next rule - only works for ltr languages
     text-align: start; /* 1 */
@@ -23,7 +23,7 @@ th {
 
 td {
 
-    border: $size-minus4 solid;
+    border: 1px solid;
     padding: 0.75rem;
 
 }
@@ -83,7 +83,7 @@ See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
             background-color: $off-black;
             bottom: 0;
             content: '';
-            height: $size-minus4 / 2;
+            height: 1px;
             left: 0;
             position: absolute;
             width: 100%;

@@ -8,9 +8,9 @@
 \*------------------------------------*/
 
 .l-box {
-	border: $size-minus4 solid;
+	border: 1px solid;
 	display: block;
-	padding: $size-plus1;
+	padding: rem(24);
 }
 
 
@@ -26,6 +26,6 @@ perimeter so it behaves like a border and doesn't add to the overall size.
  */
 .l-box--no-border {
 	border: none;
-	outline: $size-minus4 solid transparent; /* 1 */
-	outline-offset: $size-minus4 * -1; /* 1 */
+	outline: 1px solid transparent; /* 1 */
+	outline-offset: -1px; /* 1 */
 }

@@ -41,7 +41,7 @@ code {
 	background-color: $navy;
 	color: $green;
 	font-family: $mono-family;
-	padding-left: $size-minus3;
-	padding-right: $size-minus3;
+	padding-left: rem(3);
+	padding-right: rem(3);
 
 }

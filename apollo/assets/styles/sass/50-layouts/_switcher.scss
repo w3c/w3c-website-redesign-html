@@ -44,7 +44,7 @@ The flex container.
 .l-switcher > * {
 	display: flex;
 	flex-flow: row wrap;
-	margin: 0 -#{$size} -#{$size} 0; /* 1 */
+	margin: 0 -1rem -1rem 0; /* 1 */
 }
 
 /**
@@ -64,7 +64,7 @@ smaller than the min-width, so that either of these properties is applied instea
 .l-switcher > * > * {
 	background-clip: padding-box; /* 1 */
 	border: 0 solid transparent; /* 1 */
-	border-width: 0 #{$size} #{$size} 0; /* 1 */
+	border-width: 0 1rem 1rem 0; /* 1 */
 	max-width: 100%; /* 2 */
 	min-width: 50%; /* 3 */
 	width: calc(600px * 600 - 100% * 600); /* 4 */

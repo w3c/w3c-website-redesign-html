@@ -16,12 +16,12 @@
 
 	[role="tablist"] {
 
-		border-bottom: solid $size-minus4 $grey;
+		border-bottom: solid 1px $grey;
 		display: flex;
 		flex-flow: row nowrap;
 		max-width: 100%;
 		overflow-x: auto;
-		padding: 0 $size-plus1;
+		padding: 0 rem(24);
 		-webkit-overflow-scrolling: touch;
 
 		li {
@@ -32,7 +32,7 @@
 		}
 
 		li + li {
-			margin-left: $size-plus1;
+			margin-left: rem(24);
 		}
 
 	}
@@ -41,7 +41,7 @@
 
 		background-color: $mercury-grey;
 		border: 0;
-		border-bottom: solid transparent $size-minus3;
+		border-bottom: solid rem(3) transparent;
 		color: $off-black;
 		display: block;
 		padding: em(10) em(15);
@@ -59,11 +59,7 @@
 
 		@include stack(1rem);
 
-		padding: $size-plus1;
-
-		&:focus {
-			outline: solid $size-minus4 $grey;
-		}
+		padding: rem(24);
 
 	}
 

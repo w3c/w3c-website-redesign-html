@@ -75,7 +75,7 @@ textarea {
 	font-size: inherit; /* 1 */
 	line-height: inherit; /* 1 */
 	// max-width: 32em;
-	padding: $size-minus1;
+	padding: rem(10);
 	width: 100%;
 
 	&:hover,
@@ -104,7 +104,7 @@ label for increased usability by visually associating the label to its input.
 	.field-error,
 	.segmented-group {
 
-		margin-top: $size-minus2;
+		margin-top: rem(5);
 
 	}
 
@@ -158,13 +158,13 @@ If you increase the input padding, remember to increase these widths.
 .memorable-date {
 
 	display: inline-block;
-	margin-top: $size-minus1;
+	margin-top: rem(10);
 
 }
 
 .memorable-date + .memorable-date {
 
-	margin-left: $size;
+	margin-left: 1rem;
 
 }
 
@@ -226,7 +226,7 @@ Field grouping
 * + .fieldset-wrapper,
 * + .field {
 
-	margin-top: $size-plus2;
+	margin-top: rem(40);
 
 }
 
@@ -429,7 +429,7 @@ Checkboxes
 
 * + .checkbox-group label {
 
-	margin-top: $size;
+	margin-top: 1rem;
 
 }
 
@@ -547,7 +547,7 @@ Radio buttons
 
 * + .radio-group label {
 
-	margin-top: $size;
+	margin-top: 1rem;
 
 }
 
@@ -719,7 +719,7 @@ show all available options outright, rather than hide them behind a <select>
 
 	* + * {
 
-		margin-top: $size-minus2;
+		margin-top: rem(5);
 
 	}
 

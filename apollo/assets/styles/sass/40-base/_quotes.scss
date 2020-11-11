@@ -11,9 +11,9 @@ blockquote,
 
 blockquote {
 
-	border-left: solid $size-minus3;
+	border-left: solid rem(3);
 	font-size: 1.25rem;
-	padding-left: $size-plus1;
+	padding-left: rem(24);
 	quotes: "\201C" "\201D" "\2018" "\2019";
 
 }
@@ -38,6 +38,6 @@ blockquote footer {
 
 .quote figcaption {
 
-	padding-left: $size-plus1;
+	padding-left: rem(24);
 
 }

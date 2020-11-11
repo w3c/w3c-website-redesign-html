@@ -16,7 +16,7 @@
 .autocomplete__hint,
 .autocomplete__input {
 	-webkit-appearance: none;
-	border: $size-minus3 solid $input-border-color;
+	border: rem(5) solid $input-border-color;
 	border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
 	margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
 	width: 100%;
@@ -38,12 +38,12 @@
 }
 
 .autocomplete__input--default {
-	padding: $size-minus1;
+	padding: rem(10);
 }
 
 .autocomplete__input--show-all-values {
 	cursor: pointer;
-	padding: $size-minus1; /* Space for arrow. Other padding should match .autocomplete__input--default. */
+	padding: rem(10); /* Space for arrow. Other padding should match .autocomplete__input--default. */
 	padding-right: 34px; // IE fallback for next rule - only works for ltr languages
 
 	// Logical property creates appropriate spacing irrespective of text direction
@@ -57,15 +57,15 @@
 	display: inline-block;
 	height: 24px;
 	position: absolute;
-	right: $size-minus1;
-	top: $size;
+	right: rem(10);
+	top: 1rem;
 	width: 24px;
 	z-index: 1;
 }
 
 .autocomplete__menu {
 	background-color: $off-white;
-	border: $size-minus4 solid $off-black;
+	border: 1px solid $off-black;
 	border-top: 0;
 	color: $off-black;
 	margin: 0;
@@ -97,7 +97,7 @@
 
 .autocomplete__option {
 	border-bottom: solid $silver;
-	border-width: $size-minus4 0;
+	border-width: 1px 0;
 	cursor: pointer;
 	display: block;
 	position: relative;
@@ -141,5 +141,5 @@
 
 .autocomplete__hint,
 .autocomplete__option {
-	padding: $size-minus1;
+	padding: rem(10);
 }

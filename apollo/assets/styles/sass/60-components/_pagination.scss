@@ -19,9 +19,9 @@
 
 	.pagination__item {
 		background-color: $mercury-grey;
-		border: $size-minus4 solid;
+		border: 1px solid;
 		display: block;
-		padding:  $size-minus3 $size-minus1;
+		padding:  rem(3) rem(10);
 		text-decoration: none;
 	}
 
