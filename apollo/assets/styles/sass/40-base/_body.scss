@@ -16,13 +16,23 @@ body {
 
 	background-color: $white;
 	color: $off-black;
-	display: grid; // Needed for sticky footer
-	grid-template-columns: 100%; // Needed for sticky footer
-	grid-template-rows: 1fr auto; // Needed for sticky footer
-	min-height: 100%; // Needed for sticky footer
+	min-height: 100%;
 	overflow-x: hidden;
 
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+
+}
+
+/**
+Styles needed for a sticky footer
+ */
+
+.grid-wrap {
+
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 1fr auto;
+	min-height: 100vh;
 
 }
