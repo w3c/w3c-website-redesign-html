@@ -1,6 +1,5 @@
 import {stickyColumnHead} from "./main/tableheaders";
 import {collapsibles} from "./main/collapsibles";
-import {navigation} from "./main/navigation";
 
 stickyColumnHead();
 

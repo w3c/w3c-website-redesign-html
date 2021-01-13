@@ -19,18 +19,18 @@ size to text size.
  */
 svg.icon {
 
-	height: 0.75em;
+	height: 1em;
 	height: 1cap; /* 1 */
 	vertical-align: baseline;
-	width: 0.75em;
+	width: 1em;
 	width: 1cap; /* 1 */
 
 }
 
 svg.icon--larger {
 
-	height: rem(35);
-	width: rem(35);
+	height: rem(30);
+	width: rem(30);
 
 }
 
@@ -44,7 +44,8 @@ Pay attention to whether the icon is before the text or after.
  */
 
 .with-icon--before,
-.with-icon--after {
+.with-icon--after,
+.with-icon--larger {
 
 	align-items: baseline;
 	display: inline-flex;
