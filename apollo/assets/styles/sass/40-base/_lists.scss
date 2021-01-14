@@ -9,75 +9,40 @@ ol[class],
 ul[class] {
 
 	list-style: none;
-	padding-left: 0;
+	padding: 0;
 
 }
 
-
-
-
 ul:not([class]),
 ol:not([class]) {
-
-	padding-left: 1.875em;
-
-	li {
-
-		padding-left: 1em;
-
-	}
-
-	ul,
-	ol {
-
-		padding-left: 1em;
-
-	}
 
 	> * + *,
 	li ul,
 	li ol {
 
-		margin-top: 0.5em;
+		margin-block-start: 0.25em;
 
 	}
 
 }
 
+ul:not([class]) {
+
+	padding-inline-start: 2.4em;
+
+}
 
 ol:not([class]) {
 
+	counter-reset: custom;
 	list-style-type: none;
+	padding-inline-start: 1.25em;
 
-	> li {
+	> li::before {
 
-		column-break-inside: avoid;
-		counter-increment: orderedList;
-		display: block;
-		position: relative;
-
-		&:before {
-
-			content: counters(orderedList, ".");
-			display: block;
-			font-weight: 500;
-			left: -0.8em;
-			position: absolute;
-			top: 0;
-
-		}
-
-		&:first-child {
-
-			counter-reset: orderedList;
-
-		}
-
-		ol li {
-
-			padding-left: 1.75em;
-
-		}
+		counter-increment: custom;
+		content: counters(custom, ".");
+		padding-inline-end: 0.5em;
 
 	}
 
@@ -96,28 +61,6 @@ ol:not([class]) {
 }
 
 
-// An alternative to `.l-cluster` (/50-layouts/cluster)
-//if things still need to be aligned in a row in IE9
-.inline-list {
-
-	li {
-
-		display: inline-block;
-		margin-bottom: 0.5em;
-		margin-right: 1.5em;
-		margin-top: 0;
-
-	}
-
-	li:last-child {
-
-		margin-bottom: 0;
-		margin-right: 0;
-
-	}
-
-}
-
 /**
 Description lists / Definition lists
  */
@@ -126,14 +69,14 @@ dl {
 
 	dd + dt {
 
-		margin-top: 0.5em;
+		margin-block-start: 0.5em;
 
 	}
 
 	dt + dd,
 	dd + dd {
 
-		margin-top: 0.25em;
+		margin-block-start: 0.25em;
 
 	}
 
