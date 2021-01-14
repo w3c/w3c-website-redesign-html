@@ -5,7 +5,6 @@
 @mixin txt-mercury {
 
 	font-size: rem(34);
-	font-weight: $emphasis;
 	line-height: calc(43 / 34);
 
 	@include mq($bp-tab-small) {
@@ -59,7 +58,6 @@
 @mixin txt-jupiter {
 
 	font-size: rem(20);
-	font-weight: $emphasis;
 	line-height: calc(32 / 20);
 
 }
@@ -67,7 +65,6 @@
 
 @mixin txt-saturn {
 
-	font-weight: 600;
 	line-height: calc(22 / 16);
 
 }

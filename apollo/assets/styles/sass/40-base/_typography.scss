@@ -48,37 +48,11 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
-.txt-mercury + * {
-
-	margin-top: rem(34);
-
-	@include mq($bp-tab-small) {
-
-		margin-top: rem(60);
-
-	}
-
-}
-
-
 .txt-venus {
 
 	@include txt-venus;
 
 }
-
-.txt-venus + * {
-
-	margin-top: rem(33);
-
-	@include mq($bp-tab-small) {
-
-		margin-top: rem(48);
-
-	}
-
-}
-
 
 .txt-earth {
 
@@ -86,44 +60,17 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
-.txt-earth + * {
-
-	margin-top: rem(27);
-
-	@include mq($bp-tab-small) {
-
-		margin-top: rem(34);
-
-	}
-
-}
-
-
 .txt-mars {
 
 	@include txt-mars;
 
 }
 
-.txt-mars + * {
-
-	margin-top: rem(24);
-
-}
-
-
 .txt-jupiter {
 
 	@include txt-jupiter;
 
 }
-
-.txt-jupiter + * {
-
-	margin-top: rem(20);
-
-}
-
 
 .txt-saturn {
 
@@ -137,26 +84,11 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
-.txt-saturn + *,
-.txt-pluto + * {
-
-	margin-top: 1rem;
-
-}
-
-
 .txt-body-alt {
 
 	@include txt-body-alt;
 
 }
-
-.txt-body-alt + * {
-
-	margin-top: rem(15);
-
-}
-
 
 .txt-eris {
 
@@ -164,8 +96,16 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
-.txt-eris + * {
+.txt-mercury,
+.txt-venus,
+.txt-earth,
+.txt-mars,
+.txt-jupiter,
+.txt-saturn,
+.txt-pluto,
+.txt-body-alt,
+.txt-eris {
 
-	margin-top: rem(14);
+	margin-bottom: 1em;
 
 }
