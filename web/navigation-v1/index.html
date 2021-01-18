@@ -1,0 +1,526 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Global navigation | W3C Redesign Prototypes</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<meta property="og:description" name="description" content="Global navigation prototype for the W3C website redesign"/>
+
+	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		var myFont = new FontFaceObserver('Noto Sans');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+	</script>
+
+	<link rel="stylesheet" href="dist/assets/styles/core.css" media="screen"/>
+
+	<!--
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="dist/assets/styles/advanced.css" media="
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
+	<script>
+		(function() {
+			var linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				var script = document.createElement('script');
+				script.src = 'dist/assets/js/main.js';
+				script.defer = true;
+				document.querySelector('head').appendChild(script);
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+	<style>
+		/* Temporary prototype styles */
+
+        nav[aria-labelledby="skip-heading"],
+		a.logo,
+		.global-header__login,
+		.nav-lang,
+		#breadcrumb,
+		.global-footer {display: none;}
+	</style>
+
+
+</head>
+
+<body>
+<div class="grid-wrap">
+	<div class="not-footer">
+		<nav aria-labelledby="skip-heading">
+			<span id="skip-heading" class="visuallyhidden">Skip link and language options</span>
+			<ul class="clean-list" role="list">
+				<li>
+					<a class="skip-link" href="#main"><span>Skip to content</span></a>
+				</li>
+				<li>
+					<a class="skip-link" href="#lang"><span>Select language</span></a>
+				</li>
+			</ul>
+		</nav>
+
+		<header class="l-center global-header">
+			<a class="logo" href="page.html">
+				<svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" overflow="visible" viewBox="0 0 72 48" width="72px" height="48px"><defs/><g image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path fill="#FFF" fill-rule="evenodd" d="M0 0h72v48H0z" clip-rule="evenodd"/><path fill="#005A9C" d="M18.117 8.006l5.759 19.58 5.759-19.58h15.614v1.946L39.37 20.08c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879a3.993 3.993 0 002.76 1.052c1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397L2.032 8.006h4.17l5.759 19.58 3.892-13.185-1.906-6.395h4.17z"/><path fill-rule="evenodd" d="M66.92 8.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178a3 3 0 00.887 2.128 2.979 2.979 0 002.145.912c.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136a3 3 0 00-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832a2.671 2.671 0 01-1.892.777c-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891a2.54 2.54 0 011.84-.751c.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65V11.24h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14h.533z" clip-rule="evenodd"/><g><path d="M61.807 7.825l.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721l2.356-4.696zM62.102 31.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317-.468-.347-1.664-1.369-2.34-2.322-.676-.953-1.733-2.859-1.733-2.859s.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97.433-.277 1.346-1.042 1.924-1.66.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092l-.608-3.171z"/></g></g></svg>
+				<span class="visuallyhidden">W3C homepage</span>
+			</a>
+			<a href="page.html" class="global-header__login with-icon--after with-icon--larger"><span>Sign in</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 01-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 01-6 3.22z"/></svg>
+			</a>
+			<button type="button" class="global-header__menu-btn button button--ghost with-icon--after with-icon--larger" data-button="mobile-nav-toggle">Menu <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path id="menu-icon" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/><path id="close-icon" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+			</button>
+		</header>
+
+		<nav aria-labelledby="nav-mobile-heading" class="nav-mobile">
+			<span id="nav-mobile-heading" class="visuallyhidden">Main</span>
+			<ul class="level-one clean-list" role="list">
+				<li><a class="nav-link nav-heading" href="page.html">Home</a></li>
+				<li><a class="nav-link nav-heading has-children" href="page.html">Standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+					<div class="nav-mobile__submenu">
+						<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Main menu</button>
+						<a class="nav-link" href="page.html"><span>Standards</span></a>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html">About W3C standards</a></li>
+							<li><a class="nav-link" href="page.html">Technical reports</a></li>
+							<li><a class="nav-link" href="page.html">Translations of technical reports</a></li>
+							<li><a class="nav-link" href="page.html">Types of report we publish</a></li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>More about Standards</span></a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nav-link nav-heading has-children" href="page.html">Groups <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+					<div class="nav-mobile__submenu">
+						<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Main menu</button>
+						<a class="nav-link" href="page.html"><span>Groups</span></a>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html">Find groups by industry</a></li>
+							<li><a class="nav-link" href="page.html">Working groups</a></li>
+							<li><a class="nav-link" href="page.html">Technical Architecture Group</a></li>
+							<li><a class="nav-link" href="page.html">Advisory Board</a></li>
+							<li><a class="nav-link has-children" href="page.html">Invited Experts <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Groups</button>
+									<a class="nav-link" href="page.html"><span>Invited Experts</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Directory of W3C Invited Experts</a></li>
+										<li><a class="nav-link" href="page.html">Invited Expert application</a></li>
+										<li><a class="nav-link" href="page.html">Advisory Expert and Collaborator agreement</a></li>
+										<li><a class="nav-link" href="page.html">Invited Expert policies</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link has-children" href="page.html">Mailing lists <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Groups</button>
+									<a class="nav-link" href="page.html"><span>Mailing lists</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Archives</a></li>
+										<li><a class="nav-link" href="page.html">Search mailing lists</a></li>
+										<li><a class="nav-link" href="page.html">Manage your subscriptions</a></li>
+										<li><a class="nav-link" href="page.html">Email FAQs</a></li>
+										<li><a class="nav-link" href="page.html">Posting guides</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>More about Groups</span></a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nav-link nav-heading has-children" href="page.html">Get involved <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+					<div class="nav-mobile__submenu">
+						<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Main menu</button>
+						<a class="nav-link" href="page.html"><span>Get involved</span></a>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link has-children" href="page.html">Business Ecosystems <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Get involved</button>
+									<a class="nav-link" href="page.html"><span>Business Ecosystems</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Automotive and transportation</a></li>
+										<li><a class="nav-link" href="page.html">Media and entertainment</a></li>
+										<li><a class="nav-link" href="page.html">Publishing</a></li>
+										<li><a class="nav-link" href="page.html">Web payments</a></li>
+										<li><a class="nav-link" href="page.html">Web of Data</a></li>
+										<li><a class="nav-link" href="page.html">Web and telecommunications</a></li>
+										<li><a class="nav-link" href="page.html">Web of Things</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link has-children" href="page.html">Supporting W3C <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Get involved</button>
+									<a class="nav-link" href="page.html"><span>Supporting W3C</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Donate now</a></li>
+										<li><a class="nav-link" href="page.html">Global sponsor</a></li>
+										<li class="extra"><a class="nav-link" href="page.html"><span>More ways to support us</span></a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link has-children" href="page.html">W3C Membership <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Get involved</button>
+									<a class="nav-link" href="page.html"><span>W3C Membership</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Member home</a></li>
+										<li><a class="nav-link" href="page.html">Membership fees</a></li>
+										<li><a class="nav-link" href="page.html">Join W3C</a></li>
+										<li><a class="nav-link" href="page.html">How to get an account</a></li>
+										<li class="extra"><a class="nav-link" href="page.html"><span>More about W3C Membership</span></a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link has-children" href="page.html">Promote Web Standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Get involved</button>
+									<a class="nav-link" href="page.html"><span>Promote Web Standards</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Asset library and materials</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nav-link nav-heading has-children" href="page.html">Resources <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+					<div class="nav-mobile__submenu">
+						<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Main menu</button>
+						<a class="nav-link" href="page.html"><span>Resources</span></a>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html">Standards</a></li>
+							<li><a class="nav-link" href="page.html">Validators</a></li>
+							<li><a class="nav-link has-children" href="page.html">Events <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Resources</button>
+									<a class="nav-link" href="page.html"><span>Events</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Talks</a></li>
+										<li><a class="nav-link" href="page.html">Workshops</a></li>
+										<li><a class="nav-link" href="page.html">Meetings</a></li>
+										<li><a class="nav-link" href="page.html">Conferences endorsed by W3C</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link" href="page.html">Tutorials and courses</a></li>
+							<li><a class="nav-link" href="page.html">Podcasts and videos</a></li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>More Resources</span></a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nav-link nav-heading has-children" href="page.html">News and insights <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+					<div class="nav-mobile__submenu">
+						<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Main menu</button>
+						<a class="nav-link" href="page.html"><span>News and insights</span></a>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html">News</a></li>
+							<li><a class="nav-link" href="page.html">Blog</a></li>
+							<li><a class="nav-link" href="page.html">Press releases</a></li>
+							<li><a class="nav-link" href="page.html">In the media</a></li>
+							<li><a class="nav-link" href="page.html">Weekly newsletter</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a class="nav-link nav-heading has-children" href="page.html">About <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+					<div class="nav-mobile__submenu">
+						<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> Main menu</button>
+						<a class="nav-link" href="page.html"><span>About</span></a>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link has-children" href="page.html">Our mission <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> About</button>
+									<a class="nav-link" href="page.html"><span>Our mission</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Accessibility</a></li>
+										<li><a class="nav-link" href="page.html">Internationalization</a></li>
+										<li><a class="nav-link" href="page.html">Privacy</a></li>
+										<li><a class="nav-link" href="page.html">Security</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link" href="page.html">Leadership</a></li>
+							<li><a class="nav-link" href="page.html">People</a></li>
+							<li><a class="nav-link" href="page.html">Evangelists</a></li>
+							<li><a class="nav-link" href="page.html">Careers</a></li>
+							<li><a class="nav-link has-children" href="page.html">Contact <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg></a>
+								<div class="nav-mobile__submenu">
+									<button type="button" class="button button--ghost u-full-width with-icon--before" data-button="submenu-close"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-right-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z"/><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(180 3 4.876)" /></svg> About</button>
+									<a class="nav-link" href="page.html"><span>Contact</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html">Beihang University <span lang="zh-Hans">(W3C中国)</span></a></li>
+										<li><a class="nav-link" href="page.html">ERCIM</a></li>
+										<li><a class="nav-link" href="page.html">Keio University</a></li>
+										<li><a class="nav-link" href="page.html">MIT</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link" href="page.html">Help</a></li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>Learn more about W3C</span></a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</nav>
+
+		<nav aria-labelledby="nav-wide-heading" class="nav-wide">
+			<span id="nav-wide-heading" class="visuallyhidden">Main</span>
+			<ul class="clean-list l-center" role="list">
+				<li>
+					<a class="nav-link" href="page.html">Home</a>
+				</li>
+				<li>
+					<a class="nav-link has-children" href="page.html">Standards <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(90 3 4.876)"></path></svg></a>
+					<div class="nav-wide__submenu">
+						<div><a class=" nav-link nav-heading" href="page.html"><span>Standards</span></a><button type="button" class="button--ghost with-icon--after with-icon--larger" data-button="wide-nav-close">Close <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></div>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html"><span>About W3C standards</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Technical reports</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Translations of technical reports</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Types of report we publish</span></a></li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>More about standards</span></a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nav-link has-children" href="page.html">Groups <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(90 3 4.876)"></path></svg></a>
+					<div class="nav-wide__submenu">
+						<div><a class="nav-link nav-heading" href="page.html"><span>Groups</span></a><button type="button" class="button--ghost with-icon--after with-icon--larger" data-button="wide-nav-close">Close <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></div>
+						<ul class="clean-list" role="list">
+							<li>
+								<ul class="clean-list" role="list">
+									<li><a class="nav-link" href="page.html"><span>Find groups by industry</span></a></li>
+									<li><a class="nav-link" href="page.html"><span>Working groups</span></a></li>
+									<li><a class="nav-link" href="page.html"><span>Technical architecture group</span></a></li>
+									<li><a class="nav-link" href="page.html"><span>Advisory Board</span></a></li>
+									<li>
+										<div>
+											<a class="nav-link nav-heading" href="page.html"><span>Invited Experts</span></a>
+											<ul class="clean-list" role="list">
+												<li><a class="nav-link" href="page.html"><span>Directory of W3C Invited Experts</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Invited Expert application</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Advisory Expert and Collaborator agreement</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Invited Expert policies</span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<div>
+											<a href="page.html" class="nav-link nav-heading"><span>Mailing lists</span></a>
+											<ul class="clean-list" role="list">
+												<li><a class="nav-link" href="page.html"><span>Archives</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Search mailing lists</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Manage your subscriptions</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Email FAQs</span></a></li>
+												<li><a class="nav-link" href="page.html"><span>Posting guides</span></a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="extra"><a class="nav-link" href="page.html"><span>More about groups</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nav-link has-children" href="page.html">Get involved <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(90 3 4.876)"></path></svg></a>
+					<div class="nav-wide__submenu">
+						<div><a class="nav-link nav-heading" href="page.html"><span>Get involved</span></a><button type="button" class="button--ghost with-icon--after with-icon--larger" data-button="wide-nav-close">Close <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></div>
+						<ul class="clean-list" role="list">
+							<li>
+								<div>
+									<a href="page.html" class="nav-heading"><span>Business ecosystems</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Automotive and transportation</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Media and entertainment</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Publishing</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Web payments</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Web of Data</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Web and telecommunications</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Web of Things</span></a></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a href="page.html" class="nav-link nav-heading"><span>Supporting W3C</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Donate now</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Global sponsor</span></a></li>
+										<li class="extra"><a class="nav-link" href="page.html"><span>More ways to support us</span></a></li>
+									</ul>
+								</div>
+
+							</li>
+							<li>
+								<div>
+									<a class="nav-link nav-heading" href="page.html"><span>W3C membership</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Membership home</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Membership fees</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Join W3C</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>How to get an account</span></a></li>
+										<li class="extra"><a class="nav-link" href="page.html"><span>More about W3C Membership</span></a></li>
+									</ul>
+								</div>
+
+							</li>
+							<li>
+								<div>
+									<a class="nav-link nav-heading" href="page.html"><span>Promote web standards</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Asset library and materials</span></a></li>
+									</ul>
+								</div>
+
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nav-link has-children" href="page.html">Resources <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(90 3 4.876)"></path></svg></a>
+					<div class="nav-wide__submenu">
+						<div><a class="nav-link nav-heading" href="page.html"><span>Resources</span></a><button type="button" class="button--ghost with-icon--after with-icon--larger" data-button="wide-nav-close">Close <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></div>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html"><span>Standards</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Validators</span></a></li>
+							<li>
+								<div>
+									<a class="nav-link nav-heading" href="page.html"><span>Events</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Talks</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Workshops</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Meetings</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Conferences endorsed by W3C</span></a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="nav-link" href="page.html"><span>Tutorials and courses</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Podcasts and videos</span></a></li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>More Resources</span></a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nav-link has-children" href="page.html">News and insights <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(90 3 4.876)"></path></svg></a>
+					<div class="nav-wide__submenu">
+						<div><a class="nav-link nav-heading" href="page.html"><span>News and insights</span></a><button type="button" class="button--ghost with-icon--after with-icon--larger" data-button="wide-nav-close">Close <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></div>
+						<ul class="clean-list" role="list">
+							<li><a class="nav-link" href="page.html"><span>News</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Blog</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Press releases</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>In the media</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Weekly newsletter</span></a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a class="nav-link has-children" href="page.html">About <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 6 10" width="0.75em" height="0.75em"><path class="arrow-left-ltr" d="M1.269 9.616l4.594-4.434a.415.415 0 000-.616L1.27.132a.451.451 0 00-.638 0L.137.609a.415.415 0 000 .616L3.09 4.076l.752.799-.687.747-3.02 2.914a.415.415 0 000 .616l.495.477a.463.463 0 00.638-.013z" transform="rotate(90 3 4.876)"></path></svg></a>
+					<div class="nav-wide__submenu">
+						<div><a class="nav-link nav-heading" href="page.html"><span>About</span></a><button type="button" class="button--ghost with-icon--after with-icon--larger" data-button="wide-nav-close">Close <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button></div>
+						<ul class="clean-list" role="list">
+							<li>
+								<div>
+									<a class="nav-link nav-heading" href="page.html"><span>Our mission</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Accessibility</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Internationalization</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Privacy</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Security</span></a></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="nav-link nav-heading" href="page.html"><span>Contact</span></a>
+									<ul class="clean-list" role="list">
+										<li><a class="nav-link" href="page.html"><span>Beihang University <span lang="zh-Hans">(W3C中国)</span></span></a></li>
+										<li><a class="nav-link" href="page.html"><span>ERCIM</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>Keio University</span></a></li>
+										<li><a class="nav-link" href="page.html"><span>MIT</span></a></li>
+									</ul>
+								</div>
+
+							</li>
+							<li><a class="nav-link" href="page.html"><span>Leadership</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>People</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Evangelists</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Careers</span></a></li>
+							<li><a class="nav-link" href="page.html"><span>Help</span></a></li>
+							<li class="extra"><a class="nav-link" href="page.html"><span>Learn more about W3C</span></a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</nav>
+
+		<nav id="lang" aria-labelledby="nav-lang-heading" class="nav-lang">
+			<span id="nav-lang-heading" class="txt-body-alt">Language options</span>
+			<div class="l-cluster">
+				<ul class="clean-list" role="list">
+					<li>English</li>
+					<li><a href="/fr" hreflang="fr">French</a></li>
+					<li><a href="/zh-Hans" hreflang="zh-Hans">Simplified Chinese</a></li>
+					<li><a href="/ja" hreflang="ja">Japanese</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<nav id="breadcrumb" aria-labelledby="nav-breadcrumb-heading" class="l-center">
+			<span id="nav-breadcrumb-heading" class="visuallyhidden">Breadcrumb</span>
+			<div class="l-cluster">
+				<ol class="breadcrumbs clean-list" role="list">
+					<li><a href="/">Home</a></li>
+					<li><a href="page.html">Page</a></li>
+					<li><a href="page.html">Another page</a></li>
+					<li><a href="page.html">Page</a></li>
+					<li><a href="#" aria-current="page">Global navigation</a></li>
+				</ol>
+			</div>
+		</nav>
+
+		<main id="main">
+			<h1 class="txt-mercury">Global navigation</h1>
+			<p><a href="../index.html">Back to prototypes index</a></p>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="l-center">
+			<div class="l-cluster">
+				<ul class="clean-list" role="list">
+					<li><a href="https://www.w3.org/">Home</a></li>
+					<li><a href="page.html">Contact</a></li>
+					<li><a href="page.html">Help</a></li>
+					<li><a href="page.html">Sponsor and donate</a></li>
+					<li><a href="page.html">Privacy policy</a></li>
+					<li><a href="page.html">Legal</a></li>
+					<li><a href="page.html">System status</a></li>
+				</ul>
+			</div>
+			<a class="social-links__item" href="https://twitter.com/W3C">
+				<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" width="20px" height="20px"><defs></defs><path fill="currentColor" d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path></svg>
+				<span class="visuallyhidden">Find us on Twitter</span>
+			</a>
+		</div>
+	</footer>
+</div>
+
+
+
+</body>
+
+</html>

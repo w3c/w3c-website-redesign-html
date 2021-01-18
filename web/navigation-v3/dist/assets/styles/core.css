@@ -1,0 +1,2352 @@
+/*------------------------------------*\
+    #Apollo: core styles for all browsers
+\*------------------------------------*/
+/*------------------------------------*\
+    #Settings
+\*------------------------------------*/
+/*------------------------------------*\
+    #Breakpoints
+
+    The measurements presented here are for guidance only
+    and should be updated to reflect the design/content needs.
+\*------------------------------------*/
+/*------------------------------------*\
+    #Colors
+\*------------------------------------*/
+/**
+Base colors that can be used when prototyping. Taken from http://clrs.cc/
+
+1. We ideally avoid using pure white on pure black, because the contrast is
+so great that it creates the illusion that text is vibrating on screen.
+ */
+/* 1 */
+/* 1 */
+/**
+Theme colors.
+ */
+/**
+Sass variables.
+ */
+/**
+Social media colours that might be useful.
+See: https://brandcolors.net/
+ */
+/*------------------------------------*\
+    #Fonts
+\*------------------------------------*/
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/notosans/notosans-regular.woff2") format("woff2"), url("../fonts/notosans/notosans-regular.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/notosans/notosans-italic.woff2") format("woff2"), url("../fonts/notosans/notosans-italic.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/notosans/notosans-bold.woff2") format("woff2"), url("../fonts/notosans/notosans-bold.woff") format("woff"); }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/notosans/notosans-bolditalic.woff2") format("woff2"), url("../fonts/notosans/notosans-bolditalic.woff") format("woff"); }
+
+/*------------------------------------*\
+    #Paths
+\*------------------------------------*/
+/*------------------------------------*\
+    #Typesetting
+\*------------------------------------*/
+/**
+Use https://www.cssfontstack.com/ and https://meowni.ca/font-style-matcher/ to pick
+system fonts that are reasonably close to any web fonts needed for the project.
+
+This improves performance, avoids Flash Of Invisible Text (FOIT) and minimises
+Flash of Unstyled Content (FOUC) - see https://helenvholmes.com/writing/type-is-your-right/
+
+Be sure to include fonts for both Mac OS and Windows. Use quote marks around
+fonts with white space in their name.
+
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+/*------------------------------------*\
+    #Functions
+\*------------------------------------*/
+/*------------------------------------*\
+    #Maths functions
+\*------------------------------------*/
+/**
+ #Random number
+ http://xkcd.com/221/
+ */
+/**
+ #Power function
+ https://css-tricks.com/snippets/sass/power-function/
+ */
+/**
+ #Square root function
+ */
+/*------------------------------------*\
+    #CSS unit functions
+\*------------------------------------*/
+/**
+ #em
+ */
+/**
+ #rem
+ */
+/**
+ #px
+ */
+/**
+ #Return a number without a unit
+ */
+/**
+ #Remove any unit present to return a unitless number
+ */
+/*------------------------------------*\
+    #Mixins
+\*------------------------------------*/
+/*------------------------------------*\
+    #Font sizes
+\*------------------------------------*/
+/*------------------------------------*\
+    #Media query
+\*------------------------------------*/
+/*------------------------------------*\
+    #Stack (formerly axiomatic owl)
+\*------------------------------------*/
+/**
+This mixin allows us to add vertical spacing between a container's direct children,
+much like the 'axiomatic owl' but limited to specific use cases.
+
+By applying Flexbox to the parent container, we can use auto margin on a specific
+child element. This way, we can choose to group elements inside the stack to the
+top/bottom of the vertical space, which is useful for card-like components.
+
+The current default measure for the stack matches the base line-height,
+as defined in /40-base/typography.
+
+Use with a specific measure, or without for the default measure, e.g.
+
+main {
+	@include stack(4rem);
+}
+
+article {
+	@include stack;
+}
+ */
+/*------------------------------------*\
+    #Base
+
+    Normalize comes first for the cascade
+\*------------------------------------*/
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0; }
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none; }
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none; }
+
+/*------------------------------------*\
+    #Animation
+\*------------------------------------*/
+/*
+ * Respect the choices of users who do not want animations.
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-play-state: paused !important;
+    scroll-behavior: auto !important;
+    transition: none !important; } }
+
+/*------------------------------------*\
+    #Background colours
+\*------------------------------------*/
+.bg--alert {
+  background-color: #e93737;
+  color: #000; }
+
+.bg--success {
+  background-color: #2ecc40;
+  color: #000; }
+
+.bg--warning {
+  background-color: #f9dc4a;
+  color: #000; }
+
+/*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+blockquote,
+.quote {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  blockquote > * + *,
+  .quote > * + * {
+    margin-top: 1rem; }
+
+blockquote {
+  border-left: solid 0.1875rem;
+  font-size: 1.25rem;
+  padding-left: 1.5rem;
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+blockquote p:first-child::before {
+  content: open-quote; }
+
+blockquote p:last-of-type::after {
+  content: close-quote; }
+
+blockquote footer {
+  font-size: 1rem; }
+
+.quote figcaption {
+  padding-left: 1.5rem; }
+
+/*------------------------------------*\
+    #Body
+\*------------------------------------*/
+html {
+  height: 100%; }
+
+/**
+ Typographical styles for fonts are in 40-base/_typography.scss
+ */
+body {
+  background-color: #fff;
+  color: #111;
+  min-height: 100%;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; }
+
+/**
+Styles needed for a sticky footer
+ */
+.grid-wrap {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 1fr auto;
+      grid-template-rows: 1fr auto;
+  min-height: 100vh; }
+
+/*------------------------------------*\
+    #Box sizing
+\*------------------------------------*/
+*,
+*::before,
+*::after {
+  background-color: inherit;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+  margin: 0;
+  overflow-wrap: break-word;
+  padding: 0; }
+
+/*------------------------------------*\
+    #Buttons
+\*------------------------------------*/
+/**
+1. Because the `stack` mixin applies flexbox in the column direction,
+we may need to prevent buttons from stretching horizontally
+ */
+button,
+.button {
+  background-color: #005a9c;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.625rem 1.5rem; }
+  button:hover, button:focus, button:active,
+  .button:hover,
+  .button:focus,
+  .button:active {
+    background-color: #022fab; }
+
+/**
+2. High contrast themes tend to eliminate background-color. If there is no
+border set, we need to apply a transparent outline to maintain the shape
+of the button. The negative outline-offset moves the outline inside the
+perimeter so it behaves like a border and doesn't add to the overall size.
+ */
+.button {
+  border: 0;
+  display: block;
+  outline: 1px solid transparent;
+  /* 2 */
+  outline-offset: -1px;
+  /* 2 */
+  text-decoration: none; }
+
+button.button,
+input[type="submit"].button {
+  text-decoration: none; }
+
+.button--wide {
+  text-align: center;
+  width: 100%; }
+
+.button[disabled],
+.button.is-disabled {
+  background-color: #aaa;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed; }
+  .button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active,
+  .button.is-disabled:hover,
+  .button.is-disabled:focus,
+  .button.is-disabled:active {
+    background-color: #aaa;
+    color: #3f3f3f;
+    outline: 0; }
+
+.button--ghost {
+  background-color: transparent;
+  border: solid 1px;
+  color: inherit;
+  font-weight: normal; }
+  .button--ghost:hover, .button--ghost:focus, .button--ghost:active {
+    background-color: transparent; }
+
+/**
+Double specificity so links as buttons keep their styling even within
+elements that would otherwise override it, without using !important
+ */
+.button--alert.button--alert {
+  background-color: #e93737;
+  color: #000; }
+  .button--alert.button--alert:visited {
+    background-color: #e93737;
+    color: #000; }
+  .button--alert.button--alert:hover, .button--alert.button--alert:focus, .button--alert.button--alert:active {
+    background-color: #ee6565; }
+
+.button--success.button--success {
+  background-color: #2ecc40;
+  color: #000; }
+  .button--success.button--success:visited {
+    background-color: #2ecc40;
+    color: #000; }
+  .button--success.button--success:hover, .button--success.button--success:focus, .button--success.button--success:active {
+    background-color: #54d964; }
+
+.button--warning.button--warning {
+  background-color: #f9dc4a;
+  color: #000; }
+  .button--warning.button--warning:visited {
+    background-color: #f9dc4a;
+    color: #000; }
+  .button--warning.button--warning:hover, .button--warning.button--warning:focus, .button--warning.button--warning:active {
+    background-color: #fbe67b; }
+
+/*------------------------------------*\
+    #Focus
+\*------------------------------------*/
+:focus {
+  outline: 0.125rem solid #8b0084;
+  outline-offset: -0.125rem; }
+
+/**
+Where focus is moved to the target via JavaScript, it is
+acceptable not to show a focus outline.
+ */
+main:focus,
+#main:focus,
+[tabindex='-1']:focus {
+  outline: none; }
+
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
+form {
+  background-color: #e5e5e5; }
+
+/**
+Start of resets for the fieldset and legend elements - see
+https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+ */
+fieldset {
+  border: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0;
+  padding: 0; }
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell; }
+
+legend {
+  display: table;
+  padding: 0; }
+
+/* Any styling that would normally go on `fieldset` should be set on the wrapper instead */
+.fieldset-wrapper {
+  border: 2px solid;
+  border-radius: 0;
+  padding: 1em;
+  position: relative; }
+
+/**
+End of resets for the fieldset element
+ */
+/**
+Default form styling
+
+1. Make form fields inherit the document styling
+ */
+input,
+select,
+textarea {
+  background-color: #fff;
+  border: 2px solid #585858;
+  border-radius: 0;
+  color: contrast(#fafafa);
+  display: block;
+  font-family: inherit;
+  /* 1 */
+  font-size: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  padding: 0.625rem;
+  width: 100%; }
+  input:hover, input:focus, input:active,
+  select:hover,
+  select:focus,
+  select:active,
+  textarea:hover,
+  textarea:focus,
+  textarea:active {
+    background-color: #fafafa;
+    border-color: #111;
+    outline-offset: 0; }
+
+/**
+We want these inputs to sit a little closer to their corresponding
+label for increased usability by visually associating the label to its input.
+ */
+* + input,
+* + select,
+* + textarea,
+* .field-description,
+* .field-error,
+* .segmented-group {
+  margin-top: 0.3125rem; }
+
+/**
+Styling inputs
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-block;
+  margin-right: 0.75em;
+  width: auto; }
+
+select {
+  height: 3em; }
+
+textarea {
+  height: 10em;
+  resize: vertical;
+  width: 100%; }
+
+/**
+Memorable date input styles are great for dates that users already know,
+such as their date of birth. We always want these fields to line up,
+so we use inline-block rather than flexbox.
+
+Making fields like these only as wide as they need to be gives
+users a better visual clue as to what is required when completing them.
+
+If you increase the input padding, remember to increase these widths.
+ */
+.memorable-date {
+  display: inline-block;
+  margin-top: 0.625rem; }
+
+.memorable-date + .memorable-date {
+  margin-left: 1rem; }
+
+.memorable-date__day,
+.memorable-date__month {
+  width: 3em; }
+
+.memorable-date__year {
+  width: 4.5em; }
+
+/**
+Required fields
+ */
+input[required],
+select[required],
+textarea[required] {
+  border-color: #585858;
+  box-shadow: inset 2px 2px 0 0 #585858, inset 2px -2px 0 0 #585858, inset -2px -2px 0 0 #585858, inset -2px 2px 0 0 #585858; }
+  input[required]:hover, input[required]:focus, input[required]:active,
+  select[required]:hover,
+  select[required]:focus,
+  select[required]:active,
+  textarea[required]:hover,
+  textarea[required]:focus,
+  textarea[required]:active {
+    box-shadow: inset 2px 2px 0 0 #111, inset 2px -2px 0 0 #111, inset -2px -2px 0 0 #111, inset -2px 2px 0 0 #111; }
+
+input[required]:valid {
+  box-shadow: inset 0 0 0 0 #585858; }
+
+/**
+Field grouping
+ */
+.field + .field,
+* + .fieldset-wrapper,
+* + .field {
+  margin-top: 2.5rem; }
+
+.field {
+  max-width: 32em;
+  position: relative; }
+
+.option-group label {
+  display: block;
+  width: 100%; }
+
+/**
+This goes inside the associated label. By doing it this way we are
+associating the help text with the field itself whilst still keeping
+a class-hook for styling.
+ */
+.field-description.field-description {
+  color: #666;
+  display: block;
+  font-size: 0.8em; }
+
+.field-label {
+  display: block; }
+
+/**
+Word or character counter with aria
+ */
+.field-live-region {
+  bottom: 1em;
+  color: #666;
+  font-size: 0.8em;
+  margin-top: 0;
+  opacity: 0;
+  position: absolute;
+  right: 1em;
+  transition: opacity 100ms ease-in-out 300ms; }
+
+/**
+Fade in live-region on focus. Maybe this should stay visible after
+the field has been completed?
+ */
+.field-input:focus + .field-live-region,
+.field-live-region.is-completed {
+  opacity: 1; }
+
+/**
+Group inputs to line up side-by-side
+ */
+.input-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  width: 100%; }
+  .input-group input {
+    -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+    margin-top: 0;
+    width: auto; }
+  .input-group__button {
+    -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+    margin-top: 0; }
+    .input-group__button .button {
+      /**
+			Make sure button aligns vertically with input field by changing the button padding to match the input
+			*/
+      padding: 1em 1.5em; }
+
+/**
+Collapsible input grouping
+ */
+.js-input-collapsible {
+  margin-bottom: 0;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+  .js-input-collapsible.is-active {
+    margin-bottom: 1.5em;
+    max-height: none;
+    overflow: auto;
+    visibility: visible; }
+
+/**
+Shared focus styles for checkboxes and radio buttons
+ */
+.input--checkbox:focus + .checkbox-label:before,
+.input--radio:focus + .radio-label:before,
+.input--checkbox:focus + .checkbox-label,
+.input--radio:focus + .radio-label {
+  background-color: #8b0084;
+  color: contrast(#8b0084);
+  outline: 2px solid #8b0084;
+  outline-offset: 0; }
+
+/**
+Shared input styles, gathered here for efficiency
+ */
+.checkbox-label::after,
+.checkbox-label::before,
+.radio-label::after,
+.radio-label::before,
+.segmented-label:after,
+.segmented-label:before {
+  content: '';
+  position: absolute; }
+
+/**
+Checkboxes
+ */
+.input--checkbox {
+  /* Hide the actual checkbox */
+  left: -3em;
+  position: absolute; }
+
+.checkbox-group label {
+  background-color: inherit;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 1.5em;
+  overflow: hidden;
+  padding: 0.5em 0.5em 0.5em 3em;
+  position: relative; }
+
+* + .checkbox-group label {
+  margin-top: 1rem; }
+
+/* Box */
+.checkbox-label:before {
+  background-color: #fff;
+  border: 2px solid #585858;
+  border-radius: 0;
+  height: 1.25em;
+  left: 0.75em;
+  top: 0.75em;
+  width: 1.25em; }
+
+/* Check */
+.checkbox-label:after {
+  background-color: #fff;
+  border: 0.2em solid transparent;
+  border-width: 0 0.2em 0.2em 0;
+  display: block;
+  height: 0.75em;
+  left: 1.15em;
+  top: 0.95em;
+  transform: rotate(45deg);
+  width: 0.4em; }
+
+/* Focused */
+.input--checkbox:focus + .checkbox-label:before {
+  border-color: #111; }
+
+/* Checked and Focused */
+.input--checkbox:checked:focus + .checkbox-label:before {
+  background-color: #111;
+  border-color: #111; }
+
+.input--checkbox:checked:focus + .checkbox-label:after {
+  border-color: #fff; }
+
+/* Checked */
+.input--checkbox:checked + .checkbox-label:before {
+  background-color: #111;
+  border-color: #111; }
+
+.input--checkbox:checked + .checkbox-label:after {
+  background: none;
+  border-color: #fff; }
+
+/* Hover */
+.checkbox-group label:hover .checkbox-label:before {
+  border-color: #111 !important; }
+
+.input--checkbox:checked + .checkbox-label:hover:before {
+  background-color: #666 !important;
+  border-color: #666 !important; }
+
+/**
+Radio buttons
+ */
+.radio-group input {
+  /* Hide the actual radio */
+  left: -3em;
+  position: absolute; }
+
+.radio-group label {
+  cursor: pointer;
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 0.5em 0.5em 0.5em 3em;
+  position: relative; }
+
+* + .radio-group label {
+  margin-top: 1rem; }
+
+.radio-label {
+  display: inline-block;
+  margin-top: 0;
+  max-width: 32em; }
+
+/* Box */
+.radio-label:before {
+  background-color: #fff;
+  border: 2px solid #585858;
+  border-radius: 50%;
+  height: 1.4em;
+  left: 0.75em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4em; }
+
+/* Check */
+.radio-label:after {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 0.7em;
+  left: 1.125em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7em; }
+
+/* Focused */
+.input--radio:focus + .radio-label:before {
+  border-color: #111; }
+
+/* Checked and Focused */
+.input--radio:checked:focus + .radio-label:before {
+  border-color: #666; }
+
+.input--radio:checked:focus + .radio-label:after {
+  background-color: #666; }
+
+/* Checked */
+.input--radio:checked + .radio-label:before {
+  border-color: #111; }
+
+.input--radio:checked + .radio-label:after {
+  background-color: #111; }
+
+/* Hover */
+.radio-group label:hover .radio-label:before {
+  border-color: #111 !important; }
+
+.input--radio:checked + .radio-label:hover:before {
+  border-color: #666 !important; }
+
+.input--radio:checked + .radio-label:hover:after {
+  background-color: #666 !important; }
+
+/**
+Segmented options. This can be either radio or checkbox, the purpose is to
+show all available options outright, rather than hide them behind a <select>
+ */
+.segmented-group-wrapper,
+.no-max-width {
+  max-width: none; }
+
+.segmented-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap; }
+
+.segmented-group .input--checkbox,
+.segmented-group .input--radio {
+  /* Hide the actual checkbox/radio */
+  left: -3em;
+  position: absolute; }
+
+.segmented-group > label {
+  cursor: pointer;
+  display: block;
+  -ms-flex: 1 1 33.3333%;
+      flex: 1 1 33.3333%;
+  max-width: 100%;
+  min-width: 9.6875rem;
+  overflow: hidden;
+  position: relative; }
+  .segmented-group > label * {
+    max-width: 100%; }
+
+* + .segmented-group > label {
+  margin-top: 0.25em; }
+
+.segmented-label {
+  margin: 1.5rem;
+  max-width: 32em; }
+  .segmented-label * {
+    position: relative;
+    z-index: 3; }
+  .segmented-label * + * {
+    margin-top: 0.3125rem; }
+  .segmented-label :first-child {
+    font-size: 1em; }
+  .segmented-label :not(:first-child) {
+    font-size: 0.8em; }
+
+/* Box */
+.segmented-label:before {
+  border: 2px solid #585858;
+  box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.2), inset 0 4px 0 rgba(0, 0, 0, 0.2);
+  height: calc(100% - 4px);
+  left: 2px;
+  top: 2px;
+  width: calc(100% - 4px);
+  z-index: 2; }
+
+/* Check */
+.segmented-label:after {
+  background-color: transparent;
+  border: 0.2em solid white;
+  border-width: 0 0.2em 0.2em 0;
+  display: block;
+  height: 0.75em;
+  position: absolute;
+  right: 0.75em;
+  top: 0.5em;
+  transform: scale(0) rotate(-45deg);
+  width: 0.4em;
+  z-index: 3; }
+
+/* Focused */
+.input--radio:focus + .segmented-label:before {
+  border-color: #111;
+  outline: 0.125em solid #8b0084; }
+
+/* Checked and Focused */
+.input--radio:checked:focus + .segmented-label:before {
+  border-color: #50b98a;
+  box-shadow: inset 0 0.125em 0 0 #aaa; }
+
+/* Checked */
+.input--radio:checked + .segmented-label:before {
+  background-color: #3d9970;
+  color: contrast(#3d9970);
+  box-shadow: inset 0 0.125em 0 0 #2e7555;
+  border-color: #2e7555;
+  border-width: 0.25em; }
+
+.input--radio:checked + .segmented-label {
+  background-color: #3d9970;
+  color: contrast(#3d9970); }
+
+.input--radio:checked + .segmented-label:after {
+  transform: scale(1) rotate(45deg); }
+
+/* Default hover */
+.segmented-group label:hover .segmented-label:before {
+  box-shadow: inset 0 2px 0 0 #2e7555; }
+
+/* Checked hover */
+.input--radio:checked + .segmented-label:hover:before {
+  border-color: #666; }
+
+/**
+Date input
+ */
+.field-input--date {
+  max-width: 12em; }
+
+/**
+Number input
+ */
+.field-input--number {
+  max-width: 6em; }
+
+/**
+Error states
+ */
+.field--has-error .field-label + input,
+.field--has-error .field-label + select,
+.field--has-error .field-label + textarea {
+  border-radius: 0; }
+
+.field-error + .segmented-group,
+.field-input + .field-error {
+  margin-top: 0; }
+
+.field--has-error input,
+.field--has-error select,
+.field--has-error textarea {
+  border-color: #e93737;
+  box-shadow: inset 2px 2px 0 0 #e93737, inset 2px -2px 0 0 #e93737, inset -2px -2px 0 0 #e93737, inset -2px 2px 0 0 #e93737; }
+
+.field--has-error .segmented-group {
+  border: 4px solid #e93737; }
+
+.field-error:not(:empty) {
+  background-color: #e93737;
+  border-radius: 0;
+  color: contrast(#e93737);
+  list-style-type: none;
+  padding: 1em; }
+
+/*------------------------------------*\
+    #Hide and show items inclusively
+
+    See https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+\*------------------------------------*/
+/*
+ * Hide from everybody and remove from the document flow, using the hidden
+ * attribute.
+ *
+ * Use if a component should remain hidden regardless of CSS being
+ * available or not (the style below provides support for legacy browsers).
+ */
+[hidden] {
+  display: none !important; }
+
+/*
+ * Hide from everybody and remove from the document flow, using the %hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a component requires a basic show and hide interaction, and the
+ * content should become available were CSS to fail.
+ */
+/*
+ * Hide from everybody while maintaining layout, using the %invisible
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ *
+ * Use if a more complex transition is required, like when transitioning an
+ * off-screen navigation into the viewport. Best paired with other CSS
+ * properties that negate its position in the DOM e.g. `position: absolute;`
+ */
+/*
+ * Hide visually only - remains available to Assistive Technology -
+ * using the %visually-hidden placeholder (extend the placeholder with
+ * Sass to avoid it appearing repeatedly in your markup).
+ */
+.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px; }
+
+/*
+ *The :not portions of the following selector allow a means for any
+ * focusable element to become visible when focused/active by a user.
+ */
+/*
+ * Make sure that the siblings of hidden components do not cause the hidden
+ * component to take up any vertical space.
+ */
+[hidden] + *,
+.hidden + *,
+.visuallyhidden + *,
+.skip-link + * {
+  margin-top: 0 !important; }
+
+br {
+  margin-top: 0; }
+
+/*
+ * Restore an element that has been visually hidden, using the %visually-hidden
+ * placeholder (extend the placeholder with Sass to avoid it appearing
+ * repeatedly in your markup).
+ */
+/*------------------------------------*\
+    #Icons
+\*------------------------------------*/
+svg {
+  fill: currentColor;
+  height: auto;
+  width: 100%; }
+
+/**
+SVG icons are sized relative to font size, thanks to the em unit.
+
+1. When the cap unit is supported this will make it easier to match icon
+size to text size.
+ */
+svg.icon {
+  height: 1em;
+  height: 1cap;
+  /* 1 */
+  vertical-align: baseline;
+  width: 1em;
+  width: 1cap;
+  /* 1 */ }
+
+svg.icon--larger {
+  height: 1.875rem;
+  width: 1.875rem; }
+
+/**
+Use the `with-icon` class on the SVG's parent, if there
+is a need to specify the spacing between text and icon.
+Pay attention to whether the icon is before the text or after.
+
+2. Logical property creates appropriate spacing irrespective of text direction
+ */
+.with-icon--before,
+.with-icon--after,
+.with-icon--larger {
+  -ms-flex-align: baseline;
+      align-items: baseline;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+
+.with-icon--larger {
+  -ms-flex-align: center;
+      align-items: center; }
+
+[dir="ltr"] .with-icon--before .icon {
+  margin-right: 0.5rem; }
+  @supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
+    [dir="ltr"] .with-icon--before .icon {
+      margin-right: 0;
+      -webkit-margin-end: 0.5rem;
+              margin-inline-end: 0.5rem;
+      /* 2 */ } }
+
+[dir="ltr"] .with-icon--after .icon {
+  margin-left: 0.5rem; }
+  @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+    [dir="ltr"] .with-icon--after .icon {
+      margin-left: 0;
+      -webkit-margin-start: 0.5rem;
+              margin-inline-start: 0.5rem;
+      /* 2 */ } }
+
+[dir="rtl"] .with-icon--before .icon {
+  margin-left: 0.5rem; }
+  @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+    [dir="rtl"] .with-icon--before .icon {
+      margin-left: 0;
+      -webkit-margin-end: 0.5rem;
+              margin-inline-end: 0.5rem;
+      /* 2 */ } }
+
+[dir="rtl"] .with-icon--after .icon {
+  margin-right: 0.5rem; }
+  @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
+    [dir="rtl"] .with-icon--after .icon {
+      margin-right: 0;
+      -webkit-margin-start: 0.5rem;
+              margin-inline-start: 0.5rem;
+      /* 2 */ } }
+
+/*------------------------------------*\
+    #Images
+\*------------------------------------*/
+img {
+  height: auto;
+  width: 100%; }
+
+/*------------------------------------*\
+    #Inline elements
+\*------------------------------------*/
+b,
+strong,
+.bold {
+  font-weight: 600; }
+
+em,
+i {
+  font-style: italic; }
+
+small,
+.small,
+.small-caps {
+  color: #777;
+  font-size: 0.875rem;
+  line-height: calc(17 / 12); }
+
+.small-caps {
+  text-shadow: 0 0 0 #111;
+  text-transform: uppercase; }
+
+code {
+  background-color: #001f3f;
+  color: #2ecc40;
+  font-family: Monaco, "Lucida Console", monospace;
+  padding-left: 0.1875rem;
+  padding-right: 0.1875rem; }
+
+/*------------------------------------*\
+    #Links
+\*------------------------------------*/
+/**
+Default global link styles that do not interfere with component link styles
+- see https://alexcarpenter.me/screencasts/2019/02/global-link-styles/
+
+1. Don't rely on colour alone for styling links - see
+https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
+
+2. Remove the outline on focused links when they are also active/hovered.
+ */
+a:not([class]) {
+  border: 0;
+  color: #005a9c;
+  cursor: pointer;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+  a:not([class]):visited {
+    color: #b10dc9; }
+  a:not([class]):hover, a:not([class]):active {
+    color: #024488;
+    outline-width: 0;
+    /* 2 */ }
+
+/*------------------------------------*\
+    #Lists
+\*------------------------------------*/
+/**
+Remove default list styles on lists with a class name (e.g. 'nav-list')
+ */
+ol[class],
+ul[class] {
+  list-style: none;
+  padding: 0; }
+
+ul:not([class]) > * + *,
+ul:not([class]) li ul,
+ul:not([class]) li ol,
+ol:not([class]) > * + *,
+ol:not([class]) li ul,
+ol:not([class]) li ol {
+  -webkit-margin-before: 0.25em;
+          margin-block-start: 0.25em; }
+
+ul:not([class]) {
+  -webkit-padding-start: 2.4em;
+          padding-inline-start: 2.4em; }
+
+ol:not([class]) {
+  counter-reset: custom;
+  list-style-type: none;
+  -webkit-padding-start: 1.25em;
+          padding-inline-start: 1.25em; }
+  ol:not([class]) > li::before {
+    counter-increment: custom;
+    content: counters(custom, ".");
+    -webkit-padding-end: 0.5em;
+            padding-inline-end: 0.5em; }
+
+.clean-list li {
+  display: block; }
+
+/**
+Description lists / Definition lists
+ */
+dl dd + dt {
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em; }
+
+dl dt + dd,
+dl dd + dd {
+  -webkit-margin-before: 0.25em;
+          margin-block-start: 0.25em; }
+
+/*------------------------------------*\
+    #Skip link
+\*------------------------------------*/
+.skip-link {
+  background-color: #005a9c;
+  color: #fff;
+  padding: 0.625em 0.9375em;
+  text-decoration: none; }
+  .skip-link:active, .skip-link:focus {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 999; }
+    .skip-link:active span, .skip-link:focus span {
+      box-shadow: 0 -1px 0 0 inset; }
+
+/*------------------------------------*\
+    #Social links
+\*------------------------------------*/
+.social-links__item {
+  height: 3rem;
+  padding: 0.875rem;
+  width: 3rem; }
+  .social-links__item .icon {
+    height: 1.25rem;
+    width: 1.25rem; }
+  .social-links__item:hover .icon {
+    color: #024488; }
+
+/*------------------------------------*\
+    #Tables
+
+    1. Logical property allows text-direction to change with `ltr`
+\*------------------------------------*/
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  width: 100%; }
+
+th {
+  border: 1px solid;
+  padding: 0.75rem;
+  text-align: left;
+  text-align: start;
+  /* 1 */ }
+
+td {
+  border: 1px solid;
+  padding: 0.75rem; }
+
+table caption {
+  padding-bottom: 1rem;
+  text-align: left;
+  text-align: start;
+  /* 1 */ }
+
+/**
+Bare minimum handling of large tables on small screens: wrapping
+div adds shading to the right-hand side to indicate when a table
+can be scrolled horizontally. The shading moves to the left-hand
+side when the table has been fully scrolled to the right, and vice versa.
+See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
+ */
+@media screen {
+  .table-wrap {
+    background-attachment: local, scroll, local, scroll;
+    background-color: #fff;
+    background-image: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0) 3rem), linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem), linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 3rem), linear-gradient(270deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem);
+    background-repeat: no-repeat;
+    overflow-x: auto;
+    padding-left: 1px; } }
+
+/**
+ Sticky header: an enhancement for tables without any horizontal overflow
+ */
+@media screen {
+  .js-sticky th {
+    background-clip: padding-box;
+    background-color: #fafafa;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /**
+		 Adds a bottom border, helpful when scrolling a table with a sticky header
+		 */ }
+    .js-sticky th::after {
+      background-color: #111;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%; } }
+
+/*------------------------------------*\
+    #Typography
+\*------------------------------------*/
+body {
+  font-family: "Trebuchet MS", Geneva, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; }
+
+/**
+All headings start off at the same size by default, so we focus on the semantic hierarchy.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0; }
+
+/**
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+.fonts-loaded body {
+  font-family: "Noto Sans", "Trebuchet MS", Geneva, sans-serif; }
+
+.txt-mercury {
+  font-size: 2.125rem;
+  line-height: calc(43 / 34); }
+  @media screen and (min-width: 48em) {
+    .txt-mercury {
+      font-size: 3.75rem;
+      line-height: calc(72 / 60); } }
+
+.txt-venus {
+  font-size: 2.0625rem;
+  line-height: calc(43 / 33); }
+  @media screen and (min-width: 48em) {
+    .txt-venus {
+      font-size: 3rem;
+      line-height: calc(67.2 / 48); } }
+
+.txt-earth {
+  font-size: 1.6875rem;
+  line-height: calc(33.6 / 27); }
+  @media screen and (min-width: 48em) {
+    .txt-earth {
+      font-size: 2.125rem;
+      line-height: calc(43 / 34); } }
+
+.txt-mars {
+  font-size: 1.5rem;
+  line-height: calc(33.6 / 24); }
+
+.txt-jupiter {
+  font-size: 1.25rem;
+  line-height: calc(32 / 20); }
+
+.txt-saturn {
+  line-height: calc(22 / 16); }
+
+.txt-pluto {
+  color: #565656;
+  line-height: calc(22.4 / 16); }
+
+.txt-body-alt {
+  color: #525252;
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15); }
+
+.txt-eris {
+  color: #777;
+  font-size: 0.875rem;
+  line-height: calc(17 / 12); }
+
+.txt-mercury,
+.txt-venus,
+.txt-earth,
+.txt-mars,
+.txt-jupiter,
+.txt-saturn,
+.txt-pluto,
+.txt-body-alt,
+.txt-eris {
+  margin-bottom: 1em; }
+
+/*------------------------------------*\
+    #Print styles
+
+    We aim to:
+    - Hide everything that is irrelevant for print
+    - Make everything black and white and easy to read
+
+    It is perfectly acceptable to use !important for print styles
+    as they should override everything else.
+
+    IMPORTANT: Anything that uses flexbox or grid on screen
+    and needs to appear in print must be refactored to use
+    block or inline block layout. Otherwise it will not print.
+    You can check this using the print preview in Chrome/Firefox.
+\*------------------------------------*/
+@media print {
+  *,
+  *:before,
+  *:after,
+  p:first-line,
+  div:first-line,
+  blockquote:first-line,
+  li:first-line {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    overflow: visible !important;
+    position: static !important;
+    text-shadow: none !important; }
+  body,
+  .lazy,
+  .lazyload {
+    display: block !important; }
+  .js-object-fit,
+  .responsive-wrapper,
+  picture {
+    padding: 0 !important; }
+    .js-object-fit img,
+    .responsive-wrapper img,
+    picture img {
+      display: block !important;
+      height: auto !important;
+      width: 100% !important; }
+  li,
+  .js-object-fit,
+  .responsive-wrapper,
+  picture,
+  figure,
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid; }
+  .l-sidebar > div {
+    display: block !important; }
+  .js-carousel > * {
+    display: block !important; }
+  .js-carousel ul.carousel-controls {
+    display: none !important; }
+  .js-carousel ul.clean-list li + li {
+    margin-top: 1cm !important; }
+  .component--collapsibles [hidden] {
+    display: block !important; }
+  .skip-link,
+  #cookie-banner,
+  nav,
+  .component--video,
+  .global-footer {
+    display: none !important; } }
+
+/*------------------------------------*\
+    #Layouts
+
+    Only selected layouts that will not break in older browsers
+\*------------------------------------*/
+/*------------------------------------*\
+    #Box layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/box/
+
+    `.l-box` should have borders and/or padding on all sides, or
+    none at all. Otherwise it's not a box, but something more specific.
+\*------------------------------------*/
+.l-box {
+  border: 1px solid;
+  display: block;
+  padding: 1.5rem; }
+
+.l-box--no-padding {
+  padding: 0; }
+
+/**
+1. High contrast themes tend to eliminate background-color. If there is no
+border set on the box, we need to apply a transparent outline to maintain
+the box shape. The negative outline-offset moves the outline inside the
+perimeter so it behaves like a border and doesn't add to the overall size.
+ */
+.l-box--no-border {
+  border: none;
+  outline: 1px solid transparent;
+  /* 1 */
+  outline-offset: -1px;
+  /* 1 */ }
+
+/*------------------------------------*\
+    #Center layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/center/
+
+    `.l-center` creates a horizontally centered container.
+\*------------------------------------*/
+/**
+1. We use left and right padding to add some minimum space between the
+contents of `.l-center` and the edges of the parent element or viewport.
+To avoid making the content narrower than intended, we add an exception
+to our global box-sizing rule.
+ */
+.l-center.l-center {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70rem;
+  padding-left: 5vw;
+  padding-right: 5vw; }
+
+/*------------------------------------*\
+    #Cluster layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/cluster/
+
+    `.l-cluster` suits any groups of elements that differ in length and
+    are liable to wrap. Use the Cluster to align any groups of horizontally
+    laid out elements to the left or right, or in the center, with even
+    spacing between elements.
+
+    The size variable used below defines the desired spacing between
+    elements inside `.l-cluster` (currently 1rem). Sizes are defined
+    in /10-settings/sizes
+\*------------------------------------*/
+/**
+Suppress horizontal scrolling caused by the negative margin
+in some circumstances.
+ */
+.l-cluster {
+  overflow: hidden; }
+
+/**
+We use flexbox to configure the elements into clusters without creating
+white space. We can control how we align items within the cluster,
+by using 'align-items` and `justify-content`.
+ */
+.l-cluster > * {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: -0.625rem; }
+
+/**
+We apply an even, symmetrical margin to the elements that we wish to space
+out, but halve it to to account for 'doubling up' at the edges.
+ */
+.l-cluster.l-cluster > * > * {
+  display: inline-block;
+  margin: 0.625rem; }
+
+/*------------------------------------*\
+    #Components
+\*------------------------------------*/
+/*------------------------------------*\
+    #Global footer
+\*------------------------------------*/
+.global-footer {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+  padding-bottom: 1.25rem;
+  padding-top: 1.25rem; }
+
+@media screen and (min-width: 48em) {
+  .global-footer > div {
+    -ms-flex-align: center;
+        align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between; } }
+
+.global-footer .l-cluster ul {
+  margin: -0.6875rem; }
+
+.global-footer .l-cluster li {
+  margin: 0.6875rem; }
+
+.global-footer .l-cluster a {
+  box-shadow: none;
+  color: #111;
+  display: block;
+  font-size: 0.9375rem;
+  min-width: 2.75rem;
+  text-align: center; }
+  .global-footer .l-cluster a:visited {
+    color: #111; }
+    .global-footer .l-cluster a:visited::after {
+      background-color: #111; }
+  .global-footer .l-cluster a:hover, .global-footer .l-cluster a:active {
+    color: #111; }
+    .global-footer .l-cluster a:hover::after, .global-footer .l-cluster a:active::after {
+      background-color: #111; }
+
+.global-footer > div > a {
+  display: block;
+  margin-top: 0.625rem; }
+  @media screen and (min-width: 48em) {
+    .global-footer > div > a {
+      margin-top: 0; } }
+
+@media screen and (min-width: 48em) {
+  [dir="ltr"] .global-footer > div > a {
+    margin-left: auto; } }
+
+@media screen and (min-width: 48em) {
+  [dir="rtl"] .global-footer > div > a {
+    margin-right: auto; } }
+
+/*------------------------------------*\
+    #Global header
+\*------------------------------------*/
+.no-js .global-header__menu-btn {
+  display: none; }
+
+.global-header {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  max-width: 100%;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem; }
+
+.global-header__login,
+.global-header__menu-btn,
+[data-trigger="mobile-nav"] {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.5625rem; }
+
+.global-header__login {
+  color: #005a9c;
+  text-decoration: none; }
+  .global-header__login span {
+    box-shadow: 0 -1px 0 0 inset; }
+  .global-header__login svg {
+    color: #666; }
+
+@media screen and (min-width: 23.4375em) {
+  [dir="ltr"] .global-header__login {
+    margin-left: auto; } }
+
+@media screen and (min-width: 23.4375em) {
+  [dir="ltr"] .global-header__menu-btn,
+  [dir="ltr"] [data-trigger="mobile-nav"] {
+    margin-left: 1.5625rem; } }
+
+@media screen and (min-width: 23.4375em) {
+  [dir="rtl"] .global-header__login {
+    margin-right: auto; } }
+
+@media screen and (min-width: 23.4375em) {
+  [dir="rtl"] .global-header__menu-btn,
+  [dir="rtl"] [data-trigger="mobile-nav"] {
+    margin-right: 1.5625rem; } }
+
+.global-header__menu-btn > *,
+[data-trigger="mobile-nav"] > * {
+  pointer-events: none; }
+
+.global-header__menu-btn[aria-expanded="false"] #close-icon,
+[data-trigger="mobile-nav"][aria-expanded="false"] #close-icon {
+  display: none; }
+
+.global-header__menu-btn[aria-expanded="false"] #menu-icon,
+[data-trigger="mobile-nav"][aria-expanded="false"] #menu-icon {
+  display: block; }
+
+.global-header__menu-btn[aria-expanded="true"] #close-icon,
+[data-trigger="mobile-nav"][aria-expanded="true"] #close-icon {
+  display: block; }
+
+.global-header__menu-btn[aria-expanded="true"] #menu-icon,
+[data-trigger="mobile-nav"][aria-expanded="true"] #menu-icon {
+  display: none; }
+
+@media screen and (min-width: 64em) {
+  .global-header__menu-btn,
+  [data-trigger="mobile-nav"] {
+    display: none; } }
+
+/*------------------------------------*\
+    #Logo
+\*------------------------------------*/
+.logo {
+  display: block;
+  height: 2.625rem;
+  position: relative;
+  width: 3.9375rem; }
+  @media screen and (min-width: 64em) {
+    .logo {
+      height: 3.25rem;
+      width: 4.875rem; } }
+
+/*------------------------------------*\
+    #Main
+\*------------------------------------*/
+/**
+1. We use left and right padding to add some minimum space between the
+contents of <main> and the edges of the parent element or viewport.
+To avoid making the content narrower than intended, we add an exception
+to our global box-sizing rule.
+ */
+main,
+#main {
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70rem;
+  padding: 1.5rem 5vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  main > * + *,
+  #main > * + * {
+    margin-top: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    main,
+    #main {
+      padding-left: 10vw;
+      padding-right: 10vw; } }
+
+/*------------------------------------*\
+    #Navigation
+\*------------------------------------*/
+.no-js [data-trigger="mobile-nav"],
+.no-js .nav__submenu {
+  display: none; }
+
+#global-nav {
+  box-shadow: 0 1rem 1rem 0 rgba(55, 70, 95, 0.07);
+  display: block;
+  margin-top: 1.5625rem;
+  padding-bottom: 2.8125rem;
+  position: relative; }
+  @media screen and (min-width: 64em) {
+    #global-nav {
+      border-bottom: solid 1px #bdbdbd;
+      box-shadow: none;
+      margin-top: 0;
+      padding-bottom: 0;
+      position: static; } }
+  #global-nav[aria-hidden="true"] {
+    display: none; }
+  #global-nav[aria-hidden="false"] {
+    display: block; }
+
+#global-nav svg {
+  pointer-events: none; }
+
+@media screen and (min-width: 64em) {
+  #global-nav > ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    position: relative; } }
+
+@media screen and (min-width: 64em) {
+  [dir="ltr"] li.top-nav-item + li.top-nav-item {
+    margin-left: 0.25rem; } }
+
+@media screen and (min-width: 64em) {
+  [dir="rtl"] li.top-nav-item + li.top-nav-item {
+    margin-right: 0.25rem; } }
+
+#global-nav .top-nav-item {
+  border-bottom: solid 1px #bdbdbd; }
+  @media screen and (min-width: 64em) {
+    #global-nav .top-nav-item {
+      border-bottom: none; } }
+
+.nav-link {
+  display: block;
+  padding: 0.625rem 0;
+  position: relative;
+  text-decoration: none; }
+  @media screen and (min-width: 64em) {
+    .nav-link {
+      display: inline-block; } }
+  .nav-link.icon-link {
+    -ms-flex-align: center;
+        align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0.875rem 0; }
+    @media screen and (min-width: 64em) {
+      .nav-link.icon-link {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -ms-flex-pack: center;
+            justify-content: center;
+        height: 100%;
+        min-width: 2.75rem; } }
+
+#global-nav .top-nav-item > .nav-link {
+  font-weight: 600; }
+
+/* Hide for now
+#global-nav > ul > li:last-child {
+
+	@include mq($bp-tab-large) {
+
+		display: none;
+
+	}
+
+	.nav-link {
+
+		font-size: rem(14);
+		font-weight: normal;
+
+	}
+
+	.icon {
+
+		color: $twiki-gray;
+		height: rem(24);
+		width: rem(24);
+
+	}
+
+}
+ End hide for now */
+@media screen and (min-width: 64em) {
+  #global-nav .top-nav-item > a,
+  #global-nav .top-nav-item button {
+    border-bottom: solid 3px transparent;
+    padding: 0.625rem 0.625rem 0.4375rem;
+    white-space: nowrap; }
+    #global-nav .top-nav-item > a:hover, #global-nav .top-nav-item > a:focus, #global-nav .top-nav-item > a.js-active,
+    #global-nav .top-nav-item button:hover,
+    #global-nav .top-nav-item button:focus,
+    #global-nav .top-nav-item button.js-active {
+      border-bottom-color: #0079b8;
+      outline: none; } }
+
+#global-nav svg {
+  pointer-events: none; }
+
+svg.nav-small {
+  -webkit-margin-start: auto;
+          margin-inline-start: auto; }
+  @media screen and (min-width: 64em) {
+    svg.nav-small {
+      display: none; } }
+
+svg.nav-wide {
+  display: none; }
+  @media screen and (min-width: 64em) {
+    svg.nav-wide {
+      display: inline; } }
+
+[dir="ltr"] svg.nav-small .angle-left {
+  display: none; }
+
+[dir="rtl"] svg.nav-small .angle-right {
+  display: none; }
+
+#global-nav [data-trigger="subnav"] {
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: transparent;
+  border-radius: 0;
+  color: #111;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: inherit;
+  outline: solid 1px transparent;
+  outline-offset: -1px;
+  padding: 0.75rem 0;
+  width: 100%; }
+  @media screen and (min-width: 64em) {
+    #global-nav [data-trigger="subnav"] {
+      display: -ms-inline-flexbox;
+      display: inline-flex; } }
+  @media screen and (min-width: 64em) {
+    #global-nav [data-trigger="subnav"][aria-expanded="false"] .angle-up {
+      display: none; } }
+  @media screen and (min-width: 64em) {
+    #global-nav [data-trigger="subnav"][aria-expanded="true"] .angle-down {
+      display: none; } }
+
+#global-nav .nav__submenu {
+  box-shadow: 0 16px 16px 0 rgba(55, 70, 95, 0.07);
+  padding-bottom: 2.8125rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 100%; }
+  @media screen and (min-width: 64em) {
+    #global-nav .nav__submenu {
+      border: solid 1px #bdbdbd;
+      max-width: 72.625rem;
+      padding: 1.25rem; } }
+  #global-nav .nav__submenu[aria-hidden="true"] {
+    display: none; }
+  #global-nav .nav__submenu[aria-hidden="false"] {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5; }
+    @media screen and (min-width: 64em) {
+      #global-nav .nav__submenu[aria-hidden="false"] {
+        background-color: #f8f8fb;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%); } }
+
+#global-nav [data-trigger="mobile-back"] {
+  font-size: 1.25rem;
+  line-height: calc(32 / 20);
+  border-color: transparent transparent #bdbdbd;
+  border-radius: 0;
+  padding: 0.75rem 5vw; }
+  @media screen and (min-width: 64em) {
+    #global-nav [data-trigger="mobile-back"] {
+      display: none; } }
+
+[dir="ltr"] [data-trigger="mobile-back"] .angle-right {
+  display: none; }
+
+[dir="rtl"] [data-trigger="mobile-back"] .angle-left {
+  display: none; }
+
+#global-nav .nav__submenu > a {
+  font-size: 1.25rem;
+  line-height: calc(32 / 20);
+  margin-top: 1.5625rem;
+  padding-bottom: 0.375rem;
+  padding-top: 0.375rem; }
+  @media screen and (min-width: 64em) {
+    #global-nav .nav__submenu > a {
+      margin-bottom: 1.5625rem;
+      margin-top: 0; } }
+
+@media screen and (min-width: 64em) {
+  #global-nav .nav__submenu > ul {
+    columns: 3 15.625rem;
+    column-gap: 2.5rem; } }
+
+#global-nav .nav__submenu > ul > li {
+  border-bottom: solid 1px #bdbdbd;
+  padding-bottom: 0.1875rem;
+  padding-top: 0.1875rem; }
+  @media screen and (min-width: 64em) {
+    #global-nav .nav__submenu > ul > li {
+      border-bottom: 0;
+      padding-bottom: 0;
+      padding-top: 0; } }
+
+@media screen and (min-width: 64em) {
+  #global-nav .nav__submenu > ul > li.has-children {
+    break-inside: avoid;
+    margin-bottom: 1.5625rem; }
+    #global-nav .nav__submenu > ul > li.has-children:last-of-type {
+      margin-bottom: 0; } }
+
+#global-nav .nav__submenu > ul > li > a {
+  font-size: 1.25rem;
+  line-height: calc(32 / 20);
+  font-weight: normal;
+  padding-bottom: 0.375rem;
+  padding-top: 0.375rem; }
+
+#global-nav .nav__submenu ul ul {
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem; }
+
+#global-nav .nav__submenu .nav-link:hover::after {
+  background-color: #111;
+  bottom: 0.4em;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%; }
+
+#global-nav .nav__submenu ul ul .nav-link:hover::after {
+  bottom: 0.6em; }
+
+/*------------------------------------*\
+    #Utilities
+\*------------------------------------*/
+/*------------------------------------*\
+    #Alignment utilities
+
+    1. Logical property allows text-direction to change with `ltr`
+\*------------------------------------*/
+.u-float-left {
+  float: left;
+  float: inline-start;
+  /* 1 */ }
+
+.u-float-right {
+  float: right;
+  float: inline-end;
+  /* 1 */ }
+
+.u-text-center {
+  text-align: center; }
+
+.u-text-left {
+  text-align: left;
+  text-align: start;
+  /* 1 */ }
+
+.u-text-right {
+  text-align: right;
+  text-align: end;
+  /* 1 */ }
+
+/**
+Change text-alignment at the "laptop" breakpoint,
+as defined in /10-settings/breakpoints
+
+1. Logical property allows text-direction to change with `ltr`
+ */
+@media screen and (min-width: 80em) {
+  .u-text-left-from-lap {
+    text-align: left;
+    text-align: start;
+    /* 1 */ } }
+
+@media screen and (min-width: 80em) {
+  .u-text-center-from-lap {
+    text-align: center; } }
+
+@media screen and (min-width: 80em) {
+  .u-text-right-from-lap {
+    text-align: right;
+    text-align: end;
+    /* 1 */ } }
+
+/*------------------------------------*\
+    #Clearfix utility
+
+    https://css-tricks.com/snippets/css/clear-fix/
+
+    Extend the clearfix placeholder with Sass to avoid
+    having it appear over and over in your markup.
+\*------------------------------------*/
+/*------------------------------------*\
+    #Layout utilities
+\*------------------------------------*/
+/**
+For a full-viewport-width element inside a limited width parent.
+The parent must be exactly centered in the browser in order for this
+to work - see https://css-tricks.com/full-width-containers-limited-width-parents/
+ */
+.u-full-width {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw; }
+
+/**
+To horizontally center a block-level item
+ */
+.u-center {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
