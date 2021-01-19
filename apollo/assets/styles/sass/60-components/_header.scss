@@ -8,3 +8,58 @@
 	position: relative;
 
 }
+
+.banner {
+
+	background-color: $light-blue;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}
+
+.banner__inner {
+
+	align-items: center;
+	display: flex;
+
+	.icon--beta {
+
+		flex: none;
+		width: rem(61);
+
+	}
+
+	p {
+
+		font-size: rem(14);
+		line-height: calc(17 / 12);
+
+	}
+
+	a {
+
+		color: $deep-blue;
+
+	}
+
+}
+
+[dir="ltr"] {
+
+	.banner__inner p {
+
+		margin-left: rem(10);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.banner__inner p {
+
+		margin-right: rem(10);
+
+	}
+
+}
