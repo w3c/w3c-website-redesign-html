@@ -2,6 +2,10 @@
     #Navigation
 \*------------------------------------*/
 
+/**
+Note: aria-expanded and aria-hidden attributes are managed by JS
+ */
+
 .no-js {
 
 	[data-trigger="mobile-nav"],
@@ -13,25 +17,92 @@
 
 }
 
-#global-nav {
+#global-nav svg {
 
-	box-shadow: 0 rem(16) rem(16) 0 rgba(55,70,95,0.07);
-	display: block;
-	margin-top: rem(25);
-	padding-bottom: rem(45);
-	position: relative;
+	pointer-events: none;
 
-	@include mq($bp-tab-large) {
+}
 
-		border-bottom: solid 1px $border-color;
-		box-shadow: none;
-		margin-top: 0;
-		padding-bottom: 0;
-		position: static;
+[data-trigger="mobile-nav"] {
+
+	font-size: rem(14);
+	padding: rem(6) rem(9);
+
+	&[aria-expanded="false"] #close-icon {
+
+		display: none;
 
 	}
 
-	// The aria-hidden attribute is managed by JS
+	&[aria-expanded="true"] #menu-icon {
+
+		display: none;
+
+	}
+
+	&[aria-expanded="false"] ~ .my-account--login {
+
+		display: none;
+
+	}
+
+	&[aria-expanded="true"] ~ .my-account--login {
+
+		display: flex;
+
+	}
+
+	@include mq($max-width) {
+
+		display: none;
+
+	}
+
+}
+
+[dir="ltr"] {
+
+	[data-trigger="mobile-nav"] {
+
+		margin-left: auto;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	[data-trigger="mobile-nav"] {
+
+		margin-right: auto;
+
+	}
+
+}
+
+#global-nav {
+
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: rem(18);
+	padding-top: rem(18);
+
+	@include mq($max-width) {
+
+		align-items: flex-end;
+		box-shadow: none;
+		padding-bottom: 0;
+		padding-top: rem(20);
+
+	}
+
+}
+
+#global-nav > ul {
+
+	flex-basis: 100%;
+
 	&[aria-hidden="true"] {
 
 		display: none;
@@ -40,25 +111,15 @@
 
 	&[aria-hidden="false"] {
 
-		display: block;
+		display: flex;
+		flex-wrap: wrap;
 
 	}
 
-}
+	@include mq($max-width) {
 
-#global-nav svg {
-
-	pointer-events: none;
-
-}
-
-#global-nav > ul {
-
-	@include mq($bp-tab-large) {
-
-		display: flex;
+		flex-basis: auto;
 		flex-wrap: nowrap;
-		position: relative;
 
 	}
 
@@ -68,7 +129,7 @@
 
 	li.top-nav-item + li.top-nav-item {
 
-		@include mq($bp-tab-large) {
+		@include mq($max-width) {
 
 			margin-left: rem(4);
 
@@ -82,7 +143,7 @@
 
 	li.top-nav-item + li.top-nav-item {
 
-		@include mq($bp-tab-large) {
+		@include mq($max-width) {
 
 			margin-right: rem(4);
 
@@ -95,10 +156,12 @@
 #global-nav .top-nav-item {
 
 	border-bottom: solid 1px $border-color;
+	flex-basis: 100%;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		border-bottom: none;
+		flex-basis: auto;
 
 	}
 
@@ -111,27 +174,9 @@
 	position: relative;
 	text-decoration: none;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		display: inline-block;
-
-	}
-
-	&.icon-link {
-
-		align-items: center;
-		display: flex;
-		padding: rem(14) 0;
-
-		@include mq($bp-tab-large) {
-
-			display: inline-flex;
-			justify-content: center;
-			height: 100%;
-			min-width: rem(44);
-
-		}
-
 
 	}
 
@@ -143,19 +188,62 @@
 
 }
 
-/* Hide for now
-#global-nav > ul > li:last-child {
+.logo-link {
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
-		display: none;
+		border-bottom: solid 3px transparent;
+		margin-inline-end: rem(25);
+		padding-bottom: rem(5);
+
+		&:hover,
+		&:focus {
+
+			border-bottom-color: #0079b8;
+			outline: none;
+
+		}
 
 	}
 
-	.nav-link {
+}
 
-		font-size: rem(14);
-		font-weight: normal;
+.icon-link {
+
+	align-items: center;
+	display: flex;
+	padding: rem(14) 0;
+
+	@include mq($max-width) {
+
+		display: inline-flex;
+		justify-content: center;
+		height: 100%;
+		min-width: rem(44);
+
+	}
+
+}
+
+.my-account--login {
+
+	flex-basis: 100%;
+	font-size: rem(14);
+	text-decoration: none;
+
+	&:hover {
+
+		text-decoration: underline;
+		text-decoration-skip-ink: auto;
+		text-underline-offset: 0.25em;
+
+	}
+
+	@include mq($max-width) {
+
+		flex-basis: auto;
+		padding-bottom: rem(10);
+		padding-top: rem(10);
 
 	}
 
@@ -168,15 +256,42 @@
 	}
 
 }
- End hide for now */
+
+[dir="ltr"] {
+
+	.my-account--login {
+
+		@include mq($max-width) {
+
+			margin-left: auto;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.my-account--login {
+
+		@include mq($max-width) {
+
+			margin-right: auto;
+
+		}
+
+	}
+
+}
 
 #global-nav .top-nav-item > a,
 #global-nav .top-nav-item button {
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		border-bottom: solid 3px transparent;
-		padding: rem(10) rem(10) rem(7);
+		padding: rem(10) rem(5) rem(7);
 		white-space: nowrap;
 
 		&:hover,
@@ -192,17 +307,11 @@
 
 }
 
-#global-nav svg {
-
-	pointer-events: none;
-
-}
-
 svg.nav-small {
 
 	margin-inline-start: auto;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		display: none;
 
@@ -214,7 +323,7 @@ svg.nav-wide {
 
 	display: none;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		display: inline;
 
@@ -255,7 +364,7 @@ svg.nav-wide {
 	padding: rem(12) 0;
 	width: 100%;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		display: inline-flex;
 
@@ -263,7 +372,7 @@ svg.nav-wide {
 
 	&[aria-expanded="false"] {
 
-		@include mq($bp-tab-large) {
+		@include mq($max-width) {
 
 			.angle-up {
 
@@ -277,7 +386,7 @@ svg.nav-wide {
 
 	&[aria-expanded="true"] {
 
-		@include mq($bp-tab-large) {
+		@include mq($max-width) {
 
 			.angle-down {
 
@@ -299,7 +408,7 @@ svg.nav-wide {
 	padding-right: 5vw;
 	width: 100%;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		border: solid 1px $border-color;
 		max-width: rem(1162);
@@ -307,7 +416,6 @@ svg.nav-wide {
 
 	}
 
-	// The aria-hidden attribute is managed by JS
 	&[aria-hidden="true"] {
 
 		display: none;
@@ -322,7 +430,7 @@ svg.nav-wide {
 		top: 0;
 		z-index: 5;
 
-		@include mq($bp-tab-large) {
+		@include mq($max-width) {
 
 			background-color: $mist-gray;
 			left: 50%;
@@ -341,9 +449,11 @@ svg.nav-wide {
 
 	border-color: transparent transparent $border-color;
 	border-radius: 0;
+	outline: solid 1px transparent;
+	outline-offset: -1px;
 	padding: rem(12) 5vw;
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		display: none;
 
@@ -375,11 +485,12 @@ svg.nav-wide {
 
 	@include txt-jupiter;
 
+	font-weight: $emphasis;
 	margin-top: rem(25);
 	padding-bottom: rem(6);
 	padding-top: rem(6);
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		margin-bottom: rem(25);
 		margin-top: 0;
@@ -390,7 +501,7 @@ svg.nav-wide {
 
 #global-nav .nav__submenu > ul {
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		columns: 3 rem(250);
 		column-gap: rem(40);
@@ -405,7 +516,7 @@ svg.nav-wide {
 	padding-bottom: rem(3);
 	padding-top: rem(3);
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		border-bottom: 0;
 		padding-bottom: 0;
@@ -417,7 +528,7 @@ svg.nav-wide {
 
 #global-nav .nav__submenu > ul > li.has-children {
 
-	@include mq($bp-tab-large) {
+	@include mq($max-width) {
 
 		break-inside: avoid;
 		margin-bottom: rem(25);
@@ -434,11 +545,9 @@ svg.nav-wide {
 
 #global-nav .nav__submenu > ul > li > a {
 
-	@include txt-jupiter;
-
-	font-weight: normal;
-	padding-bottom: rem(6);
-	padding-top: rem(6);
+	font-size: rem(18);
+	padding-bottom: rem(9);
+	padding-top: rem(9);
 
 }
 
@@ -452,32 +561,9 @@ svg.nav-wide {
 
 	&:hover {
 
-		&::after {
-
-			background-color: $off-black;
-			bottom: 0.4em;
-			content: '';
-			display: block;
-			height: 1px;
-			left: 0;
-			position: absolute;
-			width: 100%;
-
-		}
-
-	}
-
-}
-
-#global-nav .nav__submenu ul ul .nav-link{
-
-	&:hover {
-
-		&::after {
-
-			bottom: 0.6em;
-
-		}
+		text-decoration: underline;
+		text-decoration-skip-ink: auto;
+		text-underline-offset: 0.25em;
 
 	}
 

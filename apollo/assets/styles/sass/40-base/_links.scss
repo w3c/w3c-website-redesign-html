@@ -19,6 +19,7 @@ a:not([class]) {
 	cursor: pointer;
 	padding-left: rem(2);
 	padding-right: rem(2);
+	text-decoration: underline;
 	text-decoration-skip-ink: auto; // Not supported by Safari
 	text-underline-offset: 0.25em; // Supported by Safari
 
