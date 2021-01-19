@@ -1950,6 +1950,11 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 .no-js .nav__submenu {
   display: none; }
 
+@media screen and (min-width: 71.25em) {
+  .no-js #global-nav > ul {
+    display: -ms-flexbox;
+    display: flex; } }
+
 #global-nav svg {
   pointer-events: none; }
 
