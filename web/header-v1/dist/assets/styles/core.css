@@ -1314,6 +1314,10 @@ svg.icon--larger {
   height: 1.875rem;
   width: 1.875rem; }
 
+svg.icon--beta {
+  height: 2.4375rem;
+  width: 3.8125rem; }
+
 /**
 Use the `with-icon` class on the SVG's parent, if there
 is a need to specify the spacing between text and icon.
@@ -1895,6 +1899,32 @@ out, but halve it to to account for 'doubling up' at the edges.
 .global-header {
   border-bottom: solid 1px #bdbdbd;
   position: relative; }
+
+.banner {
+  background-color: #cbe0fb;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
+
+.banner__inner {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex; }
+  .banner__inner .icon--beta {
+    -ms-flex: none;
+        flex: none;
+    width: 3.8125rem; }
+  .banner__inner p {
+    font-size: 0.875rem;
+    line-height: calc(17 / 12); }
+  .banner__inner a {
+    color: #024488; }
+
+[dir="ltr"] .banner__inner p {
+  margin-left: 0.625rem; }
+
+[dir="rtl"] .banner__inner p {
+  margin-right: 0.625rem; }
 
 /*------------------------------------*\
     #Logo
