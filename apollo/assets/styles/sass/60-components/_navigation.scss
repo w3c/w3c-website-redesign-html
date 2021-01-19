@@ -15,6 +15,16 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 	}
 
+	#global-nav > ul {
+
+		@include mq($max-width) {
+
+			display: flex;
+
+		}
+
+	}
+
 }
 
 #global-nav svg {

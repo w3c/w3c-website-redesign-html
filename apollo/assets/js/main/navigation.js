@@ -24,14 +24,14 @@ var navigation = (function () {
 		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
 	}
 
-	var nav = document.querySelector('#global-nav');
-	var mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
-	var menuIcon = '<svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><path id="menu-icon" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/><path id="close-icon" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>';
-	var parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
-	var subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
+	let nav = document.querySelector('#global-nav > ul');
+	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
+	let menuIcon = '<svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><path id="menu-icon" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/><path id="close-icon" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>';
+	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
+	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
 
 	// I18N for 'Menu' button text
-	var openText = '<span class="visuallyhidden">Open</span> Menu';
+	let openText = '<span class="visuallyhidden">Open</span> Menu';
 	if (document.documentElement.lang === 'fr') {
 		openText = '<span class="visuallyhidden">Ouvrir le</span> Menu';
 	} else if (document.documentElement.lang === 'ja') {
@@ -41,7 +41,7 @@ var navigation = (function () {
 	}
 
 	// I18N for 'Close' button text
-	var closeText = 'Close <span class="visuallyhidden">Menu</span>';
+	let closeText = 'Close <span class="visuallyhidden">Menu</span>';
 	if (document.documentElement.lang === 'fr') {
 		closeText = '<span class="visuallyhidden">Fermer le</span> Menu';
 	} else if (document.documentElement.lang === 'ja') {
@@ -51,7 +51,7 @@ var navigation = (function () {
 	}
 
 	// I18N for 'Main menu' back button text
-	var backText = 'Main menu';
+	let backText = 'Main menu';
 	if (document.documentElement.lang === 'fr') {
 		backText = 'Menu principal';
 	} else if (document.documentElement.lang === 'ja') {
@@ -60,8 +60,8 @@ var navigation = (function () {
 		backText = '主菜单';
 	}
 
-	var closeSubNavs = function () {
-		var subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
+	let closeSubNavs = function () {
+		let subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
 		subNavTriggers.forEach(function (trigger) {
 			trigger.setAttribute('aria-expanded', 'false');
 			trigger.removeAttribute('class');
@@ -70,7 +70,7 @@ var navigation = (function () {
 	}
 
 	// Toggle mobile navigation
-	var toggleMobileNav = function () {
+	let toggleMobileNav = function () {
 
 		if (mobileNavToggler && nav) {
 
@@ -106,7 +106,7 @@ var navigation = (function () {
 	}
 
 	// Media query event handler
-	var mq = window.matchMedia('(min-width: 1024px)');
+	let mq = window.matchMedia('(min-width: 1140px)');
 	mq.addListener(WidthChange);
 	WidthChange(mq);
 
@@ -124,13 +124,13 @@ var navigation = (function () {
 
 		parentLinks.forEach(function (item) {
 
-			var clonedLink = item.cloneNode(true);
-			var linkText = item.textContent + '&nbsp;';
-			var toggleButton = document.createElement('button');
-			var backButton = document.createElement('button');
-			var fragment = document.createDocumentFragment();
-			var subNav = item.parentNode.querySelector('.nav__submenu');
-			var submenuFirstChild = item.parentNode.querySelector('.nav__submenu > *');
+			let clonedLink = item.cloneNode(true);
+			let linkText = item.textContent + '&nbsp;';
+			let toggleButton = document.createElement('button');
+			let backButton = document.createElement('button');
+			let fragment = document.createDocumentFragment();
+			let subNav = item.parentNode.querySelector('.nav__submenu');
+			let submenuFirstChild = item.parentNode.querySelector('.nav__submenu > *');
 
 			toggleButton.setAttribute('type', 'button');
 			toggleButton.setAttribute('aria-expanded', 'false');
@@ -150,7 +150,7 @@ var navigation = (function () {
 
 		});
 
-		for (var i = 0; i < subNavArray.length; i++) {
+		for (let i = 0; i < subNavArray.length; i++) {
 
 			subNavArray[i].setAttribute('aria-hidden', 'true');
 
@@ -160,7 +160,7 @@ var navigation = (function () {
 
 			if (event.target.matches('[data-trigger="subnav"]')) {
 
-				var targetNav = event.target.nextElementSibling;
+				let targetNav = event.target.nextElementSibling;
 
 				if (targetNav.getAttribute('aria-hidden') === 'true') {
 
@@ -196,7 +196,7 @@ var navigation = (function () {
 				return;
 			}
 
-			var key = event.key || event.keyCode;
+			let key = event.key || event.keyCode;
 
 			if (key === 'Escape' || key === 'Esc' || key === 27) {
 
@@ -207,8 +207,6 @@ var navigation = (function () {
 		});
 
 	}
-
-
 
 })();
 
