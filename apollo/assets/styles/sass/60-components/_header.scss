@@ -2,14 +2,7 @@
     #Global header
 \*------------------------------------*/
 
-.global-header {
-
-	border-bottom: solid 1px $border-color;
-	position: relative;
-
-}
-
-.banner {
+.global-header .banner {
 
 	background-color: $light-blue;
 	padding-bottom: rem(10);
@@ -17,7 +10,7 @@
 
 }
 
-.banner__inner {
+.global-header .banner__inner {
 
 	align-items: center;
 	display: flex;

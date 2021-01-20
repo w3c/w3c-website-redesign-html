@@ -15,7 +15,7 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 	}
 
-	#global-nav > ul {
+	.global-nav__inner > ul {
 
 		@include mq($max-width) {
 
@@ -93,15 +93,14 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 #global-nav {
 
 	align-items: center;
-	display: flex;
-	flex-wrap: wrap;
+	border-bottom: solid 1px $border-color;
+	display: block;
 	padding-bottom: rem(18);
 	padding-top: rem(18);
+	position: relative;
 
 	@include mq($max-width) {
 
-		align-items: flex-end;
-		box-shadow: none;
 		padding-bottom: 0;
 		padding-top: rem(20);
 
@@ -109,7 +108,21 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 }
 
-#global-nav > ul {
+.global-nav__inner {
+
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+
+	@include mq($max-width) {
+
+		align-items: flex-end;
+
+	}
+
+}
+
+.global-nav__inner > ul {
 
 	flex-basis: 100%;
 
@@ -163,7 +176,7 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 }
 
-#global-nav .top-nav-item {
+.global-nav__inner .top-nav-item {
 
 	border-bottom: solid 1px $border-color;
 	flex-basis: 100%;
@@ -192,7 +205,7 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 }
 
-#global-nav .top-nav-item > .nav-link {
+.global-nav__inner .top-nav-item > .nav-link {
 
 	font-weight: $emphasis;
 
@@ -295,8 +308,8 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 }
 
-#global-nav .top-nav-item > a,
-#global-nav .top-nav-item button {
+.global-nav__inner .top-nav-item > a,
+.global-nav__inner .top-nav-item button {
 
 	@include mq($max-width) {
 
@@ -361,7 +374,7 @@ svg.nav-wide {
 
 }
 
-#global-nav [data-trigger="subnav"] {
+.global-nav__inner [data-trigger="subnav"] {
 
 	align-items: center;
 	background-color: transparent;
@@ -410,9 +423,10 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu {
+.global-nav__inner .nav__submenu {
 
-	box-shadow: 0 16px 16px 0 rgba(55,70,95,0.07);
+	border-bottom: solid 1px $border-color;
+	min-height: calc(100% + 1px);
 	padding-bottom: rem(45);
 	padding-left: 5vw;
 	padding-right: 5vw;
@@ -421,7 +435,9 @@ svg.nav-wide {
 	@include mq($max-width) {
 
 		border: solid 1px $border-color;
-		max-width: rem(1162);
+		box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
+		max-width: rem($max-width);
+		min-height: auto;
 		padding: rem(20);
 
 	}
@@ -453,7 +469,7 @@ svg.nav-wide {
 
 }
 
-#global-nav [data-trigger="mobile-back"] {
+.global-nav__inner [data-trigger="mobile-back"] {
 
 	@include txt-jupiter;
 
@@ -491,7 +507,7 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu > a {
+.global-nav__inner .nav__submenu > a {
 
 	@include txt-jupiter;
 
@@ -509,7 +525,7 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu > ul {
+.global-nav__inner .nav__submenu > ul {
 
 	@include mq($max-width) {
 
@@ -520,7 +536,7 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu > ul > li {
+.global-nav__inner .nav__submenu > ul > li {
 
 	border-bottom: solid 1px $border-color;
 	padding-bottom: rem(3);
@@ -536,7 +552,7 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu > ul > li.has-children {
+.global-nav__inner .nav__submenu > ul > li.has-children {
 
 	@include mq($max-width) {
 
@@ -553,7 +569,7 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu > ul > li > a {
+.global-nav__inner .nav__submenu > ul > li > a {
 
 	font-size: rem(18);
 	padding-bottom: rem(9);
@@ -561,13 +577,13 @@ svg.nav-wide {
 
 }
 
-#global-nav .nav__submenu ul ul {
+.global-nav__inner .nav__submenu ul ul {
 
 	margin-inline-start: rem(10);
 
 }
 
-#global-nav .nav__submenu .nav-link {
+.global-nav__inner .nav__submenu .nav-link {
 
 	&:hover {
 
