@@ -34,7 +34,7 @@ var navigation = (function () {
 	let menuText = 'Menu';
 	if (document.documentElement.lang === 'ja') {
 		menuText = 'メニュー';
-	} else if (document.documentElement.lang === 'zh') {
+	} else if (document.documentElement.lang === 'zh-hans') {
 		menuText = '菜单';
 	}
 
@@ -42,7 +42,7 @@ var navigation = (function () {
 	let backText = 'Main menu';
 	if (document.documentElement.lang === 'ja') {
 		backText = 'メインメニュー';
-	} else if (document.documentElement.lang === 'zh') {
+	} else if (document.documentElement.lang === 'zh-hans') {
 		backText = '主菜单';
 	}
 
