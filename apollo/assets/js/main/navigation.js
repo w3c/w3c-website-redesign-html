@@ -31,32 +31,18 @@ var navigation = (function () {
 	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
 
 	// I18N for 'Menu' button text
-	let openText = '<span class="visuallyhidden">Open</span> Menu';
-	if (document.documentElement.lang === 'fr') {
-		openText = '<span class="visuallyhidden">Ouvrir le</span> Menu';
-	} else if (document.documentElement.lang === 'ja') {
-		openText = 'メニュー<span class="visuallyhidden">を開く</span>';
-	} else if (document.documentElement.lang === 'zh-Hans') {
-		openText = '<span class="visuallyhidden">打开</span>菜单';
-	}
-
-	// I18N for 'Close' button text
-	let closeText = 'Close <span class="visuallyhidden">Menu</span>';
-	if (document.documentElement.lang === 'fr') {
-		closeText = '<span class="visuallyhidden">Fermer le</span> Menu';
-	} else if (document.documentElement.lang === 'ja') {
-		closeText = '<span class="visuallyhidden">メニュー</span>を閉じる';
-	} else if (document.documentElement.lang === 'zh-Hans') {
-		closeText = '关闭<span class="visuallyhidden">菜单</span>';
+	let menuText = 'Menu';
+	if (document.documentElement.lang === 'ja') {
+		menuText = 'メニュー';
+	} else if (document.documentElement.lang === 'zh') {
+		menuText = '菜单';
 	}
 
 	// I18N for 'Main menu' back button text
 	let backText = 'Main menu';
-	if (document.documentElement.lang === 'fr') {
-		backText = 'Menu principal';
-	} else if (document.documentElement.lang === 'ja') {
+	if (document.documentElement.lang === 'ja') {
 		backText = 'メインメニュー';
-	} else if (document.documentElement.lang === 'zh-Hans') {
+	} else if (document.documentElement.lang === 'zh') {
 		backText = '主菜单';
 	}
 
@@ -74,7 +60,7 @@ var navigation = (function () {
 
 		if (mobileNavToggler && nav) {
 
-			mobileNavToggler.innerHTML = openText + menuIcon;
+			mobileNavToggler.innerHTML = menuText + menuIcon;
 			mobileNavToggler.setAttribute('aria-expanded', 'false');
 			nav.setAttribute('aria-hidden', 'true');
 
@@ -85,13 +71,11 @@ var navigation = (function () {
 					if (event.target.getAttribute('aria-expanded') === 'false') {
 
 						event.target.setAttribute('aria-expanded', 'true');
-						mobileNavToggler.innerHTML = closeText + menuIcon;
 						nav.setAttribute('aria-hidden', 'false');
 
 					} else {
 
 						event.target.setAttribute('aria-expanded', 'false');
-						mobileNavToggler.innerHTML = openText + menuIcon;
 						nav.setAttribute('aria-hidden', 'true');
 						closeSubNavs();
 
