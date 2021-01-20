@@ -63,3 +63,32 @@
 	}
 
 }
+
+#lang-nav {
+
+	background-color: $mist-gray;
+
+	.l-cluster > * {
+
+		justify-content: flex-end;
+		margin: 0 rem(-10);
+
+	}
+
+	.l-cluster.l-cluster > * > * {
+
+		margin: 0 rem(10);
+
+	}
+
+	a {
+
+		color: $off-black;
+		display: block;
+		font-size: rem(14);
+		padding-bottom: rem(12);
+		padding-top: rem(11);
+
+	}
+
+}
