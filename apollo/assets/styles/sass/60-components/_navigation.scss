@@ -125,6 +125,18 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 .global-nav__inner > ul {
 
 	flex-basis: 100%;
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+	@include mq($max-width) {
+
+		flex-basis: auto;
+		flex-wrap: nowrap;
+		padding-left: 0;
+		padding-right: 0;
+		position: static;
+
+	}
 
 	&[aria-hidden="true"] {
 
@@ -136,13 +148,17 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 
 		display: flex;
 		flex-wrap: wrap;
+		left: 0;
+		position: absolute;
+		top: 100%;
 
-	}
+		@include mq($max-width) {
 
-	@include mq($max-width) {
+			flex-basis: auto;
+			flex-wrap: nowrap;
+			position: static;
 
-		flex-basis: auto;
-		flex-wrap: nowrap;
+		}
 
 	}
 
