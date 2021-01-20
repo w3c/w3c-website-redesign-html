@@ -243,7 +243,7 @@ var navigation = function () {
 
   if (document.documentElement.lang === 'ja') {
     menuText = 'メニュー';
-  } else if (document.documentElement.lang === 'zh') {
+  } else if (document.documentElement.lang === 'zh-hans') {
     menuText = '菜单';
   } // I18N for 'Main menu' back button text
 
@@ -252,7 +252,7 @@ var navigation = function () {
 
   if (document.documentElement.lang === 'ja') {
     backText = 'メインメニュー';
-  } else if (document.documentElement.lang === 'zh') {
+  } else if (document.documentElement.lang === 'zh-hans') {
     backText = '主菜单';
   }
 

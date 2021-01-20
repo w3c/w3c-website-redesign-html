@@ -1926,6 +1926,21 @@ out, but halve it to to account for 'doubling up' at the edges.
 [dir="rtl"] .banner__inner p {
   margin-right: 0.625rem; }
 
+#lang-nav {
+  background-color: #f8f8fb; }
+  #lang-nav .l-cluster > * {
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    margin: 0 -0.625rem; }
+  #lang-nav .l-cluster.l-cluster > * > * {
+    margin: 0 0.625rem; }
+  #lang-nav a {
+    color: #111;
+    display: block;
+    font-size: 0.875rem;
+    padding-bottom: 0.75rem;
+    padding-top: 0.6875rem; }
+
 /*------------------------------------*\
     #Logo
 \*------------------------------------*/
