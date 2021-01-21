@@ -1253,7 +1253,7 @@ Error states
  * using the %visually-hidden placeholder (extend the placeholder with
  * Sass to avoid it appearing repeatedly in your markup).
  */
-.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active) {
+.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active), [data-trigger="account-menu"] .sr-only {
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
@@ -1301,7 +1301,7 @@ SVG icons are sized relative to font size, thanks to the em unit.
 1. When the cap unit is supported this will make it easier to match icon
 size to text size.
  */
-svg.icon {
+.icon {
   height: 1em;
   height: 1cap;
   /* 1 */
@@ -1310,11 +1310,11 @@ svg.icon {
   width: 1cap;
   /* 1 */ }
 
-svg.icon--larger {
+.icon--larger {
   height: 1.875rem;
   width: 1.875rem; }
 
-svg.icon--beta {
+.icon--beta {
   height: 2.4375rem;
   width: 3.8125rem; }
 
@@ -1379,6 +1379,23 @@ Pay attention to whether the icon is before the text or after.
 img {
   height: auto;
   width: 100%; }
+
+.avatar {
+  border-radius: 50%;
+  height: 6.25rem;
+  overflow: hidden;
+  position: relative;
+  width: 6.25rem; }
+  .avatar img {
+    height: auto;
+    margin-top: -0.625rem;
+    width: 100%; }
+
+.avatar--small {
+  height: 1.875rem;
+  width: 1.875rem; }
+  .avatar--small img {
+    margin-top: 0; }
 
 /*------------------------------------*\
     #Inline elements
@@ -1937,6 +1954,48 @@ out, but halve it to to account for 'doubling up' at the edges.
     padding-bottom: 0.75rem;
     padding-top: 0.6875rem; }
 
+[data-trigger="account-menu"] {
+  border: none;
+  border-radius: 0;
+  padding: 0.4375rem; }
+  @media screen and (min-width: 71.25em) {
+    [data-trigger="account-menu"] {
+      border-bottom: solid 3px transparent;
+      -webkit-margin-start: auto;
+              margin-inline-start: auto;
+      padding-bottom: 0.25rem; }
+      [data-trigger="account-menu"]:hover {
+        border-bottom-color: #0079b8; } }
+  [data-trigger="account-menu"][aria-expanded="false"] + * {
+    display: none; }
+  [data-trigger="account-menu"] * {
+    pointer-events: none; }
+  [data-trigger="account-menu"] .sr-only {
+    font-size: 0.875rem; }
+    @media screen and (min-width: 71.25em) {
+      [data-trigger="account-menu"] .sr-only {
+        border: initial;
+        clip: auto;
+        -webkit-clip-path: none;
+                clip-path: none;
+        height: auto;
+        margin: initial;
+        overflow: initial;
+        padding: initial;
+        position: static;
+        white-space: nowrap;
+        width: auto; } }
+  @media screen and (min-width: 71.25em) {
+    [data-trigger="account-menu"] picture {
+      -webkit-margin-start: 0.5rem;
+              margin-inline-start: 0.5rem; } }
+
+[dir="ltr"] [data-trigger="account-menu"] {
+  margin-left: auto; }
+
+[dir="rtl"] [data-trigger="account-menu"] {
+  margin-right: auto; }
+
 /*------------------------------------*\
     #Logo
 \*------------------------------------*/
@@ -2018,8 +2077,14 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
 [dir="ltr"] [data-trigger="mobile-nav"] {
   margin-left: auto; }
 
+[dir="ltr"] [data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
+  margin-left: 0.625rem; }
+
 [dir="rtl"] [data-trigger="mobile-nav"] {
   margin-right: auto; }
+
+[dir="rtl"] [data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
+  margin-right: 0.625rem; }
 
 #global-nav {
   -ms-flex-align: center;
@@ -2044,7 +2109,9 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
   @media screen and (min-width: 71.25em) {
     .global-nav__inner {
       -ms-flex-align: end;
-          align-items: flex-end; } }
+          align-items: flex-end;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap; } }
 
 .global-nav__inner > ul {
   -ms-flex-preferred-size: 100%;
@@ -2069,22 +2136,29 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
         flex-wrap: wrap;
     left: 0;
     position: absolute;
-    top: 100%; }
+    top: 100%;
+    width: 100%; }
     @media screen and (min-width: 71.25em) {
       .global-nav__inner > ul[aria-hidden="false"] {
-        -ms-flex-preferred-size: auto;
-            flex-basis: auto;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
-        position: static; } }
+        position: static;
+        width: auto; } }
 
 @media screen and (min-width: 71.25em) {
-  [dir="ltr"] li.top-nav-item + li.top-nav-item {
-    margin-left: 0.25rem; } }
+  li.top-nav-item + li.top-nav-item {
+    -webkit-margin-start: 0.25rem;
+            margin-inline-start: 0.25rem; } }
 
 @media screen and (min-width: 71.25em) {
-  [dir="rtl"] li.top-nav-item + li.top-nav-item {
-    margin-right: 0.25rem; } }
+  .global-nav__inner > ul > li:last-child {
+    -webkit-margin-start: auto;
+            margin-inline-start: auto; } }
+
+.signed-in .global-nav__inner > ul > li:last-child {
+  display: none; }
 
 .global-nav__inner .top-nav-item {
   border-bottom: solid 1px #bdbdbd;
@@ -2138,10 +2212,6 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
       flex-basis: 100%;
   font-size: 0.875rem;
   text-decoration: none; }
-  .my-account--login:hover {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-    text-underline-offset: 0.25em; }
   @media screen and (min-width: 71.25em) {
     .my-account--login {
       -ms-flex-preferred-size: auto;
@@ -2152,14 +2222,6 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
     color: #bdbdbd;
     height: 1.5rem;
     width: 1.5rem; }
-
-@media screen and (min-width: 71.25em) {
-  [dir="ltr"] .my-account--login {
-    margin-left: auto; } }
-
-@media screen and (min-width: 71.25em) {
-  [dir="rtl"] .my-account--login {
-    margin-right: auto; } }
 
 @media screen and (min-width: 71.25em) {
   .global-nav__inner .top-nav-item > a,

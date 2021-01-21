@@ -85,3 +85,90 @@
 	}
 
 }
+
+[data-trigger="account-menu"] {
+
+	border: none;
+	border-radius: 0;
+	padding: rem(7);
+
+	@include mq($max-width) {
+
+		border-bottom: solid 3px transparent;
+		margin-inline-start: auto;
+		padding-bottom: rem(4);
+
+		&:hover {
+
+			border-bottom-color: #0079b8;
+
+		}
+
+	}
+
+	&[aria-expanded="false"] + * {
+
+		display: none;
+
+	}
+
+	* {
+
+		pointer-events: none;
+
+	}
+
+	.sr-only {
+
+		@extend %visuallyhidden;
+
+		font-size: rem(14);
+
+		@include mq($max-width) {
+
+			border: initial;
+			clip: auto;
+			clip-path: none;
+			height: auto;
+			margin: initial;
+			overflow: initial;
+			padding: initial;
+			position: static;
+			white-space: nowrap;
+			width: auto;
+
+		}
+
+	}
+
+	picture {
+
+		@include mq($max-width) {
+
+			margin-inline-start: rem(8);
+
+		}
+
+	}
+
+}
+
+[dir="ltr"] {
+
+	[data-trigger="account-menu"] {
+
+		margin-left: auto;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	[data-trigger="account-menu"] {
+
+		margin-right: auto;
+
+	}
+
+}

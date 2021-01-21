@@ -1,6 +1,7 @@
 import {stickyColumnHead} from "./main/tableheaders";
 import {collapsibles} from "./main/collapsibles";
 import {navigation} from "./main/navigation";
+import {accountMenu} from "./main/account-menu";
 
 stickyColumnHead();
 
