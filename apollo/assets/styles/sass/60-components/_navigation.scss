@@ -50,7 +50,7 @@ Note: aria-expanded attribute is managed by JS
 
 	}
 
-	&[aria-expanded="false"] ~ .my-account--login {
+	&[aria-expanded="false"] ~ .account-login {
 
 		display: none;
 
@@ -62,7 +62,7 @@ Note: aria-expanded attribute is managed by JS
 
 	}
 
-	&[aria-expanded="true"] ~ .my-account--login {
+	&[aria-expanded="true"] ~ .account-login {
 
 		display: flex;
 
@@ -263,7 +263,7 @@ li.top-nav-item + li.top-nav-item {
 
 }
 
-.my-account--login {
+.account-login {
 
 	flex-basis: 100%;
 	font-size: rem(14);

@@ -2044,7 +2044,7 @@ main,
     #Navigation
 \*------------------------------------*/
 /**
-Note: aria-expanded and aria-hidden attributes are managed by JS
+Note: aria-expanded attribute is managed by JS
  */
 .no-js [data-trigger="mobile-nav"],
 .no-js .nav__submenu {
@@ -2065,9 +2065,11 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
     display: none; }
   [data-trigger="mobile-nav"][aria-expanded="true"] #menu-icon {
     display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="false"] ~ .my-account--login {
+  [data-trigger="mobile-nav"][aria-expanded="false"] ~ .account-login {
     display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="true"] ~ .my-account--login {
+  [data-trigger="mobile-nav"][aria-expanded="false"] + * {
+    display: none; }
+  [data-trigger="mobile-nav"][aria-expanded="true"] ~ .account-login {
     display: -ms-flexbox;
     display: flex; }
   @media screen and (min-width: 71.25em) {
@@ -2114,10 +2116,18 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
           flex-wrap: nowrap; } }
 
 .global-nav__inner > ul {
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  left: 0;
   padding-left: 5vw;
-  padding-right: 5vw; }
+  padding-right: 5vw;
+  position: absolute;
+  top: 100%;
+  width: 100%; }
   @media screen and (min-width: 71.25em) {
     .global-nav__inner > ul {
       -ms-flex-preferred-size: auto;
@@ -2127,25 +2137,6 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
       padding-left: 0;
       padding-right: 0;
       position: static; } }
-  .global-nav__inner > ul[aria-hidden="true"] {
-    display: none; }
-  .global-nav__inner > ul[aria-hidden="false"] {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%; }
-    @media screen and (min-width: 71.25em) {
-      .global-nav__inner > ul[aria-hidden="false"] {
-        -ms-flex-preferred-size: 100%;
-            flex-basis: 100%;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-        position: static;
-        width: auto; } }
 
 @media screen and (min-width: 71.25em) {
   li.top-nav-item + li.top-nav-item {
@@ -2207,18 +2198,18 @@ Note: aria-expanded and aria-hidden attributes are managed by JS
       height: 100%;
       min-width: 2.75rem; } }
 
-.my-account--login {
+.account-login {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   font-size: 0.875rem;
   text-decoration: none; }
   @media screen and (min-width: 71.25em) {
-    .my-account--login {
+    .account-login {
       -ms-flex-preferred-size: auto;
           flex-basis: auto;
       padding-bottom: 0.625rem;
       padding-top: 0.625rem; } }
-  .my-account--login .icon {
+  .account-login .icon {
     color: #bdbdbd;
     height: 1.5rem;
     width: 1.5rem; }
@@ -2275,38 +2266,34 @@ svg.nav-wide {
   @media screen and (min-width: 71.25em) {
     .global-nav__inner [data-trigger="subnav"][aria-expanded="false"] .angle-up {
       display: none; } }
+  .global-nav__inner [data-trigger="subnav"][aria-expanded="false"] + * {
+    display: none; }
   @media screen and (min-width: 71.25em) {
     .global-nav__inner [data-trigger="subnav"][aria-expanded="true"] .angle-down {
       display: none; } }
 
 .global-nav__inner .nav__submenu {
   border-bottom: solid 1px #bdbdbd;
+  display: block;
+  left: 0;
   min-height: calc(100% + 1px);
   padding-bottom: 2.8125rem;
   padding-left: 5vw;
   padding-right: 5vw;
+  position: absolute;
+  top: 0;
   width: 100%; }
   @media screen and (min-width: 71.25em) {
     .global-nav__inner .nav__submenu {
+      background-color: #f8f8fb;
       border: solid 1px #bdbdbd;
       box-shadow: 0 8px 16px 0 rgba(55, 70, 95, 0.07);
+      left: 50%;
       max-width: 71.25rem;
       min-height: auto;
-      padding: 1.25rem; } }
-  .global-nav__inner .nav__submenu[aria-hidden="true"] {
-    display: none; }
-  .global-nav__inner .nav__submenu[aria-hidden="false"] {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 5; }
-    @media screen and (min-width: 71.25em) {
-      .global-nav__inner .nav__submenu[aria-hidden="false"] {
-        background-color: #f8f8fb;
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%); } }
+      padding: 1.25rem;
+      top: 100%;
+      transform: translateX(-50%); } }
 
 .global-nav__inner [data-trigger="mobile-back"] {
   font-size: 1.25rem;

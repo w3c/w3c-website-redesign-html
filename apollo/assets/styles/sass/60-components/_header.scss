@@ -106,7 +106,7 @@
 
 	}
 
-	&[aria-expanded="false"] + * {
+	&[aria-expanded="false"] + .account-menu {
 
 		display: none;
 
@@ -170,5 +170,11 @@
 		margin-right: auto;
 
 	}
+
+}
+
+.account-menu {
+
+	position: absolute;
 
 }
