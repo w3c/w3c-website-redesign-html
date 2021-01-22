@@ -2243,7 +2243,7 @@ svg.nav-wide {
       margin-bottom: 0; } }
 
 #global-nav .nav__submenu > ul > li > a {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: calc(32 / 20);
   font-weight: normal;
   padding-bottom: 0.375rem;
