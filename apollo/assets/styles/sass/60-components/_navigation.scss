@@ -136,6 +136,7 @@ Note: aria-expanded attribute is managed by JS
 
 		align-items: flex-end;
 		flex-wrap: nowrap;
+		position: relative;
 
 	}
 
@@ -410,6 +411,7 @@ svg.nav-wide {
 
 .global-nav__inner .nav__submenu {
 
+	background-color: $white;
 	border-bottom: solid 1px $border-color;
 	display: block;
 	left: 0;
@@ -420,6 +422,7 @@ svg.nav-wide {
 	position: absolute;
 	top: 0;
 	width: 100%;
+	z-index: 5;
 
 	@include mq($max-width) {
 

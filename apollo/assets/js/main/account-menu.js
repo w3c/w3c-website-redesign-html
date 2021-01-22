@@ -10,7 +10,7 @@ var accountMenu = (function () {
 		let fragment = document.createDocumentFragment();
 		let toggleButton = document.createElement('button');
 		let accMenu = document.createElement('div');
-		accMenu.setAttribute('class', 'account-menu l-box l-box--no-border');
+		accMenu.setAttribute('class', 'account-menu');
 
 		// @todo Need JS to make API call to return JSON object with these properties
 		const profile = {

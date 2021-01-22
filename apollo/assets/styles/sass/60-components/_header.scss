@@ -91,6 +91,7 @@
 	border: none;
 	border-radius: 0;
 	padding: rem(7);
+	position: relative;
 
 	@include mq($max-width) {
 
@@ -175,6 +176,77 @@
 
 .account-menu {
 
+	border: solid 1px $border-color;
+	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 	position: absolute;
+	top: 95%;
+	width: rem(250);
+	z-index: 10;
+
+}
+
+[dir="ltr"] {
+
+	.account-menu {
+
+		right: 5vw;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.account-menu {
+
+		left: 5vw;
+
+	}
+
+}
+
+.account-menu ul {
+
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+	li {
+
+		padding: rem(10) rem(20);
+
+	}
+
+}
+
+.account-menu li:first-of-type {
+
+	font-weight: $emphasis;
+
+}
+
+.account-menu li:nth-child(3) {
+
+	display: none;
+
+}
+
+.account-menu li:nth-child(4) {
+
+	padding-top: 0;
+
+}
+
+.account-menu li:last-of-type {
+
+	border-top: solid 1px $border-color;
+	padding-bottom: 0;
+
+}
+
+.account-menu a {
+
+	display: block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
 
 }
