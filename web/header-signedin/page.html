@@ -11,7 +11,7 @@
 
 	<meta property="og:description" name="description" content="Global navigation prototype for the W3C website redesign"/>
 
-	<script src="dist-old/assets/js/libraries/fontfaceobserver.js"></script>
+	<script src="../dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
 		var myFont = new FontFaceObserver('Noto Sans');
@@ -21,7 +21,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="dist-old/assets/styles/core.css" media="screen"/>
+	<link rel="stylesheet" href="../dist/assets/styles/core.css" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -29,11 +29,12 @@
     Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
     FF 47+
     -->
-	<link rel="stylesheet" id="advanced-stylesheet" href="dist-old/assets/styles/advanced.css" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css" media="
         only print,
         only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
         only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
     ">
+
 	<script>
 		(function() {
 			var linkEl = document.getElementById('advanced-stylesheet');
@@ -47,61 +48,353 @@
 		})();
 	</script>
 
-	<style>
-		/* Temporary prototype styles */
-
-	</style>
-
-
 </head>
 
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="grid-wrap">
-	<div class="not-footer">
-		<nav aria-labelledby="skip-heading">
-			<span id="skip-heading" class="visuallyhidden">Skip link and language options</span>
-			<ul class="clean-list" role="list">
-				<li>
-					<a class="skip-link" href="#main">Skip to content</a>
-				</li>
-				<li>
-					<a class="skip-link" href="#lang">Select language</a>
-				</li>
-			</ul>
-		</nav>
-		<header class="l-center global-header">
-			<a class="logo" href="https://www.w3.org/">
-				<svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" overflow="visible" viewBox="0 0 72 48" width="72px" height="48px"><defs/><g image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path fill="#FFF" fill-rule="evenodd" d="M0 0h72v48H0z" clip-rule="evenodd"/><path fill="#005A9C" d="M18.117 8.006l5.759 19.58 5.759-19.58h15.614v1.946L39.37 20.08c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879a3.993 3.993 0 002.76 1.052c1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397L2.032 8.006h4.17l5.759 19.58 3.892-13.185-1.906-6.395h4.17z"/><path fill-rule="evenodd" d="M66.92 8.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178a3 3 0 00.887 2.128 2.979 2.979 0 002.145.912c.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136a3 3 0 00-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832a2.671 2.671 0 01-1.892.777c-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891a2.54 2.54 0 011.84-.751c.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65V11.24h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14h.533z" clip-rule="evenodd"/><g><path d="M61.807 7.825l.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721l2.356-4.696zM62.102 31.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317-.468-.347-1.664-1.369-2.34-2.322-.676-.953-1.733-2.859-1.733-2.859s.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97.433-.277 1.346-1.042 1.924-1.66.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092l-.608-3.171z"/></g></g></svg>
-				<span class="visuallyhidden">W3C homepage</span>
-			</a>
-			<a href="/login" class="global-header__login with-icon--after with-icon--larger"><span>Sign in</span> <svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="0.75em" height="0.75em"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 01-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 01-6 3.22z"/></svg>
-			</a>
+	<div class="wrap">
+		<header class="global-header">
+			<span role="status" aria-live="polite"></span>
+			<div class="banner">
+				<div class="banner__inner l-center">
+					<svg role="img" class="icon--beta" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 39" width="61px" height="39px"><title>Beta flag</title><defs/><g aria-hidden="true" fill="none" fill-rule="evenodd"><path aria-hidden="true" fill="#005a9c" d="M0 0h61v33l-30.5 6L0 33z"/><path aria-hidden="true" fill="#fff" fill-rule="nonzero" d="M14.425 24c1.453 0 2.603-.328 3.45-.984s1.27-1.57 1.27-2.743c0-.826-.18-1.488-.541-1.986-.36-.498-.948-.838-1.762-1.02v-.087c.597-.1 1.076-.396 1.437-.888s.54-1.122.54-1.89c0-1.13-.411-1.955-1.235-2.474-.823-.518-2.146-.778-3.968-.778H9.617V24zm-.501-7.76h-1.582v-2.857h1.432c.78 0 1.35.107 1.71.32.36.214.54.568.54 1.06 0 .527-.165.905-.496 1.133s-.866.343-1.604.343zm.193 5.51h-1.775v-3.349h1.687c1.524 0 2.285.534 2.285 1.6 0 .592-.178 1.031-.536 1.318-.357.287-.91.431-1.66.431zM29.247 24v-2.25H24.57v-3.313h4.35v-2.233h-4.35v-2.821h4.675V11.15h-7.4V24zm7.772 0V13.418h3.49V11.15h-9.704v2.268h3.49V24zm6.305 0l.932-3.059h4.684L49.872 24h2.935l-4.552-12.902h-3.331L40.388 24zm4.966-5.344h-3.35c.914-2.959 1.468-4.813 1.661-5.563.047.21.125.498.233.861.109.363.593 1.93 1.455 4.702z"/></g></svg>
+					<p>This is a new website. <a href="https://lists.w3.org/Archives/Public/public-website-redesign/">Give feedback</a> to help us improve it.</p>
+				</div>
+			</div>
+			<nav id="lang-nav">
+				<div class="l-center">
+					<h2 class="visuallyhidden">Language options</h2>
+					<div class="l-cluster">
+						<ul class="clean-list" role="list">
+							<li><a href="/zh" hreflang="zh-hans">简体中文首页</a></li>
+							<li><a href="/ja" hreflang="ja">日本語ホームページ</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<nav id="global-nav">
+				<h2 class="visuallyhidden">Main</h2>
+				<div class="global-nav__inner l-center">
+					<a class="logo-link" href="../page.html">
+						<span class="logo"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" overflow="visible" viewBox="0 0 72 48" width="72px" height="48px"><defs/><g image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path fill="#FFF" fill-rule="evenodd" d="M0 0h72v48H0z" clip-rule="evenodd"/><path fill="#005A9C" d="M18.117 8.006l5.759 19.58 5.759-19.58h15.614v1.946L39.37 20.08c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879a3.993 3.993 0 002.76 1.052c1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397L2.032 8.006h4.17l5.759 19.58 3.892-13.185-1.906-6.395h4.17z"/><path fill-rule="evenodd" d="M66.92 8.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178a3 3 0 00.887 2.128 2.979 2.979 0 002.145.912c.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136a3 3 0 00-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832a2.671 2.671 0 01-1.892.777c-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891a2.54 2.54 0 011.84-.751c.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65V11.24h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14h.533z" clip-rule="evenodd"/><g><path d="M61.807 7.825l.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721l2.356-4.696zM62.102 31.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317-.468-.347-1.664-1.369-2.34-2.322-.676-.953-1.733-2.859-1.733-2.859s.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97.433-.277 1.346-1.042 1.924-1.66.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092l-.608-3.171z"/></g></g></svg></span>
+						<span class="visuallyhidden">W3C homepage</span>
+					</a>
+					<button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"></button>
+					<ul class="clean-list" role="list">
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Standards</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">About W3C standards</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Technical reports</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Translations of technical reports</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Types of report we publish</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">More about standards</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Groups</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">Find groups by industry</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Working groups</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Technical architecture group</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Advisory Board</a>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Invited experts</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Directory of W3C invited experts</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Invited expert application</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Advisory expert and collaborator agreement</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Invited expert policies</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Mailing lists</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Archives</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Search mailing lists</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Manage your subscriptions</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Email FAQs</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Posting guides</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">More about groups</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Get involved</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Business Ecosystems</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Automotive and transportation</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Media and entertainment</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Publishing</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web payments</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web of Data</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web and telecommunications</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web of Things</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Supporting W3C</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Donate now</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Global sponsorship</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">More ways to support us</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">W3C Membership</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Membership home</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Membership fees</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Join W3C</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">How to get an account</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">More about W3C membership</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Promote web standards</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Asset library and materials</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Resources</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">Standards</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Validators</a>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Events</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Talks</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Workshops</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Meetings</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Conferences endorsed by W3C</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Tutorials and courses</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Podcasts and videos</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">More resources</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">News and insights</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">News</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Blog</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Press releases</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">In the media</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Weekly newsletter</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">About</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Our mission</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Accessibility</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Internationalization</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Privacy</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Security</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Contact</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Beihang University <span lang="zh-Hans">(W3C中国)</span></a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">ERCIM</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Keio University</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">MIT</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Leadership</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">People</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Evangelists</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Careers</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Help</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Learn more about W3C</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item">
+							<a href="../page.html" class="nav-link icon-link"><span class="visuallyhidden">Search</span> <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 512 512" width="1em" height="1em"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a>
+						</li>
+						<li class="top-nav-item">
+							<a href="../page.html" class="account-login icon-link with-icon--after">My account <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 496 512" width="1em" height="1em"><defs/><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</header>
 		<main id="main">
 			<h1 class="txt-mercury">Basic page</h1>
-			<p><a href="index.html">Back to prototypes index</a></p>
+			<p><a href="../index.html">Back to prototypes index</a></p>
 		</main>
 	</div>
 	<footer class="global-footer">
 		<div class="l-center">
 			<div class="l-cluster">
 				<ul class="clean-list" role="list">
-					<li><a href="https://www.w3.org/">Home</a></li>
-					<li><a href="#1">Contact</a></li>
-					<li><a href="#1">Help</a></li>
-					<li><a href="#1">Sponsor and donate</a></li>
-					<li><a href="#1">Privacy policy</a></li>
-					<li><a href="#1">Legal</a></li>
-					<li><a href="#1">System status</a></li>
+					<li><a href="../page.html">Home</a></li>
+					<li><a href="../page.html">Contact</a></li>
+					<li><a href="../page.html">Help</a></li>
+					<li><a href="../page.html">Sponsor and donate</a></li>
+					<li><a href="../page.html">Privacy policy</a></li>
+					<li><a href="../page.html">Legal</a></li>
+					<li><a href="../page.html">System status</a></li>
+					<li><a class="with-icon--larger" href="https://twitter.com/W3C">
+						<svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false" aria-hidden="true" width="20px" height="20px"><defs/><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+						<span class="visuallyhidden">W3C on Twitter</span></a></li>
 				</ul>
 			</div>
-			<a class="social-links__item" href="https://twitter.com/W3C">
-				<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true" width="20px" height="20px"><defs></defs><path fill="currentColor" d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path></svg>
-				<span class="visuallyhidden">Find us on Twitter</span>
-			</a>
+			<p class="copyright">Copyright © 2020 W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+				<a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>
 		</div>
 	</footer>
 </div>
+
 </body>
 
 </html>
