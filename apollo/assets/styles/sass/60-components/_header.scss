@@ -24,8 +24,7 @@
 
 	p {
 
-		font-size: rem(14);
-		line-height: calc(17 / 12);
+		@include txt-eris;
 
 	}
 
@@ -76,11 +75,12 @@
 
 	a {
 
+		@include txt-eris;
+
 		color: $off-black;
 		display: block;
-		font-size: rem(14);
 		padding-bottom: rem(12);
-		padding-top: rem(11);
+		padding-top: rem(12);
 
 	}
 

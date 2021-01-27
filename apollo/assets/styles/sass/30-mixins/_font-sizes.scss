@@ -72,13 +72,6 @@
 
 @mixin txt-pluto {
 
-	line-height: calc(22.4 / 16);
-
-}
-
-
-@mixin txt-body-alt {
-
 	font-size: rem(15);
 	line-height: calc(22.5 / 15);
 
@@ -88,6 +81,6 @@
 @mixin txt-eris {
 
 	font-size: rem(14);
-	line-height: calc(17 / 12);
+	line-height: calc(20 / 14);
 
 }

@@ -84,12 +84,6 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
-.txt-body-alt {
-
-	@include txt-body-alt;
-
-}
-
 .txt-eris {
 
 	@include txt-eris;
@@ -103,7 +97,6 @@ can safely use the web fonts instead of the system fonts.
 .txt-jupiter,
 .txt-saturn,
 .txt-pluto,
-.txt-body-alt,
 .txt-eris {
 
 	margin-bottom: 1em;
