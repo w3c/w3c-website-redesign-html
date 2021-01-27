@@ -5,21 +5,26 @@ var accountMenu = (function () {
 		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
 	}
 
+	// @todo Check whether this if statement for the prototype version is accurate for the live site or needs replacing with a different mechanism
 	if (document.querySelector('.signed-in')) {
 
+		// @todo Need JS to make API call to return JSON object with these properties
+		let profile = {
+			name: 'Simon Jones',
+			email: 'simon@studio24.net',
+			avatar: 'https://www.w3.org/2006/05/u/1682ihk1hqqo-tn.jpg',
+			messages: true
+		}
+
 		let fragment = document.createDocumentFragment();
+		let status = document.querySelector('.global-header [role="status"]');
+		let statusText;
 		let toggleButton = document.createElement('button');
 		let accMenu = document.createElement('div');
 		accMenu.setAttribute('class', 'account-menu');
 
-		// @todo Need JS to make API call to return JSON object with these properties
-		const profile = {
-			name: 'Simon Jones',
-			email: 'simon@studio24.net',
-			avatar: 'https://www.w3.org/2006/05/u/1682ihk1hqqo-tn.jpg'
-		}
-
-		const profileArray = Object.keys(profile).map(function(item) {
+		// @todo This array created from profile object should only contain those values needed for the dropdown menu (name and email)
+		let profileArray = Object.keys(profile).map(function(item) {
 			return profile[item];
 		});
 
@@ -39,10 +44,25 @@ var accountMenu = (function () {
 		// I18N
 		if (document.documentElement.lang === 'ja') {
 			accountLink.innerHTML = '<a href="page.html" hreflang="ja">マイアカウント</a>';
+			if (profile.messages === true) {
+				statusText = '未読メッセージがあります';
+			} else {
+				statusText = '未読メッセージはありません';
+			}
 		} else if (document.documentElement.lang === 'zh-hans') {
 			accountLink.innerHTML = '<a href="page.html" hreflang="zh-hans">我的帐户</a>';
+			if (profile.messages === true) {
+				statusText = '您有未读消息';
+			} else {
+				statusText = '您没有未读邮件';
+			}
 		} else {
 			accountLink.innerHTML = '<a href="page.html">My account</a>';
+			if (profile.messages === true) {
+				statusText = 'You have unread messages';
+			} else {
+				statusText = 'You have no unread messages';
+			}
 		}
 
 		if (document.documentElement.lang === 'ja') {
@@ -79,12 +99,13 @@ var accountMenu = (function () {
 
 				domTargetSmall.parentNode.insertBefore(toggleButton, domTargetSmall.nextSibling);
 				toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
-
+				status.textContent = statusText;
 
 			} else {
 
 				domTargetWide.parentNode.insertBefore(toggleButton, domTargetWide.nextSibling);
 				toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
+				status.textContent = statusText;
 
 			}
 
@@ -92,15 +113,14 @@ var accountMenu = (function () {
 
 		let accountToggler = document.querySelector('[data-trigger="account-menu"]');
 
-		function insertAccountMenu () {
-
-			accountToggler.parentNode.insertBefore(accMenu, accountToggler.nextSibling);
-
-		}
-
 		if (exists(accountToggler)) {
 
-			//insertAccountMenu ();
+			// @todo Not sure if this is sufficient or whether there needs to be a re-usable function to check this. This is for the visual styling on button
+			if (profile.messages === true) {
+				accountToggler.classList.add('js-has-msg');
+			} else {
+				accountToggler.classList.remove('js-has-msg');
+			}
 
 			document.addEventListener('click', function (event) {
 

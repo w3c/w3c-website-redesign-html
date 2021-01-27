@@ -1253,7 +1253,7 @@ Error states
  * using the %visually-hidden placeholder (extend the placeholder with
  * Sass to avoid it appearing repeatedly in your markup).
  */
-.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active), [data-trigger="account-menu"] .sr-only {
+.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active), .global-header [role="status"], [data-trigger="account-menu"] .sr-only {
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
@@ -1993,9 +1993,29 @@ out, but halve it to to account for 'doubling up' at the edges.
 
 [dir="ltr"] [data-trigger="account-menu"] {
   margin-left: auto; }
+  [dir="ltr"] [data-trigger="account-menu"].js-has-msg::after {
+    background-color: #e93737;
+    border: solid 3px #fff;
+    border-radius: 50%;
+    content: '';
+    height: 15px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 15px; }
 
 [dir="rtl"] [data-trigger="account-menu"] {
   margin-right: auto; }
+  [dir="rtl"] [data-trigger="account-menu"].js-has-msg::after {
+    background-color: #e93737;
+    border: solid 3px #fff;
+    border-radius: 50%;
+    content: '';
+    height: 15px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 15px; }
 
 .account-menu {
   border: solid 1px #bdbdbd;
@@ -2020,10 +2040,11 @@ out, but halve it to to account for 'doubling up' at the edges.
 .account-menu li:first-of-type {
   font-weight: 600; }
 
-.account-menu li:nth-child(3) {
+.account-menu li:nth-child(3),
+.account-menu li:nth-child(4) {
   display: none; }
 
-.account-menu li:nth-child(4) {
+.account-menu li:nth-child(5) {
   padding-top: 0; }
 
 .account-menu li:last-of-type {
@@ -2040,9 +2061,9 @@ out, but halve it to to account for 'doubling up' at the edges.
 \*------------------------------------*/
 .logo {
   display: block;
-  height: 2.625rem;
+  height: 2.75rem;
   position: relative;
-  width: 3.9375rem; }
+  width: 4.125rem; }
   @media screen and (min-width: 64em) {
     .logo {
       height: 3.25rem;
