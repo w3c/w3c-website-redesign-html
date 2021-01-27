@@ -1412,9 +1412,8 @@ i {
 small,
 .small,
 .small-caps {
-  color: #777;
   font-size: 0.875rem;
-  line-height: calc(17 / 12); }
+  line-height: calc(20 / 14); }
 
 .small-caps {
   text-shadow: 0 0 0 #111;
@@ -1660,18 +1659,12 @@ can safely use the web fonts instead of the system fonts.
   line-height: calc(22 / 16); }
 
 .txt-pluto {
-  color: #565656;
-  line-height: calc(22.4 / 16); }
-
-.txt-body-alt {
-  color: #525252;
   font-size: 0.9375rem;
   line-height: calc(22.5 / 15); }
 
 .txt-eris {
-  color: #777;
   font-size: 0.875rem;
-  line-height: calc(17 / 12); }
+  line-height: calc(20 / 14); }
 
 .txt-mercury,
 .txt-venus,
@@ -1680,7 +1673,6 @@ can safely use the web fonts instead of the system fonts.
 .txt-jupiter,
 .txt-saturn,
 .txt-pluto,
-.txt-body-alt,
 .txt-eris {
   margin-bottom: 1em; }
 
@@ -1858,57 +1850,47 @@ out, but halve it to to account for 'doubling up' at the edges.
     #Global footer
 \*------------------------------------*/
 .global-footer {
+  border-top: solid 1px #bdbdbd;
   -ms-grid-row: 2;
       grid-row-start: 2;
   grid-row-end: 3;
-  padding-bottom: 1.25rem;
-  padding-top: 1.25rem; }
-
-@media screen and (min-width: 48em) {
-  .global-footer > div {
-    -ms-flex-align: center;
-        align-items: center;
+  padding: 1.25rem 0 1.5625rem; }
+  .global-footer .l-center {
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: justify;
-        justify-content: space-between; } }
-
-.global-footer .l-cluster ul {
-  margin: -0.6875rem; }
-
-.global-footer .l-cluster li {
-  margin: 0.6875rem; }
-
-.global-footer .l-cluster a {
-  box-shadow: none;
-  color: #111;
-  display: block;
-  font-size: 0.9375rem;
-  min-width: 2.75rem;
-  text-align: center; }
-  .global-footer .l-cluster a:visited {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
+    .global-footer .l-center > * + * {
+      margin-top: 1rem; }
+  .global-footer a,
+  .global-footer .copyright {
+    font-size: 0.875rem;
+    line-height: calc(20 / 14); }
+  .global-footer a {
     color: #111; }
-    .global-footer .l-cluster a:visited::after {
-      background-color: #111; }
-  .global-footer .l-cluster a:hover, .global-footer .l-cluster a:active {
-    color: #111; }
-    .global-footer .l-cluster a:hover::after, .global-footer .l-cluster a:active::after {
-      background-color: #111; }
-
-.global-footer > div > a {
-  display: block;
-  margin-top: 0.625rem; }
-  @media screen and (min-width: 48em) {
-    .global-footer > div > a {
-      margin-top: 0; } }
-
-@media screen and (min-width: 48em) {
-  [dir="ltr"] .global-footer > div > a {
-    margin-left: auto; } }
-
-@media screen and (min-width: 48em) {
-  [dir="rtl"] .global-footer > div > a {
-    margin-right: auto; } }
+    .global-footer a:visited, .global-footer a:hover, .global-footer a:active {
+      color: #111; }
+  .global-footer .l-cluster > * {
+    margin: 0 -0.625rem; }
+  .global-footer .l-cluster.l-cluster > * > * {
+    margin: 0 0.625rem; }
+  @media screen and (min-width: 71.25em) {
+    .global-footer .l-cluster li:last-of-type {
+      -webkit-margin-start: auto;
+              margin-inline-start: auto; } }
+  .global-footer .l-cluster a:not([class]) {
+    display: block;
+    min-width: 2.75rem;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+    text-align: center; }
+  .global-footer .l-cluster .with-icon--larger {
+    padding: 0.75rem; }
+    .global-footer .l-cluster .with-icon--larger svg {
+      height: 1.25rem;
+      width: 1.25rem; }
 
 /*------------------------------------*\
     #Global header
@@ -1929,7 +1911,7 @@ out, but halve it to to account for 'doubling up' at the edges.
     width: 3.8125rem; }
   .global-header .banner__inner p {
     font-size: 0.875rem;
-    line-height: calc(17 / 12); }
+    line-height: calc(20 / 14); }
   .global-header .banner__inner a {
     color: #024488; }
 
@@ -1948,11 +1930,12 @@ out, but halve it to to account for 'doubling up' at the edges.
   #lang-nav .l-cluster.l-cluster > * > * {
     margin: 0 0.625rem; }
   #lang-nav a {
+    font-size: 0.875rem;
+    line-height: calc(20 / 14);
     color: #111;
     display: block;
-    font-size: 0.875rem;
     padding-bottom: 0.75rem;
-    padding-top: 0.6875rem; }
+    padding-top: 0.75rem; }
 
 [data-trigger="account-menu"] {
   border: none;
@@ -2080,25 +2063,20 @@ to our global box-sizing rule.
  */
 main,
 #main {
-  box-sizing: content-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 71.25rem;
-  padding: 1.5rem 5vw;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-pack: start;
-      justify-content: flex-start; }
+      justify-content: flex-start;
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 71.25rem;
+  padding: 1.5rem 5vw; }
   main > * + *,
   #main > * + * {
     margin-top: 1.5rem; }
-  @media screen and (min-width: 48em) {
-    main,
-    #main {
-      padding-left: 10vw;
-      padding-right: 10vw; } }
 
 /*------------------------------------*\
     #Navigation
