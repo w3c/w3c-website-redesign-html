@@ -5,34 +5,35 @@
 
 #breadcrumb {
 
-	padding-bottom: rem(20);
-	padding-top: rem(20);
+	padding-bottom: rem(15);
+	padding-top: rem(10);
+
+	.l-cluster > * {
+
+		margin: 0 rem(-11);
+
+	}
+
+	.l-cluster.l-cluster > * > * {
+
+		margin: 0 rem(11);
+		position: relative;
+
+	}
 
 }
 
-#breadcrumb .breadcrumbs li {
-
-	display: inline-block; // IE9
-	position: relative;
-
-}
 
 .breadcrumbs a {
 
+	@include txt-pluto;
+
 	color: $off-black;
-
-	&::after {
-
-		background-color: $link-color;
-		bottom: 0;
-		content: '';
-		display: block;
-		height: 1px;
-		left: 0;
-		position: absolute;
-		width: 100%;
-
-	}
+	display: block;
+	min-width: rem(44);
+	padding-bottom: rem(11);
+	padding-top: rem(11);
+	text-align: center;
 
 	&:visited,
 	&:hover,
@@ -40,17 +41,31 @@
 
 		color: $off-black;
 
-		&::after {
+	}
 
-			background-color: $off-black;
+}
 
-		}
+.breadcrumbs [aria-current] {
+
+	box-shadow: none;
+	font-weight: $emphasis;
+	text-decoration: none;
+
+
+	&:hover,
+	&:focus {
+
+		outline-color: $off-black;
 
 	}
 
 }
 
-#breadcrumb .breadcrumbs li:not(:last-child) {
+
+/**
+Separator chevron - see https://codepen.io/jonneal/pen/kptBs
+*/
+.breadcrumbs li:not(:last-child) {
 
 	&::after {
 
@@ -67,39 +82,15 @@
 
 }
 
-#breadcrumb .breadcrumbs [aria-current] {
-
-	box-shadow: none;
-	font-weight: $emphasis;
-
-	&::after {
-
-		display: none;
-
-	}
-
-	&:hover,
-	&:focus {
-
-		outline-color: $off-black;
-
-	}
-
-}
-
-
-/**
-Separator chevron - see https://codepen.io/jonneal/pen/kptBs
-*/
 [dir="ltr"] {
 
-	#breadcrumb .breadcrumbs li {
+	.breadcrumbs li {
 
 		padding-right: 0.5em;
 
 	}
 
-	#breadcrumb .breadcrumbs li:not(:last-child) {
+	.breadcrumbs li:not(:last-child) {
 
 		&::after {
 
@@ -114,13 +105,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
 [dir="rtl"] {
 
-	#breadcrumb .breadcrumbs li {
+	.breadcrumbs li {
 
 		padding-left: 0.5em;
 
 	}
 
-	#breadcrumb .breadcrumbs li:not(:last-child) {
+	.breadcrumbs li:not(:last-child) {
 
 		&::after {
 

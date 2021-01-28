@@ -11,7 +11,7 @@
 
 	<meta property="og:description" name="description" content="Global navigation prototype for the W3C website redesign"/>
 
-	<script src="../dist/assets/js/libraries/fontfaceobserver.js"></script>
+	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
 		var myFont = new FontFaceObserver('Noto Sans');
@@ -21,7 +21,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="../dist/assets/styles/core.css" media="screen"/>
+	<link rel="stylesheet" href="dist/assets/styles/core.css" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -368,6 +368,18 @@
 				</div>
 			</nav>
 		</header>
+		<nav id="breadcrumb" class="l-center">
+			<h2 class="visuallyhidden">Breadcrumb</h2>
+			<div class="l-cluster">
+				<ol class="breadcrumbs clean-list" role="list">
+					<li><a href="/">Home</a></li>
+					<li><a href="page.html">Page</a></li>
+					<li><a href="page.html">Another page</a></li>
+					<li><a href="page.html">Page</a></li>
+					<li><a href="#" aria-current="page">Global navigation</a></li>
+				</ol>
+			</div>
+		</nav>
 		<main id="main">
 			<h1 class="txt-mercury">Basic page</h1>
 			<p><a href="../index.html">Back to prototypes index</a></p>
