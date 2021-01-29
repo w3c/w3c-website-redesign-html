@@ -1,10 +1,10 @@
 /*------------------------------------*\
-    #Stack (formerly axiomatic owl)
+    #Stack
 \*------------------------------------*/
 
 /**
 This mixin allows us to add vertical spacing between a container's direct children,
-much like the 'axiomatic owl' but limited to specific use cases.
+much like the 'axiomatic owl' technique but limited to specific use cases.
 
 By applying Flexbox to the parent container, we can use auto margin on a specific
 child element. This way, we can choose to group elements inside the stack to the
