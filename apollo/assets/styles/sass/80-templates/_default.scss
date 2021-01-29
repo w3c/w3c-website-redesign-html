@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #Default page
+\*------------------------------------*/
+
+.default .content {
+
+	@include mq($bp-tab-large) {
+
+		display: grid;
+		grid-column-gap: 10%;
+		grid-template-columns: 65% 25%;
+		grid-template-areas: "article related";
+
+	}
+
+}
+
+.default .content article {
+
+	@include mq($bp-tab-large) {
+
+		grid-area: article;
+
+	}
+
+}
+
+.default .content .related {
+
+	border-top: solid 10px $w3c-blue;
+	margin-top: rem(40);
+	padding-top: rem(20);
+
+	@include mq($bp-tab-large) {
+
+		grid-area: related;
+		margin-top: 0;
+
+	}
+
+}
+
+.default .content .related__inner {
+
+	@include mq($bp-tab-large) {
+
+		border-inline-start: solid 1px $border-color;
+		padding-left: rem(20);
+		padding-right: rem(20);
+
+	}
+
+}
+
+.default .content .related ul a {
+
+	display: inline-block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}

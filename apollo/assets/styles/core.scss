@@ -67,17 +67,27 @@
 @import "sass/50-layouts/box";
 @import "sass/50-layouts/center";
 @import "sass/50-layouts/cluster";
+@import "sass/50-layouts/frame";
 
 
 
 /*------------------------------------*\
     #Components
 \*------------------------------------*/
-@import "sass/60-components/footer";
 @import "sass/60-components/header";
 @import "sass/60-components/logo";
-@import "sass/60-components/main";
 @import "sass/60-components/navigation";
+@import "sass/60-components/main";
+@import "sass/60-components/table-of-contents";
+@import "sass/60-components/text";
+@import "sass/60-components/footer";
+
+
+
+/*------------------------------------*\
+    #Templates
+\*------------------------------------*/
+@import "sass/80-templates/default";
 
 
 

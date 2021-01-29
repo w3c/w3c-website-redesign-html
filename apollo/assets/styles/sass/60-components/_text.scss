@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #Text component
+\*------------------------------------*/
+
+.component--text {
+
+	@include stack;
+
+}
+
+.component--text > * {
+
+	max-width: rem($text-measure);
+
+}
