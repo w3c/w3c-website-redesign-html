@@ -2176,22 +2176,19 @@ svg.nav-wide {
   @media screen and (min-width: 64em) {
     #global-nav .nav__submenu {
       border: solid 1px #bdbdbd;
-      max-width: 72.625rem;
+      max-width: 19.625rem;
       padding: 1.25rem; } }
   #global-nav .nav__submenu[aria-hidden="true"] {
     display: none; }
   #global-nav .nav__submenu[aria-hidden="false"] {
     display: block;
-    position: absolute;
     left: 0;
     top: 0;
     z-index: 5; }
     @media screen and (min-width: 64em) {
       #global-nav .nav__submenu[aria-hidden="false"] {
         background-color: #f8f8fb;
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%); } }
+        top: 100%; } }
 
 #global-nav [data-trigger="mobile-back"] {
   font-size: 1.25rem;
@@ -2219,11 +2216,6 @@ svg.nav-wide {
     #global-nav .nav__submenu > a {
       margin-bottom: 1.5625rem;
       margin-top: 0; } }
-
-@media screen and (min-width: 64em) {
-  #global-nav .nav__submenu > ul {
-    columns: 3 15.625rem;
-    column-gap: 2.5rem; } }
 
 #global-nav .nav__submenu > ul > li {
   border-bottom: solid 1px #bdbdbd;
