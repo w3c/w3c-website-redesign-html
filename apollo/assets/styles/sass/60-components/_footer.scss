@@ -50,7 +50,7 @@
 
 	.l-cluster li:last-of-type {
 
-		@include mq($max-width) {
+		@include mq($bp-tab-large) {
 
 			margin-inline-start: auto;
 
