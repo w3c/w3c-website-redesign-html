@@ -14,33 +14,18 @@ body {
 
 
 
-/**
-All headings start off at the same size by default, so we focus on the semantic hierarchy.
- */
 h1, h2, h3, h4, h5, h6 {
 
-	font-size: 1.25rem;
 	font-weight: $emphasis;
 	margin: 0;
 
 }
 
+h1 {
 
-
-/**
-When Font Face Observer has detected that the @font-face files are loaded, then we
-can safely use the web fonts instead of the system fonts.
- */
-.fonts-loaded {
-
-	body {
-
-		font-family: $font-loaded-family;
-
-	}
+	margin-bottom: 1em;
 
 }
-
 
 .txt-mercury {
 
@@ -48,33 +33,44 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
+h1,
 .txt-venus {
 
 	@include txt-venus;
 
 }
 
+h2,
 .txt-earth {
 
 	@include txt-earth;
 
 }
 
+h3,
 .txt-mars {
 
 	@include txt-mars;
 
 }
 
+h4,
 .txt-jupiter {
 
 	@include txt-jupiter;
 
 }
 
+h5,
 .txt-saturn {
 
 	@include txt-saturn;
+
+}
+
+h6 {
+
+	font-size: 1rem;
 
 }
 
@@ -90,15 +86,17 @@ can safely use the web fonts instead of the system fonts.
 
 }
 
-.txt-mercury,
-.txt-venus,
-.txt-earth,
-.txt-mars,
-.txt-jupiter,
-.txt-saturn,
-.txt-pluto,
-.txt-eris {
 
-	margin-bottom: 1em;
+/**
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+.fonts-loaded {
+
+	body {
+
+		font-family: $font-loaded-family;
+
+	}
 
 }
