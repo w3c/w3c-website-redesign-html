@@ -116,6 +116,7 @@ Note: aria-expanded attribute is managed by JS
 	padding-bottom: rem(18);
 	padding-top: rem(18);
 	position: relative;
+	z-index: 2;
 
 	@include mq($max-width) {
 
@@ -144,10 +145,12 @@ Note: aria-expanded attribute is managed by JS
 
 .global-nav__inner > ul {
 
+	border-bottom: solid 1px $border-color;
 	display: flex;
 	flex-basis: 100%;
 	flex-wrap: wrap;
 	left: 0;
+	padding-bottom: rem(45);
 	padding-left: 5vw;
 	padding-right: 5vw;
 	position: absolute;
@@ -156,8 +159,10 @@ Note: aria-expanded attribute is managed by JS
 
 	@include mq($max-width) {
 
+		border: none;
 		flex-basis: auto;
 		flex-wrap: nowrap;
+		padding-bottom: 0;
 		padding-left: 0;
 		padding-right: 0;
 		position: static;
