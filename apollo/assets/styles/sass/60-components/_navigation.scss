@@ -146,6 +146,7 @@ Note: aria-expanded attribute is managed by JS
 .global-nav__inner > ul {
 
 	border-bottom: solid 1px $border-color;
+	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 	display: flex;
 	flex-basis: 100%;
 	flex-wrap: wrap;
@@ -160,6 +161,7 @@ Note: aria-expanded attribute is managed by JS
 	@include mq($max-width) {
 
 		border: none;
+		box-shadow: none;
 		flex-basis: auto;
 		flex-wrap: nowrap;
 		padding-bottom: 0;
@@ -418,6 +420,7 @@ svg.nav-wide {
 
 	background-color: $white;
 	border-bottom: solid 1px $border-color;
+	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 	display: block;
 	left: 0;
 	min-height: calc(100% + 1px);
@@ -433,7 +436,6 @@ svg.nav-wide {
 
 		background-color: $mist-gray;
 		border: solid 1px $border-color;
-		box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 		left: 50%;
 		max-width: rem($max-width);
 		min-height: auto;
