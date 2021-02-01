@@ -2,42 +2,42 @@
     #Quotes
 \*------------------------------------*/
 
-blockquote,
-.quote {
+blockquote {
+
+	@include txt-saturn;
 
 	@include stack(1rem);
 
-}
+	color: $w3c-blue;
+	margin-inline-start: rem(10);
+	padding: rem(20);
+	position: relative;
 
-blockquote {
+	> * {
 
-	border-left: solid rem(3);
-	font-size: 1.25rem;
-	padding-left: rem(24);
-	quotes: "\201C" "\201D" "\2018" "\2019";
+		font-weight: bold;
 
-}
+	}
 
-blockquote p:first-child::before {
+	footer {
 
-	content: open-quote;
+		color: $off-black;
+		font-size: 1rem;
+		font-weight: normal;
 
-}
+	}
 
-blockquote p:last-of-type::after {
+	&::before {
 
-	content: close-quote;
+		background-color: $w3c-blue;
+		border-radius: rem(5);
+		content: '';
+		height: 100%;
+		inset-block-start: 0;
+		inset-inline-start: rem(-10);
+		position: absolute;
+		width: rem(10);
 
-}
-
-blockquote footer {
-
-	font-size: 1rem;
-
-}
-
-.quote figcaption {
-
-	padding-left: rem(24);
+	}
 
 }
