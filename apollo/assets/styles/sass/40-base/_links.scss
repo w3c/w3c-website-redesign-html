@@ -12,7 +12,8 @@ https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
 2. Remove the outline on focused links when they are also active/hovered.
  */
 
-a:not([class]) {
+a:not([class]),
+a.archived {
 
 	border: 0;
 	color: $link-color;
@@ -27,6 +28,12 @@ a:not([class]) {
 
 		color: $link-color--visited;
 
+		svg {
+
+			fill: $link-color--visited;
+
+		}
+
 	}
 
 	&:hover,
@@ -34,6 +41,12 @@ a:not([class]) {
 
 		color: $link-color--hover;
 		outline-width: 0; /* 2 */
+
+		svg {
+
+			fill: $link-color--hover;
+
+		}
 
 	}
 
