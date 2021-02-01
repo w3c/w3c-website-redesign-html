@@ -23,6 +23,12 @@
 
 	}
 
+	.component + .component {
+
+		margin-top: rem(55);
+
+	}
+
 }
 
 .default .content .related {
