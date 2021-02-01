@@ -39,3 +39,18 @@ img {
 	}
 
 }
+
+figcaption {
+
+	@include txt-pluto;
+	@include stack;
+
+	margin-block-start: 1em;
+
+	> * {
+
+		max-width: rem(540);
+
+	}
+
+}
