@@ -1,9 +1,9 @@
-import {stickyColumnHead} from "./main/tableheaders";
+import {responsiveTables} from "./main/responsive-tables";
 import {collapsibles} from "./main/collapsibles";
 import {navigation} from "./main/navigation";
 import {accountMenu} from "./main/account-menu";
 
-stickyColumnHead();
+responsiveTables();
 
 // Tie the stickyTableHead function to a resize event, and debounce for performance
 var timeout;
@@ -19,7 +19,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			stickyColumnHead();
+			responsiveTables();
 
 		}, 66);
 	}
