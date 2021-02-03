@@ -1,10 +1,11 @@
 /*------------------------------------*\
     #Tables
+
+    1. Logical property allows text-direction to change with 'dir'
 \*------------------------------------*/
 
 table {
 
-    background-color: transparent;
     border: 1px solid $border-color;
     border-collapse: collapse;
     width: 100%;
@@ -18,10 +19,25 @@ tr:nth-child(even) {
 }
 
 th,
-td {
+td,
+table caption {
 
     padding: 0.75rem;
-    text-align: start;
+    text-align: left; // Fallback for next rule for ltr languages
+    text-align: start; /* 1 */
+
+}
+
+[dir = "rtl"] {
+
+    th,
+    td,
+    table caption {
+
+        text-align: right; // Fallback for next rule
+        text-align: start; /* 1 */
+
+    }
 
 }
 
@@ -44,65 +60,24 @@ td {
 
 }
 
-table caption {
-
-    padding: 0.75rem;
-    text-align: left; // IE fallback for next rule - only works for ltr languages
-    text-align: start; /* 1 */
-
-}
 
 /**
-Scrolling visual clue: See https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+Responsive tables:
+https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 @media screen {
 
-    [dir="ltr"] {
+    .table-wrap {
 
-        .table-wrap {
-            background: linear-gradient(to right, $white 30%, rgba(255, 255, 255, 0)),
-            linear-gradient(to right, rgba(255, 255, 255, 0), $white 70%) 0 100%,
-            radial-gradient(
-                            farthest-side at 0% 50%,
-                            rgba(0, 0, 0, 0.2),
-                            rgba(0, 0, 0, 0)
-            ),
-            radial-gradient(
-                            farthest-side at 100% 50%,
-                            rgba(0, 0, 0, 0.2),
-                            rgba(0, 0, 0, 0)
-            )
-            0 100%;
-            background-attachment: local, local, scroll, scroll;
-            background-color: $white;
-            background-position: 0 0, 100%, 0 0, 100%;
-            background-repeat: no-repeat;
-            background-size: rem(40) 100%, rem(40) 100%, rem(14) 100%, rem(14) 100%;
-            border: 1px solid $border-color;
-            max-width: 100% !important;
-            overflow-x: auto;
+        border: 1px solid $border-color;
+        max-width: 100% !important;
+        overflow-x: auto;
 
-            table {
+        table {
 
-                border: none;
+            border: 0;
 
-            }
         }
-
-    }
-
-}
-
-
-/**
- Sticky header: an enhancement for tables without any horizontal overflow
- */
-@media screen {
-
-    .js-sticky th[scope="col"] {
-
-        position: sticky;
-        top: 0;
 
     }
 
