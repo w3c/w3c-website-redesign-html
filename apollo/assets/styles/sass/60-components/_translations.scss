@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    #Translations
+\*------------------------------------*/
+
+.translations {
+
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.translations.l-cluster {
+
+	> * {
+
+		margin: 0 rem(-10);
+
+	}
+
+	> * > * {
+
+		margin: 0 rem(10);
+
+	}
+
+}
+
+.translations + * {
+
+	margin-top: rem(30);
+
+	@include mq($max-width) {
+
+		margin-top: rem(50);
+
+	}
+
+}
+
+.translations h2 {
+
+	font-size: 1rem;
+	font-weight: normal;
+	padding-bottom: rem(10);
+	padding-top: rem(12);
+
+}
+
+.translations a {
+
+	display: block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
+
+}
+
+.translations [aria-current] {
+
+	color: $off-black;
+	text-decoration: none;
+
+	&:visited {
+
+		color: $off-black;
+
+	}
+
+	&:hover,
+	&:focus {
+
+		color: $off-black;
+		outline-color: $off-black;
+
+	}
+
+}

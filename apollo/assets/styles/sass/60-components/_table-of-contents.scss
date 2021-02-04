@@ -12,15 +12,9 @@
 
 	margin-top: rem(30);
 
-	@include mq($bp-tab-large) {
-
-		margin-top: rem(30);
-
-	}
-
 	@include mq($max-width) {
 
-		margin-top: rem(55);
+		margin-top: rem(50);
 
 	}
 
