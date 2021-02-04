@@ -34,15 +34,20 @@ ul:not([class]) {
 
 ol:not([class]) {
 
-	counter-reset: custom;
+	counter-reset: count;
 	list-style-type: none;
 	padding-inline-start: 1.25em;
 
-	> li::before {
+	> li {
 
-		counter-increment: custom;
-		content: counters(custom, ".");
-		padding-inline-end: 0.5em;
+		counter-increment: count;
+
+		&::before {
+
+			content: counters(count, ".") " ";
+			padding-inline-end: 0.5em;
+
+		}
 
 	}
 
