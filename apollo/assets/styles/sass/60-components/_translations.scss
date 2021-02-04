@@ -29,12 +29,6 @@
 
 	margin-top: rem(30);
 
-	@include mq($max-width) {
-
-		margin-top: rem(50);
-
-	}
-
 }
 
 .translations h2 {
