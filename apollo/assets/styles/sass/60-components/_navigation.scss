@@ -36,7 +36,7 @@ Note: aria-expanded attribute is managed by JS
 [data-trigger="mobile-nav"] {
 
 	font-size: rem(14);
-	padding: rem(6) rem(9);
+	padding: rem(7) 0;
 
 	&[aria-expanded="false"] #close-icon {
 
@@ -274,7 +274,7 @@ li.top-nav-item + li.top-nav-item {
 .account-login {
 
 	flex-basis: 100%;
-	font-size: rem(14);
+	font-size: rem(14) !important;
 	text-decoration: none;
 
 	@include mq($max-width) {
@@ -301,6 +301,7 @@ li.top-nav-item + li.top-nav-item {
 	@include mq($max-width) {
 
 		border-bottom: solid 3px transparent;
+		font-size: 1rem;
 		padding: rem(10) rem(5) rem(7);
 		white-space: nowrap;
 
@@ -368,6 +369,7 @@ svg.nav-wide {
 	border-radius: 0;
 	color: #111;
 	display: flex;
+	font-size: 1rem;
 	line-height: inherit;
 	outline: solid 1px transparent;
 	outline-offset: -1px;
@@ -451,10 +453,8 @@ svg.nav-wide {
 
 	@include txt-jupiter;
 
-	border-color: transparent transparent $border-color;
+	border-bottom: solid 1px $border-color;
 	border-radius: 0;
-	outline: solid 1px transparent;
-	outline-offset: -1px;
 	padding: rem(12) 5vw;
 
 	@include mq($max-width) {

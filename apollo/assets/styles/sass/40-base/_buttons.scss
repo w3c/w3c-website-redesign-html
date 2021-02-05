@@ -1,62 +1,60 @@
 /*------------------------------------*\
     #Buttons
+
+    1. High contrast themes tend to eliminate background-color.
+    With no border set, we need to apply a transparent outline to
+    maintain the button shape. The negative outline-offset moves
+    the outline inside the perimeter so it behaves like a border.
 \*------------------------------------*/
 
-/**
-1. Because the `stack` mixin applies flexbox in the column direction,
-we may need to prevent buttons from stretching horizontally
- */
 button,
 .button {
 
-	//align-self: flex-start; /* 1 */
 	background-color: $link-color;
 	border: none;
-	border-radius: rem(4);
+	border-radius: rem(24);
 	color: $white;
+	font-size: rem(14);
 	font-weight: $emphasis;
-	padding: rem(10) rem(24);
+	line-height: 1.5;
+	outline: 1px solid transparent; /* 1 */
+	outline-offset: -1px; /* 1 */
+	padding: rem(12) rem(24);
 
 	&:hover,
 	&:focus,
 	&:active {
 
-		background-color: darken(#023dde, 10%);
+		background-color: $link-color--hover;
 
 	}
 
 }
 
 
-
 /**
-2. High contrast themes tend to eliminate background-color. If there is no
-border set, we need to apply a transparent outline to maintain the shape
-of the button. The negative outline-offset moves the outline inside the
-perimeter so it behaves like a border and doesn't add to the overall size.
+Remove link styling from links styled as buttons.
  */
 .button {
 
-	border: 0;
 	display: block;
-	outline: 1px solid transparent; /* 2 */
-	outline-offset: -1px; /* 2 */
-	text-decoration: none; // Remove link styling from links styled as buttons
+	text-decoration: none;
 
 }
 
 
-
-
+/**
+Remove link styling from actual buttons styled as buttons.
+ */
 button.button,
 input[type="submit"].button {
 
-	text-decoration: none; // Remove link styling from actual buttons styled as buttons
+	text-decoration: none;
 
 }
 
 
-// For full-width buttons
+// Full-width buttons
 .button--wide {
 
 	text-align: center;
@@ -65,41 +63,63 @@ input[type="submit"].button {
 }
 
 
-// For disabled buttons
-.button[disabled],
-.button.is-disabled {
+// For buttons with a visible border
+.button--alt {
 
-	background-color: $grey;
-	box-shadow: none;
-	color: #3f3f3f;
-	cursor: not-allowed;
+	background-color: $white;
+	border: solid 2px $link-color;
+	color: $link-color;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
 
 	&:hover,
 	&:focus,
 	&:active {
 
-		background-color: $grey;
-		color: #3f3f3f;
-		outline: 0;
+		border: solid 2px $link-color--hover;
+		color: $white;
 
 	}
 
 }
 
 
-// For buttons with no background colour
+// For buttons with no background or border
 .button--ghost {
 
 	background-color: transparent;
-	border: solid 1px;
 	color: inherit;
 	font-weight: normal;
+	padding-left: 0;
+	padding-right: 0;
 
 	&:hover,
 	&:focus,
 	&:active {
 
 		background-color: transparent;
+
+	}
+
+}
+
+
+// Disabled buttons
+.button[disabled],
+.button.js-disabled {
+
+	background-color: $twiki-gray;
+	box-shadow: none;
+	color: #303030;
+	cursor: not-allowed;
+
+	&:hover,
+	&:focus,
+	&:active {
+
+		background-color: $twiki-gray;
+		color: #303030;
+		outline: 0;
 
 	}
 
