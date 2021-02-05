@@ -66,7 +66,7 @@ input[type="submit"].button {
 // For buttons with a visible border
 .button--alt {
 
-	background-color: $white;
+	background-color: transparent;
 	border: solid 2px $link-color;
 	color: $link-color;
 	padding-bottom: rem(10);
