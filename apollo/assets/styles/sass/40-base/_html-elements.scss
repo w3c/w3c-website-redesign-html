@@ -9,13 +9,14 @@ abbr {
 
 }
 
-abbr,
+
 dfn {
 
 	font-style: normal;
 	font-weight: $emphasis;
 
 }
+
 
 b,
 strong,
@@ -25,12 +26,14 @@ strong,
 
 }
 
+
 em,
 i {
 
 	font-style: italic;
 
 }
+
 
 small,
 .small,
@@ -40,12 +43,14 @@ small,
 
 }
 
+
 .small-caps {
 
 	text-shadow: 0 0 0 $off-black;
 	text-transform: uppercase;
 
 }
+
 
 code,
 samp,
