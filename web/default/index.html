@@ -423,7 +423,9 @@
 					</div>
 					<figure class="component">
 						<picture class="l-frame l-frame--16-9">
-							<img src="dist/assets/images/temp-developers-1520.jpg" alt="A Macbook screen with code, as seen from over the developer's shoulder" loading="lazy" />
+							<source media="(min-width: 700px)" srcset="dist/assets/images/temp-developers-1520.jpg">
+							<img src="dist/assets/images/temp-developers-920.jpg" loading="lazy" alt="A Macbook screen with code, as seen from over the developer's shoulder" />
+						</picture>
 						</picture>
 						<figcaption><p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p></figcaption>
 					</figure>
@@ -453,7 +455,7 @@
 					</div>
 					<figure class="component">
 						<div class="l-frame l-frame--16-9">
-							<iframe title="Video title" width="560" height="315" src="https://www.youtube-nocookie.com/embed/sw-j75MQtQU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe title="Video title" loading="lazy" width="560" height="315" src="https://www.youtube-nocookie.com/embed/sw-j75MQtQU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 						<figcaption><p>Note: embed code from Vimeo/YouTube does not include the <code>title</code> attribute, but this is a WCAG requirement so needs to be added manually.</p>
 							<a href="page.html">Download video transcript</a></figcaption>
