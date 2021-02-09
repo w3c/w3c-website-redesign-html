@@ -4,6 +4,17 @@
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
 
+.no-js {
+
+	[data-trigger="mobile-nav"],
+	.global-nav__inner .nav__submenu {
+
+		display: none;
+
+	}
+
+}
+
 [data-trigger="mobile-nav"] {
 
 	display: inline-flex;
