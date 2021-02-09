@@ -126,18 +126,15 @@ can safely use the web fonts instead of the system fonts.
     #Media query
 \*------------------------------------*/
 /*------------------------------------*\
-    #Stack (formerly axiomatic owl)
+    #Stack
 \*------------------------------------*/
 /**
 This mixin allows us to add vertical spacing between a container's direct children,
-much like the 'axiomatic owl' but limited to specific use cases.
+much like the 'axiomatic owl' technique but limited to specific use cases.
 
 By applying Flexbox to the parent container, we can use auto margin on a specific
 child element. This way, we can choose to group elements inside the stack to the
 top/bottom of the vertical space, which is useful for card-like components.
-
-The current default measure for the stack matches the base line-height,
-as defined in /40-base/typography.
 
 Use with a specific measure, or without for the default measure, e.g.
 
@@ -489,35 +486,42 @@ template {
 /*------------------------------------*\
     #Quotes
 \*------------------------------------*/
-blockquote,
-.quote {
+blockquote {
+  font-size: 1.125rem;
+  line-height: calc(27 / 18);
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-pack: start;
-      justify-content: flex-start; }
-  blockquote > * + *,
-  .quote > * + * {
+      justify-content: flex-start;
+  color: #005a9c;
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem;
+  padding: 1.25rem;
+  position: relative; }
+  blockquote > * + * {
     margin-top: 1rem; }
+  blockquote > * {
+    font-weight: bold; }
+  blockquote cite {
+    color: #111;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: normal; }
+  blockquote::before {
+    background-color: #005a9c;
+    border-radius: 0.3125rem;
+    content: '';
+    height: 100%;
+    left: -0.625rem;
+    position: absolute;
+    top: 0;
+    width: 0.625rem; }
 
-blockquote {
-  border-left: solid 0.1875rem;
-  font-size: 1.25rem;
-  padding-left: 1.5rem;
-  quotes: "\201C" "\201D" "\2018" "\2019"; }
-
-blockquote p:first-child::before {
-  content: open-quote; }
-
-blockquote p:last-of-type::after {
-  content: close-quote; }
-
-blockquote footer {
-  font-size: 1rem; }
-
-.quote figcaption {
-  padding-left: 1.5rem; }
+[dir="rtl"] blockquote::before {
+  left: auto;
+  right: -0.625rem; }
 
 /*------------------------------------*\
     #Body
@@ -564,40 +568,42 @@ Styles needed for a sticky footer
 
 /*------------------------------------*\
     #Buttons
+
+    1. High contrast themes tend to eliminate background-color.
+    With no border set, we need to apply a transparent outline to
+    maintain the button shape. The negative outline-offset moves
+    the outline inside the perimeter so it behaves like a border.
 \*------------------------------------*/
-/**
-1. Because the `stack` mixin applies flexbox in the column direction,
-we may need to prevent buttons from stretching horizontally
- */
 button,
 .button {
-  background-color: #005a9c;
+  background-color: #005797;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 1.5rem;
   color: #fff;
+  font-size: 0.875rem;
   font-weight: 600;
-  padding: 0.625rem 1.5rem; }
+  line-height: 1.5;
+  outline: 1px solid transparent;
+  /* 1 */
+  outline-offset: -1px;
+  /* 1 */
+  padding: 0.75rem 1.5rem; }
   button:hover, button:focus, button:active,
   .button:hover,
   .button:focus,
   .button:active {
-    background-color: #022fab; }
+    background-color: #024488; }
 
 /**
-2. High contrast themes tend to eliminate background-color. If there is no
-border set, we need to apply a transparent outline to maintain the shape
-of the button. The negative outline-offset moves the outline inside the
-perimeter so it behaves like a border and doesn't add to the overall size.
+Remove link styling from links styled as buttons.
  */
 .button {
-  border: 0;
   display: block;
-  outline: 1px solid transparent;
-  /* 2 */
-  outline-offset: -1px;
-  /* 2 */
   text-decoration: none; }
 
+/**
+Remove link styling from actual buttons styled as buttons.
+ */
 button.button,
 input[type="submit"].button {
   text-decoration: none; }
@@ -606,27 +612,38 @@ input[type="submit"].button {
   text-align: center;
   width: 100%; }
 
-.button[disabled],
-.button.is-disabled {
-  background-color: #aaa;
-  box-shadow: none;
-  color: #3f3f3f;
-  cursor: not-allowed; }
-  .button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active,
-  .button.is-disabled:hover,
-  .button.is-disabled:focus,
-  .button.is-disabled:active {
-    background-color: #aaa;
-    color: #3f3f3f;
-    outline: 0; }
+.button--alt {
+  background-color: transparent;
+  border: solid 2px #005797;
+  color: #005797;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
+  .button--alt:hover, .button--alt:focus, .button--alt:active {
+    border: solid 2px #024488;
+    color: #fff; }
 
 .button--ghost {
   background-color: transparent;
-  border: solid 1px;
   color: inherit;
-  font-weight: normal; }
+  font-weight: normal;
+  padding-left: 0;
+  padding-right: 0; }
   .button--ghost:hover, .button--ghost:focus, .button--ghost:active {
     background-color: transparent; }
+
+.button[disabled],
+.button.js-disabled {
+  background-color: #bdbdbd;
+  box-shadow: none;
+  color: #303030;
+  cursor: not-allowed; }
+  .button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active,
+  .button.js-disabled:hover,
+  .button.js-disabled:focus,
+  .button.js-disabled:active {
+    background-color: #bdbdbd;
+    color: #303030;
+    outline: 0; }
 
 /**
 Double specificity so links as buttons keep their styling even within
@@ -658,6 +675,32 @@ elements that would otherwise override it, without using !important
     color: #000; }
   .button--warning.button--warning:hover, .button--warning.button--warning:focus, .button--warning.button--warning:active {
     background-color: #fbe67b; }
+
+/*------------------------------------*\
+    #Figures
+\*------------------------------------*/
+figcaption {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -webkit-margin-before: 1em;
+          margin-block-start: 1em; }
+  figcaption > * + * {
+    margin-top: 1em; }
+  figcaption > * {
+    max-width: 33.75rem; }
+  figcaption > a {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    display: inline-block;
+    margin: 0;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem; }
 
 /*------------------------------------*\
     #Focus
@@ -1253,7 +1296,7 @@ Error states
  * using the %visually-hidden placeholder (extend the placeholder with
  * Sass to avoid it appearing repeatedly in your markup).
  */
-.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active), .global-header [role="status"], [data-trigger="account-menu"] .sr-only {
+.visuallyhidden:not(:focus):not(:active), .skip-link:not(:focus):not(:active), .global-header [role="status"] {
   border: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
@@ -1287,6 +1330,51 @@ br {
  * placeholder (extend the placeholder with Sass to avoid it appearing
  * repeatedly in your markup).
  */
+/*------------------------------------*\
+    #HTML elements
+\*------------------------------------*/
+abbr {
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+
+dfn {
+  font-style: normal;
+  font-weight: 600; }
+
+b,
+strong,
+.bold {
+  font-weight: 600; }
+
+em,
+i {
+  font-style: italic; }
+
+small,
+.small,
+.small-caps {
+  font-size: 0.875rem;
+  line-height: calc(20 / 14); }
+
+.small-caps {
+  text-shadow: 0 0 0 #111;
+  text-transform: uppercase; }
+
+code,
+samp,
+pre {
+  font-family: Monaco, "Lucida Console", monospace;
+  font-size: .9em;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
+  orphans: 3;
+  padding-left: 0.1875rem;
+  padding-right: 0.1875rem;
+  page-break-before: avoid;
+  text-transform: none;
+  widows: 3; }
+
 /*------------------------------------*\
     #Icons
 \*------------------------------------*/
@@ -1391,40 +1479,17 @@ img {
     margin-top: -0.625rem;
     width: 100%; }
 
+.avatar--med {
+  height: 3.125rem;
+  width: 3.125rem; }
+  .avatar--med img {
+    margin-top: 0; }
+
 .avatar--small {
   height: 1.875rem;
   width: 1.875rem; }
   .avatar--small img {
     margin-top: 0; }
-
-/*------------------------------------*\
-    #Inline elements
-\*------------------------------------*/
-b,
-strong,
-.bold {
-  font-weight: 600; }
-
-em,
-i {
-  font-style: italic; }
-
-small,
-.small,
-.small-caps {
-  font-size: 0.875rem;
-  line-height: calc(20 / 14); }
-
-.small-caps {
-  text-shadow: 0 0 0 #111;
-  text-transform: uppercase; }
-
-code {
-  background-color: #001f3f;
-  color: #2ecc40;
-  font-family: Monaco, "Lucida Console", monospace;
-  padding-left: 0.1875rem;
-  padding-right: 0.1875rem; }
 
 /*------------------------------------*\
     #Links
@@ -1438,21 +1503,32 @@ https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
 
 2. Remove the outline on focused links when they are also active/hovered.
  */
-a:not([class]) {
+a:not([class]),
+a.archived {
   border: 0;
-  color: #005a9c;
+  color: #005797;
   cursor: pointer;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   text-decoration: underline;
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
-  a:not([class]):visited {
-    color: #b10dc9; }
-  a:not([class]):hover, a:not([class]):active {
+  a:not([class]):visited,
+  a.archived:visited {
+    color: #920ba6; }
+    a:not([class]):visited svg,
+    a.archived:visited svg {
+      fill: #920ba6; }
+  a:not([class]):hover, a:not([class]):active,
+  a.archived:hover,
+  a.archived:active {
     color: #024488;
     outline-width: 0;
     /* 2 */ }
+    a:not([class]):hover svg, a:not([class]):active svg,
+    a.archived:hover svg,
+    a.archived:active svg {
+      fill: #024488; }
 
 /*------------------------------------*\
     #Lists
@@ -1471,23 +1547,24 @@ ul:not([class]) li ol,
 ol:not([class]) > * + *,
 ol:not([class]) li ul,
 ol:not([class]) li ol {
-  -webkit-margin-before: 0.25em;
-          margin-block-start: 0.25em; }
+  -webkit-margin-before: 0.75em;
+          margin-block-start: 0.75em; }
 
 ul:not([class]) {
   -webkit-padding-start: 2.4em;
           padding-inline-start: 2.4em; }
 
 ol:not([class]) {
-  counter-reset: custom;
+  counter-reset: count;
   list-style-type: none;
   -webkit-padding-start: 1.25em;
           padding-inline-start: 1.25em; }
-  ol:not([class]) > li::before {
-    counter-increment: custom;
-    content: counters(custom, ".");
-    -webkit-padding-end: 0.5em;
-            padding-inline-end: 0.5em; }
+  ol:not([class]) > li {
+    counter-increment: count; }
+    ol:not([class]) > li::before {
+      content: counters(count, ".") " ";
+      -webkit-padding-end: 0.5em;
+              padding-inline-end: 0.5em; }
 
 .clean-list li {
   display: block; }
@@ -1508,7 +1585,7 @@ dl dd + dd {
     #Skip link
 \*------------------------------------*/
 .skip-link {
-  background-color: #005a9c;
+  background-color: #005797;
   color: #fff;
   padding: 0.625em 0.9375em;
   text-decoration: none; }
@@ -1536,67 +1613,51 @@ dl dd + dd {
 /*------------------------------------*\
     #Tables
 
-    1. Logical property allows text-direction to change with `ltr`
+    1. Logical property allows text-direction to change with 'dir'
 \*------------------------------------*/
 table {
-  background-color: transparent;
+  border: 1px solid #bdbdbd;
   border-collapse: collapse;
   width: 100%; }
 
-th {
-  border: 1px solid;
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.025); }
+
+th,
+td,
+table caption {
   padding: 0.75rem;
   text-align: left;
   text-align: start;
   /* 1 */ }
 
-td {
-  border: 1px solid;
-  padding: 0.75rem; }
-
-table caption {
-  padding-bottom: 1rem;
-  text-align: left;
+[dir="rtl"] th,
+[dir="rtl"] td,
+[dir="rtl"] table caption {
+  text-align: right;
   text-align: start;
   /* 1 */ }
 
+th {
+  vertical-align: bottom; }
+  th[scope="col"] {
+    background-color: #024488;
+    color: #fff; }
+
+td {
+  vertical-align: text-top; }
+
 /**
-Bare minimum handling of large tables on small screens: wrapping
-div adds shading to the right-hand side to indicate when a table
-can be scrolled horizontally. The shading moves to the left-hand
-side when the table has been fully scrolled to the right, and vice versa.
-See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
+Responsive tables:
+https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 @media screen {
   .table-wrap {
-    background-attachment: local, scroll, local, scroll;
-    background-color: #fff;
-    background-image: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0) 3rem), linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem), linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 3rem), linear-gradient(270deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem);
-    background-repeat: no-repeat;
-    overflow-x: auto;
-    padding-left: 1px; } }
-
-/**
- Sticky header: an enhancement for tables without any horizontal overflow
- */
-@media screen {
-  .js-sticky th {
-    background-clip: padding-box;
-    background-color: #fafafa;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    /**
-		 Adds a bottom border, helpful when scrolling a table with a sticky header
-		 */ }
-    .js-sticky th::after {
-      background-color: #111;
-      bottom: 0;
-      content: '';
-      height: 1px;
-      left: 0;
-      position: absolute;
-      width: 100%; } }
+    border: 1px solid #bdbdbd;
+    max-width: 100% !important;
+    overflow-x: auto; }
+    .table-wrap table {
+      border: 0; } }
 
 /*------------------------------------*\
     #Typography
@@ -1608,20 +1669,12 @@ body {
   font-weight: 400;
   line-height: 1.5; }
 
-/**
-All headings start off at the same size by default, so we focus on the semantic hierarchy.
- */
 h1, h2, h3, h4, h5, h6 {
-  font-size: 1.25rem;
   font-weight: 600;
   margin: 0; }
 
-/**
-When Font Face Observer has detected that the @font-face files are loaded, then we
-can safely use the web fonts instead of the system fonts.
- */
-.fonts-loaded body {
-  font-family: "Noto Sans", "Trebuchet MS", Geneva, sans-serif; }
+h1 {
+  margin-bottom: 1em; }
 
 .txt-mercury {
   font-size: 2.125rem;
@@ -1631,32 +1684,43 @@ can safely use the web fonts instead of the system fonts.
       font-size: 3.75rem;
       line-height: calc(72 / 60); } }
 
+h1,
 .txt-venus {
   font-size: 2.0625rem;
   line-height: calc(43 / 33); }
   @media screen and (min-width: 48em) {
+    h1,
     .txt-venus {
       font-size: 3rem;
       line-height: calc(67.2 / 48); } }
 
+h2,
 .txt-earth {
   font-size: 1.6875rem;
   line-height: calc(33.6 / 27); }
   @media screen and (min-width: 48em) {
+    h2,
     .txt-earth {
       font-size: 2.125rem;
       line-height: calc(43 / 34); } }
 
+h3,
 .txt-mars {
   font-size: 1.5rem;
   line-height: calc(33.6 / 24); }
 
+h4,
 .txt-jupiter {
   font-size: 1.25rem;
   line-height: calc(32 / 20); }
 
+h5,
 .txt-saturn {
-  line-height: calc(22 / 16); }
+  font-size: 1.125rem;
+  line-height: calc(27 / 18); }
+
+h6 {
+  font-size: 1rem; }
 
 .txt-pluto {
   font-size: 0.9375rem;
@@ -1666,15 +1730,12 @@ can safely use the web fonts instead of the system fonts.
   font-size: 0.875rem;
   line-height: calc(20 / 14); }
 
-.txt-mercury,
-.txt-venus,
-.txt-earth,
-.txt-mars,
-.txt-jupiter,
-.txt-saturn,
-.txt-pluto,
-.txt-eris {
-  margin-bottom: 1em; }
+/**
+When Font Face Observer has detected that the @font-face files are loaded, then we
+can safely use the web fonts instead of the system fonts.
+ */
+.fonts-loaded body {
+  font-family: "Noto Sans", "Trebuchet MS", Geneva, sans-serif; }
 
 /*------------------------------------*\
     #Print styles
@@ -1747,8 +1808,6 @@ can safely use the web fonts instead of the system fonts.
 
 /*------------------------------------*\
     #Layouts
-
-    Only selected layouts that will not break in older browsers
 \*------------------------------------*/
 /*------------------------------------*\
     #Box layout primitive
@@ -1844,57 +1903,230 @@ out, but halve it to to account for 'doubling up' at the edges.
   margin: 0.625rem; }
 
 /*------------------------------------*\
-    #Components
+    #Frame layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/frame/
+
+    `.l-frame` is most useful for cropping media (images
+    and video) to a specific aspect ratio.
+
+    It is not recommended to apply the `.l-frame` class to the
+    <figure> element, as it will interfere with the <figcaption>.
+    Instead, place it on <picture> or a <div> inside of <figure>.
 \*------------------------------------*/
-/*------------------------------------*\
-    #Global footer
-\*------------------------------------*/
-.global-footer {
-  border-top: solid 1px #bdbdbd;
-  -ms-grid-row: 2;
-      grid-row-start: 2;
-  grid-row-end: 3;
-  padding: 1.25rem 0 1.5625rem; }
-  .global-footer .l-center {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: start;
-        justify-content: flex-start; }
-    .global-footer .l-center > * + * {
-      margin-top: 1rem; }
-  .global-footer a,
-  .global-footer .copyright {
-    font-size: 0.875rem;
-    line-height: calc(20 / 14); }
-  .global-footer a {
-    color: #111; }
-    .global-footer a:visited, .global-footer a:hover, .global-footer a:active {
-      color: #111; }
-  .global-footer .l-cluster > * {
-    margin: 0 -0.625rem; }
-  .global-footer .l-cluster.l-cluster > * > * {
-    margin: 0 0.625rem; }
-  @media screen and (min-width: 71.25em) {
-    .global-footer .l-cluster li:last-of-type {
-      -webkit-margin-start: auto;
-              margin-inline-start: auto; } }
-  .global-footer .l-cluster a:not([class]) {
-    display: block;
-    min-width: 2.75rem;
-    padding-bottom: 0.75rem;
-    padding-top: 0.75rem;
-    text-align: center; }
-  .global-footer .l-cluster .with-icon--larger {
-    padding: 0.75rem; }
-    .global-footer .l-cluster .with-icon--larger svg {
-      height: 1.25rem;
-      width: 1.25rem; }
+.l-frame {
+  display: block;
+  position: relative; }
+
+.l-frame > * {
+  -ms-flex-align: center;
+      align-items: center;
+  bottom: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.l-frame > iframe,
+.l-frame > img,
+.l-frame > video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%; }
+
+/* Common aspect ratios */
+.l-frame--16-9 {
+  padding-bottom: 56.25%; }
+
+.l-frame--3-2 {
+  padding-bottom: 66.67%; }
+
+.l-frame--4-3 {
+  padding-bottom: 75%; }
+
+.l-frame--square {
+  padding-bottom: 100%; }
 
 /*------------------------------------*\
-    #Global header
+    #Sidebar layout primitive
+
+    From https://absolutely.every-layout.dev/layouts/sidebar/
+
+    `.l-sidebar` creates a container for a larger panel next to
+    a smaller - sidebar - panel.
+
+    When there is enough horizontal space for them to sit alongside
+    each other, they do so. Otherwise they stack vertically. The
+    point at which this happens is determined by setting a flex-basis
+    on the sidebar panel and a min-width on the other panel.
+
+    N.B: because this layout uses Flexbox, we can use the `order`
+    property on either `.not-sidebar` or `.sidebar` (depending upon
+    the source order of the HTML) to determine whether the sidebar
+    sits on the left or right side.
 \*------------------------------------*/
+/**
+Suppress horizontal scrolling caused by the negative margin
+in some circumstances.
+ */
+.l-sidebar {
+  overflow: hidden; }
+
+/**
+We target the intermediary wrapper and give it a negative margin
+to create a gutter between the `.sidebar` and `.not-sidebar`.
+ */
+.l-sidebar > * {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: -0.75rem;
+  /* 1 */ }
+
+/**
+We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
+but halve it to to account for 'doubling up' at the edges.
+ */
+.l-sidebar > * > * {
+  margin: 0.75rem; }
+
+/**
+Flex-basis determines the ideal width of the `.sidebar`. This can be
+omitted to let the contents of `.sidebar` determine the width of
+`.sidebar` (e.g. an image with a specified max-width).
+ */
+.l-sidebar .sidebar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-preferred-size: 20rem;
+      flex-basis: 20rem;
+  -ms-flex-positive: 1;
+      flex-grow: 1; }
+  .l-sidebar .sidebar > * + * {
+    margin-top: 1em; }
+
+/**
+Min-width determines the point at which `.sidebar` and `.not-sidebar`
+will sit side-by-side rather than vertically. This negates the use of
+a viewport media query.
+ */
+.l-sidebar .not-sidebar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -ms-flex-positive: 999;
+      flex-grow: 999;
+  min-width: calc(55% - 1.5rem); }
+  .l-sidebar .not-sidebar > * + * {
+    margin-top: 1em; }
+
+/*------------------------------------*\
+    #Switcher layout primitive
+
+    Uses this to switch between vertical and horizontal layouts:
+    https://www.freecodecamp.org/news/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848/
+
+    Uses this to create the gutter effect:
+    https://css-tricks.com/css-grid-in-ie-faking-an-auto-placement-grid-with-gaps/
+
+    `.l-switcher` switches a Flexbox context between a horizontal and a
+    vertical layout at a given, CONTAINER-BASED breakpoint, rather than
+    using viewport media queries.
+
+    For example, if our breakpoint is 480px, the layout will switch to a
+    vertical configuration when the parent element is narrower than 600px.
+
+    The child elements in the horizontal configuration will be of equal
+	width.
+
+	N.B: For this to work in IE11, there must be no padding on the flex
+    items themselves. Instead, apply a margin and/or padding to nested
+    elements inside the flex items.
+
+    Nested elements can be given a max-width of 100% to prevent
+	their content from causing the flex items to grow.
+
+\*------------------------------------*/
+/**
+Wrapper for the layout.
+
+1. Part of the gutter configuration.
+ */
+.l-switcher {
+  display: block;
+  overflow: hidden;
+  /* 1 */ }
+
+/**
+The flex container.
+
+1. Part of the gutter configuration.
+ */
+.l-switcher > * {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  margin: 0 -1rem -1rem 0;
+  /* 1 */ }
+
+/**
+The flex children.
+
+1. Part of the gutter configuration.
+
+2. Determines the item width in the single column, vertical configuration
+
+3. Determines how many items will be in a row in the horizontal configuration
+
+4. The 600 value matches the desired breakpoint value, and is the width
+of the columns' parent container at the point when the switch will happen.
+This calculation will create a value that's either bigger than the max-width or
+smaller than the min-width, so that either of these properties is applied instead.
+ */
+.l-switcher > * > * {
+  background-clip: padding-box;
+  /* 1 */
+  border: 0 solid transparent;
+  /* 1 */
+  border-width: 0 1rem 1rem 0;
+  /* 1 */
+  max-width: 100%;
+  /* 2 */
+  min-width: 50%;
+  /* 3 */
+  width: calc(600px * 600 - 100% * 600);
+  /* 4 */ }
+
+/*------------------------------------*\
+    #Core components
+
+    For all browsers
+\*------------------------------------*/
+/*------------------------------------*\
+    #Global header core
+\*------------------------------------*/
+.no-js [data-trigger="account-menu"],
+.no-js .account-menu {
+  display: none; }
+
 .global-header .banner {
   background-color: #cbe0fb;
   padding-bottom: 0.625rem;
@@ -1937,108 +2169,6 @@ out, but halve it to to account for 'doubling up' at the edges.
     padding-bottom: 0.75rem;
     padding-top: 0.75rem; }
 
-[data-trigger="account-menu"] {
-  border: none;
-  border-radius: 0;
-  padding: 0.4375rem;
-  position: relative; }
-  @media screen and (min-width: 71.25em) {
-    [data-trigger="account-menu"] {
-      border-bottom: solid 3px transparent;
-      -webkit-margin-start: auto;
-              margin-inline-start: auto;
-      padding-bottom: 0.25rem; }
-      [data-trigger="account-menu"]:hover {
-        border-bottom-color: #0079b8; } }
-  [data-trigger="account-menu"][aria-expanded="false"] + .account-menu {
-    display: none; }
-  [data-trigger="account-menu"] * {
-    pointer-events: none; }
-  [data-trigger="account-menu"] .sr-only {
-    font-size: 0.875rem; }
-    @media screen and (min-width: 71.25em) {
-      [data-trigger="account-menu"] .sr-only {
-        border: initial;
-        clip: auto;
-        -webkit-clip-path: none;
-                clip-path: none;
-        height: auto;
-        margin: initial;
-        overflow: initial;
-        padding: initial;
-        position: static;
-        white-space: nowrap;
-        width: auto; } }
-  @media screen and (min-width: 71.25em) {
-    [data-trigger="account-menu"] picture {
-      -webkit-margin-start: 0.5rem;
-              margin-inline-start: 0.5rem; } }
-
-[dir="ltr"] [data-trigger="account-menu"] {
-  margin-left: auto; }
-  [dir="ltr"] [data-trigger="account-menu"].js-has-msg::after {
-    background-color: #e93737;
-    border: solid 3px #fff;
-    border-radius: 50%;
-    content: '';
-    height: 15px;
-    position: absolute;
-    right: 3px;
-    top: 3px;
-    width: 15px; }
-
-[dir="rtl"] [data-trigger="account-menu"] {
-  margin-right: auto; }
-  [dir="rtl"] [data-trigger="account-menu"].js-has-msg::after {
-    background-color: #e93737;
-    border: solid 3px #fff;
-    border-radius: 50%;
-    content: '';
-    height: 15px;
-    left: 3px;
-    position: absolute;
-    top: 3px;
-    width: 15px; }
-
-.account-menu {
-  border: solid 1px #bdbdbd;
-  box-shadow: 0 8px 16px 0 rgba(55, 70, 95, 0.07);
-  position: absolute;
-  top: 95%;
-  width: 15.625rem;
-  z-index: 10; }
-
-[dir="ltr"] .account-menu {
-  right: 5vw; }
-
-[dir="rtl"] .account-menu {
-  left: 5vw; }
-
-.account-menu ul {
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem; }
-  .account-menu ul li {
-    padding: 0.625rem 1.25rem; }
-
-.account-menu li:first-of-type {
-  font-weight: 600; }
-
-.account-menu li:nth-child(3),
-.account-menu li:nth-child(4) {
-  display: none; }
-
-.account-menu li:nth-child(5) {
-  padding-top: 0; }
-
-.account-menu li:last-of-type {
-  border-top: solid 1px #bdbdbd;
-  padding-bottom: 0; }
-
-.account-menu a {
-  display: block;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem; }
-
 /*------------------------------------*\
     #Logo
 \*------------------------------------*/
@@ -2053,87 +2183,19 @@ out, but halve it to to account for 'doubling up' at the edges.
       width: 4.875rem; } }
 
 /*------------------------------------*\
-    #Main
+    #Navigation core
 \*------------------------------------*/
-/**
-1. We use left and right padding to add some minimum space between the
-contents of <main> and the edges of the parent element or viewport.
-To avoid making the content narrower than intended, we add an exception
-to our global box-sizing rule.
- */
-main,
-#main {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  box-sizing: content-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 71.25rem;
-  padding: 1.5rem 5vw; }
-  main > * + *,
-  #main > * + * {
-    margin-top: 1.5rem; }
-
-/*------------------------------------*\
-    #Navigation
-\*------------------------------------*/
-/**
-Note: aria-expanded attribute is managed by JS
- */
-.no-js [data-trigger="mobile-nav"],
-.no-js .nav__submenu {
-  display: none; }
-
-@media screen and (min-width: 71.25em) {
-  .no-js .global-nav__inner > ul {
-    display: -ms-flexbox;
-    display: flex; } }
-
 #global-nav svg {
   pointer-events: none; }
 
 [data-trigger="mobile-nav"] {
-  font-size: 0.875rem;
-  padding: 0.375rem 0.5625rem; }
-  [data-trigger="mobile-nav"][aria-expanded="false"] #close-icon {
-    display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="true"] #menu-icon {
-    display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="false"] ~ .account-login {
-    display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="false"] + * {
-    display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="true"] ~ .account-login {
-    display: -ms-flexbox;
-    display: flex; }
-  @media screen and (min-width: 71.25em) {
-    [data-trigger="mobile-nav"] {
-      display: none; } }
-
-[dir="ltr"] [data-trigger="mobile-nav"] {
-  margin-left: auto; }
-
-[dir="ltr"] [data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
-  margin-left: 0.625rem; }
-
-[dir="rtl"] [data-trigger="mobile-nav"] {
-  margin-right: auto; }
-
-[dir="rtl"] [data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
-  margin-right: 0.625rem; }
+  display: none; }
 
 #global-nav {
-  -ms-flex-align: center;
-      align-items: center;
   border-bottom: solid 1px #bdbdbd;
   display: block;
   padding-bottom: 1.125rem;
-  padding-top: 1.125rem;
-  position: relative; }
+  padding-top: 1.125rem; }
   @media screen and (min-width: 71.25em) {
     #global-nav {
       padding-bottom: 0;
@@ -2161,11 +2223,7 @@ Note: aria-expanded attribute is managed by JS
       flex-basis: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  left: 0;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  position: absolute;
-  top: 100%;
+  padding-bottom: 2.8125rem;
   width: 100%; }
   @media screen and (min-width: 71.25em) {
     .global-nav__inner > ul {
@@ -2173,9 +2231,7 @@ Note: aria-expanded attribute is managed by JS
           flex-basis: auto;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-      padding-left: 0;
-      padding-right: 0;
-      position: static; } }
+      padding-bottom: 0; } }
 
 @media screen and (min-width: 71.25em) {
   li.top-nav-item + li.top-nav-item {
@@ -2186,9 +2242,6 @@ Note: aria-expanded attribute is managed by JS
   .global-nav__inner > ul > li:last-child {
     -webkit-margin-start: auto;
             margin-inline-start: auto; } }
-
-.signed-in .global-nav__inner > ul > li:last-child {
-  display: none; }
 
 .global-nav__inner .top-nav-item {
   border-bottom: solid 1px #bdbdbd;
@@ -2240,7 +2293,7 @@ Note: aria-expanded attribute is managed by JS
 .account-login {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
   text-decoration: none; }
   @media screen and (min-width: 71.25em) {
     .account-login {
@@ -2254,153 +2307,462 @@ Note: aria-expanded attribute is managed by JS
     width: 1.5rem; }
 
 @media screen and (min-width: 71.25em) {
-  .global-nav__inner .top-nav-item > a,
-  .global-nav__inner .top-nav-item button {
+  .global-nav__inner .top-nav-item > a {
     border-bottom: solid 3px transparent;
+    font-size: 1rem;
     padding: 0.625rem 0.3125rem 0.4375rem;
     white-space: nowrap; }
-    .global-nav__inner .top-nav-item > a:hover, .global-nav__inner .top-nav-item > a:focus, .global-nav__inner .top-nav-item > a.js-active,
-    .global-nav__inner .top-nav-item button:hover,
-    .global-nav__inner .top-nav-item button:focus,
-    .global-nav__inner .top-nav-item button.js-active {
+    .global-nav__inner .top-nav-item > a:hover, .global-nav__inner .top-nav-item > a:focus {
       border-bottom-color: #0079b8;
       outline: none; } }
 
-svg.nav-small {
-  -webkit-margin-start: auto;
-          margin-inline-start: auto; }
-  @media screen and (min-width: 71.25em) {
-    svg.nav-small {
-      display: none; } }
-
-svg.nav-wide {
-  display: none; }
-  @media screen and (min-width: 71.25em) {
-    svg.nav-wide {
-      display: inline; } }
-
-[dir="ltr"] svg.nav-small .angle-left {
+.global-nav__inner .nav__submenu {
   display: none; }
 
-[dir="rtl"] svg.nav-small .angle-right {
-  display: none; }
+/*------------------------------------*\
+    #Breadcrumbs
+    See: https://scottaohara.github.io/a11y_breadcrumbs/
+\*------------------------------------*/
+#breadcrumb {
+  padding-bottom: 0.9375rem;
+  padding-top: 0.625rem; }
+  #breadcrumb .l-cluster > * {
+    margin: 0 -0.6875rem; }
+  #breadcrumb .l-cluster.l-cluster > * > * {
+    margin: 0 0.6875rem;
+    position: relative; }
 
-.global-nav__inner [data-trigger="subnav"] {
-  -ms-flex-align: center;
-      align-items: center;
-  background-color: transparent;
-  border-radius: 0;
+.breadcrumbs a {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
   color: #111;
+  display: block;
+  min-width: 2.75rem;
+  padding-bottom: 0.6875rem;
+  padding-top: 0.6875rem;
+  text-align: center; }
+  .breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
+    color: #111; }
+
+.breadcrumbs [aria-current] {
+  font-weight: 600;
+  text-decoration: none; }
+  .breadcrumbs [aria-current]:hover, .breadcrumbs [aria-current]:focus {
+    outline-color: #111; }
+
+/**
+Separator chevron - see https://codepen.io/jonneal/pen/kptBs
+*/
+.breadcrumbs li:not(:last-child)::after {
+  border-style: solid;
+  content: '';
+  display: block;
+  height: 0.5em;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
+  width: 0.5em; }
+
+[dir="ltr"] .breadcrumbs li {
+  padding-right: 0.5em; }
+
+[dir="ltr"] .breadcrumbs li:not(:last-child)::after {
+  border-width: 0.1em 0.1em 0 0;
+  right: -0.2em; }
+
+[dir="rtl"] .breadcrumbs li {
+  padding-left: 0.5em; }
+
+[dir="rtl"] .breadcrumbs li:not(:last-child)::after {
+  border-width: 0 0 0.1em 0.1em;
+  right: 100%; }
+
+/*------------------------------------*\
+    #Main
+\*------------------------------------*/
+/**
+1. We use left and right padding to add some minimum space between the
+contents of <main> and the edges of the parent element or viewport.
+To avoid making the content narrower than intended, we add an exception
+to our global box-sizing rule.
+ */
+main,
+#main {
   display: -ms-flexbox;
   display: flex;
-  line-height: inherit;
-  outline: solid 1px transparent;
-  outline-offset: -1px;
-  padding: 0.75rem 0;
-  width: 100%; }
-  @media screen and (min-width: 71.25em) {
-    .global-nav__inner [data-trigger="subnav"] {
-      display: -ms-inline-flexbox;
-      display: inline-flex; } }
-  @media screen and (min-width: 71.25em) {
-    .global-nav__inner [data-trigger="subnav"][aria-expanded="false"] .angle-up {
-      display: none; } }
-  .global-nav__inner [data-trigger="subnav"][aria-expanded="false"] + * {
-    display: none; }
-  @media screen and (min-width: 71.25em) {
-    .global-nav__inner [data-trigger="subnav"][aria-expanded="true"] .angle-down {
-      display: none; } }
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 71.25rem;
+  padding: 1.5rem 5vw 6.25rem; }
+  main > * + *,
+  #main > * + * {
+    margin-top: 1em; }
 
-.global-nav__inner .nav__submenu {
-  background-color: #fff;
-  border-bottom: solid 1px #bdbdbd;
+/*------------------------------------*\
+    #Translations
+\*------------------------------------*/
+.translations {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+.translations.l-cluster > * {
+  margin: 0 -0.625rem; }
+
+.translations.l-cluster > * > * {
+  margin: 0 0.625rem; }
+
+.translations + * {
+  margin-top: 1.875rem; }
+
+.translations h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  padding-bottom: 0.625rem;
+  padding-top: 0.75rem; }
+
+.translations a {
   display: block;
-  left: 0;
-  min-height: calc(100% + 1px);
-  padding-bottom: 2.8125rem;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 5; }
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
+
+.translations [aria-current] {
+  color: #111;
+  text-decoration: none; }
+  .translations [aria-current]:visited {
+    color: #111; }
+  .translations [aria-current]:hover, .translations [aria-current]:focus {
+    color: #111;
+    outline-color: #111; }
+
+/*------------------------------------*\
+    #Table of contents
+\*------------------------------------*/
+.toc {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .toc > * + * {
+    margin-top: 1em; }
+
+.toc + * {
+  margin-top: 1.875rem; }
   @media screen and (min-width: 71.25em) {
-    .global-nav__inner .nav__submenu {
-      background-color: #f8f8fb;
-      border: solid 1px #bdbdbd;
-      box-shadow: 0 8px 16px 0 rgba(55, 70, 95, 0.07);
-      left: 50%;
-      max-width: 71.25rem;
-      min-height: auto;
-      padding: 1.25rem;
-      top: 100%;
-      transform: translateX(-50%); } }
+    .toc + * {
+      margin-top: 3.125rem; } }
 
-.global-nav__inner [data-trigger="mobile-back"] {
-  font-size: 1.25rem;
-  line-height: calc(32 / 20);
-  border-color: transparent transparent #bdbdbd;
-  border-radius: 0;
-  outline: solid 1px transparent;
-  outline-offset: -1px;
-  padding: 0.75rem 5vw; }
-  @media screen and (min-width: 71.25em) {
-    .global-nav__inner [data-trigger="mobile-back"] {
-      display: none; } }
+.toc h2 {
+  font-size: 1rem;
+  font-weight: normal; }
 
-[dir="ltr"] [data-trigger="mobile-back"] .angle-right {
-  display: none; }
+[dir="ltr"] .toc ul {
+  border-left: solid 3px #f9c818;
+  padding-left: 0.9375rem; }
 
-[dir="rtl"] [data-trigger="mobile-back"] .angle-left {
-  display: none; }
+[dir="rtl"] .toc ul {
+  border-right: solid 3px #f9c818;
+  padding-right: 0.9375rem; }
 
-.global-nav__inner .nav__submenu > a {
-  font-size: 1.25rem;
-  line-height: calc(32 / 20);
-  font-weight: 600;
-  margin-top: 1.5625rem;
-  padding-bottom: 0.375rem;
-  padding-top: 0.375rem; }
-  @media screen and (min-width: 71.25em) {
-    .global-nav__inner .nav__submenu > a {
-      margin-bottom: 1.5625rem;
-      margin-top: 0; } }
+.toc ul a {
+  display: inline-block;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
 
-@media screen and (min-width: 71.25em) {
-  .global-nav__inner .nav__submenu > ul {
-    columns: 3 15.625rem;
-    column-gap: 2.5rem; } }
+/*------------------------------------*\
+    #Text component
 
-.global-nav__inner .nav__submenu > ul > li {
-  border-bottom: solid 1px #bdbdbd;
-  padding-bottom: 0.1875rem;
-  padding-top: 0.1875rem; }
-  @media screen and (min-width: 71.25em) {
-    .global-nav__inner .nav__submenu > ul > li {
-      border-bottom: 0;
-      padding-bottom: 0;
-      padding-top: 0; } }
+    1. The `stack` mixin applies flexbox in the column direction,
+    so we need to prevent buttons from stretching horizontally
+\*------------------------------------*/
+.component--text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .component--text > * + * {
+    margin-top: 1em; }
 
-@media screen and (min-width: 71.25em) {
-  .global-nav__inner .nav__submenu > ul > li.has-children {
-    break-inside: avoid;
-    margin-bottom: 1.5625rem; }
-    .global-nav__inner .nav__submenu > ul > li.has-children:last-of-type {
-      margin-bottom: 0; } }
+.component--text > * {
+  max-width: 41.25rem; }
 
-.global-nav__inner .nav__submenu > ul > li > a {
-  font-size: 1.125rem;
-  padding-bottom: 0.5625rem;
-  padding-top: 0.5625rem; }
+.component--text button,
+.component--text .button {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  /* 1 */ }
 
-.global-nav__inner .nav__submenu ul ul {
-  -webkit-margin-start: 0.625rem;
-          margin-inline-start: 0.625rem; }
+/*------------------------------------*\
+    #Cards
+\*------------------------------------*/
+.card {
+  background-color: #e5e5e5;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%;
+  position: relative;
+  /**
+	Do not include the `hover` and `focus-within` styles in the same block - otherwise
+	the hover style will be lost in browsers that don't support focus-within
+	 */ }
+  .card .card__image::before {
+    background-color: transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1; }
+  .card:hover {
+    background-color: #cccccc; }
+    .card:hover .card__image::before {
+      background-color: rgba(0, 0, 0, 0.25); }
+  .card:focus-within {
+    background-color: #cccccc; }
 
-.global-nav__inner .nav__submenu .nav-link:hover {
-  text-decoration: underline;
-  text-decoration-skip-ink: auto;
-  text-underline-offset: 0.25em; }
+.card__text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  -ms-flex-order: 1;
+      order: 1; }
+  .card__text > * + * {
+    margin-top: 1rem; }
+
+.card__link {
+  color: #111;
+  text-decoration: none; }
+  .card__link:focus {
+    outline: none;
+    text-decoration: underline; }
+  .card__link::after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5; }
+
+.card--cta .card__text {
+  /**
+	Look for focus within the card header and use the general sibling combinator to
+	delegate the focus style to the call-to-action button.
+	 */
+  /**
+	Minimum spacing between the call-to-action button and the preceding element.
+	Matches the measure used for the stack mixin on `.card`
+	 */
+  /**
+	Pushes all call-to-action buttons to the bottom of the card.
+	 */ }
+  .card--cta .card__text .card__heading:focus-within ~ .card__cta {
+    outline: 3px solid #8b0084;
+    outline-offset: -3px; }
+  .card--cta .card__text > :nth-last-child(2) {
+    margin-bottom: 1rem; }
+  .card--cta .card__text .card__cta {
+    margin-top: auto; }
+
+.card--horizontal {
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: auto; }
+
+.card--horizontal .card__image {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  min-width: 18.75rem; }
+
+.card--horizontal .card__text {
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -ms-flex-positive: 999;
+      flex-grow: 999;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-width: calc(50%); }
+
+.card--horizontal .card__text__inner {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .card--horizontal .card__text__inner > * + * {
+    margin-top: 1rem; }
+  .card--horizontal .card__text__inner > :nth-last-child(2) {
+    margin-bottom: 1rem; }
+
+/**
+This needs to sit here to cascade correctly. If focus-within is supported by the browser,
+remove the default focus style from `.card__link`.
+ */
+.card:focus-within .card__link:focus {
+  text-decoration: none; }
+
+/*------------------------------------*\
+    #Tag list
+\*------------------------------------*/
+.tag-list {
+  margin: -0.75rem; }
+  .tag-list li {
+    margin: 0.75rem; }
+
+.tag {
+  background-color: #1bc0d7;
+  display: block;
+  font-size: 0.8em;
+  padding: 0.3125rem; }
+
+a.tag {
+  position: relative;
+  text-decoration: none;
+  z-index: 10; }
+  a.tag:hover {
+    text-decoration: underline; }
+
+/*------------------------------------*\
+    #Pagination
+    See: https://weboverhauls.github.io/demos/pagination/
+\*------------------------------------*/
+.pagination.pagination li {
+  display: inline-block;
+  position: relative; }
+  .pagination.pagination li::before {
+    content: "\2000";
+    position: absolute;
+    z-index: -1; }
+
+.pagination.pagination .pagination__item {
+  background-color: #e5e5e5;
+  border: 1px solid;
+  display: block;
+  padding: 0.1875rem 0.625rem;
+  text-decoration: none; }
+
+.pagination.pagination [aria-current] {
+  background-color: #aaa; }
+
+/*------------------------------------*\
+    #Global footer
+\*------------------------------------*/
+.global-footer {
+  border-top: solid 1px #bdbdbd;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 1.25rem 0 1.5625rem; }
+  .global-footer .l-center {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
+    .global-footer .l-center > * + * {
+      margin-top: 1rem; }
+  .global-footer a,
+  .global-footer .copyright {
+    font-size: 0.875rem;
+    line-height: calc(20 / 14); }
+  .global-footer a {
+    color: #111; }
+    .global-footer a:visited, .global-footer a:hover, .global-footer a:active {
+      color: #111; }
+  .global-footer .l-cluster > * {
+    margin: 0 -0.625rem; }
+  .global-footer .l-cluster.l-cluster > * > * {
+    margin: 0 0.625rem; }
+  @media screen and (min-width: 64em) {
+    .global-footer .l-cluster li:last-of-type {
+      -webkit-margin-start: auto;
+              margin-inline-start: auto; } }
+  .global-footer .l-cluster a:not([class]) {
+    display: block;
+    min-width: 2.75rem;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+    text-align: center; }
+  .global-footer .l-cluster .with-icon--larger {
+    padding: 0.75rem; }
+    .global-footer .l-cluster .with-icon--larger svg {
+      height: 1.25rem;
+      width: 1.25rem; }
+
+/*------------------------------------*\
+    #Templates
+\*------------------------------------*/
+/*------------------------------------*\
+    #Default page
+\*------------------------------------*/
+.no-js .default .content {
+  max-width: 46.3125rem; }
+
+@supports (grid-column-gap: 10%) {
+  @media screen and (min-width: 64em) {
+    .default .content {
+      display: -ms-grid;
+      display: grid;
+      grid-column-gap: 10%;
+      -ms-grid-columns: 65% 25%;
+          grid-template-columns: 65% 25%;
+      grid-template-areas: "article related"; } }
+  @media screen and (min-width: 64em) {
+    .default .content article {
+      grid-area: article; } }
+  @media screen and (min-width: 64em) {
+    .default .content .related {
+      grid-area: related; } } }
+
+.default .content article .component + .component {
+  margin-top: 3.125rem; }
+
+.default .content .related {
+  border-top: solid 10px #005a9c;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem; }
+
+@supports (grid-column-gap: 10%) {
+  @media screen and (min-width: 64em) {
+    .default .content .related {
+      margin-top: 0; } } }
+
+@media screen and (min-width: 64em) {
+  .default .content .related__inner {
+    -webkit-border-start: solid 1px #bdbdbd;
+            border-inline-start: solid 1px #bdbdbd;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem; } }
+
+.default .content .related ul a {
+  display: inline-block;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
 
 /*------------------------------------*\
     #Utilities
