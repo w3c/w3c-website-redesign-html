@@ -90,7 +90,7 @@ var navigation = (function () {
 	}
 
 	// Media query event handler
-	let mq = window.matchMedia('(min-width: 1140px)');
+	let mq = window.matchMedia('(min-width: 71.25em)');
 	mq.addListener(WidthChange);
 	WidthChange(mq);
 

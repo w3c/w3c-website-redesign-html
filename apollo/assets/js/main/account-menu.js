@@ -89,7 +89,7 @@ var accountMenu = (function () {
 		toggleButton.innerHTML = '<span class="sr-only">My account </span><picture class="avatar avatar--small"><img alt="" src="' + profile.avatar + '"/></picture>';
 
 		// Media query event handler
-		let mq = window.matchMedia('(min-width: 1140px)');
+		let mq = window.matchMedia('(min-width: 71.25em)');
 		mq.addListener(insertAccountBtn);
 		insertAccountBtn(mq);
 
