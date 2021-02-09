@@ -279,7 +279,7 @@ var navigation = function () {
   }; // Media query event handler
 
 
-  var mq = window.matchMedia('(min-width: 1140px)');
+  var mq = window.matchMedia('(min-width: 71.25em)');
   mq.addListener(WidthChange);
   WidthChange(mq); // Media query change
 
@@ -445,7 +445,7 @@ var accountMenu = function () {
     toggleButton.setAttribute('aria-expanded', 'false');
     toggleButton.innerHTML = '<span class="sr-only">My account </span><picture class="avatar avatar--small"><img alt="" src="' + profile.avatar + '"/></picture>'; // Media query event handler
 
-    var mq = window.matchMedia('(min-width: 1140px)');
+    var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
     insertAccountBtn(mq);
 

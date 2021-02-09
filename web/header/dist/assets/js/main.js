@@ -90,7 +90,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_tableheaders__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(_main_tableheaders__WEBPACK_IMPORTED_MODULE_0__["stickyColumnHead"])(); // Tie the stickyTableHead function to a resize event, and debounce for performance
+Object(_main_responsive_tables__WEBPACK_IMPORTED_MODULE_0__["responsiveTables"])(); // Tie the stickyTableHead function to a resize event, and debounce for performance
 
 var timeout;
 window.addEventListener('resize', function (event) {
@@ -109,7 +109,7 @@ window.addEventListener('resize', function (event) {
       // Reset timeout
       timeout = null; // Run our resize functions
 
-      Object(_main_tableheaders__WEBPACK_IMPORTED_MODULE_0__["stickyColumnHead"])();
+      Object(_main_responsive_tables__WEBPACK_IMPORTED_MODULE_0__["responsiveTables"])();
     }, 66);
   }
 }, false);
@@ -120,39 +120,29 @@ window.addEventListener('resize', function (event) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stickyColumnHead", function() { return stickyColumnHead; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "responsiveTables", function() { return responsiveTables; });
 /**
- * Sticky headers enhancement for tables
- * Loosely based on https://bbc.github.io/gel/components/data-tables/
+ * Responsive tables
+ * Tab index changed from 0 to -1 if there is no horizontal overflow
  */
-var stickyColumnHead = function stickyColumnHead() {
-  // Check if `position: sticky;` is supported
-  document.documentElement.style['position'] = 'sticky';
+var responsiveTables = function responsiveTables() {
+  // Get all the table wraps
+  var tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
 
-  if (document.documentElement.style['position'] === 'sticky') {
-    document.documentElement.removeAttribute('style'); // Get all the table wraps
+  if (tablesArray) {
+    // Loop through them
+    tablesArray.forEach(function (item) {
+      // Get the parent element of the table wrap, and it's width
+      var container = item.parentElement;
+      var containerWidth = parseInt(window.getComputedStyle(container, null).getPropertyValue("width"), 10); // Get the table inside the table wrap, and it's width
 
-    var tablesArray = Array.prototype.slice.call(document.querySelectorAll('.table-wrap'));
+      var table = item.firstElementChild;
+      var tableWidth = parseInt(window.getComputedStyle(table, null).getPropertyValue("width"), 10); // Comparison: true if the container is wider than the table
 
-    if (tablesArray) {
-      // Loop through them
-      tablesArray.forEach(function (item) {
-        // Get the parent element of the table wrap, and it's width
-        var container = item.parentElement;
-        var containerWidth = parseInt(window.getComputedStyle(container, null).getPropertyValue("width"), 10); // Get the table inside the table wrap, and it's width
+      var noScroll = containerWidth >= tableWidth; // Only make the container focusable if it needs scrolling
 
-        var table = item.firstElementChild;
-        var tableWidth = parseInt(window.getComputedStyle(table, null).getPropertyValue("width"), 10); // Comparison: true if the container is wider than the table
-
-        var noScroll = containerWidth >= tableWidth; // Only make the container focusable if it needs scrolling
-
-        item.tabIndex = noScroll ? -1 : 0; // Activate sticky headers for non-scrolling tables
-
-        item.style.overflowX = noScroll ? 'visible' : 'auto';
-        table.querySelector('thead').classList.toggle('js-sticky', noScroll);
-      }); // End loop
-    } // End if statement
-
+      item.tabIndex = noScroll ? -1 : 0;
+    }); // End loop
   } // End if statement
 
 };
@@ -289,7 +279,7 @@ var navigation = function () {
   }; // Media query event handler
 
 
-  var mq = window.matchMedia('(min-width: 1140px)');
+  var mq = window.matchMedia('(min-width: 71.25em)');
   mq.addListener(WidthChange);
   WidthChange(mq); // Media query change
 
@@ -455,7 +445,7 @@ var accountMenu = function () {
     toggleButton.setAttribute('aria-expanded', 'false');
     toggleButton.innerHTML = '<span class="sr-only">My account </span><picture class="avatar avatar--small"><img alt="" src="' + profile.avatar + '"/></picture>'; // Media query event handler
 
-    var mq = window.matchMedia('(min-width: 1140px)');
+    var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
     insertAccountBtn(mq);
 
