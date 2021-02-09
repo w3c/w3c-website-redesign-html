@@ -1,40 +1,12 @@
 /*------------------------------------*\
-    #Navigation
+    #Navigation advanced
+
+    N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
-
-/**
-Note: aria-expanded attribute is managed by JS
- */
-
-.no-js {
-
-	[data-trigger="mobile-nav"],
-	.nav__submenu {
-
-		display: none;
-
-	}
-
-	.global-nav__inner > ul {
-
-		@include mq($max-width) {
-
-			display: flex;
-
-		}
-
-	}
-
-}
-
-#global-nav svg {
-
-	pointer-events: none;
-
-}
 
 [data-trigger="mobile-nav"] {
 
+	display: inline-flex;
 	font-size: rem(14);
 	padding: rem(7) 0;
 
@@ -110,36 +82,8 @@ Note: aria-expanded attribute is managed by JS
 
 #global-nav {
 
-	align-items: center;
-	border-bottom: solid 1px $border-color;
-	display: block;
-	padding-bottom: rem(18);
-	padding-top: rem(18);
 	position: relative;
 	z-index: 2;
-
-	@include mq($max-width) {
-
-		padding-bottom: 0;
-		padding-top: rem(20);
-
-	}
-
-}
-
-.global-nav__inner {
-
-	align-items: center;
-	display: flex;
-	flex-wrap: wrap;
-
-	@include mq($max-width) {
-
-		align-items: flex-end;
-		flex-wrap: nowrap;
-		position: relative;
-
-	}
 
 }
 
@@ -173,129 +117,12 @@ Note: aria-expanded attribute is managed by JS
 
 }
 
-li.top-nav-item + li.top-nav-item {
-
-	@include mq($max-width) {
-
-		margin-inline-start: rem(4);
-
-	}
-
-}
-
-.global-nav__inner > ul > li:last-child {
-
-	@include mq($max-width) {
-
-		margin-inline-start: auto;
-
-	}
-
-}
-
 .signed-in .global-nav__inner > ul > li:last-child {
 
 	display: none;
 
 }
 
-.global-nav__inner .top-nav-item {
-
-	border-bottom: solid 1px $border-color;
-	flex-basis: 100%;
-
-	@include mq($max-width) {
-
-		border-bottom: none;
-		flex-basis: auto;
-
-	}
-
-}
-
-.nav-link {
-
-	display: block;
-	padding: rem(10) 0;
-	position: relative;
-	text-decoration: none;
-
-	@include mq($max-width) {
-
-		display: inline-block;
-
-	}
-
-}
-
-.global-nav__inner .top-nav-item > .nav-link {
-
-	font-weight: $emphasis;
-
-}
-
-.logo-link {
-
-	@include mq($max-width) {
-
-		border-bottom: solid 3px transparent;
-		margin-inline-end: rem(25);
-		padding-bottom: rem(5);
-
-		&:hover,
-		&:focus {
-
-			border-bottom-color: #0079b8;
-			outline: none;
-
-		}
-
-	}
-
-}
-
-.icon-link {
-
-	align-items: center;
-	display: flex;
-	padding: rem(14) 0;
-
-	@include mq($max-width) {
-
-		display: inline-flex;
-		justify-content: center;
-		height: 100%;
-		min-width: rem(44);
-
-	}
-
-}
-
-.account-login {
-
-	flex-basis: 100%;
-	font-size: rem(14) !important;
-	text-decoration: none;
-
-	@include mq($max-width) {
-
-		flex-basis: auto;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
-
-	}
-
-	.icon {
-
-		color: $twiki-gray;
-		height: rem(24);
-		width: rem(24);
-
-	}
-
-}
-
-.global-nav__inner .top-nav-item > a,
 .global-nav__inner .top-nav-item button {
 
 	@include mq($max-width) {

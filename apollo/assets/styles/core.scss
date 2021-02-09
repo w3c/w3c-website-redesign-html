@@ -5,29 +5,29 @@
 /*------------------------------------*\
     #Settings
 \*------------------------------------*/
-@import "sass/10-settings/breakpoints";
-@import "sass/10-settings/colors";
-//@import "sass/10-settings/debug";
-@import "sass/10-settings/fonts";
-@import "sass/10-settings/paths";
-@import "sass/10-settings/typesetting";
+@import "sass/00-settings/breakpoints";
+@import "sass/00-settings/colors";
+//@import "sass/00-settings/debug";
+@import "sass/00-settings/fonts";
+@import "sass/00-settings/paths";
+@import "sass/00-settings/typesetting";
 
 
 
 /*------------------------------------*\
     #Functions
 \*------------------------------------*/
-@import "sass/20-functions/maths";
-@import "sass/20-functions/units";
+@import "sass/10-functions/maths";
+@import "sass/10-functions/units";
 
 
 
 /*------------------------------------*\
     #Mixins
 \*------------------------------------*/
-@import "sass/30-mixins/font-sizes";
-@import "sass/30-mixins/media-query";
-@import "sass/30-mixins/stack";
+@import "sass/20-mixins/font-sizes";
+@import "sass/20-mixins/media-query";
+@import "sass/20-mixins/stack";
 
 
 
@@ -36,53 +36,61 @@
 
     Normalize comes first for the cascade
 \*------------------------------------*/
-@import "sass/40-base/normalize";
-@import "sass/40-base/animation";
-@import "sass/40-base/bg-color";
-@import "sass/40-base/quotes";
-@import "sass/40-base/body";
-@import "sass/40-base/box-sizing";
-@import "sass/40-base/buttons";
-@import "sass/40-base/figures";
-@import "sass/40-base/focus";
-@import "sass/40-base/forms";
-@import "sass/40-base/hide-and-show";
-@import "sass/40-base/html-elements";
-@import "sass/40-base/icons";
-@import "sass/40-base/images";
-@import "sass/40-base/links";
-@import "sass/40-base/lists";
-@import "sass/40-base/skip-link";
-@import "sass/40-base/social";
-@import "sass/40-base/tables";
-@import "sass/40-base/typography";
-@import "sass/40-base/print";
+@import "sass/30-base/normalize";
+@import "sass/30-base/animation";
+@import "sass/30-base/bg-color";
+@import "sass/30-base/quotes";
+@import "sass/30-base/body";
+@import "sass/30-base/box-sizing";
+@import "sass/30-base/buttons";
+@import "sass/30-base/figures";
+@import "sass/30-base/focus";
+@import "sass/30-base/forms";
+@import "sass/30-base/hide-and-show";
+@import "sass/30-base/html-elements";
+@import "sass/30-base/icons";
+@import "sass/30-base/images";
+@import "sass/30-base/links";
+@import "sass/30-base/lists";
+@import "sass/30-base/skip-link";
+@import "sass/30-base/social";
+@import "sass/30-base/tables";
+@import "sass/30-base/typography";
+@import "sass/30-base/print";
 
 
 
 /*------------------------------------*\
     #Layouts
-
-    Only selected layouts that will not break in older browsers
 \*------------------------------------*/
-@import "sass/50-layouts/box";
-@import "sass/50-layouts/center";
-@import "sass/50-layouts/cluster";
-@import "sass/50-layouts/frame";
+@import "sass/40-layouts/box";
+@import "sass/40-layouts/center";
+//@import "sass/40-layouts/cover";
+@import "sass/40-layouts/cluster";
+@import "sass/40-layouts/frame";
+@import "sass/40-layouts/sidebar";
+@import "sass/40-layouts/switcher";
 
 
 
 /*------------------------------------*\
-    #Components
+    #Core components
+
+    For all browsers
 \*------------------------------------*/
-@import "sass/60-components/header";
-@import "sass/60-components/logo";
-@import "sass/60-components/navigation";
-@import "sass/60-components/main";
-@import "sass/60-components/translations";
-@import "sass/60-components/table-of-contents";
-@import "sass/60-components/text";
-@import "sass/60-components/footer";
+@import "sass/50-core-components/header";
+@import "sass/50-core-components/logo";
+@import "sass/50-core-components/navigation";
+@import "sass/50-core-components/breadcrumbs";
+@import "sass/50-core-components/main";
+@import "sass/50-core-components/translations";
+@import "sass/50-core-components/table-of-contents";
+@import "sass/50-core-components/text";
+@import "sass/50-core-components/cards";
+@import "sass/50-core-components/tag-list";
+@import "sass/50-core-components/pagination";
+//@import "sass/50-core-components/payment-details";
+@import "sass/50-core-components/footer";
 
 
 

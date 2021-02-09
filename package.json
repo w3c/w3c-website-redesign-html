@@ -9,7 +9,7 @@
     "to": "web/dist/assets"
   },
   "scripts": {
-    "css:normalize": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/40-base/_normalize.scss",
+    "css:normalize": "shx cp ./node_modules/normalize.css/normalize.css ${npm_package_config_from}/styles/sass/30-base/_normalize.scss",
     "css:core:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.min.css",
     "css:core:uncompressed": "node-sass ${npm_package_config_from}/styles/core.scss ${npm_package_config_to}/styles/core.css",
     "css:advanced:compressed": "node-sass --output-style=compressed --source-map=true ${npm_package_config_from}/styles/advanced.scss ${npm_package_config_to}/styles/advanced.min.css",

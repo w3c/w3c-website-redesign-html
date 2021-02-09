@@ -2,26 +2,55 @@
     #Default page
 \*------------------------------------*/
 
-.default .content {
+.no-js {
 
-	@include mq($bp-tab-large) {
+	.default .content {
 
-		display: grid;
-		grid-column-gap: 10%;
-		grid-template-columns: 65% 25%;
-		grid-template-areas: "article related";
+		max-width: rem(741);
 
 	}
 
 }
 
-.default .content article {
+@supports(grid-column-gap: 10%) {
 
-	@include mq($bp-tab-large) {
+	.default .content {
 
-		grid-area: article;
+		@include mq($bp-tab-large) {
+
+			display: grid;
+			grid-column-gap: 10%;
+			grid-template-columns: 65% 25%;
+			grid-template-areas: "article related";
+
+		}
 
 	}
+
+	.default .content article {
+
+		@include mq($bp-tab-large) {
+
+			grid-area: article;
+
+		}
+
+	}
+
+	.default .content .related {
+
+		@include mq($bp-tab-large) {
+
+			grid-area: related;
+
+		}
+
+	}
+
+}
+
+
+.default .content article {
 
 	.component + .component {
 
@@ -37,10 +66,17 @@
 	margin-top: rem(40);
 	padding-top: rem(20);
 
-	@include mq($bp-tab-large) {
+}
 
-		grid-area: related;
-		margin-top: 0;
+@supports(grid-column-gap: 10%) {
+
+	.default .content .related {
+
+		@include mq($bp-tab-large) {
+
+			margin-top: 0;
+
+		}
 
 	}
 
