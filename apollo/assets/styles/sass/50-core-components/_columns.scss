@@ -4,43 +4,61 @@
 
 .component--columns {
 
-	> h2 {
+	overflow: hidden;
 
-		@include txt-earth;
+}
 
-		margin-bottom: 1em;
+.component--columns > h2 {
+
+	@include txt-earth;
+
+	margin-bottom: 1em;
+
+}
+
+.component--columns ul {
+
+	@include mq($bp-tab-small) {
+
+		display: flex;
+		flex-wrap: wrap;
+		margin: -1.5%;
 
 	}
 
 }
 
-.component--columns--three {
+.component--columns--images {
 
-	.l-switcher {
+	li {
 
-		overflow: hidden;
+		@include mq($bp-tab-small) {
 
-	}
+			flex: 1 0 33%;
+			max-width: 50%;
+			padding: 1.5%;
 
-	.l-switcher > * {
-
-		margin: -1.5%;
-
-	}
-
-	.l-switcher > * > * {
-
-		max-width: 100%;
-		min-width: 33.333%;
-		padding: 1.5%;
-		width: calc(690px * 690 - 100% * 690);
+		}
 
 	}
 
-	.l-switcher > * > * > div {
+	// Specify flex item behaviour if exactly 4 items
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
 
-		background-color: $mist-gray;
-		height: 100%;
+		flex-basis: 50%;
+
+	}
+
+	li + li {
+
+		margin-top: rem(20);
+
+		@include mq($bp-tab-small) {
+
+			margin-top: 0;
+
+		}
 
 	}
 
