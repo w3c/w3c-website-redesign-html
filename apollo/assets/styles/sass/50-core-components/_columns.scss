@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    #Columns
+\*------------------------------------*/
+
+.component--columns {
+
+	> h2 {
+
+		@include txt-earth;
+
+		margin-bottom: 1em;
+
+	}
+
+}
+
+.component--columns--three {
+
+	.l-switcher {
+
+		overflow: hidden;
+
+	}
+
+	.l-switcher > * {
+
+		margin: -1.5%;
+
+	}
+
+	.l-switcher > * > * {
+
+		max-width: 100%;
+		min-width: 33.333%;
+		padding: 1.5%;
+		width: calc(690px * 690 - 100% * 690);
+
+	}
+
+	.l-switcher > * > * > div {
+
+		background-color: $mist-gray;
+		height: 100%;
+
+	}
+
+}

@@ -75,8 +75,6 @@
 
 /*------------------------------------*\
     #Core components
-
-    For all browsers
 \*------------------------------------*/
 @import "sass/50-core-components/header";
 @import "sass/50-core-components/logo";
@@ -86,6 +84,7 @@
 @import "sass/50-core-components/translations";
 @import "sass/50-core-components/table-of-contents";
 @import "sass/50-core-components/text";
+@import "sass/50-core-components/columns";
 @import "sass/50-core-components/cards";
 @import "sass/50-core-components/tag-list";
 @import "sass/50-core-components/pagination";
@@ -98,6 +97,7 @@
     #Templates
 \*------------------------------------*/
 @import "sass/80-templates/default";
+@import "sass/80-templates/landing";
 
 
 
