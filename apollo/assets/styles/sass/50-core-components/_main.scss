@@ -11,8 +11,6 @@ to our global box-sizing rule.
 main,
 #main {
 
-	@include stack;
-
 	box-sizing: content-box /* 1 */;
 	margin-left: auto;
 	margin-right: auto;

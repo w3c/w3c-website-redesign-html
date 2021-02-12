@@ -7,3 +7,9 @@
 	@include txt-mercury;
 
 }
+
+.landing .component + .component {
+
+	margin-top: rem(50);
+
+}

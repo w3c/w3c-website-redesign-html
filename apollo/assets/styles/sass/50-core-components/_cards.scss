@@ -26,32 +26,6 @@
 
 }
 
-.card__link {
-
-	color: $off-black;
-	text-decoration: none;
-
-	&:focus {
-
-		outline: none;
-		text-decoration: underline; // For browsers not supporting `focus-within`
-
-	}
-
-	&::after {
-
-		bottom: 0;
-		content: '';
-		left: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-		z-index: 5;
-
-	}
-
-}
-
 .card__image img {
 
 	border-radius: rem(4) rem(4) 0 0;
@@ -60,28 +34,9 @@
 
 .card--cta .card__text {
 
-	position: relative;
-
-	/**
-	Do not include the `hover` and `focus-within` styles in the same block - otherwise
-	the hover style will be lost in browsers that don't support focus-within
-	 */
-	//&:hover  {}
-
-	//&:focus-within {}
-
-	/**
-	Look for focus within the card header and use the general sibling combinator to
-	delegate the focus style to the call-to-action button.
-	 */
-	.card__heading:focus-within ~ .card__cta {
-		outline: rem(2) solid $focus-color;
-		outline-offset: rem(-2);
-	}
-
 	/**
 	Minimum spacing between the call-to-action button and the preceding element.
-	Matches the measure used for the stack mixin on `.card`
+	Matches the measure used for the stack mixin on `.card__text`
 	 */
 	> :nth-last-child(2) {
 
@@ -89,72 +44,10 @@
 
 	}
 
-	/**
-	Pushes all call-to-action buttons to the bottom of the card.
-	 */
-	.card__cta {
+	a {
 
-		color: $link-color;
-		margin-top: auto;
-		padding-left: rem(2);
-		padding-right: rem(2);
-		text-decoration: underline;
-		text-decoration-skip-ink: auto; // Not supported by Safari
-		text-underline-offset: 0.25em; // Supported by Safari
+		line-height: rem(44);
 
 	}
-
-}
-
-.card--horizontal {
-
-	flex-direction: row;
-	flex-wrap: wrap;
-	height: auto;
-
-}
-
-.card--horizontal .card__image {
-
-	flex-basis: 50%;
-	flex-grow: 1;
-	min-width: rem(300);
-
-}
-
-.card--horizontal .card__text {
-
-	flex-basis: 0;
-	flex-grow: 999;
-	justify-content: center;
-	min-width: calc(50%);
-
-}
-
-.card--horizontal .card__text__inner {
-
-	@include stack(1rem);
-
-	> :nth-last-child(2) {
-
-		margin-bottom: 1rem;
-
-	}
-
-}
-
-/**
-This needs to sit here to cascade correctly. If focus-within is
-supported by the browser, remove default focus style from `.card__link`.
- */
-.card:focus-within .card__link:focus {
-
-	text-decoration: none;
-
-}
-
-.card__text:hover .card__cta {
-
-	color: $link-color--hover;
 
 }

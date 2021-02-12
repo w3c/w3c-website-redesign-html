@@ -26,6 +26,18 @@
 
 	}
 
+	li + li {
+
+		margin-top: rem(20);
+
+		@include mq($bp-tab-small) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
 }
 
 .component--columns--images {
@@ -46,17 +58,53 @@
 	li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
 	li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
 
-		flex-basis: 50%;
+		@include mq($bp-tab-small) {
+
+			flex-basis: 50%;
+
+		}
 
 	}
 
-	li + li {
+}
 
-		margin-top: rem(20);
+.component--columns--icons {
+
+	li {
 
 		@include mq($bp-tab-small) {
 
-			margin-top: 0;
+			flex: 1 0 50%;
+			max-width: 50%;
+			padding: 1.5%;
+
+		}
+
+		@include mq($max-width) {
+
+			flex-basis: 25%;
+
+		}
+
+	}
+
+	// Specify flex item behaviour if at least 5 items
+	li:nth-last-child(n+5), li:nth-last-child(n+5) ~ li {
+
+		@include mq($max-width) {
+
+			flex-basis: 33%;
+
+		}
+
+	}
+
+	// Specify flex item behaviour if exactly 7 items
+	li:nth-last-child(n+7), li:nth-last-child(n+7) ~ li {
+
+		@include mq($max-width) {
+
+			flex-basis: 25%;
 
 		}
 
