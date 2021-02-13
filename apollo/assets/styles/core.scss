@@ -43,7 +43,6 @@
 @import "sass/30-base/body";
 @import "sass/30-base/box-sizing";
 @import "sass/30-base/buttons";
-@import "sass/30-base/figures";
 @import "sass/30-base/focus";
 @import "sass/30-base/forms";
 @import "sass/30-base/hide-and-show";
@@ -84,8 +83,10 @@
 @import "sass/50-core-components/translations";
 @import "sass/50-core-components/table-of-contents";
 @import "sass/50-core-components/text";
+@import "sass/50-core-components/images";
 @import "sass/50-core-components/columns";
 @import "sass/50-core-components/cards";
+@import "sass/50-core-components/fifty-fifty";
 @import "sass/50-core-components/tag-list";
 @import "sass/50-core-components/pagination";
 //@import "sass/50-core-components/payment-details";

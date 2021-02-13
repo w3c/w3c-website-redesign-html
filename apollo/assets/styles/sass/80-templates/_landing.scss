@@ -12,4 +12,10 @@
 
 	margin-top: rem(50);
 
+	@include mq($bp-tab-small) {
+
+		margin-top: rem(100);
+
+	}
+
 }

@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    #Fifty-fifty
+\*------------------------------------*/
+
+.component--fifty-fifty {
+
+	@include mq($bp-tab-small) {
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+	}
+
+	> * + * {
+
+		margin-top: 1rem;
+
+		@include mq($bp-tab-small) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.component--fifty-fifty figcaption {
+
+	@include stack;
+
+	@include mq($bp-tab-small) {
+
+		flex-basis: 52%;
+
+	}
+
+	@include mq($bp-tab-large) {
+
+		flex-basis: 45%;
+
+	}
+
+	.button--alt {
+
+		align-self: flex-start;
+
+	}
+
+}
+
+.component--fifty-fifty .image {
+
+	@include mq($bp-tab-small) {
+
+		flex-basis: 45%;
+
+	}
+
+	img {
+
+		border-radius: rem(4);
+
+	}
+
+}
+
+.component--fifty-fifty.reversed {
+
+	figcaption {
+
+		@include mq($bp-tab-small) {
+
+			order: -1;
+
+		}
+
+	}
+
+}
