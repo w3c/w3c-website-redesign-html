@@ -19,3 +19,24 @@
 	}
 
 }
+
+.landing {
+
+	.component--text,
+	.component--image,
+	.component--video,
+	.component--quote {
+
+		margin-left: auto;
+		margin-right: auto;
+		max-width: rem(711);
+
+	}
+
+	.component--quote {
+
+		max-width: rem(691);
+
+	}
+
+}
