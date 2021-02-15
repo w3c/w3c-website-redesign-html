@@ -2,25 +2,26 @@
     #Landing page
 \*------------------------------------*/
 
-.landing h1 {
+.landing {
 
-	@include txt-mercury;
+	h1 {
 
-}
-
-.landing .component + .component {
-
-	margin-top: rem(50);
-
-	@include mq($bp-tab-small) {
-
-		margin-top: rem(100);
+		@include txt-mercury;
 
 	}
 
-}
+	#breadcrumb {
 
-.landing {
+		background-color: $mist-gray;
+
+	}
+
+	main,
+	#main {
+
+		padding-top: 0;
+
+	}
 
 	.component--text,
 	.component--image,
@@ -36,6 +37,18 @@
 	.component--quote {
 
 		max-width: rem(691);
+
+	}
+
+}
+
+.landing .component + .component {
+
+	margin-top: rem(50);
+
+	@include mq($bp-tab-small) {
+
+		margin-top: rem(100);
 
 	}
 
