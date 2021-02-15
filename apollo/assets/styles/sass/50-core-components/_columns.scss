@@ -12,6 +12,11 @@
 
 	@include txt-mars;
 
+}
+
+.component--columns > h2,
+.component--columns > p {
+
 	margin-bottom: 1em;
 
 }
