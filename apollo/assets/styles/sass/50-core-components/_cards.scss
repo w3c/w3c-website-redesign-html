@@ -10,6 +10,54 @@
 
 }
 
+[dir="ltr"] {
+
+	.card--event {
+
+		border-left: solid rem(6) $teal-green;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.card--event {
+
+		border-right: solid rem(6) $teal-green;
+
+	}
+
+}
+
+.card--event {
+
+	&.meeting {
+
+		border-color: $aqua;
+
+	}
+
+	&.talk {
+
+		border-color: $deep-yellow;
+
+	}
+
+	&.workshop {
+
+		border-color: $red;
+
+	}
+
+	.icon {
+
+		color: $storm-gray;
+
+	}
+
+}
+
 .card__text {
 
 	@include stack(1rem);
