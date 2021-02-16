@@ -443,7 +443,7 @@ var accountMenu = function () {
     toggleButton.setAttribute('class', 'button button--ghost with-icon--larger');
     toggleButton.setAttribute('data-trigger', 'account-menu');
     toggleButton.setAttribute('aria-expanded', 'false');
-    toggleButton.innerHTML = '<span class="sr-only">My account </span><picture class="avatar avatar--small"><img alt="" src="' + profile.avatar + '"/></picture>'; // Media query event handler
+    toggleButton.innerHTML = '<span class="sr-only">My account </span><div class="avatar avatar--small"><img alt="" src="' + profile.avatar + '"/></div>'; // Media query event handler
 
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
