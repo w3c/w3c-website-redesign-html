@@ -89,6 +89,20 @@
 
 		color: $white;
 
+		&:visited,
+		&:hover,
+		&:active {
+
+			color: $white;
+
+		}
+
+		&:focus {
+
+			outline-color: $white;
+
+		}
+
 	}
 
 }

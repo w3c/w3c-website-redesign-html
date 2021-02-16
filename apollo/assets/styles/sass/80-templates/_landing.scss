@@ -2,7 +2,8 @@
     #Landing page
 \*------------------------------------*/
 
-.landing {
+.landing,
+.ecosystem {
 
 	h1 {
 
@@ -42,7 +43,8 @@
 
 }
 
-.landing .component + .component {
+.landing .component + .component,
+.ecosystem .component + .component {
 
 	margin-top: rem(50);
 
