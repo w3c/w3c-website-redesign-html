@@ -22,7 +22,7 @@
 
 }
 
-.component--columns ul {
+.component--columns > ul {
 
 	@include mq($bp-tab-small) {
 
@@ -48,7 +48,7 @@
 
 .component--columns--images {
 
-	li {
+	> ul > li {
 
 		@include mq($bp-tab-small) {
 
@@ -76,7 +76,7 @@
 
 .component--columns--icons {
 
-	li {
+	> ul > li {
 
 		@include mq($bp-tab-small) {
 

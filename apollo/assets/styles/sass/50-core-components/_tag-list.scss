@@ -2,31 +2,30 @@
     #Tag list
 \*------------------------------------*/
 
-.tag-list {
+.tag-list.tag-list {
 
-	margin: rem(-12);
+	margin: rem(-10);
 
 	li {
-		margin: rem(12);
+
+		margin: rem(10);
+
 	}
 
 }
 
 .tag {
-	background-color: $aqua;
+
+	@include txt-pluto;
+
+	color: $storm-gray;
 	display: block;
-	font-size: 0.8em;
-	padding: rem(5);
+
 }
 
 a.tag {
 
 	position: relative;
-	text-decoration: none;
 	z-index: 10;
-
-	&:hover {
-		text-decoration: underline;
-	}
 
 }
