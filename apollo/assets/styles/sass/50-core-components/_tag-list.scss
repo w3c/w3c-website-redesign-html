@@ -31,6 +31,9 @@ across entire card using pseudo element
 a.tag {
 
 	position: relative;
+	text-decoration: underline;
+	text-decoration-skip-ink: auto; // Not supported by Safari
+	text-underline-offset: 0.25em; // Supported by Safari
 	z-index: 10;
 
 }
