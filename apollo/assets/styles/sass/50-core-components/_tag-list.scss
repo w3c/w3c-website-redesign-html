@@ -23,6 +23,11 @@
 
 }
 
+
+/*
+Makes the tag links selectable if card link is stretched
+across entire card using pseudo element
+ */
 a.tag {
 
 	position: relative;
