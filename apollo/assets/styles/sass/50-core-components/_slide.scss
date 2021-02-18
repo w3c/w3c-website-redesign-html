@@ -1,0 +1,115 @@
+/*------------------------------------*\
+    #Slide
+\*------------------------------------*/
+
+.slide {
+
+	@include mq($bp-tab-large) {
+
+		display: flex;
+		justify-content: space-between;
+
+	}
+
+	> * + * {
+
+		margin-top: 1rem;
+
+		@include mq($bp-tab-large) {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+.slide__quote,
+.slide__cite {
+
+	@include mq($bp-tab-large) {
+
+		flex-basis: 45%;
+
+	}
+
+}
+
+.slide__quote {
+
+	@include stack;
+
+	@include txt-mars;
+
+	font-weight: bold;
+
+	> * {
+
+		max-width: rem($text-measure);
+
+	}
+
+}
+
+
+.slide__cite {
+
+	@include txt-pluto;
+
+	&.l-sidebar .sidebar {
+
+		flex-basis: auto;
+
+	}
+
+	&.l-sidebar .not-sidebar {
+
+		min-width: calc(70% - 1.5rem);
+
+		p:first-child {
+
+			font-weight: bold;
+
+		}
+
+		p:first-child + p {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+
+.slide__logo {
+
+	background-color: $white;
+	height: rem(120);
+	padding: rem(24);
+	width: rem(180);
+
+	> img {
+
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		max-width: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		@supports (object-fit: contain) {
+
+			height: 100%;
+			max-width: none;
+			object-fit: contain;
+			position: static;
+
+		}
+
+	}
+
+}
