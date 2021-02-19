@@ -1,0 +1,84 @@
+/*------------------------------------*\
+    #Slider advanced
+
+    N.B. `.js-slider` is added by JS
+\*------------------------------------*/
+
+[data-component="slider"] {
+
+	.js-slider {
+
+		overflow-x: scroll;
+		padding-bottom: rem(10);
+		padding-top: rem(10);
+		scroll-snap-type: x mandatory;
+
+	}
+
+	.js-slider > ul {
+
+		display: flex;
+
+		> li {
+
+			flex: 0 0 100%;
+
+		}
+
+		> li + li {
+
+			margin-top: 0;
+
+		}
+
+	}
+
+}
+
+[dir="ltr"] {
+
+	.slider-controls .previous {
+
+		.angle-right {
+
+			display: none;
+
+		}
+
+	}
+
+	.slider-controls .next {
+
+		.angle-left {
+
+			display: none;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.slider-controls .previous {
+
+		.angle-left {
+
+			display: none;
+
+		}
+
+	}
+
+	.slider-controls .next {
+
+		.angle-right {
+
+			display: none;
+
+		}
+
+	}
+
+}
