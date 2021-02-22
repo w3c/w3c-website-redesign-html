@@ -13,6 +13,19 @@
 		padding-top: rem(10);
 		scroll-snap-type: x mandatory;
 
+		/*
+		Hide scrollbar in browsers that allow it,
+		because we have provided button navigation
+		 */
+		-ms-overflow-style: none; /* 1 - IE */
+		overflow: -moz-scrollbars-none; /* 1 - Older Firefox */
+		scrollbar-width: none; /* 1 - Latest Firefox */
+		&::-webkit-scrollbar {
+
+			display: none; /* 1 - Chrome and Safari */
+
+		}
+
 	}
 
 	.js-slider > ul {
@@ -78,6 +91,37 @@
 			display: none;
 
 		}
+
+	}
+
+}
+
+[data-slide] {
+
+	align-items: center;
+	display: inline-flex;
+	padding: rem(15);
+
+	&.current {
+
+		background-color: transparent;
+		border: solid 2px $link-color;
+		color: $link-color;
+		padding: rem(13);
+
+		&:hover {
+
+			background-color: $link-color--hover;
+			border: solid 2px $link-color--hover;
+			color: $white;
+
+		}
+
+	}
+
+	svg {
+
+		pointer-events: none;
 
 	}
 

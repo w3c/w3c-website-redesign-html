@@ -2,6 +2,7 @@ import {responsiveTables} from "./main/responsive-tables";
 import {collapsibles} from "./main/collapsibles";
 import {navigation} from "./main/navigation";
 import {accountMenu} from "./main/account-menu";
+import {contentSlider} from "./main/slider";
 
 responsiveTables();
 
