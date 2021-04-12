@@ -524,16 +524,68 @@ svg.nav-wide {
   text-underline-offset: 0.25em; }
 
 /*------------------------------------*\
-    #Hero
-\*------------------------------------*/
-.hero {
-  background-color: #111;
-  color: #fafafa; }
+    #Slider advanced
 
-.hero .l-center {
-  max-width: 81.25rem;
-  padding-left: 10vw;
-  padding-right: 10vw; }
+    N.B. `.js-slider` is added by JS
+\*------------------------------------*/
+[data-component="slider"] .js-slider {
+  overflow-x: scroll;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  /*
+		Hide scrollbar in browsers that allow it,
+		because we have provided button navigation
+		 */
+  -ms-overflow-style: none;
+  /* 1 - IE */
+  overflow: -moz-scrollbars-none;
+  /* 1 - Older Firefox */
+  scrollbar-width: none;
+  /* 1 - Latest Firefox */ }
+  [data-component="slider"] .js-slider::-webkit-scrollbar {
+    display: none;
+    /* 1 - Chrome and Safari */ }
+
+[data-component="slider"] .js-slider > ul {
+  display: -ms-flexbox;
+  display: flex; }
+  [data-component="slider"] .js-slider > ul > li {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%; }
+  [data-component="slider"] .js-slider > ul > li + li {
+    margin-top: 0; }
+
+[dir="ltr"] .slider-controls .previous .angle-right {
+  display: none; }
+
+[dir="ltr"] .slider-controls .next .angle-left {
+  display: none; }
+
+[dir="rtl"] .slider-controls .previous .angle-left {
+  display: none; }
+
+[dir="rtl"] .slider-controls .next .angle-right {
+  display: none; }
+
+[data-slide] {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0.9375rem; }
+  [data-slide].current {
+    background-color: transparent;
+    border: solid 2px #005797;
+    color: #005797;
+    padding: 0.8125rem; }
+    [data-slide].current:hover {
+      background-color: #024488;
+      border: solid 2px #024488;
+      color: #fff; }
+  [data-slide] svg {
+    pointer-events: none; }
 
 /*------------------------------------*\
     #Plugins

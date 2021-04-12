@@ -36,6 +36,38 @@
 
 	}
 
+
+
+	//.l-cluster li:last-of-type {
+	//
+	//	@include mq($bp-tab-large) {
+	//
+	//		margin-inline-start: auto;
+	//
+	//	}
+	//
+	//}
+
+}
+
+.global-footer__links {
+
+	display: flex;
+	flex-wrap: wrap;
+
+	> ul {
+
+		display: flex;
+		flex-wrap: wrap;
+
+		@include mq($bp-tab-large) {
+
+			margin-inline-start: auto;
+
+		}
+
+	}
+
 	.l-cluster > * {
 
 		margin: 0 rem(-10);
@@ -48,17 +80,7 @@
 
 	}
 
-	.l-cluster li:last-of-type {
-
-		@include mq($bp-tab-large) {
-
-			margin-inline-start: auto;
-
-		}
-
-	}
-
-	.l-cluster a:not([class]) {
+	a:not([class]) {
 
 		display: block;
 		min-width: rem(44);
@@ -68,7 +90,7 @@
 
 	}
 
-	.l-cluster .with-icon--larger {
+	.with-icon--larger {
 
 		padding: rem(12);
 

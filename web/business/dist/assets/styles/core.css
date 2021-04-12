@@ -3044,23 +3044,34 @@ a.tag {
     color: #111; }
     .global-footer a:visited, .global-footer a:hover, .global-footer a:active {
       color: #111; }
-  .global-footer .l-cluster > * {
+
+.global-footer__links {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .global-footer__links > ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    @media screen and (min-width: 64em) {
+      .global-footer__links > ul {
+        -webkit-margin-start: auto;
+                margin-inline-start: auto; } }
+  .global-footer__links .l-cluster > * {
     margin: 0 -0.625rem; }
-  .global-footer .l-cluster.l-cluster > * > * {
+  .global-footer__links .l-cluster.l-cluster > * > * {
     margin: 0 0.625rem; }
-  @media screen and (min-width: 64em) {
-    .global-footer .l-cluster li:last-of-type {
-      -webkit-margin-start: auto;
-              margin-inline-start: auto; } }
-  .global-footer .l-cluster a:not([class]) {
+  .global-footer__links a:not([class]) {
     display: block;
     min-width: 2.75rem;
     padding-bottom: 0.75rem;
     padding-top: 0.75rem;
     text-align: center; }
-  .global-footer .l-cluster .with-icon--larger {
+  .global-footer__links .with-icon--larger {
     padding: 0.75rem; }
-    .global-footer .l-cluster .with-icon--larger svg {
+    .global-footer__links .with-icon--larger svg {
       height: 1.25rem;
       width: 1.25rem; }
 

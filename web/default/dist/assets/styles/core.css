@@ -1679,6 +1679,7 @@ h2,
       line-height: calc(43 / 34); } }
 
 h3,
+.lead,
 .txt-mars {
   font-size: 1.5rem;
   line-height: calc(33.6 / 24); }
@@ -2334,6 +2335,35 @@ main,
   padding: 1.5rem 5vw 6.25rem; }
 
 /*------------------------------------*\
+    #Hero
+\*------------------------------------*/
+.hero {
+  background-color: #f8f8fb; }
+  @media screen and (min-width: 71.25em) {
+    .hero {
+      padding-top: 1.125rem; } }
+  .hero .l-sidebar > *,
+  .hero .l-sidebar > * > * {
+    margin: 0; }
+  .hero .l-sidebar .sidebar {
+    -ms-flex-preferred-size: 31.25rem;
+        flex-basis: 31.25rem; }
+  .hero .l-sidebar .not-sidebar {
+    min-width: 50%; }
+  .hero .l-sidebar .not-sidebar > * {
+    max-width: 90%; }
+  .hero .lead {
+    margin-bottom: 1.125rem;
+    margin-top: 0; }
+  .hero img {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 31.25rem; }
+
+.hero + * {
+  margin-top: 3.125rem; }
+
+/*------------------------------------*\
     #Translations
 \*------------------------------------*/
 .translations {
@@ -2493,30 +2523,31 @@ main,
 .component--columns {
   overflow: hidden; }
 
-.component--columns > h2 {
+.component--columns > h2:not([class]) {
   font-size: 1.5rem;
   line-height: calc(33.6 / 24); }
 
 .component--columns > h2,
 .component--columns > p {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  max-width: 41.25rem; }
 
 @media screen and (min-width: 48em) {
-  .component--columns ul {
+  .component--columns > ul {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin: -1.5%; } }
 
-.component--columns ul li + li {
+.component--columns > ul li + li {
   margin-top: 1.25rem; }
   @media screen and (min-width: 48em) {
-    .component--columns ul li + li {
+    .component--columns > ul li + li {
       margin-top: 0; } }
 
 @media screen and (min-width: 48em) {
-  .component--columns--images li {
+  .component--columns--images > ul > li {
     -ms-flex: 1 0 33%;
         flex: 1 0 33%;
     max-width: 50%;
@@ -2529,14 +2560,14 @@ main,
         flex-basis: 50%; } }
 
 @media screen and (min-width: 48em) {
-  .component--columns--icons li {
+  .component--columns--icons > ul > li {
     -ms-flex: 1 0 50%;
         flex: 1 0 50%;
     max-width: 50%;
     padding: 1.5%; } }
 
 @media screen and (min-width: 71.25em) {
-  .component--columns--icons li {
+  .component--columns--icons > ul > li {
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%; } }
 
@@ -2559,6 +2590,24 @@ main,
   -ms-flex-direction: column;
       flex-direction: column;
   height: 100%; }
+
+[dir="ltr"] .card--event {
+  border-left: solid 0.375rem #237978; }
+
+[dir="rtl"] .card--event {
+  border-right: solid 0.375rem #237978; }
+
+.card--event.meeting {
+  border-color: #1bc0d7; }
+
+.card--event.talk {
+  border-color: #f9c818; }
+
+.card--event.workshop {
+  border-color: #e93737; }
+
+.card--event .icon {
+  color: #585858; }
 
 .card__text {
   display: -ms-flexbox;
@@ -2595,23 +2644,27 @@ main,
 /*------------------------------------*\
     #Tag list
 \*------------------------------------*/
-.tag-list {
-  margin: -0.75rem; }
-  .tag-list li {
-    margin: 0.75rem; }
+.tag-list.tag-list {
+  margin: -0.625rem; }
+  .tag-list.tag-list li {
+    margin: 0.625rem; }
 
 .tag {
-  background-color: #1bc0d7;
-  display: block;
-  font-size: 0.8em;
-  padding: 0.3125rem; }
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  color: #585858;
+  display: block; }
 
+/*
+Makes the tag links selectable if card link is stretched
+across entire card using pseudo element
+ */
 a.tag {
   position: relative;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em;
   z-index: 10; }
-  a.tag:hover {
-    text-decoration: underline; }
 
 /*------------------------------------*\
     #Fifty-fifty
@@ -2664,6 +2717,257 @@ a.tag {
   .component--fifty-fifty.reversed figcaption {
     -ms-flex-order: -1;
         order: -1; } }
+
+/*------------------------------------*\
+    #Evangelists
+\*------------------------------------*/
+@media screen and (min-width: 64em) {
+  .component--evangelists {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: justify;
+        justify-content: space-between; } }
+
+.component--evangelists > * + * {
+  margin-top: 1rem; }
+  @media screen and (min-width: 64em) {
+    .component--evangelists > * + * {
+      margin-top: 0; } }
+
+.component--evangelists__text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .component--evangelists__text > * + * {
+    margin-top: 1em; }
+  @media screen and (min-width: 64em) {
+    .component--evangelists__text {
+      -ms-flex-preferred-size: 45%;
+          flex-basis: 45%; } }
+  .component--evangelists__text h2 ~ * {
+    max-width: 41.25rem; }
+
+.component--evangelists__list {
+  background-color: #005a9c;
+  border-radius: 0.375rem;
+  color: #fff;
+  overflow: hidden;
+  padding-top: 1.5rem; }
+  @media screen and (min-width: 64em) {
+    .component--evangelists__list {
+      -ms-flex-preferred-size: 45%;
+          flex-basis: 45%; } }
+  .component--evangelists__list h3 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; }
+  .component--evangelists__list li + li {
+    border-top: solid 1px #649bc5; }
+  .component--evangelists__list .sidebar {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto; }
+  .component--evangelists__list .not-sidebar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    min-width: calc(65% - 1.5rem); }
+    .component--evangelists__list .not-sidebar > * + * {
+      margin-top: 0.75em; }
+  .component--evangelists__list a {
+    color: #fff; }
+    .component--evangelists__list a:visited, .component--evangelists__list a:hover, .component--evangelists__list a:active {
+      color: #fff; }
+    .component--evangelists__list a:focus {
+      outline-color: #fff; }
+
+/*------------------------------------*\
+    #Actitivy
+\*------------------------------------*/
+.component--activity {
+  background-color: #f8f8fb;
+  padding-bottom: 3.125rem;
+  padding-top: 3.125rem; }
+
+@media screen and (min-width: 64em) {
+  .component--activity .component--columns--images li:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+  .component--activity .component--columns--images li:nth-last-child(n+4):nth-last-child(-n+4):first-child ~ li {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%; } }
+
+.component--activity .card {
+  background-color: #fff;
+  border-radius: 0.25rem;
+  overflow: hidden; }
+
+.component--activity .card__text {
+  padding: 1.25rem; }
+
+.component--activity .card__image img {
+  border-radius: 0; }
+
+/*------------------------------------*\
+    #Members grid
+\*------------------------------------*/
+.component--members {
+  background-color: #f8f8fb;
+  padding-bottom: 1.5625rem;
+  padding-top: 1.5625rem; }
+
+.component--members .l-center {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .component--members .l-center > * + * {
+    margin-top: 1em; }
+  .component--members .l-center > h2,
+  .component--members .l-center > p {
+    max-width: 41.25rem; }
+
+.component--members__grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap; }
+  @supports (display: grid) {
+    .component--members__grid {
+      display: -ms-grid;
+      display: grid;
+      grid-gap: 1.375rem;
+      -ms-grid-columns: (minmax(7.5rem, 1fr))[auto-fill];
+          grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); } }
+
+.component--members__grid > div {
+  background-color: #fff;
+  border: solid 1.375rem #f8f8fb;
+  -ms-flex-preferred-size: 7.5rem;
+      flex-basis: 7.5rem;
+  padding: 1.5rem;
+  position: relative; }
+  @supports (display: grid) {
+    .component--members__grid > div {
+      border: none;
+      display: -ms-grid;
+      display: grid;
+      position: static; } }
+  .component--members__grid > div::before {
+    content: '';
+    display: block;
+    padding-bottom: 100%; }
+  .component--members__grid > div > img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    @supports (display: grid) {
+      .component--members__grid > div > img {
+        height: 100%;
+        max-width: none;
+        object-fit: contain;
+        position: static; } }
+  @supports (display: grid) {
+    .component--members__grid > div::before,
+    .component--members__grid > div > img {
+      grid-area: 1 / 1 / 2 / 2; } }
+
+.component--members__cta > * > *:not(a) {
+  line-height: 2.75rem; }
+
+/*------------------------------------*\
+    #Slide
+\*------------------------------------*/
+@media screen and (min-width: 64em) {
+  .slide {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between; } }
+
+.slide > * + * {
+  margin-top: 1rem; }
+  @media screen and (min-width: 64em) {
+    .slide > * + * {
+      margin-top: 0; } }
+
+@media screen and (min-width: 64em) {
+  .slide__quote,
+  .slide__cite {
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%; } }
+
+.slide__quote {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  font-size: 1.5rem;
+  line-height: calc(33.6 / 24);
+  font-weight: bold; }
+  .slide__quote > * + * {
+    margin-top: 1em; }
+  .slide__quote > * {
+    max-width: 41.25rem; }
+
+.slide__cite {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15); }
+  .slide__cite.l-sidebar .sidebar {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto; }
+  .slide__cite.l-sidebar .not-sidebar {
+    min-width: calc(70% - 1.5rem); }
+    .slide__cite.l-sidebar .not-sidebar p:first-child {
+      font-weight: bold; }
+    .slide__cite.l-sidebar .not-sidebar p:first-child + p {
+      margin-top: 0; }
+
+.slide__logo {
+  background-color: #fff;
+  height: 7.5rem;
+  padding: 1.5rem;
+  width: 11.25rem; }
+  .slide__logo > img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    @supports (object-fit: contain) {
+      .slide__logo > img {
+        height: 100%;
+        max-width: none;
+        object-fit: contain;
+        position: static; } }
+
+/*------------------------------------*\
+    #Slider core
+\*------------------------------------*/
+.component--slider {
+  background-color: #f8f8fb;
+  padding-bottom: 1.5625rem;
+  padding-top: 1.5625rem; }
+  .component--slider h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem; }
+  .component--slider ul > li + li {
+    margin-top: 1rem; }
 
 /*------------------------------------*\
     #Crosslinks (You may also like)
@@ -2740,23 +3044,34 @@ a.tag {
     color: #111; }
     .global-footer a:visited, .global-footer a:hover, .global-footer a:active {
       color: #111; }
-  .global-footer .l-cluster > * {
+
+.global-footer__links {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .global-footer__links > ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    @media screen and (min-width: 64em) {
+      .global-footer__links > ul {
+        -webkit-margin-start: auto;
+                margin-inline-start: auto; } }
+  .global-footer__links .l-cluster > * {
     margin: 0 -0.625rem; }
-  .global-footer .l-cluster.l-cluster > * > * {
+  .global-footer__links .l-cluster.l-cluster > * > * {
     margin: 0 0.625rem; }
-  @media screen and (min-width: 64em) {
-    .global-footer .l-cluster li:last-of-type {
-      -webkit-margin-start: auto;
-              margin-inline-start: auto; } }
-  .global-footer .l-cluster a:not([class]) {
+  .global-footer__links a:not([class]) {
     display: block;
     min-width: 2.75rem;
     padding-bottom: 0.75rem;
     padding-top: 0.75rem;
     text-align: center; }
-  .global-footer .l-cluster .with-icon--larger {
+  .global-footer__links .with-icon--larger {
     padding: 0.75rem; }
-    .global-footer .l-cluster .with-icon--larger svg {
+    .global-footer__links .with-icon--larger svg {
       height: 1.25rem;
       width: 1.25rem; }
 
@@ -2813,30 +3128,52 @@ a.tag {
 /*------------------------------------*\
     #Landing page
 \*------------------------------------*/
-.landing h1 {
+.landing h1,
+.ecosystem h1 {
   font-size: 2.125rem;
   line-height: calc(43 / 34); }
   @media screen and (min-width: 48em) {
-    .landing h1 {
+    .landing h1,
+    .ecosystem h1 {
       font-size: 3.75rem;
       line-height: calc(72 / 60); } }
 
-.landing .component + .component {
-  margin-top: 3.125rem; }
-  @media screen and (min-width: 48em) {
-    .landing .component + .component {
-      margin-top: 6.25rem; } }
+.landing #breadcrumb,
+.ecosystem #breadcrumb {
+  background-color: #f8f8fb; }
+
+.landing main,
+.landing #main,
+.ecosystem main,
+.ecosystem #main {
+  padding-top: 0; }
 
 .landing .component--text,
 .landing .component--image,
 .landing .component--video,
-.landing .component--quote {
+.landing .component--quote,
+.ecosystem .component--text,
+.ecosystem .component--image,
+.ecosystem .component--video,
+.ecosystem .component--quote {
   margin-left: auto;
   margin-right: auto;
   max-width: 44.4375rem; }
 
-.landing .component--quote {
+.landing .component--quote,
+.ecosystem .component--quote {
   max-width: 43.1875rem; }
+
+.landing .component + .component,
+.ecosystem .component + .component {
+  margin-top: 3.125rem; }
+  @media screen and (min-width: 48em) {
+    .landing .component + .component,
+    .ecosystem .component + .component {
+      margin-top: 6.25rem; } }
+
+.ecosystem .component.u-full-width + .component.u-full-width {
+  margin-top: 0; }
 
 /*------------------------------------*\
     #Utilities
