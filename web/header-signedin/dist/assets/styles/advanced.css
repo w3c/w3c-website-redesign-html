@@ -306,6 +306,10 @@ br {
 
     N.B. aria-expanded attribute is managed by JS
 \*------------------------------------*/
+.no-js [data-trigger="mobile-nav"],
+.no-js .global-nav__inner .nav__submenu {
+  display: none; }
+
 [data-trigger="mobile-nav"] {
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -520,119 +524,68 @@ svg.nav-wide {
   text-underline-offset: 0.25em; }
 
 /*------------------------------------*\
-    #Hero
-\*------------------------------------*/
-.hero {
-  background-color: #111;
-  color: #fafafa; }
+    #Slider advanced
 
-.hero .l-center {
-  max-width: 81.25rem;
-  padding-left: 10vw;
-  padding-right: 10vw; }
-
-/*------------------------------------*\
-    #Collapsible sections
+    N.B. `.js-slider` is added by JS
 \*------------------------------------*/
-.js .component--collapsibles [data-heading="collapsibles"] button {
+[data-component="slider"] .js-slider {
+  overflow-x: scroll;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  /*
+		Hide scrollbar in browsers that allow it,
+		because we have provided button navigation
+		 */
+  -ms-overflow-style: none;
+  /* 1 - IE */
+  overflow: -moz-scrollbars-none;
+  /* 1 - Older Firefox */
+  scrollbar-width: none;
+  /* 1 - Latest Firefox */ }
+  [data-component="slider"] .js-slider::-webkit-scrollbar {
+    display: none;
+    /* 1 - Chrome and Safari */ }
+
+[data-component="slider"] .js-slider > ul {
+  display: -ms-flexbox;
+  display: flex; }
+  [data-component="slider"] .js-slider > ul > li {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%; }
+  [data-component="slider"] .js-slider > ul > li + li {
+    margin-top: 0; }
+
+[dir="ltr"] .slider-controls .previous .angle-right {
+  display: none; }
+
+[dir="ltr"] .slider-controls .next .angle-left {
+  display: none; }
+
+[dir="rtl"] .slider-controls .previous .angle-left {
+  display: none; }
+
+[dir="rtl"] .slider-controls .next .angle-right {
+  display: none; }
+
+[data-slide] {
   -ms-flex-align: center;
       align-items: center;
-  background-color: #ddd;
-  color: inherit;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 600;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  padding: 1rem;
-  width: 100%; }
-  .js .component--collapsibles [data-heading="collapsibles"] button:hover {
-    background-color: #aaa; }
-  .js .component--collapsibles [data-heading="collapsibles"] button[aria-expanded="true"] .vert {
-    display: none; }
-  .js .component--collapsibles [data-heading="collapsibles"] button svg {
-    height: 1em;
-    width: 1em; }
-
-.js .component--collapsibles [data-heading="collapsibles"] + * {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  padding: 1rem; }
-  .js .component--collapsibles [data-heading="collapsibles"] + * > * + * {
-    margin-top: 1em; }
-  .js .component--collapsibles [data-heading="collapsibles"] + *[aria-hidden="true"] {
-    display: none; }
-
-.js .component--collapsibles * + [data-heading="collapsibles"] {
-  margin-top: 1rem; }
-
-/*------------------------------------*\
-    #Tabbed sections
-\*------------------------------------*/
-.no-js .component--tabs {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start; }
-  .no-js .component--tabs > * + * {
-    margin-top: 1em; }
-  .no-js .component--tabs section {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-pack: start;
-        justify-content: flex-start; }
-    .no-js .component--tabs section > * + * {
-      margin-top: 1rem; }
-
-.js .component--tabs [role="tablist"] {
-  border-bottom: solid 1px #aaa;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row nowrap;
-      flex-flow: row nowrap;
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 0 1.5rem;
-  -webkit-overflow-scrolling: touch; }
-  .js .component--tabs [role="tablist"] li {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-    list-style: none;
-    margin-top: 0;
-    padding: 0; }
-  .js .component--tabs [role="tablist"] li + li {
-    margin-left: 1.5rem; }
-
-.js .component--tabs a[role="tab"] {
-  background-color: #e5e5e5;
-  border: 0;
-  border-bottom: solid 0.1875rem transparent;
-  color: #111;
-  display: block;
-  padding: 0.625em 0.9375em; }
-  .js .component--tabs a[role="tab"]:focus, .js .component--tabs a[role="tab"][aria-selected="true"] {
-    border-color: #005797;
-    outline: none;
-    text-decoration: none; }
-
-.js .component--tabs [role="tabpanel"] {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  padding: 1.5rem; }
-  .js .component--tabs [role="tabpanel"] > * + * {
-    margin-top: 1rem; }
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0.9375rem; }
+  [data-slide].current {
+    background-color: transparent;
+    border: solid 2px #005797;
+    color: #005797;
+    padding: 0.8125rem; }
+    [data-slide].current:hover {
+      background-color: #024488;
+      border: solid 2px #024488;
+      color: #fff; }
+  [data-slide] svg {
+    pointer-events: none; }
 
 /*------------------------------------*\
     #Plugins
