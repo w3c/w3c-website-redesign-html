@@ -39,11 +39,11 @@ var navigation = (function () {
 	}
 
 	// I18N for 'Main menu' back button text
-	let backText = 'Main menu';
+	let backText = 'Back to main menu';
 	if (document.documentElement.lang === 'ja') {
-		backText = 'メインメニュー';
+		backText = 'メインメニューに戻る';
 	} else if (document.documentElement.lang === 'zh-hans') {
-		backText = '主菜单';
+		backText = '返回主菜单';
 	}
 
 	let closeSubNavs = function () {
