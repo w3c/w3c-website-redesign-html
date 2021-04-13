@@ -71,7 +71,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 
         border: 1px solid $border-color;
         max-width: 100% !important;
-        overflow-x: auto;
+        overflow: auto;
 
         table {
 

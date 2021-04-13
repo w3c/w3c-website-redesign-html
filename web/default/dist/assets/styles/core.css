@@ -1627,7 +1627,7 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
   .table-wrap {
     border: 1px solid #bdbdbd;
     max-width: 100% !important;
-    overflow-x: auto; }
+    overflow: auto; }
     .table-wrap table {
       border: 0; } }
 
