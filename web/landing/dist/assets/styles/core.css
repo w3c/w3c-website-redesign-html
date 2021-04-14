@@ -1626,8 +1626,9 @@ https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 @media screen {
   .table-wrap {
     border: 1px solid #bdbdbd;
-    max-width: 100% !important;
-    overflow-x: auto; }
+    max-width: 100% !important; }
+    .table-wrap[role][aria-labelledby][tabindex] {
+      overflow: auto; }
     .table-wrap table {
       border: 0; } }
 
@@ -2937,6 +2938,7 @@ a.tag {
   background-color: #fff;
   height: 7.5rem;
   padding: 1.5rem;
+  position: relative;
   width: 11.25rem; }
   .slide__logo > img {
     bottom: 0;
@@ -2965,7 +2967,7 @@ a.tag {
     font-weight: normal;
     margin-bottom: 1.5rem; }
   .component--slider ul > li + li {
-    margin-top: 1rem; }
+    margin-top: 2rem; }
 
 /*------------------------------------*\
     #Crosslinks (You may also like)

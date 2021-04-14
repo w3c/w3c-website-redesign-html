@@ -2938,6 +2938,7 @@ a.tag {
   background-color: #fff;
   height: 7.5rem;
   padding: 1.5rem;
+  position: relative;
   width: 11.25rem; }
   .slide__logo > img {
     bottom: 0;
@@ -2966,7 +2967,7 @@ a.tag {
     font-weight: normal;
     margin-bottom: 1.5rem; }
   .component--slider ul > li + li {
-    margin-top: 1rem; }
+    margin-top: 2rem; }
 
 /*------------------------------------*\
     #Crosslinks (You may also like)

@@ -529,28 +529,17 @@ svg.nav-wide {
     N.B. `.js-slider` is added by JS
 \*------------------------------------*/
 [data-component="slider"] .js-slider {
-  overflow-x: scroll;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
-  /*
-		Hide scrollbar in browsers that allow it,
-		because we have provided button navigation
-		 */
-  -ms-overflow-style: none;
-  /* 1 - IE */
-  overflow: -moz-scrollbars-none;
-  /* 1 - Older Firefox */
-  scrollbar-width: none;
-  /* 1 - Latest Firefox */ }
-  [data-component="slider"] .js-slider::-webkit-scrollbar {
-    display: none;
-    /* 1 - Chrome and Safari */ }
+  overflow: hidden; }
+  [data-component="slider"] .js-slider:focus-within {
+    outline: 0.125rem solid #8b0084;
+    outline-offset: -0.125rem; }
 
 [data-component="slider"] .js-slider > ul {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  position: relative; }
   [data-component="slider"] .js-slider > ul > li {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%; }
@@ -575,12 +564,12 @@ svg.nav-wide {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 0.9375rem; }
-  [data-slide].current {
+  [data-slide].js-current {
     background-color: transparent;
     border: solid 2px #005797;
     color: #005797;
     padding: 0.8125rem; }
-    [data-slide].current:hover {
+    [data-slide].js-current:hover {
       background-color: #024488;
       border: solid 2px #024488;
       color: #fff; }
