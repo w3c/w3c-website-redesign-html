@@ -8,21 +8,12 @@
 
 	.js-slider {
 
-		overflow-x: scroll;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
-		scroll-snap-type: x mandatory;
+		overflow: hidden;
 
-		/*
-		Hide scrollbar in browsers that allow it,
-		because we have provided button navigation
-		 */
-		-ms-overflow-style: none; /* 1 - IE */
-		overflow: -moz-scrollbars-none; /* 1 - Older Firefox */
-		scrollbar-width: none; /* 1 - Latest Firefox */
-		&::-webkit-scrollbar {
+		&:focus-within {
 
-			display: none; /* 1 - Chrome and Safari */
+			outline: rem(2) solid $focus-color;
+			outline-offset: rem(-2);
 
 		}
 
@@ -31,6 +22,9 @@
 	.js-slider > ul {
 
 		display: flex;
+		padding-bottom: rem(10);
+		padding-top: rem(10);
+		position: relative;
 
 		> li {
 
@@ -102,7 +96,7 @@
 	display: inline-flex;
 	padding: rem(15);
 
-	&.current {
+	&.js-current {
 
 		background-color: transparent;
 		border: solid 2px $link-color;
