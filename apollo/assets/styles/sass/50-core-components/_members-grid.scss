@@ -38,6 +38,12 @@
 
 }
 
+.component--members__grid + a {
+
+	align-self: flex-start;
+
+}
+
 .component--members__grid > div {
 
 	background-color: $white;
