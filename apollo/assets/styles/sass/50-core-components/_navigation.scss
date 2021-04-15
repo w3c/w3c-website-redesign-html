@@ -48,6 +48,7 @@
 
 .global-nav__inner > ul {
 
+	background-color: $white;
 	display: flex;
 	flex-basis: 100%;
 	flex-wrap: wrap;
@@ -100,6 +101,7 @@ li.top-nav-item + li.top-nav-item {
 
 .nav-link {
 
+	color: $off-black;
 	display: block;
 	padding: rem(10) 0;
 	position: relative;
@@ -142,6 +144,7 @@ li.top-nav-item + li.top-nav-item {
 .icon-link {
 
 	align-items: center;
+	color: inherit;
 	display: flex;
 	padding: rem(14) 0;
 

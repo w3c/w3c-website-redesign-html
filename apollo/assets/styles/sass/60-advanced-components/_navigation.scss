@@ -21,6 +21,12 @@
 	font-size: rem(14);
 	padding: rem(7) 0;
 
+	&:focus {
+
+		border-color: transparent;
+
+	}
+
 	&[aria-expanded="false"] #close-icon {
 
 		display: none;
@@ -204,8 +210,9 @@ svg.nav-wide {
 
 	align-items: center;
 	background-color: transparent;
+	border-color: transparent;
 	border-radius: 0;
-	color: #111;
+	color: $off-black;
 	display: flex;
 	font-size: 1rem;
 	line-height: inherit;
@@ -327,6 +334,7 @@ svg.nav-wide {
 
 	@include txt-jupiter;
 
+	color: $off-black;
 	font-weight: $emphasis;
 	margin-top: rem(25);
 	padding-bottom: rem(6);
