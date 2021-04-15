@@ -4,7 +4,11 @@
 
 :focus {
 
-	outline: rem(2) solid $focus-color;
+	/**
+	Ideally we would specify the background-color here to cover all circumstances.
+	Unfortunately, this does not work at all well for Internet Explorer, so we can't.
+	 */
+	outline: rem(2) solid transparent;
 	outline-offset: rem(-2);
 
 }
@@ -15,7 +19,7 @@ acceptable not to show a focus outline.
  */
 main:focus,
 #main:focus,
-[tabindex='-1']:focus {
+[tabindex="-1"]:focus {
 
 	outline: none;
 

@@ -20,7 +20,7 @@ a.archived {
 	cursor: pointer;
 	padding-left: rem(2);
 	padding-right: rem(2);
-	text-decoration: underline;
+	text-decoration: underline; /* 1 */
 	text-decoration-skip-ink: auto; // Not supported by Safari
 	text-underline-offset: 0.25em; // Supported by Safari
 
@@ -36,8 +36,7 @@ a.archived {
 
 	}
 
-	&:hover,
-	&:active {
+	&:hover {
 
 		color: $link-color--hover;
 		outline-width: 0; /* 2 */
@@ -45,6 +44,34 @@ a.archived {
 		svg {
 
 			fill: $link-color--hover;
+
+		}
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $link-color 3px, $focus-color 3px, $focus-color);
+		color: $link-color--hover;
+		text-decoration: none;
+
+		svg {
+
+			fill: $link-color--hover;
+
+		}
+
+	}
+
+	&:active {
+
+		color: $black;
+		outline-width: 0; /* 2 */
+
+		svg {
+
+			fill: $black;
 
 		}
 

@@ -11,7 +11,7 @@ button,
 .button {
 
 	background-color: $link-color;
-	border: none;
+	border: solid 2px $link-color;
 	border-radius: rem(24);
 	color: $white;
 	font-size: rem(14);
@@ -19,13 +19,26 @@ button,
 	line-height: 1.5;
 	outline: 1px solid transparent; /* 1 */
 	outline-offset: -1px; /* 1 */
-	padding: rem(12) rem(24);
+	padding: rem(11) rem(24);
 
-	&:hover,
-	&:focus,
-	&:active {
+	&:hover {
 
 		background-color: $link-color--hover;
+		border-color: $link-color--hover;
+
+	}
+
+	&:focus {
+
+		color: $link-color--hover;
+		background-color: $focus-color;
+		border-color: $link-color--hover;
+
+	}
+
+	&:active {
+
+		color: $black;
 
 	}
 
@@ -67,37 +80,58 @@ input[type="submit"].button {
 .button--alt {
 
 	background-color: transparent;
-	border: solid 2px $link-color;
 	color: $link-color;
-	padding-bottom: rem(10);
-	padding-top: rem(10);
 
-	&:hover,
-	&:focus,
+	&:hover {
+
+		background-color: $light-blue;
+		color: $link-color--hover;
+
+	}
+
+	&:focus {
+
+		background-color: transparent;
+		border-width: 3px;
+		box-shadow: 0 0 0 3px $focus-color;
+		padding: rem(10) rem(23);
+
+	}
+
 	&:active {
 
-		border: solid 2px $link-color--hover;
-		color: $white;
+		background-color: $focus-color;
+		border-width: 2px;
+		box-shadow: none;
+		padding: rem(11) rem(24);
 
 	}
 
 }
 
 
-// For buttons with no background or border
+// For buttons with no visible background or border
 .button--ghost {
 
 	background-color: transparent;
-	color: inherit;
+	border-color: transparent;
+	color: $black;
 	font-weight: normal;
 	padding-left: 0;
 	padding-right: 0;
 
-	&:hover,
-	&:focus,
-	&:active {
+	&:hover {
 
 		background-color: transparent;
+		border-color: transparent;
+
+	}
+
+	&:focus {
+
+		background-color: transparent;
+		border-color: $link-color--hover;
+		color: $black;
 
 	}
 
@@ -109,6 +143,7 @@ input[type="submit"].button {
 .button.js-disabled {
 
 	background-color: $twiki-gray;
+	border-color: $twiki-gray;
 	box-shadow: none;
 	color: #303030;
 	cursor: not-allowed;
