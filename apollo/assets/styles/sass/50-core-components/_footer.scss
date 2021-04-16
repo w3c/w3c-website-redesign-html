@@ -36,18 +36,6 @@
 
 	}
 
-
-
-	//.l-cluster li:last-of-type {
-	//
-	//	@include mq($bp-tab-large) {
-	//
-	//		margin-inline-start: auto;
-	//
-	//	}
-	//
-	//}
-
 }
 
 .global-footer__links {
@@ -98,6 +86,13 @@
 
 			height: rem(20);
 			width: rem(20);
+
+		}
+
+		&:focus {
+
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 
 		}
 

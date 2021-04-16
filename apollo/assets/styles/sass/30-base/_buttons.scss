@@ -17,8 +17,8 @@ button,
 	font-size: rem(14);
 	font-weight: $emphasis;
 	line-height: 1.5;
-	outline: 1px solid transparent; /* 1 */
-	outline-offset: -1px; /* 1 */
+	outline: 2px solid transparent; /* 1 */
+	outline-offset: -2px; /* 1 */
 	padding: rem(11) rem(24);
 
 	&:hover {
@@ -30,9 +30,9 @@ button,
 
 	&:focus {
 
-		color: $link-color--hover;
+		color: $black;
 		background-color: $focus-color;
-		border-color: $link-color--hover;
+		border-color: $black;
 
 	}
 
@@ -91,19 +91,10 @@ input[type="submit"].button {
 
 	&:focus {
 
-		background-color: transparent;
-		border-width: 3px;
-		box-shadow: 0 0 0 3px $focus-color;
-		padding: rem(10) rem(23);
-
-	}
-
-	&:active {
-
 		background-color: $focus-color;
-		border-width: 2px;
-		box-shadow: none;
-		padding: rem(11) rem(24);
+		border-width: 3px;
+		color: $black;
+		padding: rem(10) rem(23);
 
 	}
 
@@ -130,7 +121,7 @@ input[type="submit"].button {
 	&:focus {
 
 		background-color: transparent;
-		border-color: $link-color--hover;
+		border-color: $black;
 		color: $black;
 
 	}

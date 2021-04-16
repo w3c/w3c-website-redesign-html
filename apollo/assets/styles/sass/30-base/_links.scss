@@ -52,13 +52,13 @@ a.archived {
 	&:focus {
 
 		background-color: $focus-color;
-		background-image: linear-gradient(to top, $link-color 3px, $focus-color 3px, $focus-color);
-		color: $link-color--hover;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
 		text-decoration: none;
 
 		svg {
 
-			fill: $link-color--hover;
+			fill: $black;
 
 		}
 

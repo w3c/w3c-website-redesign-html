@@ -43,6 +43,12 @@
 
 		color: $deep-blue;
 
+		&:focus {
+
+			color: $black;
+
+		}
+
 	}
 
 }

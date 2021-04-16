@@ -6,8 +6,9 @@
 
 	@extend .visuallyhidden;
 
-	background-color: $link-color;
-	color: $white;
+	background-color: $focus-color;
+	border: solid 3px $black;
+	color: $black;
 	padding: em(10) em(15);
 	text-decoration: none;
 
