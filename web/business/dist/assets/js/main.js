@@ -586,9 +586,9 @@ var contentSlider = function () {
         var controls = document.createElement('ul');
         controls.setAttribute('class', 'slider-controls');
         controls.setAttribute('aria-label', controlsText);
-        controls.innerHTML = '<li><button class="button previous with-icon--larger" aria-label="' + prevText + '" style="padding:7px;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 256 512" width="1em" height="1em"><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></button></li>' + '<li style="margin-top:0;"><button class="button next with-icon--larger" aria-label="' + nextText + '" style="padding:7px;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 256 512" width="1em" height="1em"><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></button></li>';
+        controls.innerHTML = '<li><button class="button button--ghost previous with-icon--larger" aria-label="' + prevText + '" style="padding:7px;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 256 512" width="1em" height="1em"><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></button></li>' + '<li style="margin-top:0;"><button class="button button--ghost next with-icon--larger" aria-label="' + nextText + '" style="padding:7px;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 256 512" width="1em" height="1em"><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></button></li>';
         controls.style.display = 'flex';
-        controls.style.justifyContent = 'space-between';
+        controls.style.justifyContent = 'space-evenly';
         return controls;
       }
       /**
@@ -608,13 +608,20 @@ var contentSlider = function () {
         Array.prototype.forEach.call(slides, function (el, i) {
           var li = document.createElement('li');
           li.style.marginTop = '0';
-          var cssClass = i === 0 ? 'class="button js-current" ' : 'class="button " ';
+          li.style.marginLeft = '4px';
+          li.style.marginRight = '4px';
+          var cssClass = i === 0 ? 'class="button button--ghost js-current" ' : 'class="button button--ghost " ';
           var current = i === 0 ? ' <span class="visuallyhidden active-dot">' + activeDotText + '</span>' : '';
-          li.innerHTML = '<button ' + cssClass + 'data-slide="' + i + '"><span class="visuallyhidden">' + slideText + (i + 1) + ofText + slides.length + '</span>' + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" focusable="false" aria-hidden="true" width="1em" height="1em"><defs/><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"/></svg>' + current + '</button>';
+          li.innerHTML = '<button ' + cssClass + 'data-slide="' + i + '"><span class="visuallyhidden">' + slideText + (i + 1) + ofText + slides.length + '</span>' + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10px" height="10px" focusable="false" aria-hidden="true"><defs/><circle cx="5" cy="5" r="4" fill="currentColor" fill-rule="evenodd" stroke="#111" stroke-width="2"/></svg>' + current + '</button>';
           dotNavContainer.appendChild(li);
         });
         return dotNavContainer;
       }
+      /**
+       * Create ARIA live region for slider
+       * @return {HTMLDivElement}
+       */
+
 
       function createLiveRegion() {
         var liveRegion = document.createElement('div');

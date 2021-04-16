@@ -575,7 +575,7 @@ Styles needed for a sticky footer
 button,
 .button {
   background-color: #005797;
-  border: none;
+  border: solid 2px #005797;
   border-radius: 1.5rem;
   color: #fff;
   font-size: 0.875rem;
@@ -585,12 +585,19 @@ button,
   /* 1 */
   outline-offset: -1px;
   /* 1 */
-  padding: 0.75rem 1.5rem; }
-  button:hover, button:focus, button:active,
-  .button:hover,
-  .button:focus,
+  padding: 0.6875rem 1.5rem; }
+  button:hover,
+  .button:hover {
+    background-color: #024488;
+    border-color: #024488; }
+  button:focus,
+  .button:focus {
+    color: #024488;
+    background-color: #f9dc4a;
+    border-color: #024488; }
+  button:active,
   .button:active {
-    background-color: #024488; }
+    color: #000; }
 
 /**
 Remove link styling from links styled as buttons.
@@ -612,26 +619,40 @@ input[type="submit"].button {
 
 .button--alt {
   background-color: transparent;
-  border: solid 2px #005797;
-  color: #005797;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem; }
-  .button--alt:hover, .button--alt:focus, .button--alt:active {
-    border: solid 2px #024488;
-    color: #fff; }
+  color: #005797; }
+  .button--alt:hover {
+    background-color: #cbe0fb;
+    color: #024488; }
+  .button--alt:focus {
+    background-color: transparent;
+    border-width: 3px;
+    box-shadow: 0 0 0 3px #f9dc4a;
+    padding: 0.625rem 1.4375rem; }
+  .button--alt:active {
+    background-color: #f9dc4a;
+    border-width: 2px;
+    box-shadow: none;
+    padding: 0.6875rem 1.5rem; }
 
 .button--ghost {
   background-color: transparent;
-  color: inherit;
+  border-color: transparent;
+  color: #000;
   font-weight: normal;
   padding-left: 0;
   padding-right: 0; }
-  .button--ghost:hover, .button--ghost:focus, .button--ghost:active {
-    background-color: transparent; }
+  .button--ghost:hover {
+    background-color: transparent;
+    border-color: transparent; }
+  .button--ghost:focus {
+    background-color: transparent;
+    border-color: #024488;
+    color: #000; }
 
 .button[disabled],
 .button.js-disabled {
   background-color: #bdbdbd;
+  border-color: #bdbdbd;
   box-shadow: none;
   color: #303030;
   cursor: not-allowed; }
@@ -678,7 +699,11 @@ elements that would otherwise override it, without using !important
     #Focus
 \*------------------------------------*/
 :focus {
-  outline: 0.125rem solid #8b0084;
+  /**
+	Ideally we would specify the background-color here to cover all circumstances.
+	Unfortunately, this does not work at all well for Internet Explorer, so we can't.
+	 */
+  outline: 0.125rem solid transparent;
   outline-offset: -0.125rem; }
 
 /**
@@ -687,7 +712,7 @@ acceptable not to show a focus outline.
  */
 main:focus,
 #main:focus,
-[tabindex='-1']:focus {
+[tabindex="-1"]:focus {
   outline: none; }
 
 /*------------------------------------*\
@@ -925,9 +950,9 @@ Shared focus styles for checkboxes and radio buttons
 .input--radio:focus + .radio-label:before,
 .input--checkbox:focus + .checkbox-label,
 .input--radio:focus + .radio-label {
-  background-color: #8b0084;
-  color: contrast(#8b0084);
-  outline: 2px solid #8b0084;
+  background-color: #f9dc4a;
+  color: contrast(#f9dc4a);
+  outline: 2px solid #f9dc4a;
   outline-offset: 0; }
 
 /**
@@ -1161,7 +1186,7 @@ show all available options outright, rather than hide them behind a <select>
 /* Focused */
 .input--radio:focus + .segmented-label:before {
   border-color: #111;
-  outline: 0.125em solid #8b0084; }
+  outline: 0.125em solid #f9dc4a; }
 
 /* Checked and Focused */
 .input--radio:checked:focus + .segmented-label:before {
@@ -1483,6 +1508,7 @@ a.archived {
   padding-left: 0.125rem;
   padding-right: 0.125rem;
   text-decoration: underline;
+  /* 1 */
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
   a:not([class]):visited,
@@ -1491,16 +1517,31 @@ a.archived {
     a:not([class]):visited svg,
     a.archived:visited svg {
       fill: #920ba6; }
-  a:not([class]):hover, a:not([class]):active,
-  a.archived:hover,
-  a.archived:active {
+  a:not([class]):hover,
+  a.archived:hover {
     color: #024488;
     outline-width: 0;
     /* 2 */ }
-    a:not([class]):hover svg, a:not([class]):active svg,
-    a.archived:hover svg,
-    a.archived:active svg {
+    a:not([class]):hover svg,
+    a.archived:hover svg {
       fill: #024488; }
+  a:not([class]):focus,
+  a.archived:focus {
+    background-color: #f9dc4a;
+    background-image: linear-gradient(to top, #005797 3px, #f9dc4a 3px, #f9dc4a);
+    color: #024488;
+    text-decoration: none; }
+    a:not([class]):focus svg,
+    a.archived:focus svg {
+      fill: #024488; }
+  a:not([class]):active,
+  a.archived:active {
+    color: #000;
+    outline-width: 0;
+    /* 2 */ }
+    a:not([class]):active svg,
+    a.archived:active svg {
+      fill: #000; }
 
 /*------------------------------------*\
     #Lists
@@ -2156,6 +2197,7 @@ so that either of these properties is applied instead.
       position: relative; } }
 
 .global-nav__inner > ul {
+  background-color: #fff;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-preferred-size: 100%;
@@ -2193,6 +2235,7 @@ so that either of these properties is applied instead.
           flex-basis: auto; } }
 
 .nav-link {
+  color: #111;
   display: block;
   padding: 0.625rem 0;
   position: relative;
@@ -2217,6 +2260,7 @@ so that either of these properties is applied instead.
 .icon-link {
   -ms-flex-align: center;
       align-items: center;
+  color: inherit;
   display: -ms-flexbox;
   display: flex;
   padding: 0.875rem 0; }
@@ -2845,6 +2889,10 @@ a.tag {
       -ms-grid-columns: (minmax(7.5rem, 1fr))[auto-fill];
           grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); } }
 
+.component--members__grid + a {
+  -ms-flex-item-align: start;
+      align-self: flex-start; }
+
 .component--members__grid > div {
   background-color: #fff;
   border: solid 1.375rem #f8f8fb;
@@ -2889,6 +2937,8 @@ a.tag {
 \*------------------------------------*/
 @media screen and (min-width: 64em) {
   .slide {
+    -ms-flex-align: start;
+        align-items: flex-start;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
@@ -2915,11 +2965,31 @@ a.tag {
       justify-content: flex-start;
   font-size: 1.5rem;
   line-height: calc(33.6 / 24);
-  font-weight: bold; }
+  background: url("/dist/assets/images/quote-bg.png") no-repeat 0 0;
+  font-weight: bold;
+  -webkit-margin-start: 1.375rem;
+          margin-inline-start: 1.375rem;
+  padding-top: 0.9375rem;
+  position: relative; }
   .slide__quote > * + * {
     margin-top: 1em; }
+  .slide__quote::before {
+    background-color: #005a9c;
+    border-radius: 0.3125rem;
+    content: '';
+    height: 100%;
+    left: -1.25rem;
+    position: absolute;
+    top: 0;
+    width: 0.25rem; }
   .slide__quote > * {
     max-width: 41.25rem; }
+
+[dir="rtl"] .slide__quote {
+  background-position-x: 100%; }
+  [dir="rtl"] .slide__quote::before {
+    left: auto;
+    right: -1.25rem; }
 
 .slide__cite {
   font-size: 0.9375rem;
