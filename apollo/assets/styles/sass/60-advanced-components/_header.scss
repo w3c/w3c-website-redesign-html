@@ -15,7 +15,8 @@
 		margin-inline-start: auto;
 		padding-bottom: rem(4);
 
-		&:hover {
+		&:hover,
+		&:focus {
 
 			border-bottom-color: #0079b8;
 
@@ -124,7 +125,7 @@
 	border: solid 1px $border-color;
 	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 	position: absolute;
-	top: 95%;
+	top: 100%;
 	width: rem(250);
 	z-index: 10;
 
