@@ -21,7 +21,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="../dist/assets/styles/core.css" media="screen"/>
+	<link rel="stylesheet" href="../dist/assets/styles/core.css?ver=1.1" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -29,7 +29,7 @@
     Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
     FF 47+
     -->
-	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1" media="
         only print,
         only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
         only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -40,7 +40,7 @@
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
 				var script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js';
+				script.src = 'dist/assets/js/main.js?ver=1.1';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
