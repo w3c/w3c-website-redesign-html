@@ -12,7 +12,8 @@
 
 		&:focus-within {
 
-			outline: rem(2) solid $focus-color;
+			box-shadow: 0 0 0 3px $focus-color;
+			outline: rem(2) solid $off-black;
 			outline-offset: rem(-2);
 
 		}
@@ -90,24 +91,87 @@
 
 }
 
+.slider-controls {
+
+	.previous,
+	.next {
+
+		color: $off-black;
+
+		&:hover {
+
+			background-color: $light-blue;
+			border: solid 2px $link-color--hover;
+
+		}
+
+		&:focus {
+
+			background-color: $light-blue;
+			border-color: $link-color--hover;
+			box-shadow: 0 0 0 3px $focus-color;
+
+		}
+
+	}
+
+	button[disabled] {
+
+		background-color: transparent;
+		border-color: transparent;
+		color: $storm-gray;
+
+		&:hover {
+
+			background-color: transparent;
+			border-color: transparent;
+			color: $storm-gray;
+
+		}
+
+	}
+
+}
+
 [data-slide] {
 
 	align-items: center;
+	color: $white;
 	display: inline-flex;
-	padding: rem(15);
+	padding: rem(17);
+
+	&:hover {
+
+		background-color: $light-blue;
+		border-color: $link-color--hover;
+
+	}
+
+	&:focus {
+
+		background-color: $light-blue;
+		border: solid 2px $link-color--hover;
+		box-shadow: 0 0 0 3px $focus-color;
+		color: $white;
+
+	}
 
 	&.js-current {
 
 		background-color: transparent;
-		border: solid 2px $link-color;
-		color: $link-color;
-		padding: rem(13);
+		color: $off-black;
 
 		&:hover {
 
-			background-color: $link-color--hover;
+			background-color: $light-blue;
+
+		}
+
+		&:focus {
+
+			background-color: $light-blue;
 			border: solid 2px $link-color--hover;
-			color: $white;
+			box-shadow: 0 0 0 3px $focus-color;
 
 		}
 

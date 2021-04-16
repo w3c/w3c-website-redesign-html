@@ -6,6 +6,7 @@
 
 	@include mq($bp-tab-large) {
 
+		align-items: flex-start;
 		display: flex;
 		justify-content: space-between;
 
@@ -42,11 +43,45 @@
 
 	@include txt-mars;
 
+	background: url('/dist/assets/images/quote-bg.png') no-repeat 0 0;
 	font-weight: bold;
+	margin-inline-start: rem(22);
+	padding-top: rem(15);
+	position: relative;
+
+	&::before {
+
+		background-color: $w3c-blue;
+		border-radius: rem(5);
+		content: '';
+		height: 100%;
+		left: rem(-20);
+		position: absolute;
+		top: 0;
+		width: rem(4);
+
+	}
 
 	> * {
 
 		max-width: rem($text-measure);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.slide__quote {
+
+		background-position-x: 100%;
+
+		&::before {
+
+			left: auto;
+			right: rem(-20);
+
+		}
 
 	}
 
