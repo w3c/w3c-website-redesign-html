@@ -581,9 +581,9 @@ button,
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.5;
-  outline: 1px solid transparent;
+  outline: 2px solid transparent;
   /* 1 */
-  outline-offset: -1px;
+  outline-offset: -2px;
   /* 1 */
   padding: 0.6875rem 1.5rem; }
   button:hover,
@@ -592,9 +592,9 @@ button,
     border-color: #024488; }
   button:focus,
   .button:focus {
-    color: #024488;
+    color: #000;
     background-color: #f9dc4a;
-    border-color: #024488; }
+    border-color: #000; }
   button:active,
   .button:active {
     color: #000; }
@@ -624,15 +624,10 @@ input[type="submit"].button {
     background-color: #cbe0fb;
     color: #024488; }
   .button--alt:focus {
-    background-color: transparent;
-    border-width: 3px;
-    box-shadow: 0 0 0 3px #f9dc4a;
-    padding: 0.625rem 1.4375rem; }
-  .button--alt:active {
     background-color: #f9dc4a;
-    border-width: 2px;
-    box-shadow: none;
-    padding: 0.6875rem 1.5rem; }
+    border-width: 3px;
+    color: #000;
+    padding: 0.625rem 1.4375rem; }
 
 .button--ghost {
   background-color: transparent;
@@ -646,7 +641,7 @@ input[type="submit"].button {
     border-color: transparent; }
   .button--ghost:focus {
     background-color: transparent;
-    border-color: #024488;
+    border-color: #000;
     color: #000; }
 
 .button[disabled],
@@ -1528,12 +1523,12 @@ a.archived {
   a:not([class]):focus,
   a.archived:focus {
     background-color: #f9dc4a;
-    background-image: linear-gradient(to top, #005797 3px, #f9dc4a 3px, #f9dc4a);
-    color: #024488;
+    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+    color: #000;
     text-decoration: none; }
     a:not([class]):focus svg,
     a.archived:focus svg {
-      fill: #024488; }
+      fill: #000; }
   a:not([class]):active,
   a.archived:active {
     color: #000;
@@ -1598,8 +1593,9 @@ dl dd + dd {
     #Skip link
 \*------------------------------------*/
 .skip-link {
-  background-color: #005797;
-  color: #fff;
+  background-color: #f9dc4a;
+  border: solid 3px #000;
+  color: #000;
   padding: 0.625em 0.9375em;
   text-decoration: none; }
   .skip-link:active, .skip-link:focus {
@@ -2126,6 +2122,8 @@ so that either of these properties is applied instead.
     line-height: calc(20 / 14); }
   .global-header .banner__inner a {
     color: #024488; }
+    .global-header .banner__inner a:focus {
+      color: #000; }
 
 [dir="ltr"] .banner__inner p {
   margin-left: 0.625rem; }
@@ -2828,7 +2826,9 @@ a.tag {
     .component--evangelists__list a:visited, .component--evangelists__list a:hover, .component--evangelists__list a:active {
       color: #fff; }
     .component--evangelists__list a:focus {
-      outline-color: #fff; }
+      background-color: #f9dc4a;
+      background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+      color: #000; }
 
 /*------------------------------------*\
     #Actitivy
@@ -3144,6 +3144,9 @@ a.tag {
     .global-footer__links .with-icon--larger svg {
       height: 1.25rem;
       width: 1.25rem; }
+    .global-footer__links .with-icon--larger:focus {
+      background-color: #f9dc4a;
+      background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a); }
 
 /*------------------------------------*\
     #Templates
