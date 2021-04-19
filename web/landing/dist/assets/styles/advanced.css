@@ -534,6 +534,57 @@ svg.nav-wide {
   color: #000; }
 
 /*------------------------------------*\
+    #Collapsible sections
+\*------------------------------------*/
+.js .component--collapsibles [data-heading="collapsibles"] button {
+  -ms-flex-align: start;
+      align-items: flex-start;
+  border-radius: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 0;
+  width: 100%; }
+  .js .component--collapsibles [data-heading="collapsibles"] button:hover h3 {
+    text-decoration: underline;
+    /* 1 */
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25em; }
+  .js .component--collapsibles [data-heading="collapsibles"] button:focus {
+    border-color: transparent; }
+    .js .component--collapsibles [data-heading="collapsibles"] button:focus h3 {
+      background-color: #f9dc4a;
+      background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+      text-decoration: none; }
+  .js .component--collapsibles [data-heading="collapsibles"] button[aria-expanded="false"] .angle-up {
+    display: none; }
+  .js .component--collapsibles [data-heading="collapsibles"] button[aria-expanded="true"] .angle-down {
+    display: none; }
+  .js .component--collapsibles [data-heading="collapsibles"] button svg {
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
+
+.js .component--collapsibles [data-heading="collapsibles"] button span {
+  -ms-flex-align: start;
+      align-items: flex-start; }
+
+.js .component--collapsibles [data-heading="collapsibles"] + * {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .js .component--collapsibles [data-heading="collapsibles"] + * > * + * {
+    margin-top: 1em; }
+  .js .component--collapsibles [data-heading="collapsibles"] + *[aria-hidden="true"] {
+    display: none; }
+
+.js .component--collapsibles * + [data-heading="collapsibles"] {
+  margin-top: 1rem; }
+
+/*------------------------------------*\
     #Slider advanced
 
     N.B. `.js-slider` is added by JS
