@@ -599,6 +599,12 @@ button,
   .button:active {
     color: #000; }
 
+[dir="ltr"] button {
+  text-align: left; }
+
+[dir="rtl"] button {
+  text-align: right; }
+
 /**
 Remove link styling from links styled as buttons.
  */
@@ -2854,6 +2860,60 @@ a.tag {
 
 .component--activity .card__image img {
   border-radius: 0; }
+
+/*------------------------------------*\
+    #Group list
+\*------------------------------------*/
+.component--group-list {
+  background-color: #f8f8fb;
+  padding-bottom: 3.125rem;
+  padding-top: 3.125rem; }
+  .component--group-list .component--collapsibles > div {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    background-color: #fff;
+    border-radius: 0.375rem;
+    box-shadow: -0.0625rem 0.0625rem 0.25rem rgba(55, 70, 95, 0.12);
+    padding: 1.5625rem; }
+    .component--group-list .component--collapsibles > div > * + * {
+      margin-top: 1rem; }
+  .component--group-list .component--collapsibles > div + div {
+    margin-top: 1rem; }
+  .component--group-list [data-heading="collapsibles"] span {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
+    .component--group-list [data-heading="collapsibles"] span > * + * {
+      margin-top: 1rem; }
+  .component--group-list [data-heading="collapsibles"] h3 {
+    font-size: 1.125rem;
+    line-height: calc(27 / 18); }
+  .component--group-list [data-heading="collapsibles"] h3 + * {
+    font-size: 0.9375rem;
+    line-height: calc(22.5 / 15); }
+  .component--group-list [data-heading="collapsibles"] + * {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
+    .component--group-list [data-heading="collapsibles"] + * > * + * {
+      margin-top: 1rem; }
+    .component--group-list [data-heading="collapsibles"] + * > * {
+      max-width: 41.25rem; }
+
+.component--group-list h2,
+.component--group-list h2 + p {
+  margin-bottom: 1em;
+  max-width: 41.25rem; }
 
 /*------------------------------------*\
     #Members grid

@@ -44,6 +44,18 @@ button,
 
 }
 
+[dir="ltr"] button {
+
+	text-align: left;
+
+}
+
+[dir="rtl"] button {
+
+	text-align: right;
+
+}
+
 
 /**
 Remove link styling from links styled as buttons.
