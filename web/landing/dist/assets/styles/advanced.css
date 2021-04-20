@@ -585,6 +585,17 @@ svg.nav-wide {
   margin-top: 1rem; }
 
 /*------------------------------------*\
+    #Cards advanced
+\*------------------------------------*/
+.js [data-component="card"] {
+  cursor: pointer; }
+  .js [data-component="card"] .card__link {
+    text-decoration: underline;
+    /* 1 */
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25em; }
+
+/*------------------------------------*\
     #Slider advanced
 
     N.B. `.js-slider` is added by JS

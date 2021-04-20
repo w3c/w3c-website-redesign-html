@@ -2667,9 +2667,17 @@ main,
       flex-grow: 1;
   -ms-flex-order: 1;
       order: 1;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+  /**
+	Minimum spacing between the penultimate and last child elements.
+	Matches the measure used for the stack mixin on `.card__text`
+	 */ }
   .card__text > * + * {
     margin-top: 1rem; }
+  .card__text > :nth-last-child(2) {
+    margin-bottom: 1rem; }
+  .card__text > :last-child {
+    margin-top: auto; }
 
 .card__heading {
   font-size: 1.125rem;
@@ -2678,15 +2686,20 @@ main,
 .card__image img {
   border-radius: 0.25rem; }
 
-.card--cta .card__text {
-  /**
-	Minimum spacing between the call-to-action button and the preceding element.
-	Matches the measure used for the stack mixin on `.card__text`
-	 */ }
-  .card--cta .card__text > :nth-last-child(2) {
-    margin-bottom: 1rem; }
-  .card--cta .card__text a {
-    line-height: 2.75rem; }
+.card__link {
+  border: 0;
+  color: #111;
+  text-decoration: none; }
+  .card__link:hover {
+    text-decoration: underline;
+    /* 1 */
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25em; }
+  .card__link:focus {
+    background-color: #f9dc4a;
+    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+    color: #000;
+    text-decoration: none; }
 
 /*------------------------------------*\
     #Tag list

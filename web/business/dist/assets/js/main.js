@@ -95,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
+
 
 
 
@@ -771,6 +773,48 @@ var contentSlider = function () {
         switchSlide(currentSlideIndex, targetSlideIndex); // Focus on the correct slide
       });
     }
+  }
+}();
+
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cardEnhancement", function() { return cardEnhancement; });
+/**
+ * Card enhancement to trigger the main link whenever the card area is clicked
+ * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
+ */
+var cardEnhancement = function () {
+  var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+
+  if (cardsArray) {
+    // Loop through cards adding a click event and identifying the main link
+    cardsArray.forEach(function (card, index) {
+      var mainLink = card.querySelector('.card__link');
+      var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]')); // Allow other links/buttons in the card to still be "clickable"
+
+      if (clickableElems) {
+        clickableElems.forEach(function (elem) {
+          return elem.addEventListener("click", function (event) {
+            return event.stopPropagation();
+          });
+        });
+      }
+
+      card.addEventListener('click', function () {
+        var noTextSelected = !window.getSelection().toString();
+
+        if (noTextSelected) {
+          mainLink.click();
+          mainLink.focus();
+        }
+      });
+    });
   }
 }();
 

@@ -66,6 +66,22 @@
 	order: 1;
 	padding-top: 1rem;
 
+	/**
+	Minimum spacing between the penultimate and last child elements.
+	Matches the measure used for the stack mixin on `.card__text`
+	 */
+	> :nth-last-child(2) {
+
+		margin-bottom: 1rem;
+
+	}
+
+	> :last-child {
+
+		margin-top: auto;
+
+	}
+
 }
 
 .card__heading {
@@ -80,21 +96,26 @@
 
 }
 
-.card--cta .card__text {
+.card__link {
 
-	/**
-	Minimum spacing between the call-to-action button and the preceding element.
-	Matches the measure used for the stack mixin on `.card__text`
-	 */
-	> :nth-last-child(2) {
+	border: 0;
+	color: $off-black;
+	text-decoration: none;
 
-		margin-bottom: 1rem;
+	&:hover {
+
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
 
 	}
 
-	a {
+	&:focus {
 
-		line-height: rem(44);
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
+		text-decoration: none;
 
 	}
 
