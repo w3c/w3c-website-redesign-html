@@ -12,15 +12,15 @@
 
 }
 
-@supports(grid-column-gap: 10%) {
+@supports(grid-column-gap: 8%) {
 
 	.default .content {
 
 		@include mq($bp-tab-large) {
 
 			display: grid;
-			grid-column-gap: 10%;
-			grid-template-columns: 65% 25%;
+			grid-column-gap: 7.857%;
+			grid-template-columns: 67.143% 25%;
 			grid-template-areas: "article related";
 
 		}
