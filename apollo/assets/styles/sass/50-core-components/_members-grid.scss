@@ -102,8 +102,20 @@
 
 }
 
+.component--members__cta > * {
+
+	align-items: center;
+
+}
+
 .component--members__cta > * > *:not(a) {
 
-	line-height: rem(44);
+	flex-basis: 100%;
+
+	@include mq($bp-tab-small) {
+
+		flex-basis: auto;
+
+	}
 
 }
