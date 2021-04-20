@@ -26,6 +26,18 @@
 
 }
 
+.component--fifty-fifty .l-frame {
+
+	padding-bottom: 66.67%;
+
+	@include mq($bp-tab-small) {
+
+		padding-bottom: 100%;
+
+	}
+
+}
+
 .component--fifty-fifty figcaption {
 
 	@include stack;
