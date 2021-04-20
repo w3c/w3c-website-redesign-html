@@ -95,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
+
 
 
 
@@ -183,7 +185,7 @@ var collapsibles = function () {
 
       headingsArray.forEach(function (heading, index) {
         // Insert a button for opening/closing the collapsible section
-        heading.innerHTML = '<button aria-expanded="false">' + heading.textContent + '<svg aria-hidden="true" focusable="false" viewBox="0 0 10 10"><rect class="vert" height="8" width="2" y="1" x="4" /><rect height="2" width="8" y="4" x="1" /></svg></button>'; // Add appropriate aria role to the collapsible section
+        heading.innerHTML = '<button class="button--ghost" aria-expanded="false">' + heading.innerHTML + '<svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 320 512" width="30px" height="30px"><path class="angle-down" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/><path class="angle-up" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/></svg></button>'; // Add appropriate aria role to the collapsible section
 
         heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
 
@@ -771,6 +773,48 @@ var contentSlider = function () {
         switchSlide(currentSlideIndex, targetSlideIndex); // Focus on the correct slide
       });
     }
+  }
+}();
+
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cardEnhancement", function() { return cardEnhancement; });
+/**
+ * Card enhancement to trigger the main link whenever the card area is clicked
+ * See https://css-tricks.com/block-links-the-search-for-a-perfect-solution/
+ */
+var cardEnhancement = function () {
+  var cardsArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="card"]'));
+
+  if (cardsArray) {
+    // Loop through cards adding a click event and identifying the main link
+    cardsArray.forEach(function (card, index) {
+      var mainLink = card.querySelector('.card__link');
+      var clickableElems = Array.prototype.slice.call(card.querySelectorAll('[data-click]')); // Allow other links/buttons in the card to still be "clickable"
+
+      if (clickableElems) {
+        clickableElems.forEach(function (elem) {
+          return elem.addEventListener("click", function (event) {
+            return event.stopPropagation();
+          });
+        });
+      }
+
+      card.addEventListener('click', function () {
+        var noTextSelected = !window.getSelection().toString();
+
+        if (noTextSelected) {
+          mainLink.click();
+          mainLink.focus();
+        }
+      });
+    });
   }
 }();
 
