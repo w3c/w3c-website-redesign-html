@@ -8,17 +8,12 @@
 
 }
 
-.component--columns > h2:not([class]) {
+.component--columns__intro {
 
-	@include txt-mars;
+	@include stack(1em);
 
-}
-
-.component--columns > h2,
-.component--columns > p {
-
-	margin-bottom: 1em;
 	max-width: rem($text-measure);
+	margin-bottom: rem(30);
 
 }
 
