@@ -38,12 +38,6 @@
 
 }
 
-.component--members__grid + a {
-
-	align-self: flex-start;
-
-}
-
 .component--members__grid > div {
 
 	background-color: $white;
@@ -55,7 +49,9 @@
 	@supports (display: grid) {
 
 		border: none;
+		align-items: center;
 		display: grid;
+		justify-content: center;
 		position: static;
 
 	}
@@ -66,32 +62,6 @@
 		display: block;
 		padding-bottom: 100%;
 
-	}
-
-	> img {
-
-		bottom: 0;
-		left: 0;
-		margin: auto;
-		max-width: 100%;
-		position: absolute;
-		right: 0;
-		top: 0;
-
-		@supports (display: grid) {
-
-			height: 100%;
-			max-width: none;
-			object-fit: contain;
-			position: static;
-
-		}
-
-	}
-
-	&::before,
-	> img {
-
 		@supports (display: grid) {
 
 			grid-area: 1 / 1 / 2 / 2;
@@ -99,6 +69,32 @@
 		}
 
 	}
+
+}
+
+.component--members__grid > div img {
+
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-width: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	@supports (display: grid) {
+
+		grid-area: 1 / 1 / 2 / 2;
+		position: static;
+		width: 100%;
+
+	}
+
+}
+
+.component--members__grid + a {
+
+	align-self: flex-start;
 
 }
 
