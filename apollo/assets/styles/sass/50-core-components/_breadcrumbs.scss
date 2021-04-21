@@ -16,8 +16,21 @@
 
 	.l-cluster.l-cluster > * > * {
 
-		margin: 0 rem(11);
+		margin: 0 0 0 rem(11);
+		padding-right: 1em;
 		position: relative;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	#breadcrumb .l-cluster.l-cluster > * > * {
+
+		margin: 0 rem(11) 0 0;
+		padding-left: 1em;
+		padding-right: 0;
 
 	}
 
@@ -69,10 +82,12 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 	&::after {
 
 		border-style: solid;
+		border-width: 0.1em 0.1em 0 0;
 		content: '';
 		display: block;
 		height: 0.5em;
 		position: absolute;
+		right: 0.4em;
 		top: 50%;
 		transform: rotate(45deg) translateY(-50%);
 		width: 0.5em;
@@ -81,22 +96,12 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
 }
 
-[dir="ltr"] {
+.breadcrumbs li:not(:last-child) {
 
-	.breadcrumbs li {
+	&::after {
 
-		padding-right: 0.5em;
 
-	}
 
-	.breadcrumbs li:not(:last-child) {
-
-		&::after {
-
-			border-width: 0.1em 0.1em 0 0;
-			right: -0.2em;
-
-		}
 
 	}
 
@@ -104,18 +109,13 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 
 [dir="rtl"] {
 
-	.breadcrumbs li {
-
-		padding-left: 0.5em;
-
-	}
-
 	.breadcrumbs li:not(:last-child) {
 
 		&::after {
 
 			border-width: 0 0 0.1em 0.1em;
-			right: 100%;
+			left: 0.1em;
+			right: auto;
 
 		}
 

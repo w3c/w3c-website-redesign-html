@@ -2316,8 +2316,14 @@ so that either of these properties is applied instead.
   #breadcrumb .l-cluster > * {
     margin: 0 -0.6875rem; }
   #breadcrumb .l-cluster.l-cluster > * > * {
-    margin: 0 0.6875rem;
+    margin: 0 0 0 0.6875rem;
+    padding-right: 1em;
     position: relative; }
+
+[dir="rtl"] #breadcrumb .l-cluster.l-cluster > * > * {
+  margin: 0 0.6875rem 0 0;
+  padding-left: 1em;
+  padding-right: 0; }
 
 .breadcrumbs a {
   font-size: 0.9375rem;
@@ -2342,27 +2348,20 @@ Separator chevron - see https://codepen.io/jonneal/pen/kptBs
 */
 .breadcrumbs li:not(:last-child)::after {
   border-style: solid;
+  border-width: 0.1em 0.1em 0 0;
   content: '';
   display: block;
   height: 0.5em;
   position: absolute;
+  right: 0.4em;
   top: 50%;
   transform: rotate(45deg) translateY(-50%);
   width: 0.5em; }
 
-[dir="ltr"] .breadcrumbs li {
-  padding-right: 0.5em; }
-
-[dir="ltr"] .breadcrumbs li:not(:last-child)::after {
-  border-width: 0.1em 0.1em 0 0;
-  right: -0.2em; }
-
-[dir="rtl"] .breadcrumbs li {
-  padding-left: 0.5em; }
-
 [dir="rtl"] .breadcrumbs li:not(:last-child)::after {
   border-width: 0 0 0.1em 0.1em;
-  right: 100%; }
+  left: 0.1em;
+  right: auto; }
 
 /*------------------------------------*\
     #Main
