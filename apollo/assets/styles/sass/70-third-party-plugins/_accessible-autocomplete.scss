@@ -43,7 +43,18 @@
 	cursor: pointer;
 }
 
-.autocomplete__dropdown-arrow-down{
+[dir="rtl"] {
+
+	.autocomplete__input--show-all-values {
+
+		padding-left: 34px;
+		padding-right: 5px;
+
+	}
+
+}
+
+.autocomplete__dropdown-arrow-down {
 	z-index: -1;
 	display: inline-block;
 	position: absolute;
@@ -51,6 +62,17 @@
 	width: 24px;
 	height: 24px;
 	top: 12px;
+}
+
+[dir="rtl"] {
+
+	.autocomplete__dropdown-arrow-down {
+
+		right: auto;
+		left: 8px;
+
+	}
+
 }
 
 .autocomplete__menu {

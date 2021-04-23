@@ -190,145 +190,9 @@ Memorable dates (e.g. date of birth)
 
 
 /**
-Radio inputs
+Radio/checkbox inputs
  */
-.radio-item {
-
-	clear: left;
-	float: left;
-	padding-left: rem(34);
-	position: relative;
-
-	&::after {
-
-		clear: both;
-		content: '';
-		display: block;
-
-	}
-
-	[type="radio"] {
-
-		cursor: pointer;
-		height: rem(44);
-		left: rem(-10);
-		margin: 0;
-		opacity: 0;
-		position: absolute;
-		top: rem(-2);
-		width: rem(44);
-		z-index: 1;
-
-	}
-
-	label {
-
-		cursor: pointer;
-		display: inline-block;
-		margin-top: rem(-2);
-		padding: rem(11) rem(15) rem(10) rem(1);
-		touch-action: manipulation;
-
-		&::before,
-		&::after {
-
-			border-radius: 50%;
-			content: '';
-			position: absolute;
-
-		}
-
-		&::before {
-
-			background: transparent;
-			border: 2px solid;
-			height: rem(24);
-			left: 0;
-			top: rem(8);
-			width: rem(24);
-
-
-		}
-
-		&::after {
-
-			background: currentColor;
-			border: 5px solid;
-			height: 0;
-			left: rem(7);
-			opacity: 0;
-			top: rem(15);
-			width: 0;
-
-		}
-
-	}
-
-}
-
-// Radio input with hover
-.radio-item:hover [type="radio"]:not(:disabled) + label {
-
-	&::before {
-
-		box-shadow: 0 0 0 8px $blue;
-
-	}
-
-}
-
-// Radio input with focus
-.radio-item [type="radio"]:focus + label {
-
-	&::before {
-
-		border-width: 4px;
-		box-shadow: 0 0 0 4px $focus-color;
-
-	}
-
-}
-
-// Radio input with focus and hover
-.radio-item:hover [type="radio"]:focus + label {
-
-	&::before {
-
-		box-shadow: 0 0 0 4px $focus-color, 0 0 0 10px $blue;
-
-	}
-
-}
-
-// Radio input checked
-.radio-item [type="radio"]:checked + label {
-
-	&::after {
-
-		opacity: 1;
-
-	}
-
-}
-
-// Radio input disabled
-[type="radio"]:disabled,
-[type="radio"]:disabled + label {
-
-	cursor: default
-
-}
-
-[type="radio"]:disabled + label {
-
-	opacity: .5;
-
-}
-
-
-/**
-Checkbox inputs
- */
+.radio-item,
 .checkbox-item {
 
 	clear: left;
@@ -344,60 +208,90 @@ Checkbox inputs
 
 	}
 
-	[type="checkbox"] {
+}
 
-		cursor: pointer;
-		height: rem(44);
-		left: rem(-10);
-		margin: 0;
-		opacity: 0;
-		position: absolute;
-		top: rem(-2);
-		width: rem(44);
-		z-index: 1;
+[dir="rtl"] {
+
+	.radio-item,
+	.checkbox-item {
+
+		clear: right;
+		float: right;
+		padding-left: 0;
+		padding-right: rem(34);
 
 	}
 
-	label {
+}
 
-		cursor: pointer;
-		display: inline-block;
-		margin-top: rem(-2);
-		padding: rem(11) rem(15) rem(10) rem(1);
-		touch-action: manipulation;
+.radio-item input,
+.checkbox-item input {
 
-		&::before,
-		&::after {
+	cursor: pointer;
+	height: rem(44);
+	left: rem(-10);
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	top: rem(-2);
+	width: rem(44);
+	z-index: 1;
 
-			content: '';
-			position: absolute;
+}
 
-		}
+[dir="rtl"] {
+
+	.radio-item input,
+	.checkbox-item input {
+
+		left: auto;
+		right: rem(-10);
+
+	}
+
+}
+
+.radio-item label,
+.checkbox-item label {
+
+	cursor: pointer;
+	display: inline-block;
+	margin-top: rem(-2);
+	padding: rem(11) rem(15) rem(10) rem(1);
+	touch-action: manipulation;
+
+	&::before,
+	&::after {
+
+		content: '';
+		position: absolute;
+
+	}
+
+	&::before {
+
+		background: transparent;
+		border: 2px solid;
+		height: rem(24);
+		left: 0;
+		top: rem(8);
+		width: rem(24);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.radio-item label,
+	.checkbox-item label {
+
+		padding: rem(11) rem(1) rem(10) rem(15);
 
 		&::before {
 
-			background: transparent;
-			border: 2px solid;
-			height: rem(24);
-			left: 0;
-			top: rem(8);
-			width: rem(24);
-
-
-		}
-
-		&::after {
-
-			background: transparent;
-			border: solid;
-			border-top-color: transparent;
-			border-width: 0 0 3px 3px;
-			height: rem(6.5);
-			left: rem(6);
-			opacity: 0;
-			top: rem(15);
-			transform: rotate(-45deg);
-			width: rem(12);
+			left: auto;
+			right: 0;
 
 		}
 
@@ -405,8 +299,73 @@ Checkbox inputs
 
 }
 
-// Checkbox input with hover
-.checkbox-item:hover [type="checkbox"]:not(:disabled) + label {
+.radio-item label {
+
+	&::before,
+	&::after {
+
+		border-radius: 50%;
+
+	}
+
+	&::after {
+
+		background: currentColor;
+		border: 5px solid;
+		height: 0;
+		left: rem(7);
+		opacity: 0;
+		top: rem(15);
+		width: 0;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.radio-item label::after {
+
+		left: auto;
+		right: rem(7);
+
+	}
+
+}
+
+.checkbox-item label {
+
+	&::after {
+
+		background: transparent;
+		border: solid;
+		border-top-color: transparent;
+		border-width: 0 0 3px 3px;
+		height: rem(6.5);
+		left: rem(6);
+		opacity: 0;
+		top: rem(15);
+		transform: rotate(-45deg);
+		width: rem(12);
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.checkbox-item label::after {
+
+		auto: rem(6);
+		right: rem(6);
+
+	}
+
+}
+
+// Radio/checkbox input with hover
+.radio-item:hover input:not(:disabled) + label,
+.checkbox-item:hover input:not(:disabled) + label {
 
 	&::before {
 
@@ -416,8 +375,9 @@ Checkbox inputs
 
 }
 
-// Checkbox input with focus
-.checkbox-item [type="checkbox"]:focus + label {
+// Radio/checkbox input with focus
+.radio-item input:focus + label,
+.checkbox-item input:focus + label {
 
 	&::before {
 
@@ -428,8 +388,9 @@ Checkbox inputs
 
 }
 
-// Checkbox input with focus and hover
-.checkbox-item:hover [type="checkbox"]:focus + label {
+// Radio/checkbox input with focus and hover
+.radio-item:hover input:focus + label,
+.checkbox-item:hover input:focus + label {
 
 	&::before {
 
@@ -439,8 +400,9 @@ Checkbox inputs
 
 }
 
-// Checkbox input checked
-.checkbox-item [type="checkbox"]:checked + label {
+// Radio/checkbox input checked
+.radio-item input:checked + label,
+.checkbox-item input:checked + label {
 
 	&::after {
 
@@ -450,7 +412,9 @@ Checkbox inputs
 
 }
 
-// Checkbox input disabled
+// Radio/checkbox input disabled
+[type="radio"]:disabled,
+[type="radio"]:disabled + label
 [type="checkbox"]:disabled,
 [type="checkbox"]:disabled + label {
 
@@ -458,6 +422,7 @@ Checkbox inputs
 
 }
 
+[type="radio"]:disabled + label,
 [type="checkbox"]:disabled + label {
 
 	opacity: .5;
@@ -590,6 +555,41 @@ show all available options outright, rather than hide them behind a <select>
 		&::after {
 
 			opacity: 1;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.segmented-group {
+
+		label::before {
+
+			left: rem(10);
+			right: auto;
+
+		}
+		label::after {
+
+			left: rem(16);
+			right: auto;
+
+		}
+
+		input {
+
+			left: 0;
+			right: auto;
+
+		}
+
+		.segmented-label {
+
+			padding: rem(10);
+			padding-left: rem(44);
 
 		}
 
