@@ -8,8 +8,8 @@
 	Ideally we would specify the background-color here to cover all circumstances.
 	Unfortunately, this does not work at all well for Internet Explorer, so we can't.
 	 */
-	outline: rem(2) solid transparent;
-	outline-offset: rem(-2);
+	outline: 2px solid transparent;
+	outline-offset: -2px;
 
 }
 

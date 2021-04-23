@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    #Search
+\*------------------------------------*/
+
+input[type=search] {
+	
+	position: relative;
+	z-index: 1;
+	
+}
+
+.l-sidebar.search {
+
+	overflow: visible;
+
+}
+
+.l-sidebar.search form {
+
+	margin: 0;
+
+}
+
+.l-sidebar.search form > * {
+
+	margin: 0;
+
+}
+
+.l-sidebar.search form .sidebar {
+
+	flex-basis: auto;
+
+}
+
+.l-sidebar.search form .not-sidebar {
+
+	min-width: 70%;
+
+}
+
+.search button {
+
+	border-radius: 0;
+
+}

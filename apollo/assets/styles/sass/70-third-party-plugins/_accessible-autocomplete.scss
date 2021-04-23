@@ -5,18 +5,13 @@
  */
 
 .autocomplete__wrapper {
-	background-color: $off-white;
 	position: relative;
-
-	&:hover {
-		background-color: luma(97);
-	}
 }
 
 .autocomplete__hint,
 .autocomplete__input {
-	-webkit-appearance: none;
-	border: rem(5) solid $input-border-color;
+	appearance: none;
+	border: 2px solid;
 	border-radius: 0; /* Safari 10 on iOS adds implicit border rounding. */
 	margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
 	width: 100%;
@@ -25,47 +20,42 @@
 .autocomplete__input {
 	background-color: transparent;
 	position: relative;
-	z-index: 5;
-
-	&:hover {
-		background-color: transparent;
-	}
 }
 
 .autocomplete__hint {
-	color: $silver;
+	color: $twiki-gray;
 	position: absolute;
 }
 
 .autocomplete__input--default {
-	padding: rem(10);
+	padding: 5px;
+}
+
+.autocomplete__input--focused {
+	background-color: $white;
+	outline: 3px solid $focus-color;
+	outline-offset: 0;
+	box-shadow: inset 0 0 0 2px;
 }
 
 .autocomplete__input--show-all-values {
+	padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .autocomplete__input--default. */
 	cursor: pointer;
-	padding: rem(10); /* Space for arrow. Other padding should match .autocomplete__input--default. */
-	padding-right: 34px; // IE fallback for next rule - only works for ltr languages
-
-	// Logical property creates appropriate spacing irrespective of text direction
-	@supports (padding-inline-end: 1em) {
-		padding-right: 0;
-		padding-inline-end: 34px;
-	}
 }
 
 .autocomplete__dropdown-arrow-down{
+	z-index: -1;
 	display: inline-block;
-	height: 24px;
 	position: absolute;
-	right: rem(10);
-	top: 1rem;
+	right: 8px;
 	width: 24px;
-	z-index: 1;
+	height: 24px;
+	top: 12px;
 }
 
 .autocomplete__menu {
-	background-color: $off-white;
-	border: 1px solid $off-black;
+	background-color: #fff;
+	border: 2px solid;
 	border-top: 0;
 	color: $off-black;
 	margin: 0;
@@ -73,6 +63,7 @@
 	overflow-x: hidden;
 	padding: 0;
 	width: 100%;
+	width: calc(100% - 4px);
 }
 
 .autocomplete__menu--visible {
@@ -96,7 +87,7 @@
 }
 
 .autocomplete__option {
-	border-bottom: solid $silver;
+	border-bottom: solid $twiki-gray;
 	border-width: 1px 0;
 	cursor: pointer;
 	display: block;
@@ -116,20 +107,20 @@
 }
 
 .autocomplete__option--odd {
-	background-color: $silver;
+	background-color: $mist-gray;
 }
 
 .autocomplete__option--focused,
 .autocomplete__option:hover {
-	background-color: $focus-color;
-	border-color: $focus-color;
+	background-color: $blue;
+	border-color: $blue;
 	color: white;
 	outline: none;
 }
 
 .autocomplete__option--no-results {
-	background-color: $off-white;
-	color: #646b6f;
+	background-color: $mist-gray;
+	color: $storm-gray;
 	cursor: not-allowed;
 }
 
@@ -141,5 +132,5 @@
 
 .autocomplete__hint,
 .autocomplete__option {
-	padding: rem(10);
+	padding: 5px;
 }

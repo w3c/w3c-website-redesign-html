@@ -3,51 +3,24 @@
 \*------------------------------------*/
 
 
-form {
-
-	background-color: $mercury-grey;
-
-}
-
-
 /**
-Start of resets for the fieldset and legend elements - see
+Start of resets for the fieldset element
 https://thatemil.com/blog/2015/01/03/reset-your-fieldset/
  */
 fieldset {
 
+	// If you want a border etc., apply this to a wrapping container for the fieldset
+
 	border: 0;
-	margin-bottom: 0;
-	margin-left: 0;
-	margin-right: 0;
+	margin: 0;
 	min-width: 0;
-	padding: 0;
+	padding: 0.01em 0 0 0;
 
 }
-
 
 body:not(:-moz-handler-blocked) fieldset {
 
 	display: table-cell; // Deal with fieldset width in Firefox
-
-}
-
-
-legend {
-
-	display: table; // Make it line wrap
-	padding: 0;
-
-}
-
-
-/* Any styling that would normally go on `fieldset` should be set on the wrapper instead */
-.fieldset-wrapper {
-
-	border: 2px solid;
-	border-radius: 0;
-	padding: 1em;
-	position: relative;
 
 }
 /**
@@ -55,35 +28,121 @@ End of resets for the fieldset element
  */
 
 
+form > * + *,
+fieldset > * + * {
+
+	margin-top: rem(15);
+
+}
+
+.field {
+
+	max-width: rem($text-measure);
+
+}
+
+.field-legend {
+
+	font-weight: bold;
+
+}
+
+.field-label,
+.field-hint {
+
+	display: block;
+
+}
+
+.field-hint {
+
+	@include txt-pluto;
+
+	max-width: rem($text-measure);
+
+}
+
+textarea,
+[type=date],
+[type=email],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+
+	appearance: none;
+	border: 2px solid;
+	border-radius: 0;
+	line-height: 1.25;
+	padding: rem(5);
+	width: 100%;
+
+	&:focus {
+
+		box-shadow: inset 0 0 0 2px;
+		outline: solid 3px $focus-color;
+		outline-offset: 0;
+
+	}
+
+}
+
+select,
+[type=date],
+[type=email],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url] {
+
+	height: rem(47); // Matches button height
+
+}
+
+[type="file"] {
+
+	border: 2px solid transparent;
+	border-radius: 0;
+	line-height: 1.25;
+	padding-bottom: rem(5);
+	padding-top: rem(5);
+
+	&:focus {
+
+		border-color: currentColor;
+		box-shadow: inset 0 0 0 4px;
+		margin-left: rem(-5);
+		margin-right: rem(-5);
+		outline: 3px solid $focus-color;
+		padding-left: rem(5);
+		padding-right: rem(5);
+
+	}
+
+}
 
 
 /**
-Default form styling
-
-1. Make form fields inherit the document styling
+Select
  */
-input,
-select,
-textarea {
+select {
 
-	background-color: $white;
-	border: 2px solid $input-border-color;
+	border: 2px solid;
 	border-radius: 0;
-	color: contrast($off-white);
-	display: block;
-	font-family: inherit; /* 1 */
-	font-size: inherit; /* 1 */
-	line-height: inherit; /* 1 */
-	// max-width: 32em;
-	padding: rem(10);
-	width: 100%;
+	line-height: 1.25;
+	padding: rem(5);
+	width: auto;
 
-	&:hover,
-	&:focus,
-	&:active {
+	&:focus {
 
-		background-color: $off-white;
-		border-color: $off-black;
+		box-shadow: inset 0 0 0 2px;
+		outline: solid 3px $focus-color;
 		outline-offset: 0;
 
 	}
@@ -92,73 +151,23 @@ textarea {
 
 
 /**
-We want these inputs to sit a little closer to their corresponding
-label for increased usability by visually associating the label to its input.
+Textarea
  */
-* {
-
-	+ input,
-	+ select,
-	+ textarea,
-	.field-description,
-	.field-error,
-	.segmented-group {
-
-		margin-top: rem(5);
-
-	}
-
-}
-
-
-
-
-/**
-Styling inputs
- */
-input[type="checkbox"],
-input[type="radio"] {
-
-	display: inline-block;
-	margin-right: 0.75em;
-	width: auto;
-
-}
-
-
-select {
-
-	height: 3em;
-
-}
-
-
 textarea {
 
 	height: 10em;
 	resize: vertical;
-	// max-width: 32em;
-	width: 100%;
 
 }
 
 
-
-
 /**
-Memorable date input styles are great for dates that users already know,
-such as their date of birth. We always want these fields to line up,
-so we use inline-block rather than flexbox.
-
-Making fields like these only as wide as they need to be gives
-users a better visual clue as to what is required when completing them.
-
-If you increase the input padding, remember to increase these widths.
+Memorable dates (e.g. date of birth)
  */
 .memorable-date {
 
 	display: inline-block;
-	margin-top: rem(10);
+	margin-top: 0;
 
 }
 
@@ -168,170 +177,419 @@ If you increase the input padding, remember to increase these widths.
 
 }
 
-.memorable-date__day,
-.memorable-date__month {
+[dir="rtl"] {
 
-	width: 3em;
+	.memorable-date + .memorable-date {
 
-}
-
-.memorable-date__year {
-
-	width: 4.5em;
-
-}
-
-
-
-
-/**
-Required fields
- */
-input[required],
-select[required],
-textarea[required] {
-
-	border-color: $input-border-color;
-	box-shadow: inset 2px 2px 0 0 $input-border-color,
-	inset 2px -2px 0 0 $input-border-color,
-	inset -2px -2px 0 0 $input-border-color,
-	inset -2px 2px 0 0 $input-border-color;
-
-	&:hover,
-	&:focus,
-	&:active {
-
-		box-shadow: inset 2px 2px 0 0 $off-black,
-		inset 2px -2px 0 0 $off-black,
-		inset -2px -2px 0 0 $off-black,
-		inset -2px 2px 0 0 $off-black;
+		margin-left: auto;
+		margin-right: 1rem;
 
 	}
 
 }
 
-input[required]:valid {
-
-	box-shadow: inset 0 0 0 0 $input-border-color;
-
-}
-
-
-
 
 /**
-Field grouping
+Radio inputs
  */
-.field + .field,
-* + .fieldset-wrapper,
-* + .field {
+.radio-item {
 
-	margin-top: rem(40);
-
-}
-
-
-.field {
-
-	max-width: 32em; // Restrict the measure of the label for readability
+	clear: left;
+	float: left;
+	padding-left: rem(34);
 	position: relative;
 
+	&::after {
+
+		clear: both;
+		content: '';
+		display: block;
+
+	}
+
+	[type="radio"] {
+
+		cursor: pointer;
+		height: rem(44);
+		left: rem(-10);
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		top: rem(-2);
+		width: rem(44);
+		z-index: 1;
+
+	}
+
+	label {
+
+		cursor: pointer;
+		display: inline-block;
+		margin-top: rem(-2);
+		padding: rem(11) rem(15) rem(10) rem(1);
+		touch-action: manipulation;
+
+		&::before,
+		&::after {
+
+			border-radius: 50%;
+			content: '';
+			position: absolute;
+
+		}
+
+		&::before {
+
+			background: transparent;
+			border: 2px solid;
+			height: rem(24);
+			left: 0;
+			top: rem(8);
+			width: rem(24);
+
+
+		}
+
+		&::after {
+
+			background: currentColor;
+			border: 5px solid;
+			height: 0;
+			left: rem(7);
+			opacity: 0;
+			top: rem(15);
+			width: 0;
+
+		}
+
+	}
+
 }
 
+// Radio input with hover
+.radio-item:hover [type="radio"]:not(:disabled) + label {
 
-.option-group label {
+	&::before {
 
-	display: block;
-	width: 100%;
+		box-shadow: 0 0 0 8px $blue;
+
+	}
 
 }
 
+// Radio input with focus
+.radio-item [type="radio"]:focus + label {
 
+	&::before {
+
+		border-width: 4px;
+		box-shadow: 0 0 0 4px $focus-color;
+
+	}
+
+}
+
+// Radio input with focus and hover
+.radio-item:hover [type="radio"]:focus + label {
+
+	&::before {
+
+		box-shadow: 0 0 0 4px $focus-color, 0 0 0 10px $blue;
+
+	}
+
+}
+
+// Radio input checked
+.radio-item [type="radio"]:checked + label {
+
+	&::after {
+
+		opacity: 1;
+
+	}
+
+}
+
+// Radio input disabled
+[type="radio"]:disabled,
+[type="radio"]:disabled + label {
+
+	cursor: default
+
+}
+
+[type="radio"]:disabled + label {
+
+	opacity: .5;
+
+}
 
 
 /**
-This goes inside the associated label. By doing it this way we are
-associating the help text with the field itself whilst still keeping
-a class-hook for styling.
+Checkbox inputs
  */
-.field-description.field-description {
+.checkbox-item {
 
-	color: #666;
-	display: block;
-	font-size: 0.8em
+	clear: left;
+	float: left;
+	padding-left: rem(34);
+	position: relative;
+
+	&::after {
+
+		clear: both;
+		content: '';
+		display: block;
+
+	}
+
+	[type="checkbox"] {
+
+		cursor: pointer;
+		height: rem(44);
+		left: rem(-10);
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		top: rem(-2);
+		width: rem(44);
+		z-index: 1;
+
+	}
+
+	label {
+
+		cursor: pointer;
+		display: inline-block;
+		margin-top: rem(-2);
+		padding: rem(11) rem(15) rem(10) rem(1);
+		touch-action: manipulation;
+
+		&::before,
+		&::after {
+
+			content: '';
+			position: absolute;
+
+		}
+
+		&::before {
+
+			background: transparent;
+			border: 2px solid;
+			height: rem(24);
+			left: 0;
+			top: rem(8);
+			width: rem(24);
+
+
+		}
+
+		&::after {
+
+			background: transparent;
+			border: solid;
+			border-top-color: transparent;
+			border-width: 0 0 3px 3px;
+			height: rem(6.5);
+			left: rem(6);
+			opacity: 0;
+			top: rem(15);
+			transform: rotate(-45deg);
+			width: rem(12);
+
+		}
+
+	}
 
 }
 
+// Checkbox input with hover
+.checkbox-item:hover [type="checkbox"]:not(:disabled) + label {
 
-.field-label {
+	&::before {
 
-	display: block;
+		box-shadow: 0 0 0 8px $blue;
+
+	}
 
 }
 
+// Checkbox input with focus
+.checkbox-item [type="checkbox"]:focus + label {
 
+	&::before {
+
+		border-width: 4px;
+		box-shadow: 0 0 0 4px $focus-color;
+
+	}
+
+}
+
+// Checkbox input with focus and hover
+.checkbox-item:hover [type="checkbox"]:focus + label {
+
+	&::before {
+
+		box-shadow: 0 0 0 4px $focus-color, 0 0 0 10px $blue;
+
+	}
+
+}
+
+// Checkbox input checked
+.checkbox-item [type="checkbox"]:checked + label {
+
+	&::after {
+
+		opacity: 1;
+
+	}
+
+}
+
+// Checkbox input disabled
+[type="checkbox"]:disabled,
+[type="checkbox"]:disabled + label {
+
+	cursor: default
+
+}
+
+[type="checkbox"]:disabled + label {
+
+	opacity: .5;
+
+}
 
 
 /**
-Word or character counter with aria
+Segmented options. Can use either radio or checkbox inputs. The purpose is to
+show all available options outright, rather than hide them behind a <select>
  */
-.field-live-region {
+.segmented-group-wrapper {
 
-	bottom: 1em;
-	color: #666;
-	font-size: 0.8em;
-	margin-top: 0;
-	opacity: 0;
-	position: absolute;
-	right: 1em;
-	transition: opacity 100ms ease-in-out 300ms;
+	max-width: none;
 
 }
 
-
-/**
-Fade in live-region on focus. Maybe this should stay visible after
-the field has been completed?
- */
-.field-input:focus + .field-live-region,
-.field-live-region.is-completed {
-
-	opacity: 1;
-
-}
-
-
-
-
-/**
-Group inputs to line up side-by-side
- */
-.input-group {
+.segmented-group {
 
 	display: flex;
-	flex-flow: row nowrap;
-	width: 100%;
+	flex-flow: row wrap;
+	margin-top: 0;
+
+	> div {
+
+		flex: 1 1 33.333%; // Modify the percentage according to the number of choices and what looks best
+		max-width: 100%;
+		min-width: rem(155); // Prevent the options from becoming too narrow to read
+		position: relative;
+
+	}
+
+	label {
+
+		border: 2px solid;
+		cursor: pointer;
+		display: block;
+		margin: rem(2);
+
+		&:before,
+		&:after {
+
+			content: '';
+			position: absolute;
+
+		}
+
+		&::before {
+
+			background: transparent;
+			height: rem(24);
+			right: rem(10);
+			top: rem(10);
+			width: rem(24);
+
+		}
+
+		&::after {
+
+			background: transparent;
+			border: solid;
+			border-top-color: transparent;
+			border-width: 0 0 3px 3px;
+			height: rem(6.5);
+			right: rem(16);
+			opacity: 0;
+			top: rem(17);
+			transform: rotate(-45deg);
+			width: rem(12);
+
+		}
+
+	}
 
 	input {
 
-		flex: 1 0 auto;
-		margin-top: 0;
-		width: auto;
+		cursor: pointer;
+		height: rem(44);
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: rem(44);
+		z-index: 1;
 
 	}
 
-	&__button {
+	.segmented-label {
 
-		flex: 0 1 auto;
-		margin-top: 0;
+		@include stack(.5em);
 
-		.button {
+		display: block;
+		padding: rem(10);
+		padding-right: rem(44);
 
-			//margin-left: 0.7em;
-			/**
-			Make sure button aligns vertically with input field by changing the button padding to match the input
-			*/
-			padding: #{(0.125em * 2) + 0.75em} 1.5em;
+		span {
+
+			display: block;
+
+		}
+
+		span:first-of-type {
+
+			font-weight: bold;
+
+		}
+
+	}
+
+	// Input with hover
+	> div:hover label {
+
+		background-color: $light-blue;
+
+	}
+
+	// Input with focus
+	input:focus + label {
+
+		border-color: $focus-color;
+		box-shadow: inset 0 0 0 4px;
+		outline: solid 2px $focus-color;
+
+	}
+
+	// Input checked
+	input:checked + label {
+
+		&::after {
+
+			opacity: 1;
 
 		}
 
@@ -340,566 +598,47 @@ Group inputs to line up side-by-side
 }
 
 
-
-
 /**
-Collapsible input grouping
+Fixed input widths
  */
-.js-input-collapsible {
+.input-width-30 {
 
-	margin-bottom: 0;
-	max-height: 0;
-	overflow: hidden;
-	visibility: hidden;
-
-	&.is-active {
-
-		margin-bottom: 1.5em;
-		max-height: none;
-		overflow: auto;
-		visibility: visible;
-
-	}
+	max-width: 59ex;
 
 }
 
+.input-width-20 {
 
-
-
-/**
-Shared focus styles for checkboxes and radio buttons
- */
-.input--checkbox:focus + .checkbox-label:before,
-.input--radio:focus + .radio-label:before,
-.input--checkbox:focus + .checkbox-label,
-.input--radio:focus + .radio-label {
-
-	background-color: $focus-color;
-	color: contrast($focus-color);
-	outline: 2px solid $focus-color;
-	outline-offset: 0;
+	max-width: 41ex;
 
 }
 
+.input-width-10 {
 
-
-
-/**
-Shared input styles, gathered here for efficiency
- */
-.checkbox-label::after,
-.checkbox-label::before,
-.radio-label::after,
-.radio-label::before,
-.segmented-label:after,
-.segmented-label:before {
-
-	content: '';
-	position: absolute;
+	max-width: 23ex;
 
 }
 
+.input-width-5 {
 
-
-
-/**
-Checkboxes
- */
-.input--checkbox {
-
-	/* Hide the actual checkbox */
-	left: -3em;
-	position: absolute;
+	max-width: 10.8ex;
 
 }
 
+.input-width-4 {
 
-.checkbox-group label {
-
-	background-color: inherit;
-	cursor: pointer;
-	display: block;
-	margin-bottom: 1.5em;
-	overflow: hidden; //Hide the real checkbox inputs
-	padding: 0.5em 0.5em 0.5em #{0.75+2.25em};
-	position: relative;
+	max-width: 9ex;
 
 }
 
+.input-width-3 {
 
-* + .checkbox-group label {
-
-	margin-top: 1rem;
-
-}
-
-
-/* Box */
-.checkbox-label:before {
-
-	background-color: $white;
-	border: 2px solid $input-border-color;
-	border-radius: 0;
-	height: 1.25em;
-	left: 0.75em;
-	top: 0.75em;
-	width: 1.25em;
+	max-width: 7.2ex;
 
 }
 
+.input-width-2 {
 
-/* Check */
-.checkbox-label:after {
-
-	background-color: $white;
-	border: 0.2em solid transparent;
-	border-width: 0 0.2em 0.2em 0; // creates the inverted "L" shape
-	display: block;
-	height: 0.75em;
-	left: 1.15em;
-	top: 0.95em;
-	transform: rotate(45deg); // tilts the shape
-	width: 0.4em;
-
-}
-
-
-/* Focused */
-.input--checkbox:focus + .checkbox-label:before {
-
-	border-color: $off-black;
-
-}
-
-
-/* Checked and Focused */
-.input--checkbox:checked:focus + .checkbox-label:before {
-
-	background-color: $off-black;
-	border-color: $off-black;
-
-}
-
-.input--checkbox:checked:focus + .checkbox-label:after {
-
-	border-color: $white;
-
-}
-
-
-/* Checked */
-.input--checkbox:checked + .checkbox-label:before {
-
-	background-color: $off-black;
-	border-color: $off-black;
-
-}
-
-.input--checkbox:checked + .checkbox-label:after {
-
-	background: none;
-	border-color: $white;
-
-}
-
-
-/* Hover */
-.checkbox-group label:hover .checkbox-label:before {
-
-	border-color: $off-black !important;
-
-}
-
-.input--checkbox:checked + .checkbox-label:hover:before {
-
-	background-color: #666 !important;
-	border-color: #666 !important;
-
-}
-
-
-
-
-/**
-Radio buttons
- */
-.radio-group input {
-
-	/* Hide the actual radio */
-	left: -3em;
-	position: absolute;
-
-}
-
-
-// Wrapper for input and span.radio-label
-.radio-group label {
-
-	cursor: pointer;
-	display: block;
-	line-height: 1.5;
-	overflow: hidden; // Hide the real radio inputs
-	padding: 0.5em 0.5em 0.5em #{0.75+2.25em};
-	position: relative;
-
-}
-
-
-* + .radio-group label {
-
-	margin-top: 1rem;
-
-}
-
-
-.radio-label {
-
-	display: inline-block;
-	margin-top: 0;
-	max-width: 32em;
-
-}
-
-
-/* Box */
-.radio-label:before {
-
-	background-color: $white;
-	border: 2px solid $input-border-color;
-	border-radius: 50%;
-	height: 1.4em;
-	left: 0.75em;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 1.4em;
-
-}
-
-
-/* Check */
-.radio-label:after {
-
-	background-color: $white;
-	border-radius: 50%;
-	height: 0.7em;
-	left: 1.125em;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 0.7em;
-
-}
-
-
-/* Focused */
-.input--radio:focus + .radio-label:before {
-
-	border-color: $off-black;
-
-}
-
-
-/* Checked and Focused */
-.input--radio:checked:focus + .radio-label:before {
-
-	border-color: #666;
-
-}
-
-.input--radio:checked:focus + .radio-label:after {
-
-	background-color: #666;
-
-}
-
-
-/* Checked */
-.input--radio:checked + .radio-label:before {
-
-	border-color: $off-black;
-
-}
-
-.input--radio:checked + .radio-label:after {
-
-	background-color: $off-black;
-
-}
-
-
-/* Hover */
-.radio-group label:hover .radio-label:before {
-
-	border-color: $off-black !important;
-
-}
-
-.input--radio:checked + .radio-label:hover:before {
-
-	border-color: #666 !important;
-
-}
-
-.input--radio:checked + .radio-label:hover:after {
-
-	background-color: #666 !important;
-
-}
-
-
-
-
-/**
-Segmented options. This can be either radio or checkbox, the purpose is to
-show all available options outright, rather than hide them behind a <select>
- */
-.segmented-group-wrapper,
-.no-max-width {
-
-	max-width: none;
-
-}
-
-
-.segmented-group {
-
-	display: flex;
-	flex-flow: row wrap;
-
-}
-
-
-.segmented-group .input--checkbox,
-.segmented-group .input--radio {
-
-	/* Hide the actual checkbox/radio */
-	left: -3em;
-	position: absolute;
-
-}
-
-
-// Wrapper for input and div.segmented-label
-.segmented-group > label {
-
-	cursor: pointer; // Give it more affordance
-	display: block;
-	flex: 1 1 33.3333%;
-	max-width: 100%;
-	min-width: rem(155); // Prevent the options from becoming too narrow to read
-	overflow: hidden; // Hide the real radio inputs
-	position: relative;
-
-	* {
-
-		max-width: 100%;
-
-	}
-
-}
-
-
-* + .segmented-group > label {
-
-	margin-top: 0.25em; // Makes it easier for the eye to scan and read options
-
-}
-
-
-.segmented-label {
-
-	margin: 1.5rem;
-	max-width: 32em;
-
-	* {
-
-		position: relative;
-		z-index: 3;
-
-	}
-
-	* + * {
-
-		margin-top: rem(5);
-
-	}
-
-	:first-child {
-
-		font-size: 1em;
-
-	}
-
-	:not(:first-child) {
-
-		font-size: 0.8em;
-
-	}
-
-}
-
-
-/* Box */
-.segmented-label:before {
-
-	border: 2px solid $input-border-color;
-	box-shadow: inset 0 4px 0 rgba($white, 0.2),
-	inset 0 4px 0 rgba($black, 0.2);
-	height: calc(100% - 4px);
-	left: 2px;
-	top: 2px;
-	width: calc(100% - 4px);
-	z-index: 2;
-
-}
-
-
-/* Check */
-.segmented-label:after {
-
-	background-color: transparent;
-	border: 0.2em solid white;
-	border-width: 0 0.2em 0.2em 0; // creates the inverted "L" shape
-	display: block;
-	height: 0.75em;
-	position: absolute;
-	right: 0.75em;
-	top: 0.5em;
-	transform: scale(0) rotate(-45deg); // don't show the shape until checked
-	width: 0.4em;
-	z-index: 3;
-
-}
-
-
-/* Focused */
-.input--radio:focus + .segmented-label:before {
-
-	border-color: $off-black;
-	outline: em(2) solid $focus-color;
-
-}
-
-
-/* Checked and Focused */
-.input--radio:checked:focus + .segmented-label:before {
-
-	border-color: lighten($segment-selected-bg-color, 10%);
-	box-shadow: inset 0 0.125em 0 0 $grey;
-
-}
-
-
-/* Checked */
-.input--radio:checked + .segmented-label:before {
-
-	background-color: $segment-selected-bg-color;
-	color: contrast($segment-selected-bg-color);
-	box-shadow: inset 0 0.125em 0 0 darken($segment-selected-bg-color, 10%);
-	border-color: darken($segment-selected-bg-color, 10%);
-	border-width: em(4);
-
-}
-
-.input--radio:checked + .segmented-label {
-
-	background-color: $segment-selected-bg-color;
-	color: contrast($segment-selected-bg-color);
-
-}
-
-.input--radio:checked + .segmented-label:after {
-
-	transform: scale(1) rotate(45deg); // shows and tilts the shape
-
-}
-
-
-/* Default hover */
-.segmented-group label:hover .segmented-label:before {
-
-	box-shadow: inset 0 2px 0 0 darken($segment-selected-bg-color, 10%);
-
-}
-
-
-/* Checked hover */
-.input--radio:checked + .segmented-label:hover:before {
-
-	border-color: #666;
-
-}
-
-
-/**
-Date input
- */
-.field-input--date {
-
-	max-width: 12em;
-
-}
-
-/**
-Number input
- */
-.field-input--number {
-
-	max-width: 6em;
-
-}
-
-
-/**
-Error states
- */
-.field--has-error .field-label {
-
-	+ input,
-	+ select,
-	+ textarea {
-
-		border-radius: 0;
-
-	}
-
-}
-
-
-.field-error + .segmented-group,
-.field-input + .field-error {
-
-	margin-top: 0;
-
-}
-
-
-.field--has-error input,
-.field--has-error select,
-.field--has-error textarea {
-
-	border-color: $input-error-color;
-	box-shadow: inset 2px 2px 0 0 $input-error-color,
-	inset 2px -2px 0 0 $input-error-color,
-	inset -2px -2px 0 0 $input-error-color,
-	inset -2px 2px 0 0 $input-error-color;
-
-}
-
-
-// For segmented groups we can't use box-shadow so let's make it a border
-.field--has-error .segmented-group {
-
-	border: 4px solid $input-error-color;
-
-}
-
-
-.field-error:not(:empty) {
-
-	background-color: $input-error-color;
-	border-radius:0;
-	color: contrast($input-error-color);
-	list-style-type: none;
-	padding: 1em;
+	max-width: 5.4ex;
 
 }
