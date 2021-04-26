@@ -701,15 +701,14 @@ svg.nav-wide {
  * Modified to fit Apollo
  */
 .autocomplete__wrapper {
-  background-color: #fafafa;
   position: relative; }
-  .autocomplete__wrapper:hover {
-    background-color: luma(97); }
 
 .autocomplete__hint,
 .autocomplete__input {
   -webkit-appearance: none;
-  border: 0.3125rem solid #585858;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px solid;
   border-radius: 0;
   /* Safari 10 on iOS adds implicit border rounding. */
   margin-bottom: 0;
@@ -718,48 +717,54 @@ svg.nav-wide {
 
 .autocomplete__input {
   background-color: transparent;
-  position: relative;
-  z-index: 5; }
-  .autocomplete__input:hover {
-    background-color: transparent; }
+  position: relative; }
 
 .autocomplete__hint {
-  color: #ddd;
+  color: #bdbdbd;
   position: absolute; }
 
 .autocomplete__input--default {
-  padding: 0.625rem; }
+  padding: 5px; }
+
+.autocomplete__input--focused {
+  background-color: #fff;
+  outline: 3px solid #f9dc4a;
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px; }
 
 .autocomplete__input--show-all-values {
-  cursor: pointer;
-  padding: 0.625rem;
+  padding: 5px 34px 5px 5px;
   /* Space for arrow. Other padding should match .autocomplete__input--default. */
-  padding-right: 34px; }
-  @supports ((-webkit-padding-end: 1em) or (padding-inline-end: 1em)) {
-    .autocomplete__input--show-all-values {
-      padding-right: 0;
-      -webkit-padding-end: 34px;
-              padding-inline-end: 34px; } }
+  cursor: pointer; }
+
+[dir="rtl"] .autocomplete__input--show-all-values {
+  padding-left: 34px;
+  padding-right: 5px; }
 
 .autocomplete__dropdown-arrow-down {
+  z-index: -1;
   display: inline-block;
-  height: 24px;
   position: absolute;
-  right: 0.625rem;
-  top: 1rem;
+  right: 8px;
   width: 24px;
-  z-index: 1; }
+  height: 24px;
+  top: 12px; }
+
+[dir="rtl"] .autocomplete__dropdown-arrow-down {
+  right: auto;
+  left: 8px; }
 
 .autocomplete__menu {
-  background-color: #fafafa;
-  border: 1px solid #111;
+  background-color: #fff;
+  border: 2px solid;
   border-top: 0;
   color: #111;
   margin: 0;
   max-height: 342px;
   overflow-x: hidden;
   padding: 0;
-  width: 100%; }
+  width: 100%;
+  width: calc(100% - 4px); }
 
 .autocomplete__menu--visible {
   display: block; }
@@ -778,7 +783,7 @@ svg.nav-wide {
   position: relative; }
 
 .autocomplete__option {
-  border-bottom: solid #ddd;
+  border-bottom: solid #bdbdbd;
   border-width: 1px 0;
   cursor: pointer;
   display: block;
@@ -794,18 +799,18 @@ svg.nav-wide {
   border-bottom-width: 0; }
 
 .autocomplete__option--odd {
-  background-color: #ddd; }
+  background-color: #f8f8fb; }
 
 .autocomplete__option--focused,
 .autocomplete__option:hover {
-  background-color: #f9dc4a;
-  border-color: #f9dc4a;
+  background-color: #005797;
+  border-color: #005797;
   color: white;
   outline: none; }
 
 .autocomplete__option--no-results {
-  background-color: #fafafa;
-  color: #646b6f;
+  background-color: #f8f8fb;
+  color: #585858;
   cursor: not-allowed; }
 
 .autocomplete__hint,
@@ -815,7 +820,7 @@ svg.nav-wide {
 
 .autocomplete__hint,
 .autocomplete__option {
-  padding: 0.625rem; }
+  padding: 5px; }
 
 /*!
  * Pikaday
