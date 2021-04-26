@@ -6,6 +6,7 @@
 
 	@include mq($bp-tab-small) {
 
+		align-items: flex-start;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -21,18 +22,6 @@
 			margin-top: 0;
 
 		}
-
-	}
-
-}
-
-.component--fifty-fifty .l-frame {
-
-	padding-bottom: 66.67%;
-
-	@include mq($bp-tab-small) {
-
-		padding-bottom: 100%;
 
 	}
 
@@ -62,7 +51,8 @@
 
 }
 
-.component--fifty-fifty .image {
+.component--fifty-fifty .image,
+.component--fifty-fifty .illustration {
 
 	@include mq($bp-tab-small) {
 
@@ -70,11 +60,33 @@
 
 	}
 
+}
+
+.component--fifty-fifty .image {
+
 	img {
 
 		border-radius: rem(4);
 
 	}
+
+}
+
+.component--fifty-fifty .image .l-frame {
+
+	padding-bottom: 66.67%;
+
+	@include mq($bp-tab-small) {
+
+		padding-bottom: 100%;
+
+	}
+
+}
+
+.component--fifty-fifty .illustration .l-frame {
+
+	padding-bottom: 75%;
 
 }
 
