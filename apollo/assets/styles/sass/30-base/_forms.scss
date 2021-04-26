@@ -35,6 +35,13 @@ fieldset > * + * {
 
 }
 
+label {
+
+	display: block;
+	margin-bottom: rem(7);
+
+}
+
 .field {
 
 	max-width: rem($text-measure);
@@ -48,7 +55,8 @@ fieldset > * + * {
 }
 
 .field-label,
-.field-hint {
+.field-hint,
+.field-error-msg {
 
 	display: block;
 
@@ -256,6 +264,7 @@ Radio/checkbox inputs
 
 	cursor: pointer;
 	display: inline-block;
+	margin-bottom: 0;
 	margin-top: rem(-2);
 	padding: rem(11) rem(15) rem(10) rem(1);
 	touch-action: manipulation;
@@ -640,5 +649,83 @@ Fixed input widths
 .input-width-2 {
 
 	max-width: 5.4ex;
+
+}
+
+/**
+Error styles
+ */
+.error-summary.error-summary {
+
+	@include stack(1rem);
+
+	border-color: $input-error-color;
+	border-width: rem(5);
+
+	a {
+
+		color: $input-error-color;
+		display: inline-block;
+		font-weight: bold;
+		padding-bottom: rem(10);
+		padding-top: rem(10);
+
+		&:hover,
+		&:visited {
+
+			color: $input-error-color;
+
+		}
+
+		&:focus {
+
+			color: $black;
+
+		}
+
+	}
+
+}
+
+.field--error {
+
+	border-left: solid rem(5) $input-error-color;
+	padding-left: rem(15);
+
+	input:not([type="file"]),
+	textarea:not(:focus),
+	.segmented-group label {
+
+		border-color: $input-error-color;
+
+	}
+
+	input:focus,
+	textarea:focus {
+
+		border-color: inherit;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.field--error {
+
+		border-left: none;
+		border-right: solid rem(5) $input-error-color;
+		padding-left: 0;
+		padding-right: rem(15);
+
+	}
+
+}
+
+.field-error-msg {
+
+	color: $input-error-color;
+	font-weight: bold;
+	margin-top: rem(15);
 
 }

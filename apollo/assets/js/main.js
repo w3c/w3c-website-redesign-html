@@ -4,6 +4,7 @@ import {navigation} from "./main/navigation";
 import {accountMenu} from "./main/account-menu";
 import {contentSlider} from "./main/slider";
 import {cardEnhancement} from "./main/cards";
+import {formErrorSummary} from "./main/form-error-summary";
 
 responsiveTables();
 
