@@ -96,6 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
+
 
 
 
@@ -815,6 +817,28 @@ var cardEnhancement = function () {
         }
       });
     });
+  }
+}();
+
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formErrorSummary", function() { return formErrorSummary; });
+var formErrorSummary = function () {
+  // Helper: Check whether element exists
+  function exists(elem) {
+    return elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0);
+  }
+
+  var errorSummary = document.querySelector('[data-component="error-summary"]');
+
+  if (exists(errorSummary)) {
+    errorSummary.focus();
   }
 }();
 
