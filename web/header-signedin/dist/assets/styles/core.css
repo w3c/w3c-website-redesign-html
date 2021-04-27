@@ -638,6 +638,7 @@ input[type="submit"].button {
 .button--ghost {
   background-color: transparent;
   border-color: transparent;
+  border-radius: 0;
   color: #000;
   font-weight: normal;
   padding-left: 0;
@@ -647,7 +648,7 @@ input[type="submit"].button {
     border-color: transparent; }
   .button--ghost:focus {
     background-color: transparent;
-    border-color: #000;
+    border-color: transparent;
     color: #000; }
 
 .button[disabled],
@@ -826,7 +827,9 @@ select {
   border-radius: 0;
   line-height: 1.25;
   padding: 0.3125rem;
-  width: auto; }
+  -webkit-padding-end: 1em;
+          padding-inline-end: 1em;
+  width: 100%; }
   select:focus {
     box-shadow: inset 0 0 0 2px;
     outline: solid 3px #f9dc4a;
@@ -1392,7 +1395,8 @@ https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
 2. Remove the outline on focused links when they are also active/hovered.
  */
 a:not([class]),
-a.archived {
+a.with-icon--before,
+a.with-icon--after {
   border: 0;
   color: #005797;
   cursor: pointer;
@@ -1403,35 +1407,43 @@ a.archived {
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
   a:not([class]):visited,
-  a.archived:visited {
+  a.with-icon--before:visited,
+  a.with-icon--after:visited {
     color: #920ba6; }
     a:not([class]):visited svg,
-    a.archived:visited svg {
+    a.with-icon--before:visited svg,
+    a.with-icon--after:visited svg {
       fill: #920ba6; }
   a:not([class]):hover,
-  a.archived:hover {
+  a.with-icon--before:hover,
+  a.with-icon--after:hover {
     color: #024488;
     outline-width: 0;
     /* 2 */ }
     a:not([class]):hover svg,
-    a.archived:hover svg {
+    a.with-icon--before:hover svg,
+    a.with-icon--after:hover svg {
       fill: #024488; }
   a:not([class]):focus,
-  a.archived:focus {
+  a.with-icon--before:focus,
+  a.with-icon--after:focus {
     background-color: #f9dc4a;
     background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
     color: #000;
     text-decoration: none; }
     a:not([class]):focus svg,
-    a.archived:focus svg {
+    a.with-icon--before:focus svg,
+    a.with-icon--after:focus svg {
       fill: #000; }
   a:not([class]):active,
-  a.archived:active {
+  a.with-icon--before:active,
+  a.with-icon--after:active {
     color: #000;
     outline-width: 0;
     /* 2 */ }
     a:not([class]):active svg,
-    a.archived:active svg {
+    a.with-icon--before:active svg,
+    a.with-icon--after:active svg {
       fill: #000; }
 
 /*------------------------------------*\
@@ -1999,6 +2011,9 @@ so that either of these properties is applied instead.
 .no-js .account-menu {
   display: none; }
 
+.global-header {
+  background-color: #fff; }
+
 .global-header .banner {
   background-color: #cbe0fb;
   padding-bottom: 0.625rem;
@@ -2154,10 +2169,11 @@ so that either of these properties is applied instead.
 .icon-link {
   -ms-flex-align: center;
       align-items: center;
-  color: inherit;
+  color: #111;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.875rem 0; }
+  padding: 0.875rem 0;
+  text-decoration: none !important; }
   @media screen and (min-width: 70em) {
     .icon-link {
       display: -ms-inline-flexbox;
@@ -2166,12 +2182,16 @@ so that either of these properties is applied instead.
           justify-content: center;
       height: 100%;
       min-width: 2.75rem; } }
+  .icon-link:visited, .icon-link:hover {
+    color: #111 !important; }
+  .icon-link:focus {
+    background-color: transparent !important;
+    background-image: none !important; }
 
 .account-login {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  font-size: 0.875rem !important;
-  text-decoration: none; }
+  font-size: 0.875rem !important; }
   @media screen and (min-width: 70em) {
     .account-login {
       -ms-flex-preferred-size: auto;
@@ -2179,7 +2199,7 @@ so that either of these properties is applied instead.
       padding-bottom: 0.625rem;
       padding-top: 0.625rem; } }
   .account-login .icon {
-    color: #bdbdbd;
+    fill: #bdbdbd !important;
     height: 1.5rem;
     width: 1.5rem; }
 
@@ -2298,6 +2318,14 @@ main,
 
 .hero + * {
   margin-top: 3.125rem; }
+
+.hero--listing {
+  background-color: #fff;
+  margin-bottom: 1.25rem;
+  padding-bottom: 2.5rem; }
+
+.hero--listing + * {
+  margin-top: 0; }
 
 /*------------------------------------*\
     #Translations
@@ -3290,6 +3318,90 @@ input[type=search] {
 
 .ecosystem .component.u-full-width + .component.u-full-width {
   margin-top: 0; }
+
+/*------------------------------------*\
+    #Listing templates
+\*------------------------------------*/
+.listing .wrap {
+  background-color: #f8f8fb; }
+
+.listing #breadcrumb {
+  background-color: #fff; }
+
+.listing h1 {
+  font-size: 2.125rem;
+  line-height: calc(43 / 34);
+  margin-bottom: 2rem; }
+  @media screen and (min-width: 48em) {
+    .listing h1 {
+      font-size: 3.75rem;
+      line-height: calc(72 / 60); } }
+
+.listing main,
+.listing #main {
+  padding-top: 0; }
+
+.listing .filters {
+  overflow: visible; }
+
+.listing .filters > div {
+  -ms-flex-align: end;
+      align-items: flex-end; }
+
+.listing .filters .button--ghost {
+  padding-left: 0.1875rem;
+  padding-right: 0.1875rem; }
+  .listing .filters .button--ghost:hover {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25em; }
+  .listing .filters .button--ghost:focus {
+    border-color: inherit;
+    box-shadow: inset 0 0 0 2px;
+    outline: solid 3px #f9dc4a;
+    outline-offset: 0; }
+
+.people-list > li {
+  padding-bottom: 1.875rem;
+  padding-top: 2.5rem; }
+
+.people-list > li + li {
+  border-top: solid 1px #bdbdbd; }
+
+.people-list .l-sidebar .sidebar {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  -ms-flex-order: -1;
+      order: -1; }
+
+.people-list .l-sidebar .not-sidebar {
+  min-width: calc(70% - 1.5rem); }
+
+.people-list .l-sidebar .not-sidebar > div {
+  max-width: 41.25rem; }
+  .people-list .l-sidebar .not-sidebar > div > * + * {
+    margin-top: 1.25rem; }
+
+.people-list .l-cluster > *,
+.people-list .l-cluster.l-cluster > * > * {
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.people-list .l-cluster > * {
+  -ms-flex-align: center;
+      align-items: center; }
+
+.people-list .l-cluster a {
+  display: inline-block;
+  padding: 0.75rem 0; }
+
+.people-list .l-cluster.groups > * > *:first-child {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%; }
+  @media screen and (min-width: 48em) {
+    .people-list .l-cluster.groups > * > *:first-child {
+      -ms-flex-preferred-size: auto;
+          flex-basis: auto; } }
 
 /*------------------------------------*\
     #Utilities
