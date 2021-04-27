@@ -13,7 +13,8 @@ https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
  */
 
 a:not([class]),
-a.archived {
+a.with-icon--before,
+a.with-icon--after {
 
 	border: 0;
 	color: $link-color;

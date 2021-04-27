@@ -144,9 +144,10 @@ li.top-nav-item + li.top-nav-item {
 .icon-link {
 
 	align-items: center;
-	color: inherit;
+	color: $off-black;
 	display: flex;
 	padding: rem(14) 0;
+	text-decoration: none !important;
 
 	@include mq($max-width) {
 
@@ -157,13 +158,26 @@ li.top-nav-item + li.top-nav-item {
 
 	}
 
+	&:visited,
+	&:hover {
+
+		color: $off-black !important;
+
+	}
+
+	&:focus {
+
+		background-color: transparent !important;
+		background-image: none !important;
+
+	}
+
 }
 
 .account-login {
 
 	flex-basis: 100%;
 	font-size: rem(14) !important;
-	text-decoration: none;
 
 	@include mq($max-width) {
 
@@ -175,7 +189,7 @@ li.top-nav-item + li.top-nav-item {
 
 	.icon {
 
-		color: $twiki-gray;
+		fill: $twiki-gray !important;
 		height: rem(24);
 		width: rem(24);
 

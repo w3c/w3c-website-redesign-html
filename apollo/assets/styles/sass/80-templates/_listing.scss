@@ -1,0 +1,145 @@
+/*------------------------------------*\
+    #Listing templates
+\*------------------------------------*/
+
+.listing {
+
+	.wrap {
+
+		background-color: $mist-gray;
+
+	}
+
+	#breadcrumb {
+
+		background-color: $white;
+
+	}
+
+	h1 {
+
+		@include txt-mercury;
+
+		margin-bottom: rem(32);
+
+	}
+
+	main,
+	#main {
+
+		padding-top: 0;
+
+	}
+
+	.filters {
+
+		overflow: visible;
+
+	}
+
+	.filters > div {
+
+		align-items: flex-end;
+
+	}
+
+	.filters .button--ghost {
+
+		padding-left: rem(3);
+		padding-right: rem(3);
+
+		&:hover {
+
+			text-decoration: underline;
+			text-decoration-skip-ink: auto; // Not supported by Safari
+			text-underline-offset: 0.25em; // Supported by Safari
+
+		}
+
+		&:focus {
+
+			border-color: inherit;
+			box-shadow: inset 0 0 0 2px;
+			outline: solid 3px $focus-color;
+			outline-offset: 0;
+
+		}
+
+	}
+
+}
+
+.people-list {
+
+	> li {
+
+		padding-bottom: rem(30);
+		padding-top: rem(40);
+
+	}
+
+	> li + li {
+
+		border-top: solid 1px $border-color;
+
+	}
+
+	.l-sidebar .sidebar {
+
+		flex-basis: auto;
+		order: -1;
+
+	}
+
+	.l-sidebar .not-sidebar {
+
+		min-width: calc(70% - 1.5rem);
+
+	}
+
+	.l-sidebar .not-sidebar > div {
+
+		max-width: rem($text-measure);
+
+		> * + * {
+
+			margin-top: rem(20);
+
+		}
+
+	}
+
+	.l-cluster > *,
+	.l-cluster.l-cluster > * > * {
+
+		margin-bottom: 0;
+		margin-top: 0;
+
+	}
+
+	.l-cluster > * {
+
+		align-items: center;
+
+	}
+
+	.l-cluster a {
+
+		display: inline-block;
+		padding: rem(12) 0;
+
+	}
+
+	.l-cluster.groups > * > *:first-child {
+
+		flex-basis: 100%;
+
+		@include mq($bp-tab-small) {
+
+			flex-basis: auto;
+
+		}
+
+	}
+
+}

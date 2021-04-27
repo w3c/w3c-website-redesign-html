@@ -118,6 +118,7 @@ input[type="submit"].button {
 
 	background-color: transparent;
 	border-color: transparent;
+	border-radius: 0;
 	color: $black;
 	font-weight: normal;
 	padding-left: 0;
@@ -133,7 +134,7 @@ input[type="submit"].button {
 	&:focus {
 
 		background-color: transparent;
-		border-color: $black;
+		border-color: transparent;
 		color: $black;
 
 	}

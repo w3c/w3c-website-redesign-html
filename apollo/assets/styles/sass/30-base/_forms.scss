@@ -145,7 +145,8 @@ select {
 	border-radius: 0;
 	line-height: 1.25;
 	padding: rem(5);
-	width: auto;
+	padding-inline-end: 1em;
+	width: 100%;
 
 	&:focus {
 
