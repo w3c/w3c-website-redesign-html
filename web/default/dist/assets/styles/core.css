@@ -1488,6 +1488,9 @@ ol:not([class]) {
 /**
 Description lists / Definition lists
  */
+dl dt {
+  font-weight: bold; }
+
 dl dd + dt {
   -webkit-margin-before: 0.5em;
           margin-block-start: 0.5em; }
@@ -1496,6 +1499,30 @@ dl dt + dd,
 dl dd + dd {
   -webkit-margin-before: 0.25em;
           margin-block-start: 0.25em; }
+
+@supports (grid-row-start: auto) {
+  dl.grid {
+    column-gap: 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 4fr;
+        grid-template-columns: 1fr 4fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    row-gap: 1rem; }
+    dl.grid dd + dt,
+    dl.grid dt + dd,
+    dl.grid dd + dd {
+      -webkit-margin-before: 0;
+              margin-block-start: 0; }
+    dl.grid dt {
+      -ms-grid-column: 1;
+          grid-column-start: 1;
+      grid-column-end: 2; }
+    dl.grid dd {
+      -ms-grid-column: 2;
+          grid-column-start: 2;
+      grid-column-end: 3; } }
 
 /*------------------------------------*\
     #Skip link
@@ -1610,7 +1637,7 @@ h1,
     h1,
     .txt-venus {
       font-size: 2.625rem;
-      line-height: calc(67.2 / 42); } }
+      line-height: calc(58.8 / 42); } }
 
 h2,
 .txt-earth {
@@ -2240,10 +2267,8 @@ so that either of these properties is applied instead.
   line-height: calc(22.5 / 15);
   color: #111;
   display: block;
-  min-width: 2.75rem;
   padding-bottom: 0.6875rem;
-  padding-top: 0.6875rem;
-  text-align: center; }
+  padding-top: 0.6875rem; }
   .breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
     color: #111; }
 
@@ -2421,10 +2446,16 @@ main,
   -ms-flex-pack: start;
       justify-content: flex-start; }
   .component--text > * + * {
-    margin-top: 1em; }
+    margin-top: 0.75em; }
 
 .component--text > * {
   max-width: 41.25rem; }
+  .component--text > * + h2,
+  .component--text > * + h3,
+  .component--text > * + h4,
+  .component--text > * + h5,
+  .component--text > * + h6 {
+    margin-top: 2em; }
 
 .component--text button,
 .component--text .button {
@@ -2565,10 +2596,13 @@ main,
   height: 100%; }
 
 [dir="ltr"] .card--event {
-  border-left: solid 0.375rem #237978; }
+  border-left: solid 0.375rem; }
 
 [dir="rtl"] .card--event {
-  border-right: solid 0.375rem #237978; }
+  border-right: solid 0.375rem; }
+
+.card--event.conference {
+  border-color: #237978; }
 
 .card--event.meeting {
   border-color: #1bc0d7; }
@@ -3144,6 +3178,15 @@ input[type=search] {
   border-radius: 0; }
 
 /*------------------------------------*\
+    #Meta info
+\*------------------------------------*/
+.meta {
+  border-bottom: solid 1px #bdbdbd;
+  border-top: solid 1px #bdbdbd;
+  margin-bottom: 3.125rem;
+  padding: 1.5rem 0; }
+
+/*------------------------------------*\
     #Pagination
     See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
@@ -3212,10 +3255,8 @@ input[type=search] {
     margin: 0 0.625rem; }
   .global-footer__links a:not([class]) {
     display: block;
-    min-width: 2.75rem;
     padding-bottom: 0.75rem;
-    padding-top: 0.75rem;
-    text-align: center; }
+    padding-top: 0.75rem; }
   .global-footer__links .with-icon--larger {
     padding: 0.75rem; }
     .global-footer__links .with-icon--larger svg {
@@ -3231,18 +3272,20 @@ input[type=search] {
 /*------------------------------------*\
     #Default page
 \*------------------------------------*/
-.no-js .default .content {
-  max-width: 46.3125rem; }
+.default .content {
+  max-width: 47rem; }
 
 @supports (grid-column-gap: 8%) {
-  @media screen and (min-width: 64em) {
-    .default .content {
-      display: -ms-grid;
-      display: grid;
-      grid-column-gap: 7.857%;
-      -ms-grid-columns: 67.143% 25%;
-          grid-template-columns: 67.143% 25%;
-      grid-template-areas: "article related"; } }
+  .default .content {
+    max-width: none; }
+    @media screen and (min-width: 64em) {
+      .default .content {
+        display: -ms-grid;
+        display: grid;
+        grid-column-gap: 7.857%;
+        -ms-grid-columns: 67.143% 25%;
+            grid-template-columns: 67.143% 25%;
+        grid-template-areas: "article related"; } }
   @media screen and (min-width: 64em) {
     .default .content article {
       grid-area: article; } }
@@ -3271,6 +3314,53 @@ input[type=search] {
   display: inline-block;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem; }
+
+/*------------------------------------*\
+    #Event
+\*------------------------------------*/
+.event .content {
+  max-width: 47rem; }
+
+.event .intro {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin-bottom: 1.25rem;
+  -webkit-margin-start: 1.875rem;
+          margin-inline-start: 1.875rem;
+  position: relative; }
+  .event .intro::before {
+    border-radius: 0.3125rem;
+    content: '';
+    height: 100%;
+    left: -1.75rem;
+    position: absolute;
+    top: 0;
+    width: 0.3125rem; }
+  .event .intro.conference::before {
+    background-color: #237978; }
+  .event .intro.meeting::before {
+    background-color: #1bc0d7; }
+  .event .intro.talk::before {
+    background-color: #f9c818; }
+  .event .intro.workshop::before {
+    background-color: #e93737; }
+  .event .intro h1 {
+    margin-bottom: 0; }
+  .event .intro h1 + * {
+    font-size: 1.5rem;
+    line-height: calc(33.6 / 24);
+    margin-bottom: 0.625rem;
+    -ms-flex-order: -1;
+        order: -1; }
+
+[dir="rtl"] .event .intro::before {
+  left: auto;
+  right: -1.75rem; }
+
+.event .lead {
+  margin-bottom: 1.25rem; }
 
 /*------------------------------------*\
     #Landing page

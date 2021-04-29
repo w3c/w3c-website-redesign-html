@@ -14,7 +14,7 @@
 
 	.card--event {
 
-		border-left: solid rem(6) $teal-green;
+		border-left: solid rem(6);
 
 	}
 
@@ -24,13 +24,19 @@
 
 	.card--event {
 
-		border-right: solid rem(6) $teal-green;
+		border-right: solid rem(6);
 
 	}
 
 }
 
 .card--event {
+
+	&.conference {
+
+		border-color: $teal-green;
+
+	}
 
 	&.meeting {
 

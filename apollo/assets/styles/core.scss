@@ -98,6 +98,7 @@
 @import "sass/50-core-components/slider";
 @import "sass/50-core-components/you-may-also-like";
 @import "sass/50-core-components/search";
+@import "sass/50-core-components/meta-info";
 @import "sass/50-core-components/pagination";
 //@import "sass/50-core-components/payment-details";
 @import "sass/50-core-components/footer";
@@ -108,6 +109,7 @@
     #Templates
 \*------------------------------------*/
 @import "sass/80-templates/default";
+@import "sass/80-templates/event";
 @import "sass/80-templates/landing";
 @import "sass/80-templates/listing";
 
