@@ -43,19 +43,6 @@
 
 }
 
-.landing .component + .component,
-.ecosystem .component + .component {
-
-	margin-top: rem(50);
-
-	@include mq($bp-tab-small) {
-
-		margin-top: rem(100);
-
-	}
-
-}
-
 .ecosystem .component.u-full-width + .component.u-full-width {
 
 	margin-top: 0;
