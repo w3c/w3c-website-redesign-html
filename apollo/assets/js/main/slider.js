@@ -5,64 +5,90 @@
 var contentSlider = (function () {
 
 	// I18N
-	var sliderText;
-	var controlsText;
-	var prevText;
-	var nextText;
+	var sliderDescription;
+	var slideListDescription;
+	var controlsDescription;
+	var previousSlide;
+	var nextSlide;
 	var slideText;
 	var ofText;
-	var activeDotText;
-	var selectedText;
 
 	if (document.documentElement.lang === 'ja') {
 
-		sliderText = 'スライダーの内容';
-		controlsText = 'スライダーコントロール';
-		prevText = '前のスライド';
-		nextText = '次のスライド';
+		sliderDescription = 'カルーセル';
+		slideListDescription = 'カルーセルコンテンツ';
+		controlsDescription = 'カルーセルコントロール';
+		previousSlide = '前のスライド';
+		nextSlide = '次のスライド';
 		slideText = 'スライド';
-		ofText = '/'
-		activeDotText = '（現在のアイテム）';
-		selectedText = ' 選択済み';
+		ofText = '/';
 
 	} else if (document.documentElement.lang === 'zh-hans') {
 
-		sliderText = '滑块内容';
-		controlsText = '滑块控件';
-		prevText = '上一张幻灯片';
-		nextText = '下一张幻灯片';
-		slideText = '幻灯片'
-		ofText = '之'
-		activeDotText = '（当前项）';
-		selectedText = ' 选定的';
+		sliderDescription = '轮播';
+		slideListDescription = '轮播内容';
+		controlsDescription = '轮播控件';
+		previousSlide = '上一张幻灯片';
+		nextSlide = '下一张幻灯片';
+		slideText = '幻灯片';
+		ofText = '之';
 
 	} else {
 
-		sliderText = 'slider content';
-		controlsText = 'slider controls';
-		prevText = 'previous slide';
-		nextText = 'next slide';
+		sliderDescription = 'carousel'
+		slideListDescription = 'carousel content';
+		controlsDescription = 'carousel controls';
+		previousSlide = 'previous slide';
+		nextSlide = 'next slide';
 		slideText = 'Slide ';
 		ofText = ' of ';
-		activeDotText = ' (current item)';
-		selectedText = ' selected';
 
 	}
 
-	var slider = document.querySelector('[data-component="slider"] .l-center > div');
+	var slider = document.querySelector('[data-component="slider"] section');
 	var dir = document.documentElement.getAttribute('dir');
 
 	if (slider) {
 
+		slider.setAttribute('aria-roledescription', sliderDescription);
+
 		var list = slider.querySelector('ul');
 		list.setAttribute('tabindex', '0');
-		list.setAttribute('aria-label', sliderText);
+		list.setAttribute('aria-label', slideListDescription);
 		var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
+
+		for (var slide = 1; slide < slides.length; slide++) {
+			slides[slide].classList.add('js-hidden');
+		}
+
+		slides.forEach(function (slide, index) {
+
+			var group = slide.querySelector('.slide');
+			group.setAttribute('role', 'group');
+			group.setAttribute('aria-roledescription', 'slide');
+			group.setAttribute('aria-label', (index + 1) + ofText + slides.length);
+
+		});
 
 		// Add current class to first slide
 		slides[0].classList.add('js-current');
 
 		if (slides.length > 1) {
+
+			/**
+			 * Create container to hold slider controls and aria-live region
+			 * @return {HTMLDivElement}
+			 */
+			function createControlsWrap() {
+
+				var wrap = document.createElement('div');
+				wrap.style.display = 'flex';
+				wrap.style.alignItems = 'center';
+				wrap.style.marginTop = '0.625rem';
+
+				return wrap;
+
+			}
 
 			/**
 			 * Create previous and next button controls for slider
@@ -72,45 +98,12 @@ var contentSlider = (function () {
 
 				var controls = document.createElement('ul');
 				controls.setAttribute('class', 'slider-controls');
-				controls.setAttribute('aria-label', controlsText);
-				controls.innerHTML = '<li><button class="button button--ghost previous with-icon--larger" aria-label="' + prevText + '" style="padding:0.4375rem;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 256 512" width="1em" height="1em"><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></button></li>'
-					+ '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost next with-icon--larger" aria-label="' + nextText + '" style="padding:0.4375rem;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 256 512" width="1em" height="1em"><path class="angle-right" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/><path class="angle-left" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg></button></li>';
-				// controls.style.justifyContent = 'space-evenly';
+				controls.setAttribute('aria-label', controlsDescription);
+				controls.innerHTML = '<li><button class="button button--ghost previous with-icon--larger" aria-label="' + previousSlide + '" style="padding:0.4375rem;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 320 512" width="1em" height="1em"><path class="chevron-right" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/><path class="chevron-left" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"/></svg></button></li>'
+					+ '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost next with-icon--larger" aria-label="' + nextSlide + '" style="padding:0.4375rem;"><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 320 512" width="1em" height="1em"><path class="chevron-right" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/><path class="chevron-left" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"/></svg></button></li>';
 				controls.style.display = 'inline-flex';
-				controls.style.marginTop = '0.625rem';
 
 				return controls;
-
-			}
-
-			/**
-			 * Create dot navigation for slider
-			 * @param slides
-			 * @return {HTMLUListElement}
-			 */
-			function createDotNav(slides) {
-
-				var dotNavContainer = document.createElement('ul');
-				dotNavContainer.setAttribute('class', 'slide-nav');
-				dotNavContainer.setAttribute('class', 'clean-list');
-				dotNavContainer.setAttribute('role', 'list');
-				dotNavContainer.style.display = 'flex';
-				dotNavContainer.style.justifyContent = 'center';
-
-				Array.prototype.forEach.call(slides, function (el, i) {
-
-					var li = document.createElement('li');
-					li.style.marginTop = '0';
-					li.style.marginLeft = '0.25rem';
-					li.style.marginRight = '0.25rem';
-					var cssClass = (i===0) ? 'class="button button--ghost js-current" ' : 'class="button button--ghost " ';
-					var current = (i===0) ? ' <span class="visuallyhidden active-dot">' + activeDotText + '</span>' : '';
-					li.innerHTML = '<button '+ cssClass +'data-slide="' + i + '"><span class="visuallyhidden">' + slideText + (i + 1) + ofText + slides.length + '</span>' + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="0.625rem" height="0.625rem" focusable="false" aria-hidden="true"><defs/><circle cx="5" cy="5" r="4" fill="currentColor" fill-rule="evenodd" stroke="#111" stroke-width="2"/></svg>' + current + '</button>';
-					dotNavContainer.appendChild(li);
-
-				});
-
-				return dotNavContainer;
 
 			}
 
@@ -123,29 +116,27 @@ var contentSlider = (function () {
 				var liveRegion = document.createElement('div');
 				liveRegion.setAttribute('role', 'status');
 				liveRegion.setAttribute('aria-live', 'polite');
+				liveRegion.setAttribute('class', 'txt-pluto');
 				liveRegion.style.display = 'inline-block';
 				liveRegion.style.paddingLeft = '0.625rem';
 				liveRegion.style.paddingRight = '0.625rem';
-				liveRegion.textContent = slideText + 1 + ofText + slides.length + activeDotText;
-				// liveRegion.setAttribute('class', 'visuallyhidden');
+				liveRegion.textContent = slideText + 1 + ofText + slides.length;
 
 				return liveRegion;
 
 			}
 
+			var wrap = createControlsWrap();
 			var controls = createControls();
 			var prev = controls.querySelector('.previous');
 			var next = controls.querySelector('.next');
 			prev.disabled = true;
-			// var dotNav = createDotNav(slides);
-			// var dots = Array.prototype.slice.call(dotNav.querySelectorAll('.button'));
 			var liveRegion = createLiveRegion();
 
 			slider.setAttribute('class', 'js-slider');
-			slider.parentNode.insertBefore(controls, slider.nextElementSibling);
-			// controls.parentNode.insertBefore(dotNav, controls.nextElementSibling);
-			// dotNav.parentNode.insertBefore(liveRegion, dotNav.nextElementSibling);
-			controls.parentNode.insertBefore(liveRegion, controls.nextElementSibling);
+			slider.parentNode.insertBefore(wrap, slider.nextElementSibling);
+			wrap.appendChild(controls);
+			wrap.appendChild(liveRegion);
 
 			/**
 			 * Set slide positions, which are used in the switchSlide function
@@ -186,17 +177,13 @@ var contentSlider = (function () {
 
 				}
 
-				currentSlide.classList.remove('js-current');
-				targetSlide.classList.add('js-current');
-
-				// Highlights the correct dot
-				// var currentDot = dots[currentSlideIndex];
-				// var targetDot = dots[targetSlideIndex];
-				// currentDot.classList.remove('js-current');
-				// var currentDotIndicator = currentDot.querySelector('.active-dot');
-				// currentDotIndicator.remove();
-				// targetDot.classList.add('js-current');
-				// targetDot.innerHTML += '<span class="visuallyhidden active-dot">' + activeDotText + '</span>';
+				currentSlide.classList.toggle('js-current');
+				currentSlide.classList.toggle('js-hidden');
+				currentSlide.removeAttribute('tabindex');
+				targetSlide.classList.toggle('js-current');
+				targetSlide.classList.toggle('js-hidden');
+				targetSlide.setAttribute('tabindex', '-1');
+				targetSlide.focus();
 
 				// Disable previous/next buttons
 				if (targetSlideIndex === 0) {
@@ -217,7 +204,7 @@ var contentSlider = (function () {
 				}
 
 				// Announce selected slide to screen reader
-				liveRegion.textContent = slideText + (targetSlideIndex + 1) + ofText + slides.length + activeDotText;
+				liveRegion.textContent = slideText + (targetSlideIndex + 1) + ofText + slides.length;
 
 			}
 
@@ -245,16 +232,6 @@ var contentSlider = (function () {
 				var previousSlideIndex = currentSlideIndex - 1;
 				switchSlide(currentSlideIndex, previousSlideIndex);
 			});
-
-			// dotNav.addEventListener('click', function (event) {
-			// 	var dot = event.target.closest('button');
-			// 	if (!dot) return;
-			// 	var currentSlideIndex = getCurrentSlideIndex();
-			// 	var targetSlideIndex = dots.findIndex(function (d) {
-			// 		return d === dot;
-			// 	});
-			// 	switchSlide(currentSlideIndex, targetSlideIndex);
-			// });
 
 			list.addEventListener('keydown', function (event) {
 				var key = event.key;
