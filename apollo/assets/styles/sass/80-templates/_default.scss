@@ -2,19 +2,17 @@
     #Default page
 \*------------------------------------*/
 
-.no-js {
+.default .content {
 
-	.default .content {
-
-		max-width: rem(741);
-
-	}
+	max-width: rem(752);
 
 }
 
 @supports(grid-column-gap: 8%) {
 
 	.default .content {
+
+		max-width: none;
 
 		@include mq($bp-tab-large) {
 
