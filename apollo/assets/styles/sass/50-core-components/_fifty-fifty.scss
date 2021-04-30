@@ -29,7 +29,7 @@
 
 .component--fifty-fifty figcaption {
 
-	@include stack;
+	@include stack(rem(30));
 
 	@include mq($bp-tab-small) {
 
@@ -43,7 +43,13 @@
 
 	}
 
-	.button--alt {
+}
+
+.component--fifty-fifty figcaption .l-box {
+
+	@include stack(1rem);
+
+	a {
 
 		align-self: flex-start;
 
