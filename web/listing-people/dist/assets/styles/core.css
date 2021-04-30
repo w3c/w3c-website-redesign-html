@@ -2226,7 +2226,6 @@ so that either of these properties is applied instead.
       padding-bottom: 0.625rem;
       padding-top: 0.625rem; } }
   .account-login .icon {
-    fill: #bdbdbd !important;
     height: 1.5rem;
     width: 1.5rem; }
 
@@ -2320,6 +2319,9 @@ main,
   @media screen and (min-width: 48em) {
     #main .component + .component {
       margin-top: 6.25rem; } }
+
+#main .component.u-full-width + .component.u-full-width {
+  margin-top: 0; }
 
 /*------------------------------------*\
     #Hero
@@ -2446,7 +2448,7 @@ main,
   -ms-flex-pack: start;
       justify-content: flex-start; }
   .component--text > * + * {
-    margin-top: 0.75em; }
+    margin-top: 1em; }
 
 .component--text > * {
   max-width: 41.25rem; }
@@ -2713,7 +2715,7 @@ a.tag {
   -ms-flex-pack: start;
       justify-content: flex-start; }
   .component--fifty-fifty figcaption > * + * {
-    margin-top: 1em; }
+    margin-top: 1.875rem; }
   @media screen and (min-width: 48em) {
     .component--fifty-fifty figcaption {
       -ms-flex-preferred-size: 52%;
@@ -2722,7 +2724,17 @@ a.tag {
     .component--fifty-fifty figcaption {
       -ms-flex-preferred-size: 45%;
           flex-basis: 45%; } }
-  .component--fifty-fifty figcaption .button--alt {
+
+.component--fifty-fifty figcaption .l-box {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .component--fifty-fifty figcaption .l-box > * + * {
+    margin-top: 1rem; }
+  .component--fifty-fifty figcaption .l-box a {
     -ms-flex-item-align: start;
         align-self: flex-start; }
 
@@ -3086,8 +3098,8 @@ a.tag {
 \*------------------------------------*/
 .component--slider {
   background-color: #f8f8fb;
-  padding-bottom: 1.5625rem;
-  padding-top: 1.5625rem; }
+  padding-bottom: 3.125rem;
+  padding-top: 3.125rem; }
   .component--slider h2 {
     font-size: 1rem;
     font-weight: normal;
@@ -3401,9 +3413,6 @@ input[type=search] {
 .ecosystem .component--quote {
   max-width: 43.1875rem; }
 
-.ecosystem .component.u-full-width + .component.u-full-width {
-  margin-top: 0; }
-
 /*------------------------------------*\
     #Listing templates
 \*------------------------------------*/
@@ -3458,6 +3467,8 @@ input[type=search] {
       flex-basis: auto;
   -ms-flex-order: -1;
       order: -1; }
+  .people-list .l-sidebar .sidebar img {
+    max-width: 6.25rem; }
 
 .people-list .l-sidebar .not-sidebar {
   min-width: calc(70% - 1.5rem); }

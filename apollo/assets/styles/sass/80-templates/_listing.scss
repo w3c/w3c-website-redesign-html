@@ -89,6 +89,12 @@
 		flex-basis: auto;
 		order: -1;
 
+		img {
+
+			max-width: rem(100);
+
+		}
+
 	}
 
 	.l-sidebar .not-sidebar {
