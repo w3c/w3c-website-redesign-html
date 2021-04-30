@@ -384,24 +384,26 @@
 				<div class="l-center">
 					<h1>The W3C team</h1>
 					<p class="lead">A very short introduction/summary of the page.</p>
-					<form class="l-cluster filters" onsubmit="return false" novalidate>
+					<form class="l-switcher filters" onsubmit="return false" novalidate>
 						<div>
-							<div class="field">
-								<label for="filter-wg">
-									<span class="field-label">Working Group</span>
-								</label>
-								<select id="filter-wg" name="filter-wg">
-									<option value="">Filter the list</option>
-									<option value="agwg">Accessibility Guidelines Working Group</option>
-									<option value="html">HTML Working Group</option>
-									<option value="svg">SVG Working Group</option>
-								</select>
+							<div>
+								<div class="field">
+									<label for="filter-wg">
+										<span class="field-label">Working Group</span>
+									</label>
+									<select id="filter-wg" name="filter-wg">
+										<option value="">Filter the list</option>
+										<option value="agwg">Accessibility Guidelines Working Group</option>
+										<option value="html">HTML Working Group</option>
+										<option value="svg">SVG Working Group</option>
+									</select>
+								</div>
 							</div>
-							<div class="field">
-								<button class="button" type="submit">Show results</button>
-							</div>
-							<div class="field">
-								<button class="button button--ghost" type="reset">Clear all</button>
+							<div>
+								<div class="input-group">
+									<button class="button" type="submit">Show results</button>
+									<button class="button button--ghost" type="reset">Clear all</button>
+								</div>
 							</div>
 						</div>
 					</form>

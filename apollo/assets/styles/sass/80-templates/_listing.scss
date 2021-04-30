@@ -31,15 +31,23 @@
 
 	}
 
-	.filters {
+	.filters.l-switcher {
 
-		overflow: visible;
+		margin: rem(-10);
 
 	}
 
 	.filters > div {
 
 		align-items: flex-end;
+
+	}
+
+	.filters.l-switcher > * > * {
+
+		min-width: 33.333%;
+		padding: rem(10);
+		width: calc(920px * 920 - 100% * 920);
 
 	}
 

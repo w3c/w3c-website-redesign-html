@@ -35,6 +35,32 @@ fieldset > * + * {
 
 }
 
+/**
+Group inputs to line up side-by-side
+ */
+.input-group {
+
+	display: flex;
+
+}
+
+.input-group > * + * {
+
+	margin-left: rem(30);
+
+}
+
+[dir="rtl"] {
+
+	.input-group > * + * {
+
+		margin-left: 0;
+		margin-right: rem(30);
+
+	}
+
+}
+
 label {
 
 	display: block;
