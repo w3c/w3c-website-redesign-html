@@ -5,11 +5,11 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Web and broadcast: The birth of exciting technologies (event template) | W3C Redesign Prototypes</title>
+	<title>Events | W3C Redesign Prototypes</title>
 
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<meta property="og:description" name="description" content="Event template prototype for the W3C website redesign"/>
+	<meta property="og:description" name="description" content="Events listing page prototype for the W3C website redesign"/>
 
 	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
@@ -50,7 +50,7 @@
 
 </head>
 
-<body class="event">
+<body class="listing">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="grid-wrap">
 	<div class="wrap">
@@ -374,109 +374,178 @@
 						<li><a href="page.html">Page</a></li>
 						<li><a href="page.html">Another page</a></li>
 						<li><a href="page.html">Page</a></li>
-						<li><a href="#" aria-current="page">Web and broadcast: The birth of exciting technologies</a></li>
+						<li><a href="#" aria-current="page">Events</a></li>
 					</ol>
 				</div>
 			</div>
 		</nav>
 		<main id="main">
-			<div class="content">
-				<article>
-					<div class="intro meeting">
-						<h1>Web and broadcast: The birth of exciting technologies</h1>
-						<p>Online meeting</p>
-					</div>
-					<p class="lead">Short description of the event</p>
-					<a href="../page.html" class="with-icon--before calendar-link txt-pluto"><svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 448 512"><defs/><path d="M336 292v24c0 6.6-5.4 12-12 12h-76v76c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-76h-76c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h76v-76c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v76h76c6.6 0 12 5.4 12 12zm112-180v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg> Add to calendar</a>
-					<section class="l-cluster translations">
+			<div class="u-full-width hero hero--listing">
+				<div class="l-center">
+					<h1>W3C events</h1>
+					<p class="lead">A very short introduction/summary of the page.</p>
+					<form class="l-switcher filters" onsubmit="return false" novalidate>
 						<div>
-							<h2>Read this page in:</h2>
-							<a href="/fr" hreflang="fr" lang="fr">Français</a>
-							<a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页</a>
-							<a href="#" aria-current="true">English</a>
+							<div>
+								<div class="field">
+									<label for="filter-event-type">
+										<span class="field-label">Event type</span>
+									</label>
+									<select id="filter-event-type" name="filter-event-type">
+										<option value="">All</option>
+										<option value="conference">Conference</option>
+										<option value="meeting">Meeting</option>
+										<option value="talk">Talk</option>
+										<option value="workshop">Workshop</option>
+									</select>
+								</div>
+							</div>
+							<div>
+								<div class="field">
+									<label for="filter-event-cat">
+										<span class="field-label">Category</span>
+									</label>
+									<select id="filter-event-cat" name="filter-event-cat">
+										<option value="">All</option>
+										<option value="cat1">Category 1</option>
+										<option value="cat2">Category 2</option>
+										<option value="cat3">Category 3</option>
+										<option value="cat4">Category 4</option>
+									</select>
+								</div>
+							</div>
+							<div>
+								<div class="input-group">
+									<button class="button" type="submit">Show results</button>
+									<button class="button button--ghost" type="reset">Clear all</button>
+								</div>
+							</div>
 						</div>
-					</section>
-					<section class="meta">
-						<h2 class="visuallyhidden">Event details</h2>
-						<dl class="grid">
-							<dt>Date:</dt>
-							<dd><time datetime="2021-01-28T18:00Z">28 January 2021, 14:00 - 15:30 Eastern Daylight Time (18:00 - 19:30 UTC)</time></dd>
-							<dt>Location:</dt>
-							<dd>Online</dd>
-							<dt>Speakers:</dt>
-							<dd>Deidre De Veloper</dd>
-							<dt>Host:</dt>
-							<dd>Jake Weary</dd>
-							<dt>Category:</dt>
-							<dd>
-								<a href="../page.html">Category 1</a>
-							</dd>
-							<dt>Tags:</dt>
-							<dd class="l-cluster">
-								<ul class="clean-list">
-									<li><a href="../page.html">Tag 1</a></li>
-									<li><a href="../page.html">Tag 2</a></li>
-									<li><a href="../page.html">Tag 3</a></li>
-									<li><a href="../page.html">Tag 4</a></li>
-									<li><a href="../page.html">Tag 5</a></li>
-								</ul>
-							</dd>
-							<dt>Website:</dt>
-							<dd><a href="../page.html">Name of website</a></dd>
-						</dl>
-					</section>
-					<div class="component component--text">
-						<h2>Overview</h2>
-						<p>The social value of the Web is that it enables human communication, commerce, and opportunities to share knowledge. One of W3C's primary goals is to make these benefits available to all people, whatever their hardware, software, network infrastructure, native language, culture, geographical location, or physical or mental ability.</p>
-						<p>The number of different kinds of devices that can access the Web has grown immensely. Mobile phones, smart phones, personal digital assistants, interactive television systems, voice response systems, kiosks and even certain domestic appliances can all access the Web. Learn more about:</p>
-					</div>
-					<figure class="component component--image">
-						<div class="l-frame l-frame--16-9">
-							<img src="dist/assets/images/temp-developers-920.jpg"
-							     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
-							     sizes="100vw"
-							     loading="lazy"
-							     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
-						</div>
-						<figcaption><p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p></figcaption>
-					</figure>
-					<div class="component component--text">
-						<h2>Vision</h2>
-						<p>W3C's vision for the Web involves participation, sharing knowledge, and thereby building trust on a global scale.</p>
-						<h3>Web for Rich Interaction</h3>
-						<p>The Web was invented as a communications tool intended to allow anyone, anywhere to share information. For many years, the Web was a "read-only" tool for many. Blogs and wikis brought more authors to the Web, and social networking emerged from the flourishing market for content and personalized Web experiences. W3C standards have supported this evolution thanks to strong architecture and design principles. Learn more about:</p>
-						<ul>
-							<li><a href="page.html">Web Design and Applications</a></li>
-							<li><a href="page.html">Web Architecture</a></li>
-						</ul>
-						<h3>Web of Data and Services</h3>
-						<p>Some people view the Web as a giant repository of linked data while others as a giant set of services that exchange messages. The two views are complementary, and which to use often depends on the application. Learn more about:</p>
-						<ul>
-							<li><a href="page.html">Essential XML Technologies</a></li>
-							<li><a href="page.html">Semantic Web</a></li>
-							<li><a href="page.html">Web of Services</a></li>
-						</ul>
-						<h3>Web of Trust</h3>
-						<p>The Web has transformed the way we communicate with each other. In doing so, it has also modified the nature of our social relationships. People now "meet on the Web" and carry out commercial and personal relationships, in some cases without ever meeting in person. W3C recognizes that trust is a social phenomenon, but technology design can foster trust and confidence. As more activity moves on-line, it will become even more important to support complex interactions among parties around the globe. Learn more about:</p>
-						<ul>
-							<li><a href="page.html">Semantic Web</a></li>
-							<li><a href="page.html">XML Security</a>, <a href="page.html">Web of Services Security</a></li>
-							<li><a href="page.html">Privacy</a></li>
-						</ul>
-					</div>
-					<blockquote class="component component--quote">
-						<p>The goal of the Web is to serve humanity. We build it now so that those who come to it later will be able to create things we cannot ourselves imagine.</p>
-						<cite>Sir Tim Berners-Lee</cite>
-					</blockquote>
-					<figure class="component component--video">
-						<div class="l-frame l-frame--16-9">
-							<iframe title="Video title" loading="lazy" width="560" height="315" src="https://www.youtube-nocookie.com/embed/sw-j75MQtQU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						<figcaption><p>Note: embed code from Vimeo/YouTube does not include the <code>title</code> attribute, but this is a WCAG requirement so needs to be added manually.</p>
-							<a href="page.html">Download video transcript</a></figcaption>
-					</figure>
-				</article>
+					</form>
+				</div>
 			</div>
+			<div aria-live="polite" aria-atomic="true">There are 4 people in category</div>
+			<ul class="clean-list event-list">
+				<li>
+					<div class="card card--event meeting" data-component="card">
+						<div class="card__text">
+							<div class="l-sidebar">
+								<div>
+									<div class="not-sidebar">
+										<h2 class="card__heading"><a class="card__link" href="event.html">Advisory Committee Meeting</a></h2>
+										<p>This is an example of a meeting type event card. This is the excerpt text.</p>
+									</div>
+									<div class="sidebar">
+										<div class="date-location">
+											<div>
+												<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+											</div>
+											<div>
+												<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
+												<p>Online</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="txt-pluto"><a href="../page.html">Category link</a></p>
+							<p class="txt-pluto">Meeting</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="card card--event workshop" data-component="card">
+						<div class="card__text">
+							<div class="l-sidebar">
+								<div>
+									<div class="not-sidebar">
+										<h2 class="card__heading"><a class="card__link" href="event.html">W3C Workshop on Web & Machine Learning: Live Session #2</a></h2>
+										<p>This is an example of a workshop type event card. This is the excerpt text.</p>
+									</div>
+									<div class="sidebar">
+										<div class="date-location">
+											<div>
+												<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+											</div>
+											<div>
+												<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
+												<p>Online</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="txt-pluto"><a href="../page.html">Category link</a></p>
+							<p class="txt-pluto">Workshop</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="card card--event talk" data-component="card">
+						<div class="card__text">
+							<div class="l-sidebar">
+								<div>
+									<div class="not-sidebar">
+										<h2 class="card__heading"><a class="card__link" href="event.html">Questions (and Answers) on Semantic Web</a></h2>
+										<p>This is an example of a talk type event card. This is the excerpt text.</p>
+									</div>
+									<div class="sidebar">
+										<div class="date-location">
+											<div>
+												<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+											</div>
+											<div>
+												<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
+												<p>Online</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="txt-pluto"><a href="../page.html">Category link</a></p>
+							<p class="txt-pluto">Talk</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="l-sidebar card card--event conference" data-component="card">
+						<div>
+							<div class="not-sidebar card__text">
+								<div class="l-sidebar">
+									<div>
+										<div class="not-sidebar">
+											<h2 class="card__heading"><a class="card__link" href="event.html">Expo 2020</a></h2>
+											<p>This is an example of a conference type event card. This is the excerpt text.</p>
+										</div>
+										<div class="sidebar">
+											<div class="date-location">
+												<div>
+													<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+												</div>
+												<div>
+													<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
+													<p>NEC Birmingham, U.K.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<p class="txt-pluto"><a href="../page.html">Category link</a></p>
+								<p class="txt-pluto">W3C endorsed conference</p>
+							</div>
+							<div class="sidebar">
+								<div class="l-frame card__image">
+									<img src="dist/assets/images/temp-developers-920.jpg"
+									     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w"
+									     sizes="(min-width: 64em) 20vw, (min-width: 48em) 15vw, (min-width: 17em) 50vw"
+									     loading="lazy"
+									     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
 		</main>
 	</div>
 	<footer class="global-footer">

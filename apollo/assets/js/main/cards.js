@@ -32,7 +32,6 @@ var cardEnhancement = (function () {
 				if (noTextSelected) {
 
 					mainLink.click();
-					mainLink.focus();
 
 				}
 
