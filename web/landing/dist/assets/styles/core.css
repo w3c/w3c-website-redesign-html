@@ -3243,6 +3243,8 @@ input[type=search] {
   background-color: #005797;
   color: #fff;
   font-weight: bold; }
+  .pagination-list [aria-current]:hover {
+    color: #fff; }
 
 /*------------------------------------*\
     #Global footer
@@ -3536,6 +3538,7 @@ input[type=search] {
   .event-list .card {
     background-color: #fff;
     border-radius: 0.25rem;
+    box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12);
     overflow: hidden;
     padding: 1rem; }
   .event-list .card.l-sidebar .sidebar {
@@ -3548,6 +3551,11 @@ input[type=search] {
         flex-basis: 20rem; }
   .event-list .card.l-sidebar .l-sidebar .not-sidebar {
     min-width: calc(55% - 1.5rem); }
+  .event-list .card .l-cluster > * {
+    font-size: 0.9375rem;
+    line-height: calc(22.5 / 15);
+    -ms-flex-align: center;
+        align-items: center; }
   .event-list .card__text {
     padding-top: 0; }
   .event-list .card__image {
