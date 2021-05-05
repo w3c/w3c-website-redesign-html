@@ -5,9 +5,7 @@
 
 .pagination {
 
-	border-bottom: solid 1px $border-color;
 	margin-top: rem(40);
-	padding-bottom: rem(33);
 
 }
 
@@ -63,5 +61,12 @@
 		}
 
 	}
+
+}
+
+.pagination + * {
+
+	border-top: solid 1px $border-color;
+	margin-top: rem(33);
 
 }
