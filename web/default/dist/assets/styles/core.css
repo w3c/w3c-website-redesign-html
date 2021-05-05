@@ -3214,7 +3214,9 @@ input[type=search] {
     See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
 .pagination {
-  margin-top: 2.5rem; }
+  border-bottom: solid 1px #bdbdbd;
+  margin-top: 2.5rem;
+  padding-bottom: 2.0625rem; }
 
 @media screen and (min-width: 64em) {
   .pagination-list {
@@ -3486,6 +3488,21 @@ input[type=search] {
     box-shadow: inset 0 0 0 2px;
     outline: solid 3px #f9dc4a;
     outline-offset: 0; }
+
+.listing .feed {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  margin-top: 2.5rem; }
+  .listing .feed > * + * {
+    margin-top: 1em; }
+  .listing .feed a {
+    display: block;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem; }
 
 .people-list > li {
   padding-bottom: 1.875rem;
