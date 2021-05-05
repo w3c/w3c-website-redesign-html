@@ -837,6 +837,7 @@ select,
 Select
  */
 select {
+  background-color: inherit;
   border: 2px solid;
   border-radius: 0;
   line-height: 1.25;
@@ -1554,6 +1555,55 @@ dl dd + dd {
     z-index: 999; }
     .skip-link:active span, .skip-link:focus span {
       box-shadow: 0 -1px 0 0 inset; }
+
+/*------------------------------------*\
+    #Details and summary elements
+\*------------------------------------*/
+summary {
+  color: #005797;
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 1.5625rem;
+  position: relative; }
+  summary::before {
+    border-color: transparent;
+    border-left-color: inherit;
+    border-style: solid;
+    border-width: 7px 0 7px 12.124px;
+    bottom: 0;
+    -webkit-clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    content: '';
+    display: block;
+    height: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: -0.0625rem;
+    width: 0; }
+  summary:hover {
+    color: #024488; }
+  summary span {
+    display: inline-block;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    text-decoration: underline;
+    /* 1 */
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25em; }
+  summary:focus span {
+    background-color: #f9dc4a;
+    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+    color: #000;
+    text-decoration: none; }
+
+[dir="rtl"] summary {
+  padding-left: 0;
+  padding-right: 1.5625rem; }
+  [dir="rtl"] summary::before {
+    left: auto;
+    right: 0;
+    transform: rotate(180deg); }
 
 /*------------------------------------*\
     #Social links
@@ -3214,9 +3264,7 @@ input[type=search] {
     See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
 .pagination {
-  border-bottom: solid 1px #bdbdbd;
-  margin-top: 2.5rem;
-  padding-bottom: 2.0625rem; }
+  margin-top: 2.5rem; }
 
 @media screen and (min-width: 64em) {
   .pagination-list {
@@ -3247,6 +3295,21 @@ input[type=search] {
   font-weight: bold; }
   .pagination-list [aria-current]:hover {
     color: #fff; }
+
+.pagination + * {
+  border-top: solid 1px #bdbdbd;
+  margin-top: 2.0625rem; }
+
+/*------------------------------------*\
+    #Pre-footer items
+\*------------------------------------*/
+.pre-footer.l-switcher {
+  margin: -1.25rem; }
+
+.pre-footer.l-switcher > * > * {
+  min-width: 33.333%;
+  padding: 1.25rem;
+  width: calc(920px * 920 - 100% * 920); }
 
 /*------------------------------------*\
     #Global footer
@@ -3489,7 +3552,8 @@ input[type=search] {
     outline: solid 3px #f9dc4a;
     outline-offset: 0; }
 
-.listing .feed {
+.listing .feed,
+.listing .archive-links {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -3497,12 +3561,23 @@ input[type=search] {
   -ms-flex-pack: start;
       justify-content: flex-start;
   margin-top: 2.5rem; }
-  .listing .feed > * + * {
+  .listing .feed > * + *,
+  .listing .archive-links > * + * {
     margin-top: 1em; }
-  .listing .feed a {
-    display: block;
-    padding-bottom: 0.625rem;
-    padding-top: 0.625rem; }
+
+.listing .feed a {
+  display: block;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
+
+.listing .archive-links ul {
+  -webkit-margin-start: 1.5625rem;
+          margin-inline-start: 1.5625rem; }
+
+.listing .archive-links ul a {
+  display: inline-block;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
 
 .people-list > li {
   padding-bottom: 1.875rem;
