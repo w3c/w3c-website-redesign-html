@@ -3,30 +3,56 @@
     See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
 
-.pagination.pagination {
+.pagination {
+
+	margin-top: rem(40);
+
+}
+
+.pagination-list {
+
+	@include mq($bp-tab-large) {
+
+		justify-content: flex-end;
+
+	}
 
 	li {
-		display: inline-block; // IE9
-		position: relative;
 
-		&::before {
-			content: "\2000";
-			position: absolute;
-			z-index: -1;
+		display: inline-block; // IE9
+
+	}
+
+	a {
+
+		@include txt-pluto;
+
+		color: $black;
+		display: block;
+		text-decoration: none;
+		padding: rem(11) rem(18);
+
+		&:visited {
+
+			color: $black;
+
 		}
 
 	}
 
-	.pagination__item {
-		background-color: $mercury-grey;
-		border: 1px solid;
-		display: block;
-		padding:  rem(3) rem(10);
-		text-decoration: none;
+	a[href]:hover {
+
+		text-decoration: underline;
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
 	}
 
 	[aria-current] {
-		background-color: $grey;
+
+		background-color: $link-color;
+		color: $white;
+		font-weight: bold;
 
 	}
 

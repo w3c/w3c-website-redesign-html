@@ -3213,23 +3213,36 @@ input[type=search] {
     #Pagination
     See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
-.pagination.pagination li {
-  display: inline-block;
-  position: relative; }
-  .pagination.pagination li::before {
-    content: "\2000";
-    position: absolute;
-    z-index: -1; }
+.pagination {
+  margin-top: 2.5rem; }
 
-.pagination.pagination .pagination__item {
-  background-color: #e5e5e5;
-  border: 1px solid;
+@media screen and (min-width: 64em) {
+  .pagination-list {
+    -ms-flex-pack: end;
+        justify-content: flex-end; } }
+
+.pagination-list li {
+  display: inline-block; }
+
+.pagination-list a {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  color: #000;
   display: block;
-  padding: 0.1875rem 0.625rem;
-  text-decoration: none; }
+  text-decoration: none;
+  padding: 0.6875rem 1.125rem; }
+  .pagination-list a:visited {
+    color: #000; }
 
-.pagination.pagination [aria-current] {
-  background-color: #aaa; }
+.pagination-list a[href]:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+
+.pagination-list [aria-current] {
+  background-color: #005797;
+  color: #fff;
+  font-weight: bold; }
 
 /*------------------------------------*\
     #Global footer
@@ -3516,64 +3529,55 @@ input[type=search] {
       -ms-flex-preferred-size: auto;
           flex-basis: auto; } }
 
-.event-list > li + li {
-  margin-top: 1rem; }
-
-.event-list .card {
-  background-color: #fff;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  padding: 1rem; }
-
-.event-list .card.l-sidebar .sidebar {
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto; }
-
-.event-list .card.l-sidebar .not-sidebar {
-  min-width: calc(70% - 1.5rem); }
-
-.event-list .card.l-sidebar .l-sidebar .sidebar {
-  -ms-flex-preferred-size: 20rem;
-      flex-basis: 20rem; }
-
-.event-list .card.l-sidebar .l-sidebar .not-sidebar {
-  min-width: calc(55% - 1.5rem); }
-
-.event-list .card__text {
-  padding-top: 0; }
-
-.event-list .card__image {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  height: 6.25rem;
-  width: 6.25rem; }
-  @media screen and (min-width: 64em) {
-    .event-list .card__image {
-      height: 12.5rem;
-      width: 12.5rem; } }
-
-.event-list .card__image img {
-  border-radius: 0; }
-
-.event-list .date-location {
-  font-size: 0.9375rem;
-  line-height: calc(22.5 / 15);
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  max-width: 18.75rem; }
-
-.event-list .date-location img {
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
-  width: 1.125rem; }
-
-.event-list .date-location > div:last-child {
-  -webkit-border-start: solid 1px #bdbdbd;
-          border-inline-start: solid 1px #bdbdbd;
-  -webkit-padding-start: 0.75rem;
-          padding-inline-start: 0.75rem; }
+.event-list {
+  margin-top: 2.5rem; }
+  .event-list > li + li {
+    margin-top: 1rem; }
+  .event-list .card {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    padding: 1rem; }
+  .event-list .card.l-sidebar .sidebar {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto; }
+  .event-list .card.l-sidebar .not-sidebar {
+    min-width: calc(70% - 1.5rem); }
+  .event-list .card.l-sidebar .l-sidebar .sidebar {
+    -ms-flex-preferred-size: 20rem;
+        flex-basis: 20rem; }
+  .event-list .card.l-sidebar .l-sidebar .not-sidebar {
+    min-width: calc(55% - 1.5rem); }
+  .event-list .card__text {
+    padding-top: 0; }
+  .event-list .card__image {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    height: 6.25rem;
+    width: 6.25rem; }
+    @media screen and (min-width: 64em) {
+      .event-list .card__image {
+        height: 12.5rem;
+        width: 12.5rem; } }
+  .event-list .card__image img {
+    border-radius: 0; }
+  .event-list .date-location {
+    font-size: 0.9375rem;
+    line-height: calc(22.5 / 15);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    max-width: 18.75rem; }
+  .event-list .date-location img {
+    -webkit-margin-end: 0.75rem;
+            margin-inline-end: 0.75rem;
+    width: 1.125rem; }
+  .event-list .date-location > div:last-child {
+    -webkit-border-start: solid 1px #bdbdbd;
+            border-inline-start: solid 1px #bdbdbd;
+    -webkit-padding-start: 0.75rem;
+            padding-inline-start: 0.75rem; }
 
 /*------------------------------------*\
     #Utilities

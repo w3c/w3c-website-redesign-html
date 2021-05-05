@@ -3213,23 +3213,36 @@ input[type=search] {
     #Pagination
     See: https://weboverhauls.github.io/demos/pagination/
 \*------------------------------------*/
-.pagination.pagination li {
-  display: inline-block;
-  position: relative; }
-  .pagination.pagination li::before {
-    content: "\2000";
-    position: absolute;
-    z-index: -1; }
+.pagination {
+  margin-top: 2.5rem; }
 
-.pagination.pagination .pagination__item {
-  background-color: #e5e5e5;
-  border: 1px solid;
+@media screen and (min-width: 64em) {
+  .pagination-list {
+    -ms-flex-pack: end;
+        justify-content: flex-end; } }
+
+.pagination-list li {
+  display: inline-block; }
+
+.pagination-list a {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  color: #000;
   display: block;
-  padding: 0.1875rem 0.625rem;
-  text-decoration: none; }
+  text-decoration: none;
+  padding: 0.6875rem 1.125rem; }
+  .pagination-list a:visited {
+    color: #000; }
 
-.pagination.pagination [aria-current] {
-  background-color: #aaa; }
+.pagination-list a[href]:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+
+.pagination-list [aria-current] {
+  background-color: #005797;
+  color: #fff;
+  font-weight: bold; }
 
 /*------------------------------------*\
     #Global footer
