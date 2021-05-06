@@ -3259,6 +3259,10 @@ input[type=search] {
   margin-bottom: 3.125rem;
   padding: 1.5rem 0; }
 
+.meta .with-link {
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
+
 /*------------------------------------*\
     #Pagination
     See: https://weboverhauls.github.io/demos/pagination/
@@ -3266,39 +3270,79 @@ input[type=search] {
 .pagination {
   margin-top: 2.5rem; }
 
+.pagination + * {
+  border-top: solid 1px #bdbdbd;
+  margin-top: 2.0625rem; }
+
 @media screen and (min-width: 64em) {
-  .pagination-list {
+  .pagination__list {
     -ms-flex-pack: end;
         justify-content: flex-end; } }
 
-.pagination-list li {
+.pagination__list li {
   display: inline-block; }
 
-.pagination-list a {
+.pagination__list a {
   font-size: 0.9375rem;
   line-height: calc(22.5 / 15);
   color: #000;
   display: block;
   text-decoration: none;
   padding: 0.6875rem 1.125rem; }
-  .pagination-list a:visited {
+  .pagination__list a:visited {
     color: #000; }
 
-.pagination-list a[href]:hover {
+.pagination__list a[href]:hover {
   text-decoration: underline;
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
 
-.pagination-list [aria-current] {
+.pagination__list [aria-current] {
   background-color: #005797;
   color: #fff;
   font-weight: bold; }
-  .pagination-list [aria-current]:hover {
+  .pagination__list [aria-current]:hover {
     color: #fff; }
 
-.pagination + * {
-  border-top: solid 1px #bdbdbd;
-  margin-top: 2.0625rem; }
+.pagination__list__first svg,
+.pagination__list__last svg {
+  height: 1.375rem; }
+
+.pagination__list__first .double-chevron-right {
+  display: none; }
+
+.pagination__list__last .double-chevron-left {
+  display: none; }
+
+[dir="rtl"] .pagination__list__first .double-chevron-left {
+  display: none; }
+
+[dir="rtl"] .pagination__list__first .double-chevron-right {
+  display: block; }
+
+[dir="rtl"] .pagination__list__last .double-chevron-left {
+  display: block; }
+
+[dir="rtl"] .pagination__list__last .double-chevron-right {
+  display: none; }
+
+/*------------------------------------*\
+    #RSS feed
+\*------------------------------------*/
+.rss {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  margin-top: 2.5rem; }
+  .rss > * + * {
+    margin-top: 1em; }
+  .rss a {
+    display: block;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem; }
 
 /*------------------------------------*\
     #Pre-footer items
@@ -3362,7 +3406,7 @@ input[type=search] {
     padding-top: 0.75rem; }
   .global-footer__links .with-icon--larger {
     padding: 0.75rem; }
-    .global-footer__links .with-icon--larger svg {
+    .global-footer__links .with-icon--larger img {
       height: 1.25rem;
       width: 1.25rem; }
     .global-footer__links .with-icon--larger:focus {
@@ -3552,7 +3596,6 @@ input[type=search] {
     outline: solid 3px #f9dc4a;
     outline-offset: 0; }
 
-.listing .feed,
 .listing .archive-links {
   display: -ms-flexbox;
   display: flex;
@@ -3561,27 +3604,19 @@ input[type=search] {
   -ms-flex-pack: start;
       justify-content: flex-start;
   margin-top: 2.5rem; }
-  .listing .feed > * + *,
   .listing .archive-links > * + * {
     margin-top: 1em; }
-
-.listing .feed a {
-  display: block;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem; }
-
-.listing .archive-links ul {
-  background-color: #fff;
-  border: solid 1px #bdbdbd;
-  height: 11.25rem;
-  -webkit-margin-start: 1.5625rem;
-          margin-inline-start: 1.5625rem;
-  overflow-y: scroll;
-  width: 11.25rem; }
-
-.listing .archive-links ul a {
-  display: inline-block;
-  padding: 0.625rem; }
+  .listing .archive-links ul {
+    background-color: #fff;
+    border: solid 1px #bdbdbd;
+    height: 11.25rem;
+    -webkit-margin-start: 1.5625rem;
+            margin-inline-start: 1.5625rem;
+    overflow-y: scroll;
+    width: 11.25rem; }
+  .listing .archive-links ul a {
+    display: inline-block;
+    padding: 0.625rem; }
 
 .people-list > li {
   padding-bottom: 1.875rem;
