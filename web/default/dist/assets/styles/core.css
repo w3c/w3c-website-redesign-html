@@ -3571,13 +3571,17 @@ input[type=search] {
   padding-top: 0.625rem; }
 
 .listing .archive-links ul {
+  background-color: #fff;
+  border: solid 1px #bdbdbd;
+  height: 11.25rem;
   -webkit-margin-start: 1.5625rem;
-          margin-inline-start: 1.5625rem; }
+          margin-inline-start: 1.5625rem;
+  overflow-y: scroll;
+  width: 11.25rem; }
 
 .listing .archive-links ul a {
   display: inline-block;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem; }
+  padding: 0.625rem; }
 
 .people-list > li {
   padding-bottom: 1.875rem;
