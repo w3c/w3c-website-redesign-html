@@ -75,28 +75,11 @@
 
 	}
 
-	.feed,
 	.archive-links {
 
 		@include stack();
 
 		margin-top: rem(40);
-
-	}
-
-	.feed {
-
-		a {
-
-			display: block;
-			padding-bottom: rem(10);
-			padding-top: rem(10);
-
-		}
-
-	}
-
-	.archive-links {
 
 		ul {
 
