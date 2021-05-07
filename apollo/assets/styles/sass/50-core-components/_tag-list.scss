@@ -16,10 +16,13 @@
 
 .tag {
 
-	@include txt-pluto;
+	@include txt-eris;
 
-	color: $storm-gray;
-	display: block;
+	background-color: rgba(#CECDCD, 0.5);
+	border-radius: rem(4);
+	//color: $storm-gray;
+	display: inline-block;
+	padding: rem(2.5) rem(5) rem(2.5) rem(5);
 
 }
 
@@ -32,8 +35,8 @@ a.tag {
 
 	position: relative;
 	text-decoration: underline;
+	z-index: 10;
 	text-decoration-skip-ink: auto; // Not supported by Safari
 	text-underline-offset: 0.25em; // Supported by Safari
-	z-index: 10;
 
 }

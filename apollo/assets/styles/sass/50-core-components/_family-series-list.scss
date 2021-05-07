@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #Family/Series list
+\*------------------------------------*/
+
+/* dl */
+.family-series-list {
+
+    > dt {
+
+    }
+    > dd {
+
+    }
+
+    dd dt {
+
+    }
+
+    dd dd {
+
+    }
+
+}
+
+.family-grouping {
+
+    //padding: rem(20);
+    padding-inline-start: rem(20);
+    position: relative;
+
+    &::before {
+
+        background-color: $twiki-gray;
+        border-radius: rem(5);
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: rem(6);
+
+    }
+
+    [dir="rtl"] {
+
+        blockquote::before {
+
+            left: auto;
+            right: 0;
+
+        }
+
+    }
+
+}
+
+.family-grouping + .family-grouping {
+
+    margin-top: rem(40);
+
+}

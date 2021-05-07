@@ -8,7 +8,8 @@
 	padding-bottom: rem(50);
 	padding-top: rem(50);
 
-	.component--collapsibles > div {
+	.component--collapsibles > div,
+	.component--collapsible-cards > div {
 
 		@include stack(1rem);
 
@@ -19,7 +20,8 @@
 
 	}
 
-	.component--collapsibles > div + div {
+	.component--collapsibles > div + div,
+	.component--collapsible-cards > div + div {
 
 		margin-top: 1rem;
 
@@ -48,9 +50,17 @@
 
 		@include stack(1rem);
 
+		// restrict the line-length for readability
 		> * {
 
 			max-width: rem($text-measure);
+
+		}
+
+		// don't restrict it when we nest collapsibles in each other (see TR, Associated documents)
+		> .component--collapsible-cards {
+
+			max-width: none;
 
 		}
 

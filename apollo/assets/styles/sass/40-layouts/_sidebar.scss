@@ -75,3 +75,15 @@ a viewport media query.
 	min-width: calc(55% - 1.5rem);
 
 }
+
+
+
+.l-sidebar--expanded {
+	width: 100%;
+}
+
+.l-sidebar .sidebar.sidebar--compact {
+
+	flex-basis: rem(180);
+
+}

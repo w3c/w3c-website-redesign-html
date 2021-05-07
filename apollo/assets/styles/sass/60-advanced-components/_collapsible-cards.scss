@@ -1,0 +1,189 @@
+/*------------------------------------*\
+    #Collapsible sections
+\*------------------------------------*/
+
+.js .component--collapsible-cards {
+
+    [data-heading="collapsible-cards"] {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // Added via JavaScript
+    [data-heading="collapsible-cards"] button {
+
+        align-items: center;
+        border-radius: rem(5);
+        min-height: rem(44);
+        min-width: rem(44);
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        //width: 100%;
+
+        &:hover {
+
+            background-color: $twiki-gray;
+
+        }
+
+        &:focus {
+
+        }
+
+        &[aria-expanded="false"] .angle-up {
+
+            display: none;
+
+        }
+
+        &[aria-expanded="true"] .angle-down {
+
+            display: none;
+
+        }
+
+        svg {
+
+            flex-shrink: 0;
+            //height: 1em;
+            //width: 1em;
+
+        }
+
+    }
+
+    [data-heading="collapsible-cards"] button span {
+
+        align-items: flex-start;
+
+    }
+
+    [data-heading="collapsible-cards"] + * {
+
+        @include stack;
+
+        border-top: 1px solid $twiki-gray;
+        padding-top: 1rem;
+
+        &[aria-hidden="true"] {
+
+            display: none;
+            border-color: transparent;
+
+        }
+
+    }
+
+    * + [data-heading="collapsible-cards"] {
+
+        margin-top: 1rem;
+
+    }
+
+}
+
+
+.tr-meta {
+    margin-top: 1rem;
+}
+
+.status-subheading + .component--collapsible-cards,
+.status-subheading + .component--collapsibles--compact {
+
+    margin-top: 1.5rem;
+
+}
+
+// sometimes, the TR cards are followed by Associated documents, give them some space
+.component--collapsible-cards + .component--collapsibles--compact {
+
+    margin-top: 1.5rem;
+
+}
+
+
+.js .component--collapsibles--compact {
+
+    // Added via JavaScript
+    [data-heading="collapsibles"] button {
+
+        align-items: flex-start;
+        border-radius: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        //width: 100%;
+
+        &:hover h3 {
+
+            text-decoration: underline; /* 1 */
+            text-decoration-skip-ink: auto; // Not supported by Safari
+            text-underline-offset: 0.25em; // Supported by Safari
+
+        }
+
+        &:focus {
+
+            border-color: transparent;
+
+            h3 {
+
+                background-color: $focus-color;
+                background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+                text-decoration: none;
+
+            }
+
+        }
+
+        &[aria-expanded="false"] .angle-up {
+
+            display: none;
+
+        }
+
+        &[aria-expanded="true"] .angle-down {
+
+            display: none;
+
+        }
+
+        svg {
+
+            flex-shrink: 0;
+            //height: 1em;
+            //width: 1em;
+
+        }
+
+    }
+
+    [data-heading="collapsibles"] button span {
+
+        align-items: flex-start;
+
+    }
+
+    [data-heading="collapsibles"] + * {
+
+        @include stack;
+
+        padding-top: 1rem;
+
+        &[aria-hidden="true"] {
+
+            display: none;
+
+        }
+
+    }
+
+    * + [data-heading="collapsibles"] {
+
+        margin-top: 1rem;
+
+    }
+
+}
