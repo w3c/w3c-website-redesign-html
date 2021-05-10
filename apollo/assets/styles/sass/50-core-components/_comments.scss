@@ -12,18 +12,22 @@
 
 		@include txt-mars;
 
-		margin-bottom: rem(36);
-
 	}
 
 }
 
-.comment-list > li {
+.comment-list {
 
-	border-bottom: solid 1px $border-color;
-	padding-bottom: rem(50);
+	margin-top: rem(30);
 
-	+ li {
+	> li {
+
+		border-bottom: solid 1px $border-color;
+		padding-bottom: rem(50);
+
+	}
+
+	> li + li {
 
 		margin-top: rem(20);
 
