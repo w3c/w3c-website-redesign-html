@@ -87,6 +87,18 @@
 
 	}
 
+	a {
+
+		color: $storm-gray;
+
+		&:focus {
+
+			color: $black;
+
+		}
+
+	}
+
 }
 
 .post .related__inner > div {
@@ -132,7 +144,23 @@
 
 	}
 
+	.meta {
+
+		position: relative;
+
+	}
+
 	.meta dl {
+
+		dd:first-of-type {
+
+			@include mq($bp-tab-small) {
+
+				padding-right: rem(150);
+
+			}
+
+		}
 
 		dd, dt {
 
@@ -152,6 +180,47 @@
 
 	}
 
+	.skip-to-comments {
+
+		color: $storm-gray;
+		display: inline-block;
+		padding-bottom: rem(11);
+		padding-top: rem(11);
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+		@include mq($bp-tab-small) {
+
+			position: absolute;
+			right: 0;
+			top: rem(19);
+
+		}
+
+		&:visited {
+
+			color: $storm-gray;
+
+		}
+
+		&:focus {
+
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
+			text-decoration: none;
+
+			svg {
+
+				fill: $black;
+
+			}
+
+		}
+
+	}
+
 	.rss {
 
 		border-top: solid 1px $border-color;
@@ -163,13 +232,35 @@
 
 [dir="rtl"] {
 
-	.meta dl {
+	.post .meta dl {
+
+		dd:first-of-type {
+
+			@include mq($bp-tab-small) {
+
+				padding-left: rem(150);
+				padding-right: 0;
+
+			}
+
+		}
 
 		dt {
 
 			float: right;
 			margin-left: 1em;
 			margin-right: 0;
+
+		}
+
+	}
+
+	.post .skip-to-comments {
+
+		@include mq($bp-tab-small) {
+
+			left: 0;
+			right: auto;
 
 		}
 
