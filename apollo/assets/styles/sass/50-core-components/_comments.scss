@@ -16,26 +16,25 @@
 
 	}
 
-	h3 {
+}
 
-		font-size: 1rem;
-		line-height: calc(32 / 24);
+.comment-list > li {
 
-	}
+	border-bottom: solid 1px $border-color;
+	padding-bottom: rem(50);
 
-	.l-center > article + * {
+	+ li {
 
 		margin-top: rem(20);
 
 	}
 
-	.l-sidebar {
+}
 
-		overflow: visible;
+.l-sidebar.comment,
+.l-sidebar.comment-form-wrap {
 
-	}
-
-	.l-sidebar .sidebar {
+	.sidebar {
 
 		flex-basis: auto;
 		order: -1;
@@ -48,7 +47,7 @@
 
 	}
 
-	.l-sidebar .not-sidebar {
+	.not-sidebar {
 
 		min-width: calc(80% - 1.5rem);
 
@@ -56,7 +55,84 @@
 
 }
 
-.comments form {
+.reply-list.reply-list {
+
+	margin-left: rem(70);
+	margin-top: rem(30);
+	padding-left: rem(30);
+	position: relative;
+
+	&::before {
+
+		background-color: $w3c-blue;
+		border-radius: rem(3);
+		content: '';
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: rem(3);
+
+	}
+
+	> li {
+
+		border-top: solid 1px $border-color;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.reply-list.reply-list {
+
+		margin-left: 0;
+		margin-right: rem(70);
+		padding-left: 0;
+		padding-right: rem(30);
+
+		&::before {
+
+			left: auto;
+			right: 0;
+
+		}
+
+	}
+
+}
+
+.reply-list .comment {
+
+	padding-bottom: rem(20);
+	padding-top: rem(20);
+
+}
+
+.comment__author {
+
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: calc(32 / 24);
+
+}
+
+.comment__body {
+
+	@include stack;
+
+	max-width: rem($text-measure);
+
+}
+
+.comment-form-wrap {
+
+	margin-top: rem(30);
+
+}
+
+#comment-form {
 
 	max-width: rem($text-measure);
 
@@ -72,76 +148,5 @@
 		width: calc(660px * 660 - 100% * 660);
 
 	}
-
-}
-
-.comment .l-sidebar .not-sidebar > div {
-
-	@include stack;
-
-	max-width: rem($text-measure);
-
-}
-
-.comment--main {
-
-	border-bottom: solid 1px $border-color;
-	padding-bottom: rem(50);
-
-}
-
-.comment--context {
-
-	border-top: solid 1px $border-color;
-	//margin-top: 0;
-
-}
-
-.comment--context,
-.comment details .l-sidebar {
-
-	margin-left: rem(30);
-	padding-bottom: rem(20);
-	padding-top: rem(20);
-	position: relative;
-
-	&::before {
-
-		background-color: $w3c-blue;
-		border-radius: rem(3);
-		content: '';
-		height: calc(100% - 2.5rem);
-		left: rem(-30);
-		position: absolute;
-		top: rem(20);
-		width: rem(3);
-
-	}
-
-}
-
-[dir="rtl"] {
-
-	.comment--context,
-	.comment details .l-sidebar {
-
-		margin-left: 0;
-		margin-right: rem(30);
-
-		&::before {
-
-			left: auto;
-			right: rem(-30);
-
-		}
-
-	}
-
-}
-
-.comment details[open] + .comment--context,
-.comment--context + .comment--context {
-
-	margin-top: 0;
 
 }
