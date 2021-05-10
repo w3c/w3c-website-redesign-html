@@ -75,6 +75,14 @@
 
 }
 
+.comment .l-sidebar .not-sidebar > div {
+
+	@include stack;
+
+	max-width: rem($text-measure);
+
+}
+
 .comment--main {
 
 	border-bottom: solid 1px $border-color;
