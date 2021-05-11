@@ -534,7 +534,7 @@ svg.nav-wide {
   color: #000; }
 
 /*------------------------------------*\
-    #Collapsible sections
+    #Collapsible sections advanced
 \*------------------------------------*/
 .js .component--collapsibles [data-heading="collapsibles"] button {
   -ms-flex-align: start;
@@ -542,21 +542,33 @@ svg.nav-wide {
   border-radius: 0;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: calc(27 / 18);
   -ms-flex-pack: justify;
       justify-content: space-between;
+  margin-top: 0;
   padding: 0;
   width: 100%; }
-  .js .component--collapsibles [data-heading="collapsibles"] button:hover h3 {
+  .js .component--collapsibles [data-heading="collapsibles"] button > span {
+    font-size: 0.9375rem;
+    font-weight: normal;
+    line-height: calc(22.5 / 15);
+    margin-top: 1rem;
+    -ms-flex-order: 2;
+        order: 2;
+    width: 100%; }
+  .js .component--collapsibles [data-heading="collapsibles"] button:hover {
     text-decoration: underline;
     /* 1 */
     text-decoration-skip-ink: auto;
     text-underline-offset: 0.25em; }
   .js .component--collapsibles [data-heading="collapsibles"] button:focus {
-    border-color: transparent; }
-    .js .component--collapsibles [data-heading="collapsibles"] button:focus h3 {
-      background-color: #f9dc4a;
-      background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
-      text-decoration: none; }
+    border-color: inherit;
+    background-color: #f9dc4a;
+    text-decoration: none; }
   .js .component--collapsibles [data-heading="collapsibles"] button[aria-expanded="false"] .angle-up {
     display: none; }
   .js .component--collapsibles [data-heading="collapsibles"] button[aria-expanded="true"] .angle-down {
@@ -564,10 +576,6 @@ svg.nav-wide {
   .js .component--collapsibles [data-heading="collapsibles"] button svg {
     -ms-flex-negative: 0;
         flex-shrink: 0; }
-
-.js .component--collapsibles [data-heading="collapsibles"] button span {
-  -ms-flex-align: start;
-      align-items: flex-start; }
 
 .js .component--collapsibles [data-heading="collapsibles"] + * {
   display: -ms-flexbox;
@@ -580,9 +588,6 @@ svg.nav-wide {
     margin-top: 1em; }
   .js .component--collapsibles [data-heading="collapsibles"] + *[aria-hidden="true"] {
     display: none; }
-
-.js .component--collapsibles * + [data-heading="collapsibles"] {
-  margin-top: 1rem; }
 
 /*------------------------------------*\
     #Cards advanced
