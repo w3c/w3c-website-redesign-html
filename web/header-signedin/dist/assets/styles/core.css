@@ -2734,7 +2734,7 @@ main,
 .tag {
   font-size: 0.9375rem;
   line-height: calc(22.5 / 15);
-  color: #585858;
+  color: #545454;
   display: block; }
 
 /*
@@ -3349,6 +3349,96 @@ input[type=search] {
     padding-top: 0.625rem; }
 
 /*------------------------------------*\
+    #Comments
+\*------------------------------------*/
+.comments {
+  background-color: #f8f8fb;
+  padding-bottom: 3.125rem;
+  padding-top: 3.125rem; }
+  .comments h2 {
+    font-size: 1.5rem;
+    line-height: calc(33.6 / 24); }
+
+.comment-list {
+  margin-top: 1.875rem; }
+  .comment-list > li {
+    border-bottom: solid 1px #bdbdbd;
+    padding-bottom: 3.125rem; }
+  .comment-list > li + li {
+    margin-top: 1.25rem; }
+
+.l-sidebar.comment .sidebar,
+.l-sidebar.comment-form-wrap .sidebar {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  -ms-flex-order: -1;
+      order: -1; }
+  .l-sidebar.comment .sidebar img,
+  .l-sidebar.comment-form-wrap .sidebar img {
+    max-width: 3.125rem; }
+
+.l-sidebar.comment .not-sidebar,
+.l-sidebar.comment-form-wrap .not-sidebar {
+  min-width: calc(80% - 1.5rem); }
+
+.reply-list.reply-list {
+  margin-left: 4.375rem;
+  margin-top: 1.875rem;
+  padding-left: 1.875rem;
+  position: relative; }
+  .reply-list.reply-list::before {
+    background-color: #005a9c;
+    border-radius: 0.1875rem;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0.1875rem; }
+  .reply-list.reply-list > li {
+    border-top: solid 1px #bdbdbd; }
+
+[dir="rtl"] .reply-list.reply-list {
+  margin-left: 0;
+  margin-right: 4.375rem;
+  padding-left: 0;
+  padding-right: 1.875rem; }
+  [dir="rtl"] .reply-list.reply-list::before {
+    left: auto;
+    right: 0; }
+
+.reply-list .comment {
+  padding-bottom: 1.25rem;
+  padding-top: 1.25rem; }
+
+.comment__author {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: calc(32 / 24); }
+
+.comment__body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  max-width: 41.25rem; }
+  .comment__body > * + * {
+    margin-top: 1em; }
+
+.comment-form-wrap {
+  margin-top: 1.875rem; }
+
+#comment-form {
+  max-width: 41.25rem; }
+  #comment-form .l-switcher > * {
+    margin: -0.625rem; }
+  #comment-form .l-switcher > * > * {
+    padding: 0.625rem;
+    width: calc(660px * 660 - 100% * 660); }
+
+/*------------------------------------*\
     #Pre-footer items
 \*------------------------------------*/
 .pre-footer.l-switcher {
@@ -3556,6 +3646,10 @@ input[type=search] {
   .post .related__inner h3 {
     font-size: 1rem;
     line-height: calc(32 / 24); }
+  .post .related__inner a {
+    color: #545454; }
+    .post .related__inner a:focus {
+      color: #000; }
 
 .post .related__inner > div {
   margin-top: 1.125rem; }
@@ -3579,6 +3673,13 @@ input[type=search] {
   margin-bottom: 1.875rem;
   margin-top: -1.25rem; }
 
+.post .meta {
+  position: relative; }
+
+@media screen and (min-width: 48em) {
+  .post .meta dl dd:first-of-type {
+    padding-right: 9.375rem; } }
+
 .post .meta dl dd, .post .meta dl dt {
   margin: 0;
   padding-bottom: 0.3125rem;
@@ -3589,14 +3690,50 @@ input[type=search] {
   font-weight: normal;
   margin-right: 1em; }
 
+.post .skip-to-comments,
+.post .skip-to-comment-form {
+  color: #545454;
+  display: inline-block;
+  padding-bottom: 0.6875rem;
+  padding-top: 0.6875rem;
+  text-decoration: underline;
+  /* 1 */
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+  .post .skip-to-comments:visited,
+  .post .skip-to-comment-form:visited {
+    color: #545454; }
+  .post .skip-to-comments:focus,
+  .post .skip-to-comment-form:focus {
+    background-color: #f9dc4a;
+    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+    color: #000;
+    text-decoration: none; }
+
+@media screen and (min-width: 48em) {
+  .post .skip-to-comments {
+    position: absolute;
+    right: 0;
+    top: 1.1875rem; } }
+
 .post .rss {
   border-top: solid 1px #bdbdbd;
   padding-top: 2.5rem; }
 
-[dir="rtl"] .meta dl dt {
+@media screen and (min-width: 48em) {
+  [dir="rtl"] .post .meta dl dd:first-of-type {
+    padding-left: 9.375rem;
+    padding-right: 0; } }
+
+[dir="rtl"] .post .meta dl dt {
   float: right;
   margin-left: 1em;
   margin-right: 0; }
+
+@media screen and (min-width: 48em) {
+  [dir="rtl"] .post .skip-to-comments {
+    left: 0;
+    right: auto; } }
 
 .post__notes {
   border-top: solid 1px #bdbdbd;

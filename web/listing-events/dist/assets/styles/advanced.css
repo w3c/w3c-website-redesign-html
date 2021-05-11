@@ -661,11 +661,11 @@ svg.nav-wide {
 .slider-controls button[disabled] {
   background-color: transparent;
   border-color: transparent;
-  color: #585858; }
+  color: #545454; }
   .slider-controls button[disabled]:hover {
     background-color: transparent;
     border-color: transparent;
-    color: #585858; }
+    color: #545454; }
 
 /*------------------------------------*\
     #Plugins
@@ -787,7 +787,7 @@ svg.nav-wide {
 
 .autocomplete__option--no-results {
   background-color: #f8f8fb;
-  color: #585858;
+  color: #545454;
   cursor: not-allowed; }
 
 .autocomplete__hint,
