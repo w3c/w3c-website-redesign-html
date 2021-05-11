@@ -22,6 +22,8 @@
         padding: 0;
         //width: 100%;
 
+
+
         &:hover {
 
             background-color: $twiki-gray;
@@ -30,15 +32,26 @@
 
         &:focus {
 
+            background-color: $focus-color;
+            border-color: $black;
+
         }
 
-        &[aria-expanded="false"] .angle-up {
+        &:active {
+
+            background-color: darken($twiki-gray, 10);
+
+        }
+
+
+
+        &[aria-expanded="false"] .minus {
 
             display: none;
 
         }
 
-        &[aria-expanded="true"] .angle-down {
+        &[aria-expanded="true"] .plus {
 
             display: none;
 
@@ -85,9 +98,21 @@
 }
 
 
-.tr-meta {
+// if you put links in this list, you'll need to use .tag-list (links needs more space around them for a11y)
+.tr-meta.tr-meta {
+
+    //margin: rem(-5);
     margin-top: 1rem;
+
+    li {
+
+        //margin: rem(5);
+
+    }
+
 }
+
+
 
 .status-subheading + .component--collapsible-cards,
 .status-subheading + .component--collapsibles--compact {

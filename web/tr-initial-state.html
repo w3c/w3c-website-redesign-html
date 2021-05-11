@@ -405,20 +405,117 @@
 
 
                     <form class="l-switcher filters" onsubmit="return false" novalidate>
+
                         <div>
                             <div>
                                 <div class="field">
-                                    <label for="filter-event-type">
-                                        <span class="field-label">Event type</span>
+                                    <label for="filter-tr-name">
+                                        <span class="field-label">Search</span>
                                     </label>
-                                    <select id="filter-event-type" name="filter-event-type">
-                                        <option value="">All</option>
-                                        <option value="conference">Conference</option>
-                                        <option value="meeting">Meeting</option>
-                                        <option value="talk">Talk</option>
-                                        <option value="workshop">Workshop</option>
-                                    </select>
+                                    <input type="text" name="filter-tr-name" id="filter-tr-name">
                                 </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+
+                                <div class="field">
+                                    <fieldset>
+                                        <legend class="group-legend">Tags</legend>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="accessibility" id="accessibility" appearance="base">
+                                            <label for="accessibility">
+                                                <span class="field-label">Accessibility</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="css" id="css" appearance="base">
+                                            <label for="css">
+                                                <span class="field-label">CSS</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="data" id="data" appearance="base">
+                                            <label for="data">
+                                                <span class="field-label">Data</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="dom" id="dom" appearance="base">
+                                            <label for="dom">
+                                                <span class="field-label">DOM</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="graphics" id="graphics" appearance="base">
+                                            <label for="graphics">
+                                                <span class="field-label">Graphics</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="html" id="html" appearance="base">
+                                            <label for="html">
+                                                <span class="field-label">HTML</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="http" id="http" appearance="base">
+                                            <label for="http">
+                                                <span class="field-label">HTTP</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="internationalization" id="internationalization" appearance="base">
+                                            <label for="internationalization">
+                                                <span class="field-label">Internationalization</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="media" id="media" appearance="base">
+                                            <label for="media">
+                                                <span class="field-label">Media</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="performance" id="performance" appearance="base">
+                                            <label for="performance">
+                                                <span class="field-label">Performance</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="privacy" id="privacy" appearance="base">
+                                            <label for="privacy">
+                                                <span class="field-label">Privacy</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="security" id="security" appearance="base">
+                                            <label for="security">
+                                                <span class="field-label">Security</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="web api" id="web api" appearance="base">
+                                            <label for="web api">
+                                                <span class="field-label">Web API</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="web of things" id="web of things" appearance="base">
+                                            <label for="web of things">
+                                                <span class="field-label">Web of Things</span>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" name="xml" id="xml" appearance="base">
+                                            <label for="xml">
+                                                <span class="field-label">XML</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
                             </div>
                             <div>
                                 <div class="field">
@@ -465,7 +562,7 @@
                     <div class="component--collapsible-cards" data-component="collapsible-cards">
 
                         <div>
-                            <div data-heading="collapsible-cards">
+                            <div data-heading="collapsible-cards" data-title="CSS Images Module Level 3">
 
 
                                 <div class="l-sidebar l-sidebar--expanded">
@@ -514,7 +611,7 @@
 
                                 <a href="https://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS) Working Group</a>
 
-                                <dl class="grid family-series-list">
+                                <dl class="family-series-list">
                                     <dt>Family:</dt>
                                     <dd>CSS Images
                                     </dd>
@@ -556,7 +653,7 @@
                         <div class="component--collapsible-cards" data-component="collapsible-cards">
 
                             <div>
-                                <div data-heading="collapsible-cards">
+                                <div data-heading="collapsible-cards" data-title="Decentralized Identifiers (DIDs) v1.0">
 
 
                                     <div class="l-sidebar l-sidebar--expanded">
@@ -611,7 +708,7 @@
 
                                     <a href="https://www.w3.org/2019/did-wg/">Decentralized Identifier Working Group</a>
 
-                                    <dl class="grid family-series-list">
+                                    <dl class="family-series-list">
                                         <dt>Family:</dt>
                                         <dd>DID
                                         </dd>
@@ -633,7 +730,7 @@
 
 
                             <div>
-                                <div data-heading="collapsible-cards">
+                                <div data-heading="collapsible-cards" data-title="Use Cases and Requirements for Decentralized Identifiers">
 
 
                                     <div class="l-sidebar l-sidebar--expanded">
@@ -685,7 +782,7 @@
 
                                     <a href="https://www.w3.org/2019/did-wg/">Decentralized Identifier Working Group</a>
 
-                                    <dl class="grid family-series-list">
+                                    <dl class="family-series-list">
                                         <dt>Family:</dt>
                                         <dd>DID
                                         </dd>
@@ -730,7 +827,7 @@
                                     <div class="component--collapsible-cards" data-component="collapsible-cards">
 
                                         <div>
-                                            <div data-heading="collapsible-cards">
+                                            <div data-heading="collapsible-cards" data-title="DID Specification Registries">
 
 
                                                 <div class="l-sidebar l-sidebar--expanded">
@@ -772,7 +869,7 @@
 
                                                 <a href="https://www.w3.org/2019/did-wg/">Decentralized Identifier Working Group</a>
 
-                                                <dl class="grid family-series-list">
+                                                <dl class="family-series-list">
                                                     <dt>Family:</dt>
                                                     <dd>DID
                                                     </dd>
@@ -817,11 +914,11 @@
                     <section class="family-grouping">
 
                         <h2>Family name</h2>
-                        <h3 class="txt-saturn status-subheading">Complete</h3>
+                        <h3 class="txt-saturn status-subheading">Status</h3>
                         <div class="component--collapsible-cards" data-component="collapsible-cards">
 
                             <div>
-                                <div data-heading="collapsible-cards">
+                                <div data-heading="collapsible-cards" data-title="Technical report title">
 
 
                                     <div class="l-sidebar l-sidebar--expanded">
@@ -829,14 +926,14 @@
                                             <div class="not-sidebar">
                                                 <div>
 
-                                                    <h4><a href="https://www.w3.org/TR/2020/CRD-css-images-3-20201217/">CSS Images Module Level 3</a></h4>
+                                                    <h4><a href="../page.html">Technical report title</a></h4>
 
                                                     <div class="l-cluster tr-meta">
                                                         <ul class="---tag-list">
-                                                            <li><time>17 December 2020</time></li>
-                                                            <li><span class="tag">Accessibility</span></li>
-                                                            <li><span class="tag">CSS</span></li>
-                                                            <li><span class="tag">Media</span></li>
+                                                            <li><time>d F Y</time></li>
+                                                            <li><span class="tag">Tag</span></li>
+                                                            <li><span class="tag">Tag</span></li>
+                                                            <li><span class="tag">Tag</span></li>
                                                         </ul>
                                                     </div>
 
@@ -846,7 +943,7 @@
 
                                                 <div>
                                                     <p class="txt-pluto with-icon--before maturity-level maturity-level-highlighted">
-                                                        <img class="icon" src="dist/assets/svg/maturity-level-flag.svg" width="1em" height="1em" alt="" role="img" aria-hidden="true"> <span>Recommendation</span></p>
+                                                        <img class="icon" src="dist/assets/svg/maturity-level-flag.svg" width="1em" height="1em" alt="" role="img" aria-hidden="true"> <span>Maturity level</span></p>
                                                 </div>
 
                                             </div>
@@ -858,33 +955,25 @@
                                 <div class="component--text">
 
 
-
-
-                                    <p>This module contains the features of CSS level 3 relating to the <a data-link-type="type" href="#typedef-image" id="ref-for-typedef-image">&lt;image&gt;</a> type and some replaced elements.
-
-                                        It includes and extends the functionality of CSS level 2 <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>.
-                                        The main extensions compared to CSS2.1 are the generalization of the <a data-link-type="type" href="https://www.w3.org/TR/css-values-3/#url-value" id="ref-for-url-value">&lt;url&gt;</a> type to the <span class="production" id="ref-for-typedef-image①">&lt;image&gt;</span> type,
-                                        several additions to the <span class="production" id="ref-for-typedef-image②">&lt;image&gt;</span> type, a generic sizing algorithm for images and other replaced content in CSS,
-                                        definitions for interpolating several <span class="production" id="ref-for-typedef-image③">&lt;image&gt;</span> types,
-                                        and several properties controlling the interaction of replaced elements and CSS’s layout models.</p>
+                                <p>TR summary Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam asperiores culpa cupiditate dolorem eaque earum eum facere ipsam iusto labore laborum laudantium, nam numquam, possimus quasi quibusdam saepe, sapiente!</p>
                                     <h5>Editors</h5>
                                     <p>Tab Atkins Jr., Elika Etemad, Lea Verou.</p>
 
-                                    <a href="https://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS) Working Group</a>
+                                    <a href="../page.html">Working group name</a>
 
-                                    <dl class="grid family-series-list">
+                                    <dl class="family-series-list">
                                         <dt>Family:</dt>
-                                        <dd>CSS Images
+                                        <dd>Family name
 
-                                            <dl class="grid">
+                                            <dl class="family-series-list">
                                                 <dt>Series:</dt>
-                                                <dd>CSS Images</dd>
+                                                <dd>Series name</dd>
                                             </dl>
 
                                         </dd>
                                     </dl>
 
-                                    <a href="https://www.w3.org/TR/2020/CRD-css-images-3-20201217/">View CSS Images Module Level 3</a>
+                                    <a href="../page.html">View Technical report title</a>
 
                                     <section class="l-cluster translations">
                                         <div>
@@ -923,7 +1012,7 @@
                                     <div class="component--collapsible-cards" data-component="collapsible-cards">
 
                                         <div>
-                                            <div data-heading="collapsible-cards">
+                                            <div data-heading="collapsible-cards" data-title="CSS Images Module Level 3">
 
 
                                                 <div class="l-sidebar" style="width: 100%;">
@@ -968,11 +1057,11 @@
 
                                                 <a href="https://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS) Working Group</a>
 
-                                                <dl class="grid family-series-list">
+                                                <dl class="family-series-list">
                                                     <dt>Family:</dt>
                                                     <dd>CSS Images
 
-                                                        <dl class="grid">
+                                                        <dl class="family-series-list">
                                                             <dt>Series:</dt>
                                                             <dd>CSS Images</dd>
                                                         </dl>
