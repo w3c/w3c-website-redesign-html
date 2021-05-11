@@ -92,6 +92,8 @@
 
 	@include txt-pluto;
 
+	padding-inline-start: rem(5);
+
 	&.l-sidebar .sidebar {
 
 		flex-basis: auto;
