@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #Comments advanced
+\*------------------------------------*/
+
+#js-cancel-reply {
+
+	margin-inline-start: rem(10);
+
+	&:hover {
+
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		border-color: $black;
+		text-decoration: none;
+
+	}
+
+}

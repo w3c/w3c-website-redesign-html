@@ -85,6 +85,12 @@
 
 	}
 
+	> li + li {
+
+		margin-top: rem(20);
+
+	}
+
 }
 
 [dir="rtl"] {
@@ -109,7 +115,6 @@
 
 .reply-list .comment {
 
-	padding-bottom: rem(20);
 	padding-top: rem(20);
 
 }
@@ -127,6 +132,30 @@
 	@include stack;
 
 	max-width: rem($text-measure);
+
+}
+
+[data-reply-link] {
+
+	@include txt-pluto;
+
+	align-self: flex-start;
+	padding-bottom: rem(11);
+	padding-top: rem(11)
+
+}
+
+#respond {
+
+	margin-top: 1rem;
+
+	> div:first-of-type {
+
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+
+	}
 
 }
 
