@@ -673,6 +673,22 @@ svg.nav-wide {
     color: #545454; }
 
 /*------------------------------------*\
+    #Comments advanced
+\*------------------------------------*/
+#js-cancel-reply {
+  -webkit-margin-start: 0.625rem;
+          margin-inline-start: 0.625rem; }
+  #js-cancel-reply:hover {
+    text-decoration: underline;
+    /* 1 */
+    text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25em; }
+  #js-cancel-reply:focus {
+    background-color: #f9dc4a;
+    border-color: #000;
+    text-decoration: none; }
+
+/*------------------------------------*\
     #Plugins
 
     Add third-party plugins here.

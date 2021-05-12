@@ -3398,6 +3398,8 @@ input[type=search] {
     width: 0.1875rem; }
   .reply-list.reply-list > li {
     border-top: solid 1px #bdbdbd; }
+  .reply-list.reply-list > li + li {
+    margin-top: 1.25rem; }
 
 [dir="rtl"] .reply-list.reply-list {
   margin-left: 0;
@@ -3409,7 +3411,6 @@ input[type=search] {
     right: 0; }
 
 .reply-list .comment {
-  padding-bottom: 1.25rem;
   padding-top: 1.25rem; }
 
 .comment__author {
@@ -3427,6 +3428,24 @@ input[type=search] {
   max-width: 41.25rem; }
   .comment__body > * + * {
     margin-top: 1em; }
+
+[data-reply-link] {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-bottom: 0.6875rem;
+  padding-top: 0.6875rem; }
+
+#respond {
+  margin-top: 1rem; }
+  #respond > div:first-of-type {
+    -ms-flex-align: center;
+        align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
 
 .comment-form-wrap {
   margin-top: 1.875rem; }
