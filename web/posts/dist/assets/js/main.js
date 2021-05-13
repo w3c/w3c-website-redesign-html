@@ -97,6 +97,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
+/* harmony import */ var _main_collapsible_cards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
+/* harmony import */ var _main_collapsible_checkboxes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
+
+
 
 
 
@@ -833,6 +837,98 @@ var formErrorSummary = function () {
   if (exists(errorSummary)) {
     errorSummary.focus();
   }
+}();
+
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collapsibleCards", function() { return collapsibleCards; });
+/**
+ * Collapsible sections
+ * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
+ */
+var collapsibleCards = function () {
+  // Get all the collapsible containers
+  var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsible-cards"]'));
+
+  if (collapseArray) {
+    // Loop through containers
+    collapseArray.forEach(function (item) {
+      // Get headings inside a collapsible container
+      var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsible-cards"]')); // Loop through headings
+
+      headingsArray.forEach(function (heading, index) {
+        var headingTitle = heading.getAttribute('data-title'); // Insert a button for opening/closing the collapsible section
+
+        heading.innerHTML = heading.innerHTML + '<button class="button--ghost" aria-expanded="false"><span class="visuallyhidden">' + headingTitle + '</span><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="30px" height="30px"><path class="plus" d="M416 208H272V64a32 32 0 00-32-32h-32a32 32 0 00-32 32v144H32a32 32 0 00-32 32v32a32 32 0 0032 32h144v144a32 32 0 0032 32h32a32 32 0 0032-32V304h144a32 32 0 0032-32v-32a32 32 0 00-32-32z"/><path class="minus" d="M416 208H32a32 32 0 00-32 32v32a32 32 0 0032 32h384a32 32 0 0032-32v-32a32 32 0 00-32-32z"/></svg></button>'; // Add appropriate aria role to the collapsible section
+
+        heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
+
+        var btn = heading.querySelector('button'); // Add click event listener
+
+        btn.addEventListener('click', function (event) {
+          // Cast the state as a boolean
+          var expanded = btn.getAttribute('aria-expanded') === 'true'; // Switch the state
+
+          btn.setAttribute('aria-expanded', !expanded); // Switch the collapsible section's visibility
+
+          heading.nextElementSibling.setAttribute('aria-hidden', expanded);
+        });
+      }); // End loop
+    }); // End loop
+  } // End if statement
+
+}();
+
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collapsibleCheckboxes", function() { return collapsibleCheckboxes; });
+/**
+ * Collapsible sections
+ * See https://heydon.github.io/inclusive-components-demos/collapsible-sections/progressive.html
+ */
+var collapsibleCheckboxes = function () {
+  // Get all the collapsible containers
+  var collapseArray = Array.prototype.slice.call(document.querySelectorAll('[data-component="collapsible-checkboxes"]'));
+
+  if (collapseArray) {
+    // Loop through containers
+    collapseArray.forEach(function (item) {
+      // Get headings inside a collapsible container
+      var headingsArray = Array.prototype.slice.call(item.querySelectorAll('[data-heading="collapsible-checkboxes"]')); // Loop through headings
+
+      headingsArray.forEach(function (heading, index) {
+        var headingText = heading.innerText; // Insert a button for opening/closing the collapsible section
+
+        heading.innerHTML = '<span class="faux-label">' + headingText + '</span><button class="button--alt" aria-expanded="false"><span>' + headingText + '</span><svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 320 512" width="30px" height="30px"><path class="angle-down" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/><path class="angle-up" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/></svg></button>'; // Add appropriate aria role to the collapsible section
+
+        heading.nextElementSibling.setAttribute('aria-hidden', 'true'); // Assign the button
+
+        var btn = heading.querySelector('button'); // Add click event listener
+
+        btn.addEventListener('click', function (event) {
+          // Cast the state as a boolean
+          var expanded = btn.getAttribute('aria-expanded') === 'true'; // Switch the state
+
+          btn.setAttribute('aria-expanded', !expanded); // Switch the collapsible section's visibility
+
+          heading.nextElementSibling.setAttribute('aria-hidden', expanded);
+        });
+      }); // End loop
+    }); // End loop
+  } // End if statement
+
 }();
 
 
