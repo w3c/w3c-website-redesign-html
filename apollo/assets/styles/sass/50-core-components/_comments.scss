@@ -35,6 +35,12 @@
 
 }
 
+.l-sidebar.comment {
+
+	overflow: visible;
+
+}
+
 .l-sidebar.comment,
 .l-sidebar.comment-form-wrap {
 
@@ -135,7 +141,7 @@
 
 }
 
-[data-reply-link] {
+[data-replylink] {
 
 	@include txt-pluto;
 

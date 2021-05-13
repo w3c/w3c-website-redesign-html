@@ -24,14 +24,39 @@ window.addComment = (function(window) {
 
 	}
 
+	function changeLinksToBtns() {
+
+		var linksArray = Array.prototype.slice.call(document.querySelectorAll('[data-replylink]'));
+
+		linksArray.forEach(function (link) {
+
+			var attributes = link.dataset;
+			var btn = document.createElement('button');
+			btn.setAttribute('class', 'button button--ghost');
+			btn.innerHTML = link.innerHTML;
+
+			for (var key in attributes) {
+
+				btn.setAttribute('data-' + key, attributes[key]);
+
+			}
+
+			link.parentNode.replaceChild(btn, link);
+
+		});
+
+	}
+
 	function addPlaceHolder(respondElement) {
 
 		var temporaryFormId = 'js-temp-form-div';
 		var temporaryElement = document.getElementById(temporaryFormId);
 
 		if (temporaryElement) {
+
 			// The element already exists, no need to recreate.
 			return;
+
 		}
 
 		temporaryElement = document.createElement('div');
@@ -47,8 +72,10 @@ window.addComment = (function(window) {
 		var cancelBtn = document.getElementById(cancelBtnId);
 
 		if (cancelBtn) {
+
 			cancelBtn.style.display = '';
 			return;
+
 		}
 
 		var targetDiv = respondElement.querySelector('div');
@@ -69,19 +96,18 @@ window.addComment = (function(window) {
 
 		addCancelBtn(respondElement);
 
-		addBelowElement.parentNode.insertBefore(
-			respondElement,
-			addBelowElement.nextSibling
-		);
+		addBelowElement.parentNode.insertBefore(respondElement, addBelowElement.nextSibling);
 
 	}
 
 	// Check the DOM is ready
 	if (document.readyState === 'interactive') {
 
+		changeLinksToBtns();
+
 		document.addEventListener('click', function (event) {
 
-			if (event.target.matches('[data-reply-link]')) {
+			if (event.target.matches('[data-replylink]')) {
 
 				var replyLink = event.target;
 				var commentId = replyLink.getAttribute('data-belowelement');
