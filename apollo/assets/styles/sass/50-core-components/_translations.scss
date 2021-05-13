@@ -56,24 +56,3 @@
 	padding-top: rem(10);
 
 }
-
-.translations [aria-current] {
-
-	color: $off-black;
-	text-decoration: none;
-
-	&:visited {
-
-		color: $off-black;
-
-	}
-
-	&:hover,
-	&:focus {
-
-		color: $off-black;
-		outline-color: $off-black;
-
-	}
-
-}
