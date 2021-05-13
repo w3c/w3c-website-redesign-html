@@ -39,8 +39,6 @@
 
 .slide__quote {
 
-	@include stack;
-
 	@include txt-mars;
 
 	background: url('/dist/assets/images/quote-bg.png') no-repeat 0 0;
