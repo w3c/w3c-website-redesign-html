@@ -1,11 +1,13 @@
 /**
- * Moves initial comment form to sit below the comment a user is replying to
+ * Relocates comment reply form to parent comment and updates title
  */
 
 window.addComment = (function(window) {
 
 	// Avoid scope lookups on commonly used variables.
 	var document = window.document;
+	var commentReplyTitle = document.querySelector('[data-title="reply"]');
+	var origReplyTitle = commentReplyTitle.textContent;
 
 	// I18N
 	var cancelText;
@@ -87,7 +89,7 @@ window.addComment = (function(window) {
 
 	}
 
-	function moveForm(addBelowId, commentId, respondId, postId) {
+	function moveForm(addBelowId, commentId, postId) {
 
 		var addBelowElement = document.getElementById(addBelowId);
 		var respondElement = document.querySelector('[data-respondelement]');
@@ -110,6 +112,7 @@ window.addComment = (function(window) {
 			if (event.target.matches('[data-replylink]')) {
 
 				var replyLink = event.target;
+				var newReplyTitle = replyLink.getAttribute('data-replyto');
 				var commentId = replyLink.getAttribute('data-belowelement');
 				var parentId = replyLink.getAttribute('data-commentid');
 				var postId = replyLink.getAttribute('data-postid');
@@ -117,6 +120,8 @@ window.addComment = (function(window) {
 				if (!commentId || !parentId || !postId) return;
 
 				event.preventDefault();
+
+				commentReplyTitle.textContent = newReplyTitle;
 
 				moveForm(commentId, parentId, postId);
 
@@ -126,6 +131,8 @@ window.addComment = (function(window) {
 
 				var temporaryElement = document.getElementById('js-temp-form-div');
 				var respondElement = document.querySelector('[data-respondelement]');
+
+				commentReplyTitle.textContent = origReplyTitle;
 
 				temporaryElement.parentNode.replaceChild(respondElement, temporaryElement);
 
