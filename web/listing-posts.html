@@ -382,31 +382,18 @@
 		<main id="main">
 			<div class="u-full-width hero hero--listing">
 				<div class="l-center">
-					<h1>The W3C team</h1>
-					<p class="lead">A very short introduction/summary of the page.</p>
-					<form class="l-switcher filters" onsubmit="return false" novalidate>
-						<div>
-							<div>
-								<div class="field">
-									<label for="filter-wg">
-										<span class="field-label">Working Group</span>
-									</label>
-									<select id="filter-wg" name="filter-wg">
-										<option value="">Filter the list</option>
-										<option value="agwg">Accessibility Guidelines Working Group</option>
-										<option value="html">HTML Working Group</option>
-										<option value="svg">SVG Working Group</option>
-									</select>
-								</div>
+					<h1>Posts</h1>
+					<p class="lead">Browse our posts by search, category or archive.</p>
+					<div class="l-sidebar search">
+						<form role="search" onsubmit="return false" novalidate>
+							<div class="not-sidebar">
+								<input type="search" id="search" name="search">
 							</div>
-							<div>
-								<div class="input-group">
-									<button class="button" type="submit">Show results</button>
-									<button class="button button--ghost" type="reset">Clear all</button>
-								</div>
+							<div class="sidebar">
+								<button type="submit" class="button" name="search">Show results</button>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 			<div aria-live="polite" aria-atomic="true">There are 4 people in category</div>
