@@ -3368,6 +3368,9 @@ input[type=search] {
   .comment-list > li + li {
     margin-top: 1.25rem; }
 
+.l-sidebar.comment {
+  overflow: visible; }
+
 .l-sidebar.comment .sidebar,
 .l-sidebar.comment-form-wrap .sidebar {
   -ms-flex-preferred-size: auto;
@@ -3429,7 +3432,7 @@ input[type=search] {
   .comment__body > * + * {
     margin-top: 1em; }
 
-[data-reply-link] {
+[data-replylink] {
   font-size: 0.9375rem;
   line-height: calc(22.5 / 15);
   -ms-flex-item-align: start;
