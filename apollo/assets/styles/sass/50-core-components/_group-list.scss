@@ -7,7 +7,7 @@
 	background-color: $mist-gray;
 	padding-bottom: rem(50);
 	padding-top: rem(50);
-
+	
 	h2,
 	h2 + p {
 
@@ -16,7 +16,8 @@
 
 	}
 
-	.component--collapsibles > div {
+	.component--collapsibles > div,
+  .component--collapsible-cards > div {
 
 		@include stack(1rem);
 
@@ -33,7 +34,20 @@
 
 	}
 
-	[data-heading="collapsibles"] {
+	// TR cards have less space between them
+	.component--collapsible-cards > div + div {
+
+		margin-top: rem(10);
+
+	}
+
+	[data-heading="collapsibles"] span {
+
+		@include stack(1rem);
+
+	}
+
+  [data-heading="collapsibles"] h3 {
 
 		@include txt-saturn;
 
@@ -53,9 +67,17 @@
 
 		@include stack(1rem);
 
+		// restrict the line-length for readability
 		> * {
 
 			max-width: rem($text-measure);
+
+		}
+
+		// don't restrict it when we nest collapsibles in each other (see TR, Associated documents)
+		> .component--collapsible-cards {
+
+			max-width: none;
 
 		}
 

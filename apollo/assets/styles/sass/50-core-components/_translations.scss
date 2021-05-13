@@ -35,7 +35,12 @@
 
 }
 
-.translations h2 {
+/*
+ * For the TR card, the language subheading is h5 for Family view and h3 for Search results view
+ */
+.translations h2,
+.translations h3,
+.translations h5 {
 
 	font-size: 1rem;
 	font-weight: normal;
