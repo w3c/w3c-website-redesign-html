@@ -4,8 +4,12 @@
 
 .translations {
 
+	background-color: $mist-gray;
 	display: flex;
 	flex-wrap: wrap;
+	padding-left: rem(20);
+	padding-right: rem(20);
+	width: fit-content;
 
 }
 

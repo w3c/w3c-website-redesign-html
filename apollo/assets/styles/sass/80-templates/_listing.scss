@@ -75,40 +75,27 @@
 
 	}
 
-	.feed,
 	.archive-links {
 
 		@include stack();
 
 		margin-top: rem(40);
 
-	}
-
-	.feed {
-
-		a {
-
-			display: block;
-			padding-bottom: rem(10);
-			padding-top: rem(10);
-
-		}
-
-	}
-
-	.archive-links {
-
 		ul {
 
+			background-color: $white;
+			border: solid 1px $border-color;
+			height: rem(180);
 			margin-inline-start: rem(25);
+			overflow-y: scroll;
+			width: rem(180);
 
 		}
 
 		ul a {
 
 			display: inline-block;
-			padding-bottom: rem(10);
-			padding-top: rem(10);
+			padding: rem(10);
 
 		}
 

@@ -7,9 +7,17 @@
 	background-color: $mist-gray;
 	padding-bottom: rem(50);
 	padding-top: rem(50);
+	
+	h2,
+	h2 + p {
+
+		margin-bottom: 1em;
+		max-width: rem($text-measure);
+
+	}
 
 	.component--collapsibles > div,
-	.component--collapsible-cards > div {
+  .component--collapsible-cards > div {
 
 		@include stack(1rem);
 
@@ -39,16 +47,19 @@
 
 	}
 
-	[data-heading="collapsibles"] h3 {
+  [data-heading="collapsibles"] h3 {
 
 		@include txt-saturn;
 
 	}
 
-
-	[data-heading="collapsibles"] h3 + * {
+	[data-heading="collapsibles"] > * {
 
 		@include txt-pluto;
+
+		display: block;
+		font-weight: normal;
+		margin-top: 1rem;
 
 	}
 
@@ -71,13 +82,5 @@
 		}
 
 	}
-
-}
-
-.component--group-list h2,
-.component--group-list h2 + p {
-
-	margin-bottom: 1em;
-	max-width: rem($text-measure);
 
 }

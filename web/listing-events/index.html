@@ -21,7 +21,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.10" media="screen"/>
+	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.17" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -29,7 +29,7 @@
     Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
     FF 47+
     -->
-	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.10" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.17" media="
         only print,
         only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
         only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -40,7 +40,7 @@
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
 				var script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js?ver=1.1.10';
+				script.src = 'dist/assets/js/main.js?ver=1.1.17';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
@@ -394,7 +394,8 @@
 									<select id="filter-event-type" name="filter-event-type">
 										<option value="">All</option>
 										<option value="conference">Conference</option>
-										<option value="meeting">Meeting</option>
+										<option value="AC meeting">Meeting: AC</option>
+										<option value="TPAC meeting">Meeting: TPAC</option>
 										<option value="talk">Talk</option>
 										<option value="workshop">Workshop</option>
 									</select>
@@ -438,7 +439,7 @@
 									<div class="sidebar">
 										<div class="date-location">
 											<div>
-												<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+												<img src="dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true" />
 											</div>
 											<div>
 												<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
@@ -465,7 +466,7 @@
 									<div class="sidebar">
 										<div class="date-location">
 											<div>
-												<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+												<img src="dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true" />
 											</div>
 											<div>
 												<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
@@ -497,7 +498,7 @@
 									<div class="sidebar">
 										<div class="date-location">
 											<div>
-												<img src="dist/assets/svg/calendar.svg" width="18px" height="20px" alt role="img" aria-hidden="true" />
+												<img src="dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true" />
 											</div>
 											<div>
 												<p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
@@ -557,8 +558,8 @@
 				</li>
 			</ul>
 			<nav aria-label="pagination" class="l-cluster pagination">
-				<ul class="pagination-list">
-					<li><a href="../page.html">First</a></li>
+				<ul class="pagination__list">
+					<li><a class="pagination__list__first" href="../page.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 8" width="1em" height="1em" focusable="false" aria-hidden="true"><defs/><path class="double-chevron-left" fill-rule="nonzero" d="M16.015 7.85L9.247 4.745v-.747L16.015.475v1.171l-5.391 2.667 5.39 2.358v1.18zm-8.262 0L.985 4.745v-.747L7.753.475v1.171l-5.39 2.667 5.39 2.358v1.18z"/><path class="double-chevron-right" fill-rule="nonzero" d="M.985 7.85l6.768-3.105v-.747L.985.475v1.171l5.391 2.667L.986 6.67v1.18zm8.262 0l6.768-3.105v-.747L9.247.475v1.171l5.39 2.667-5.39 2.358v1.18z"/></svg><span class="visuallyhidden">First</span></a></li>
 					<li><a href="../page.html">Previous</a></li>
 					<li><a href="../page.html">1</a></li>
 					<li><a aria-label="page 2" aria-current="page">2</a></li>
@@ -568,30 +569,53 @@
 					<li><a class="ellipsis">&#8230;</a></li>
 					<li><a href="../page.html">20</a></li>
 					<li><a href="../page.html">Next</a></li>
-					<li><a href="../page.html">Last</a></li>
+					<li><a class="pagination__list__last" href="../page.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 8" width="1em" height="1em" focusable="false" aria-hidden="true"><defs/><path class="double-chevron-left" fill-rule="nonzero" d="M16.015 7.85L9.247 4.745v-.747L16.015.475v1.171l-5.391 2.667 5.39 2.358v1.18zm-8.262 0L.985 4.745v-.747L7.753.475v1.171l-5.39 2.667 5.39 2.358v1.18z"/><path class="double-chevron-right" fill-rule="nonzero" d="M.985 7.85l6.768-3.105v-.747L.985.475v1.171l5.391 2.667L.986 6.67v1.18zm8.262 0l6.768-3.105v-.747L9.247.475v1.171l5.39 2.667-5.39 2.358v1.18z"/></svg><span class="visuallyhidden">Last</span></a></li>
 				</ul>
 			</nav>
 			<div class="l-box l-box--no-border l-box--no-padding">
 				<div class="l-switcher pre-footer">
 					<div>
-						<section class="feed">
+						<section class="rss">
 							<h2 class="txt-jupiter">Related RSS feed</h2>
 							<p class="with-icon--before with-icon--larger">
-								<img class="icon icon--larger" src="dist/assets/svg/rss.svg" width="30px" height="30px" alt role="img" aria-hidden="true" />
+								<img class="icon icon--larger" src="dist/assets/svg/rss.svg" width="30" height="30" alt aria-hidden="true" />
 								<a href="https://www.w3.org/events/feed">Subscribe to our Events feed</a>
 							</p>
 						</section>
 						<section class="archive-links">
-							<h2 class="txt-jupiter">W3C archived events</h2>
+							<h2 id="archive-heading" class="txt-jupiter">W3C archived events</h2>
 							<details>
 								<summary>
 									<span>Browse event archive</span>
 								</summary>
-								<ul class="clean-list" role="list">
+								<ul class="clean-list" role="list" tabindex="0" aria-labelledby="archive-heading">
 									<li><a href="../page.html">2020</a></li>
 									<li><a href="../page.html">2019</a></li>
 									<li><a href="../page.html">2018</a></li>
 									<li><a href="../page.html">2017</a></li>
+									<li><a href="../page.html">2016</a></li>
+									<li><a href="../page.html">2015</a></li>
+									<li><a href="../page.html">2014</a></li>
+									<li><a href="../page.html">2013</a></li>
+									<li><a href="../page.html">2012</a></li>
+									<li><a href="../page.html">2011</a></li>
+									<li><a href="../page.html">2010</a></li>
+									<li><a href="../page.html">2009</a></li>
+									<li><a href="../page.html">2008</a></li>
+									<li><a href="../page.html">2007</a></li>
+									<li><a href="../page.html">2006</a></li>
+									<li><a href="../page.html">2005</a></li>
+									<li><a href="../page.html">2004</a></li>
+									<li><a href="../page.html">2003</a></li>
+									<li><a href="../page.html">2002</a></li>
+									<li><a href="../page.html">2001</a></li>
+									<li><a href="../page.html">2000</a></li>
+									<li><a href="../page.html">1999</a></li>
+									<li><a href="../page.html">1998</a></li>
+									<li><a href="../page.html">1997</a></li>
+									<li><a href="../page.html">1996</a></li>
+									<li><a href="../page.html">1995</a></li>
+									<li><a href="../page.html">1994</a></li>
 								</ul>
 							</details>
 						</section>
@@ -616,11 +640,13 @@
 				</div>
 				<ul class="clean-list" role="list">
 					<li><a class="with-icon--larger" href="https://twitter.com/W3C">
-						<svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false" aria-hidden="true" width="20px" height="20px"><defs/><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-						<span class="visuallyhidden">W3C on Twitter</span></a></li>
+						<img class="icon icon--larger" src="dist/assets/svg/twitter.svg" width="20" height="20" alt aria-hidden="true" />
+						<span class="visuallyhidden">W3C on Twitter</span></a>
+					</li>
 					<li><a class="with-icon--larger" href="https://github.com/w3c/">
-						<svg class="icon icon--larger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" focusable="false" aria-hidden="true" width="20px" height="20px"><defs/><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-						<span class="visuallyhidden">W3C on GitHub</span></a></li>
+						<img class="icon icon--larger" src="dist/assets/svg/github.svg" width="20" height="20" alt aria-hidden="true" />
+						<span class="visuallyhidden">W3C on GitHub</span></a>
+					</li>
 				</ul>
 			</div>
 			<p class="copyright">Copyright © 2020 W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,

@@ -566,34 +566,36 @@ var contentSlider = function () {
     ofText = ' of ';
   }
 
+  var timeout;
   var slider = document.querySelector('[data-component="slider"] section');
   var dir = document.documentElement.getAttribute('dir');
 
   if (slider) {
     slider.setAttribute('aria-roledescription', sliderDescription);
     var list = slider.querySelector('ul');
-    list.setAttribute('tabindex', '0');
-    list.setAttribute('aria-label', slideListDescription);
     var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
 
-    for (var slide = 1; slide < slides.length; slide++) {
-      slides[slide].classList.add('js-hidden');
-    }
-
-    slides.forEach(function (slide, index) {
-      var group = slide.querySelector('.slide');
-      group.setAttribute('role', 'group');
-      group.setAttribute('aria-roledescription', 'slide');
-      group.setAttribute('aria-label', index + 1 + ofText + slides.length);
-    }); // Add current class to first slide
-
-    slides[0].classList.add('js-current');
-
     if (slides.length > 1) {
+      list.setAttribute('tabindex', '0');
+      list.setAttribute('aria-label', slideListDescription);
+
+      for (var slide = 1; slide < slides.length; slide++) {
+        slides[slide].classList.add('js-hidden');
+      }
+
+      slides.forEach(function (slide, index) {
+        var group = slide.querySelector('.slide');
+        group.setAttribute('role', 'group');
+        group.setAttribute('aria-roledescription', 'slide');
+        group.setAttribute('aria-label', index + 1 + ofText + slides.length);
+      }); // Add current class to first slide
+
+      slides[0].classList.add('js-current');
       /**
        * Create container to hold slider controls and aria-live region
        * @return {HTMLDivElement}
        */
+
       function createControlsWrap() {
         var wrap = document.createElement('div');
         wrap.style.display = 'flex';
@@ -655,7 +657,20 @@ var contentSlider = function () {
         }
       }
 
-      setSlidePositions();
+      setSlidePositions(); // Tie the setSlidePositions function to a resize event, and debounce for performance
+
+      window.addEventListener('resize', function (event) {
+        // If timer is null, reset it to 66ms and run desired functions.
+        // Otherwise, wait until timer is cleared
+        if (!timeout) {
+          timeout = setTimeout(function () {
+            // Reset timeout
+            timeout = null; // Run our resize functions
+
+            setSlidePositions();
+          }, 66);
+        }
+      }, false);
       /**
        * Switch between slides
        * @param {number} currentSlideIndex
