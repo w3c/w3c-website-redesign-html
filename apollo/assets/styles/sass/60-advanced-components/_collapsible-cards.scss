@@ -78,7 +78,7 @@
         @include stack;
 
         border-top: 1px solid $twiki-gray;
-        padding-top: 1rem;
+        padding-top: rem(48);
 
         &[aria-hidden="true"] {
 
@@ -117,14 +117,14 @@
 .status-subheading + .component--collapsible-cards,
 .status-subheading + .component--collapsibles--compact {
 
-    margin-top: 1.5rem;
+    margin-top: rem(17);
 
 }
 
 // sometimes, the TR cards are followed by Associated documents, give them some space
 .component--collapsible-cards + .component--collapsibles--compact {
 
-    margin-top: 1.5rem;
+    margin-top: rem(44);
 
 }
 
@@ -141,11 +141,21 @@
         padding: 0;
         //width: 100%;
 
-        &:hover h3 {
-
+        h3 {
+            color: $link-color;
+            font-weight: normal;
             text-decoration: underline; /* 1 */
             text-decoration-skip-ink: auto; // Not supported by Safari
             text-underline-offset: 0.25em; // Supported by Safari
+        }
+
+        &:hover h3 {
+
+            color: $link-color--hover;
+
+            svg {
+                fill: $link-color--hover;
+            }
 
         }
 
@@ -178,6 +188,7 @@
         svg {
 
             flex-shrink: 0;
+            fill: $link-color;
             //height: 1em;
             //width: 1em;
 

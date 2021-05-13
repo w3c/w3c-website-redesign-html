@@ -20,10 +20,16 @@
 
 	}
 
-	.component--collapsibles > div + div,
-	.component--collapsible-cards > div + div {
+	.component--collapsibles > div + div {
 
 		margin-top: 1rem;
+
+	}
+
+	// TR cards have less space between them
+	.component--collapsible-cards > div + div {
+
+		margin-top: rem(10);
 
 	}
 

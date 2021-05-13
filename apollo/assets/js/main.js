@@ -6,6 +6,7 @@ import {contentSlider} from "./main/slider";
 import {cardEnhancement} from "./main/cards";
 import {formErrorSummary} from "./main/form-error-summary";
 import {collapsibleCards} from "./main/collapsible-cards";
+import {collapsibleCheckboxes} from "./main/collapsible-checkboxes";
 
 responsiveTables();
 

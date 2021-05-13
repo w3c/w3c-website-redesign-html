@@ -61,7 +61,8 @@ Group inputs to line up side-by-side
 
 }
 
-label {
+label,
+.faux-label {
 
 	display: block;
 	margin-bottom: rem(7);
@@ -82,7 +83,8 @@ label {
 
 .field-label,
 .field-hint,
-.field-error-msg {
+.field-error-msg,
+.faux-label {
 
 	display: block;
 
