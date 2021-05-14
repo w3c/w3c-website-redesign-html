@@ -919,7 +919,9 @@
 		/* Instantiate Accessible Autocomplete */
 		var selectEl = document.querySelector('#destination')
 		accessibleAutocomplete.enhanceSelectElement({
+			confirmOnBlur: false,
 			defaultValue: '',
+			displayMenu: 'overlay',
 			preserveNullOptions: true,
 			selectElement: selectEl,
 			showAllValues: true,

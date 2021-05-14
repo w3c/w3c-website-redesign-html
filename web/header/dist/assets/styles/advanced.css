@@ -927,7 +927,6 @@ svg.nav-wide {
   padding-right: 5px; }
 
 .autocomplete__dropdown-arrow-down {
-  z-index: -1;
   display: inline-block;
   position: absolute;
   right: 8px;

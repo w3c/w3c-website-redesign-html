@@ -1,0 +1,857 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Members | W3C Redesign Prototypes</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<meta property="og:description" name="description" content="Members listing page prototype for the W3C website redesign"/>
+
+	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		var myFont = new FontFaceObserver('Noto Sans');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+	</script>
+
+	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.19" media="screen"/>
+
+	<!--
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.19" media="
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
+
+	<script>
+		(function() {
+			var linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				var script = document.createElement('script');
+				script.src = 'dist/assets/js/main.js?ver=1.1.19';
+				script.defer = true;
+				document.querySelector('head').appendChild(script);
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+</head>
+
+<body class="listing">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-wrap">
+	<div class="wrap">
+		<header class="global-header">
+			<span role="status" aria-live="polite"></span>
+			<div class="banner">
+				<div class="banner__inner l-center">
+					<svg role="img" class="icon--beta" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 39" width="61px" height="39px"><title>beta icon</title><defs/><g aria-hidden="true" fill="none" fill-rule="evenodd"><path aria-hidden="true" fill="#005a9c" d="M0 0h61v33l-30.5 6L0 33z"/><path aria-hidden="true" fill="#fff" fill-rule="nonzero" d="M14.425 24c1.453 0 2.603-.328 3.45-.984s1.27-1.57 1.27-2.743c0-.826-.18-1.488-.541-1.986-.36-.498-.948-.838-1.762-1.02v-.087c.597-.1 1.076-.396 1.437-.888s.54-1.122.54-1.89c0-1.13-.411-1.955-1.235-2.474-.823-.518-2.146-.778-3.968-.778H9.617V24zm-.501-7.76h-1.582v-2.857h1.432c.78 0 1.35.107 1.71.32.36.214.54.568.54 1.06 0 .527-.165.905-.496 1.133s-.866.343-1.604.343zm.193 5.51h-1.775v-3.349h1.687c1.524 0 2.285.534 2.285 1.6 0 .592-.178 1.031-.536 1.318-.357.287-.91.431-1.66.431zM29.247 24v-2.25H24.57v-3.313h4.35v-2.233h-4.35v-2.821h4.675V11.15h-7.4V24zm7.772 0V13.418h3.49V11.15h-9.704v2.268h3.49V24zm6.305 0l.932-3.059h4.684L49.872 24h2.935l-4.552-12.902h-3.331L40.388 24zm4.966-5.344h-3.35c.914-2.959 1.468-4.813 1.661-5.563.047.21.125.498.233.861.109.363.593 1.93 1.455 4.702z"/></g></svg>
+					<p>This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us improve it.</p>
+				</div>
+			</div>
+			<nav id="lang-nav" aria-label="Language options">
+				<div class="l-center">
+					<div class="l-cluster">
+						<ul class="clean-list" role="list">
+							<li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页</a></li>
+							<li><a href="/ja" hreflang="ja" lang="ja">日本語ホームページ</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<nav id="global-nav" aria-label="Main">
+				<div class="global-nav__inner l-center">
+					<a class="logo-link" href="../page.html">
+						<span class="logo"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" overflow="visible" viewBox="0 0 72 48" width="72px" height="48px"><defs/><g image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><path fill="#FFF" fill-rule="evenodd" d="M0 0h72v48H0z" clip-rule="evenodd"/><path fill="#005A9C" d="M18.117 8.006l5.759 19.58 5.759-19.58h15.614v1.946L39.37 20.08c2.065.663 3.627 1.868 4.686 3.615 1.059 1.748 1.589 3.799 1.589 6.155 0 2.914-.775 5.363-2.324 7.348s-3.555 2.978-6.017 2.978c-1.854 0-3.469-.589-4.845-1.767-1.377-1.178-2.396-2.773-3.058-4.786l3.256-1.35c.477 1.218 1.106 2.178 1.887 2.879a3.993 3.993 0 002.76 1.052c1.112 0 2.052-.622 2.82-1.866.768-1.245 1.152-2.74 1.152-4.489 0-1.933-.411-3.429-1.231-4.488-.954-1.244-2.45-1.867-4.489-1.867h-1.588v-1.906l5.56-9.612h-6.712l-.382.65-8.163 27.548h-.397l-5.958-19.937-5.957 19.937h-.397L2.032 8.006h4.17l5.759 19.58 3.892-13.185-1.906-6.395h4.17z"/><path fill="#221B0A" d="M66.92 8.006c-.819 0-1.554.295-2.111.861-.591.6-.92 1.376-.92 2.178a3 3 0 00.887 2.128 2.979 2.979 0 002.145.912c.793 0 1.562-.321 2.161-.903.574-.557.887-1.3.887-2.136 0-.811-.321-1.57-.878-2.136a3 3 0 00-2.171-.904zm2.643 3.065c0 .701-.271 1.351-.768 1.832a2.671 2.671 0 01-1.892.777c-.675 0-1.342-.278-1.84-.785s-.777-1.157-.777-1.849.287-1.368.802-1.891a2.54 2.54 0 011.84-.751c.726 0 1.376.271 1.883.785.49.489.752 1.147.752 1.882zm-2.559-1.807h-1.3v3.445h.65V11.24h.642l.701 1.469h.726l-.769-1.57c.498-.102.785-.439.785-.929 0-.625-.472-.946-1.435-.946zm-.118.422c.608 0 .886.169.886.591 0 .405-.278.549-.87.549h-.549v-1.14h.533z" clip-rule="evenodd"/><g><path fill="#221B0A" d="M61.807 7.825l.676 4.107-2.391 4.575s-.918-1.941-2.443-3.015c-1.285-.905-2.122-1.102-3.431-.832-1.681.347-3.587 2.357-4.419 4.835-.995 2.965-1.005 4.4-1.04 5.718-.056 2.113.277 3.362.277 3.362s-1.452-2.686-1.438-6.62c.009-2.808.451-5.354 1.75-7.867 1.143-2.209 2.842-3.535 4.35-3.691 1.559-.161 2.791.59 3.743 1.403 1 .854 2.01 2.721 2.01 2.721l2.356-4.696zM62.102 31.063s-1.057 1.889-1.715 2.617c-.659.728-1.837 2.01-3.292 2.651s-2.218.762-3.656.624c-1.437-.138-2.772-.97-3.24-1.317-.468-.347-1.664-1.369-2.34-2.322-.676-.953-1.733-2.859-1.733-2.859s.589 1.91.958 2.721c.212.467.864 1.894 1.789 3.136.863 1.159 2.539 3.154 5.086 3.604 2.547.451 4.297-.693 4.73-.97.433-.277 1.346-1.042 1.924-1.66.603-.645 1.174-1.468 1.49-1.962.231-.36.607-1.092.607-1.092l-.608-3.171z"/></g></g></svg></span>
+						<span class="visuallyhidden">W3C homepage</span>
+					</a>
+					<button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"></button>
+					<ul class="clean-list" role="list">
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Standards</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">About W3C standards</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Technical reports</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Translations of technical reports</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Types of report we publish</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">More about standards</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Groups</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">Find groups by industry</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Working groups</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Technical architecture group</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Advisory Board</a>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Invited experts</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Directory of W3C invited experts</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Invited expert application</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Advisory expert and collaborator agreement</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Invited expert policies</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Mailing lists</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Archives</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Search mailing lists</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Manage your subscriptions</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Email FAQs</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Posting guides</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">More about groups</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Get involved</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Business Ecosystems</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Automotive and transportation</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Media and entertainment</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Publishing</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web payments</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web of Data</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web and telecommunications</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Web of Things</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Supporting W3C</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Donate now</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Global sponsorship</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">More ways to support us</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">W3C Membership</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Membership home</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Membership fees</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Join W3C</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">How to get an account</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">More about W3C membership</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Promote web standards</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Asset library and materials</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Resources</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">Standards</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Validators</a>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Events</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Talks</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Workshops</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Meetings</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Conferences endorsed by W3C</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Tutorials and courses</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Podcasts and videos</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">More resources</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">News and insights</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li>
+										<a href="../page.html" class="nav-link">News</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Blog</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Press releases</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">In the media</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Weekly newsletter</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">About</a>
+							<div class="nav__submenu">
+								<ul class="clean-list" role="list">
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Our mission</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Accessibility</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Internationalization</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Privacy</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Security</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="../page.html" class="nav-link">Contact</a>
+										<ul class="clean-list" role="list">
+											<li>
+												<a href="../page.html" class="nav-link">Beihang University <span lang="zh-Hans">(W3C中国)</span></a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">ERCIM</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">Keio University</a>
+											</li>
+											<li>
+												<a href="../page.html" class="nav-link">MIT</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Leadership</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">People</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Evangelists</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Careers</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Help</a>
+									</li>
+									<li>
+										<a href="../page.html" class="nav-link">Learn more about W3C</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="top-nav-item">
+							<a href="../page.html" class="nav-link icon-link"><span class="visuallyhidden">Search</span> <svg class="icon" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" viewBox="0 0 512 512" width="1em" height="1em"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></a>
+						</li>
+						<li class="top-nav-item">
+							<a href="../page.html" class="account-login icon-link with-icon--after">My account <img class="icon" src="dist/assets/svg/avatar.svg" width="24px" height="24px" alt="" role="img" /></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<nav id="breadcrumb" aria-label="Breadcrumb">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ol class="breadcrumbs clean-list" role="list">
+						<li><a href="/">Home</a></li>
+						<li><a href="page.html">Page</a></li>
+						<li><a href="page.html">Another page</a></li>
+						<li><a href="page.html">Page</a></li>
+						<li><a href="#" aria-current="page">Events</a></li>
+					</ol>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="u-full-width hero hero--listing">
+				<div class="l-center">
+					<h1>Members</h1>
+					<p class="lead">A very short introduction/summary of the page.</p>
+					<form class="l-switcher filters" onsubmit="return false" novalidate>
+						<div>
+							<div>
+								<div class="field">
+									<label for="filter-name">
+										<span class="field-label">Name starts with</span>
+									</label>
+									<select id="filter-name" name="filter-name">
+										<option value="">All</option>
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="A">A</option>
+										<option value="B">B</option>
+										<option value="C">C</option>
+										<option value="D">D</option>
+										<option value="E">E</option>
+										<option value="F">F</option>
+										<option value="G">G</option>
+										<option value="H">H</option>
+										<option value="I">I</option>
+										<option value="J">J</option>
+										<option value="K">K</option>
+										<option value="L">L</option>
+										<option value="M">M</option>
+										<option value="N">N</option>
+										<option value="O">O</option>
+										<option value="P">P</option>
+										<option value="Q">Q</option>
+										<option value="R">R</option>
+										<option value="S">S</option>
+										<option value="T">T</option>
+										<option value="U">U</option>
+										<option value="V">V</option>
+										<option value="W">W</option>
+										<option value="X">X</option>
+										<option value="Y">Y</option>
+										<option value="Z">Z</option>
+									</select>
+								</div>
+							</div>
+							<div>
+								<div class="field">
+									<label for="country">
+										<span class="field-label">Country</span>
+									</label>
+									<select id="country">
+										<option value="">All</option>
+										<option value="1" data-alt="AF">Afghanistan</option>
+										<option value="2" data-alt="AX Aaland Aland">Åland Islands</option>
+										<option value="3" data-alt="AL">Albania</option>
+										<option value="4" data-alt="DZ">Algeria</option>
+										<option value="5" data-alt="AS">American Samoa</option>
+										<option value="6" data-alt="AD">Andorra</option>
+										<option value="7" data-alt="AO">Angola</option>
+										<option value="8" data-alt="AI">Anguilla</option>
+										<option value="8" data-alt="AQ">Antarctica</option>
+										<option value="10" data-alt="AG">Antigua And Barbuda</option>
+										<option value="11" data-alt="AR">Argentina</option>
+										<option value="12" data-alt="AM">Armenia</option>
+										<option value="13" data-alt="AW">Aruba</option>
+										<option value="14" data-alt="AU">Australia</option>
+										<option value="15" data-alt="AT Österreich Osterreich Oesterreich ">Austria</option>
+										<option value="16" data-alt="AZ">Azerbaijan</option>
+										<option value="17" data-alt="BS">Bahamas</option>
+										<option value="18" data-alt="BH">Bahrain</option>
+										<option value="19" data-alt="BD">Bangladesh</option>
+										<option value="20" data-alt="BB">Barbados</option>
+										<option value="21" data-alt="BY">Belarus</option>
+										<option value="22" data-alt="BE België Belgie Belgien Belgique">Belgium</option>
+										<option value="23" data-alt="BZ">Belize</option>
+										<option value="24" data-alt="BJ">Benin</option>
+										<option value="25" data-alt="BM">Bermuda</option>
+										<option value="26" data-alt="BT">Bhutan</option>
+										<option value="27" data-alt="BO">Bolivia</option>
+										<option value="28" data-alt="BQ">Bonaire, Sint Eustatius and Saba</option>
+										<option value="29" data-alt="BA">Bosnia and Herzegovina</option>
+										<option value="30" data-alt="BW">Botswana</option>
+										<option value="31" data-alt="BV">Bouvet Island</option>
+										<option value="32" data-alt="BR Brasil">Brazil</option>
+										<option value="33" data-alt="IO">British Indian Ocean Territory</option>
+										<option value="34" data-alt="BN">Brunei Darussalam</option>
+										<option value="35" data-alt="BG">Bulgaria</option>
+										<option value="36" data-alt="BF">Burkina Faso</option>
+										<option value="37" data-alt="BI">Burundi</option>
+										<option value="38" data-alt="KH">Cambodia</option>
+										<option value="39" data-alt="CM">Cameroon</option>
+										<option value="40" data-alt="CA">Canada</option>
+										<option value="41" data-alt="CV">Cape Verde</option>
+										<option value="42" data-alt="KY">Cayman Islands</option>
+										<option value="43" data-alt="CF">Central African Republic</option>
+										<option value="44" data-alt="TD">Chad</option>
+										<option value="45" data-alt="CL">Chile</option>
+										<option value="46" data-alt="CN Zhongguo Zhonghua Peoples Republic">China</option>
+										<option value="47" data-alt="CX">Christmas Island</option>
+										<option value="48" data-alt="CC">Cocos (Keeling) Islands</option>
+										<option value="49" data-alt="CO">Colombia</option>
+										<option value="50" data-alt="KM">Comoros</option>
+										<option value="51" data-alt="CG">Congo</option>
+										<option value="52" data-alt="CD">Congo, the Democratic Republic of the</option>
+										<option value="53" data-alt="CK">Cook Islands</option>
+										<option value="54" data-alt="CR">Costa Rica</option>
+										<option value="55" data-alt="CI Cote dIvoire">Côte d'Ivoire</option>
+										<option value="x1Croatia" data-alt="HR Hrvatska">Croatia</option>
+										<option value="x1Cuba" data-alt="CU">Cuba</option>
+										<option value="x1Curaçao" data-alt="CW Curacao">Curaçao</option>
+										<option value="x1Cyprus" data-alt="CY">Cyprus</option>
+										<option value="x1Czech Republic" data-alt="CZ Česká Ceska">Czech Republic</option>
+										<option value="x1Denmark" data-alt="DK Danmark">Denmark</option>
+										<option value="x1Djibouti" data-alt="DJ">Djibouti</option>
+										<option value="x1Dominica" data-alt="DM">Dominica</option>
+										<option value="x1Dominican Republic" data-alt="DO">Dominican Republic</option>
+										<option value="x1Ecuador" data-alt="EC">Ecuador</option>
+										<option value="x1Egypt" data-alt="EG">Egypt</option>
+										<option value="x1El Salvador" data-alt="SV">El Salvador</option>
+										<option value="x1Equatorial Guinea" data-alt="GQ">Equatorial Guinea</option>
+										<option value="x1Eritrea" data-alt="ER">Eritrea</option>
+										<option value="x1Estonia" data-alt="EE Eesti">Estonia</option>
+										<option value="x1Ethiopia" data-alt="ET">Ethiopia</option>
+										<option value="x1Falkland Islands (Malvinas)" data-alt="FK">Falkland Islands (Malvinas)</option>
+										<option value="x1Faroe Islands" data-alt="FO Føroyar Færøerne">Faroe Islands</option>
+										<option value="x1Fiji" data-alt="FJ">Fiji</option>
+										<option value="x1Finland" data-alt="FI Suomi">Finland</option>
+										<option value="x1France" data-alt="FR République française">France</option>
+										<option value="x1French Guiana" data-alt="GF">French Guiana</option>
+										<option value="x1French Polynesia" data-alt="PF">French Polynesia</option>
+										<option value="x1French Southern Territories" data-alt="TF">French Southern Territories</option>
+										<option value="x1Gabon" data-alt="GA">Gabon</option>
+										<option value="x1Gambia" data-alt="GM">Gambia</option>
+										<option value="x1Georgia" data-alt="GE">Georgia</option>
+										<option value="x1Germany" data-alt="DE Bundesrepublik Deutschland">Germany</option>
+										<option value="x1Ghana" data-alt="GH">Ghana</option>
+										<option value="x1Gibraltar" data-alt="GI">Gibraltar</option>
+										<option value="x1Greece" data-alt="GR">Greece</option>
+										<option value="x1Greenland" data-alt="GL grønland">Greenland</option>
+										<option value="x1Grenada" data-alt="GD">Grenada</option>
+										<option value="x1Guadeloupe" data-alt="GP">Guadeloupe</option>
+										<option value="x1Guam" data-alt="GU">Guam</option>
+										<option value="x1Guatemala" data-alt="GT">Guatemala</option>
+										<option value="x1Guernsey" data-alt="GG">Guernsey</option>
+										<option value="x1Guinea" data-alt="GN">Guinea</option>
+										<option value="x1Guinea-Bissau" data-alt="GW">Guinea-Bissau</option>
+										<option value="x1Guyana" data-alt="GY">Guyana</option>
+										<option value="x1Haiti" data-alt="HT">Haiti</option>
+										<option value="x1Heard Island and McDonald Islands" data-alt="HM">Heard Island and McDonald Islands</option>
+										<option value="x1Holy See (Vatican City State)" data-alt="VA">Holy See (Vatican City State)</option>
+										<option value="x1Honduras" data-alt="HN">Honduras</option>
+										<option value="x1Hong Kong" data-alt="HK">Hong Kong</option>
+										<option value="x1Hungary" data-alt="HU">Hungary</option>
+										<option value="x1Iceland" data-alt="IS Island">Iceland</option>
+										<option value="x1India" data-alt="IN">India</option>
+										<option value="x1Indonesia" data-alt="ID">Indonesia</option>
+										<option value="x1Iran, Islamic Republic of" data-alt="IR">Iran, Islamic Republic of</option>
+										<option value="x1Iraq" data-alt="IQ">Iraq</option>
+										<option value="x1Ireland" data-alt="IE Éire">Ireland</option>
+										<option value="x1Isle of Man" data-alt="IM">Isle of Man</option>
+										<option value="x1Israel" data-alt="IL">Israel</option>
+										<option value="x1Italy" data-alt="IT Italia">Italy</option>
+										<option value="x1Jamaica" data-alt="JM">Jamaica</option>
+										<option value="x1Japan" data-alt="JP Nippon Nihon">Japan</option>
+										<option value="x1Jersey" data-alt="JE">Jersey</option>
+										<option value="x1Jordan" data-alt="JO">Jordan</option>
+										<option value="x1Kazakhstan" data-alt="KZ">Kazakhstan</option>
+										<option value="x1Kenya" data-alt="KE">Kenya</option>
+										<option value="x1Kiribati" data-alt="KI">Kiribati</option>
+										<option value="x1Korea, Democratic People's Republic of" data-alt="KP North Korea">Korea, Democratic People's Republic of</option>
+										<option value="x1Korea, Republic of" data-alt="KR South Korea">Korea, Republic of</option>
+										<option value="x1Kuwait" data-alt="KW">Kuwait</option>
+										<option value="x1Kyrgyzstan" data-alt="KG">Kyrgyzstan</option>
+										<option value="x1Lao People's Democratic Republic" data-alt="LA">Lao People's Democratic Republic</option>
+										<option value="x1Latvia" data-alt="LV">Latvia</option>
+										<option value="x1Lebanon" data-alt="LB">Lebanon</option>
+										<option value="x1Lesotho" data-alt="LS">Lesotho</option>
+										<option value="x1Liberia" data-alt="LR">Liberia</option>
+										<option value="x1Libyan Arab Jamahiriya" data-alt="LY">Libyan Arab Jamahiriya</option>
+										<option value="x1Liechtenstein" data-alt="LI">Liechtenstein</option>
+										<option value="x1Lithuania" data-alt="LT">Lithuania</option>
+										<option value="x1Luxembourg" data-alt="LU">Luxembourg</option>
+										<option value="x1Macao" data-alt="MO">Macao</option>
+										<option value="x1Madagascar" data-alt="MG">Madagascar</option>
+										<option value="x1Malawi" data-alt="MW">Malawi</option>
+										<option value="x1Malaysia" data-alt="MY">Malaysia</option>
+										<option value="x1Maldives" data-alt="MV">Maldives</option>
+										<option value="x1Mali" data-alt="ML">Mali</option>
+										<option value="x1Malta" data-alt="MT">Malta</option>
+										<option value="x1Marshall Islands" data-alt="MH">Marshall Islands</option>
+										<option value="x1Martinique" data-alt="MQ">Martinique</option>
+										<option value="x1Mauritania" data-alt="MR">Mauritania</option>
+										<option value="x1Mauritius" data-alt="MU">Mauritius</option>
+										<option value="x1Mayotte" data-alt="YT">Mayotte</option>
+										<option value="x1Mexico" data-alt="MX Mexicanos">Mexico</option>
+										<option value="x1Micronesia, Federated States of" data-alt="FM">Micronesia, Federated States of</option>
+										<option value="x1Moldova, Republic of" data-alt="MD">Moldova, Republic of</option>
+										<option value="x1Monaco" data-alt="MC">Monaco</option>
+										<option value="x1Mongolia" data-alt="MN">Mongolia</option>
+										<option value="x1Montenegro" data-alt="ME">Montenegro</option>
+										<option value="x1Montserrat" data-alt="MS">Montserrat</option>
+										<option value="x1Morocco" data-alt="MA">Morocco</option>
+										<option value="x1Mozambique" data-alt="MZ">Mozambique</option>
+										<option value="x1Myanmar" data-alt="MM">Myanmar</option>
+										<option value="x1Namibia" data-alt="NA">Namibia</option>
+										<option value="x1Nauru" data-alt="NR">Nauru</option>
+										<option value="x1Nepal" data-alt="NP">Nepal</option>
+										<option value="x1Netherlands" data-alt="NL Holland Nederland">Netherlands</option>
+										<option value="x1New Caledonia" data-alt="NC">New Caledonia</option>
+										<option value="x1New Zealand" data-alt="NZ">New Zealand</option>
+										<option value="x1Nicaragua" data-alt="NI">Nicaragua</option>
+										<option value="x1Niger" data-alt="NE">Niger</option>
+										<option value="x1Nigeria" data-alt="NG">Nigeria</option>
+										<option value="x1Niue" data-alt="NU">Niue</option>
+										<option value="x1Norfolk Island" data-alt="NF">Norfolk Island</option>
+										<option value="x1North Macedonia" data-alt="MK">North Macedonia</option>
+										<option value="x1Northern Mariana Islands" data-alt="MP">Northern Mariana Islands</option>
+										<option value="x1Norway" data-alt="NO Norge Noreg">Norway</option>
+										<option value="x1Oman" data-alt="OM">Oman</option>
+										<option value="x1Pakistan" data-alt="PK">Pakistan</option>
+										<option value="x1Palau" data-alt="PW">Palau</option>
+										<option value="x1Palestinian Territory, Occupied" data-alt="PS">Palestinian Territory, Occupied</option>
+										<option value="x1Panama" data-alt="PA">Panama</option>
+										<option value="x1Papua New Guinea" data-alt="PG">Papua New Guinea</option>
+										<option value="x1Paraguay" data-alt="PY">Paraguay</option>
+										<option value="x1Peru" data-alt="PE">Peru</option>
+										<option value="x1Philippines" data-alt="PH">Philippines</option>
+										<option value="x1Pitcairn" data-alt="PN">Pitcairn</option>
+										<option value="x1Poland" data-alt="PL">Poland</option>
+										<option value="x1Portugal" data-alt="PT">Portugal</option>
+										<option value="x1Puerto Rico" data-alt="PR">Puerto Rico</option>
+										<option value="x1Qatar" data-alt="QA">Qatar</option>
+										<option value="x1Réunion" data-alt="RE Reunion">Réunion</option>
+										<option value="x1Romania" data-alt="RO">Romania</option>
+										<option value="x1Russian Federation" data-alt="RU Russia Rossiya">Russian Federation</option>
+										<option value="x1Rwanda" data-alt="RW">Rwanda</option>
+										<option value="x1Saint Barthélemy" data-alt="BL">Saint Barthélemy</option>
+										<option value="x1Saint Helena" data-alt="SH">Saint Helena</option>
+										<option value="x1Saint Kitts and Nevis" data-alt="KN">Saint Kitts and Nevis</option>
+										<option value="x1Saint Lucia" data-alt="LC">Saint Lucia</option>
+										<option value="x1Saint Martin (French Part)" data-alt="MF">Saint Martin (French Part)</option>
+										<option value="x1Saint Pierre and Miquelon" data-alt="PM">Saint Pierre and Miquelon</option>
+										<option value="x1Saint Vincent and the Grenadines" data-alt="VC">Saint Vincent and the Grenadines</option>
+										<option value="x1Samoa" data-alt="WS">Samoa</option>
+										<option value="x1San Marino" data-alt="SM">San Marino</option>
+										<option value="x1Sao Tome and Principe" data-alt="ST">Sao Tome and Principe</option>
+										<option value="x1Saudi Arabia" data-alt="SA">Saudi Arabia</option>
+										<option value="x1Senegal" data-alt="SN">Senegal</option>
+										<option value="x1Serbia" data-alt="RS">Serbia</option>
+										<option value="x1Seychelles" data-alt="SC">Seychelles</option>
+										<option value="x1Sierra Leone" data-alt="SL">Sierra Leone</option>
+										<option value="x1Singapore" data-alt="SG">Singapore</option>
+										<option value="x1Sint Maarten (Dutch Part)" data-alt="SX">Sint Maarten (Dutch Part)</option>
+										<option value="x1Slovakia" data-alt="SK">Slovakia</option>
+										<option value="x1Slovenia" data-alt="SI">Slovenia</option>
+										<option value="x1Solomon Islands" data-alt="SB">Solomon Islands</option>
+										<option value="x1Somalia" data-alt="SO">Somalia</option>
+										<option value="x1South Africa" data-alt="ZA">South Africa</option>
+										<option value="x1South Georgia and the South Sandwich Islands" data-alt="GS">South Georgia and the South Sandwich Islands</option>
+										<option value="x1South Sudan" data-alt="SS">South Sudan</option>
+										<option value="x1Spain" data-alt="ES España">Spain</option>
+										<option value="x1Sri Lanka" data-alt="LK">Sri Lanka</option>
+										<option value="x1Sudan" data-alt="SD">Sudan</option>
+										<option value="x1Suriname" data-alt="SR">Suriname</option>
+										<option value="x1Svalbard and Jan Mayen" data-alt="SJ">Svalbard and Jan Mayen</option>
+										<option value="x1Swaziland" data-alt="SZ">Swaziland</option>
+										<option value="x1Sweden" data-alt="SE Sverige">Sweden</option>
+										<option value="x1Switzerland" data-alt="CH Swiss Confederation Schweiz Suisse Svizzera Svizra">Switzerland</option>
+										<option value="x1Syrian Arab Republic" data-alt="SY Syria">Syrian Arab Republic</option>
+										<option value="x1Taiwan, Province of China" data-alt="TW">Taiwan, Province of China</option>
+										<option value="x1Tajikistan" data-alt="TJ">Tajikistan</option>
+										<option value="x1Tanzania, United Republic of" data-alt="TZ">Tanzania, United Republic of</option>
+										<option value="x1Thailand" data-alt="TH">Thailand</option>
+										<option value="x1Timor-Leste" data-alt="TL">Timor-Leste</option>
+										<option value="x1Togo" data-alt="TG">Togo</option>
+										<option value="x1Tokelau" data-alt="TK">Tokelau</option>
+										<option value="x1Tonga" data-alt="TO">Tonga</option>
+										<option value="x1Trinidad and Tobago" data-alt="TT">Trinidad and Tobago</option>
+										<option value="x1Tunisia" data-alt="TN">Tunisia</option>
+										<option value="x1Turkey" data-alt="TR Türkiye Turkiye">Turkey</option>
+										<option value="x1Turkmenistan" data-alt="TM">Turkmenistan</option>
+										<option value="x1Turks and Caicos Islands" data-alt="TC">Turks and Caicos Islands</option>
+										<option value="x1Tuvalu" data-alt="TV">Tuvalu</option>
+										<option value="x1Uganda" data-alt="UG">Uganda</option>
+										<option value="x1Ukraine" data-alt="UA Ukrayina">Ukraine</option>
+										<option value="x1United Arab Emirates" data-alt="AE UAE Emirates">United Arab Emirates</option>
+										<option value="x1United Kingdom" data-alt="GB Great Britain England UK Wales Scotland Northern Ireland">United Kingdom</option>
+										<option value="x1United States" data-alt="US USA United States of America">United States</option>
+										<option value="x1United States Minor Outlying Islands" data-alt="UM">United States Minor Outlying Islands</option>
+										<option value="x1Uruguay" data-alt="UY">Uruguay</option>
+										<option value="x1Uzbekistan" data-alt="UZ">Uzbekistan</option>
+										<option value="x1Vanuatu" data-alt="VU">Vanuatu</option>
+										<option value="x1Venezuela" data-alt="VE">Venezuela</option>
+										<option value="x1Vietnam" data-alt="VN">Vietnam</option>
+										<option value="x1Virgin Islands, British" data-alt="VG">Virgin Islands, British</option>
+										<option value="x1Virgin Islands, U.S." data-alt="VI">Virgin Islands, U.S.</option>
+										<option value="x1Wallis and Futuna" data-alt="WF">Wallis and Futuna</option>
+										<option value="x1Western Sahara" data-alt="EH">Western Sahara</option>
+										<option value="x1Yemen" data-alt="YE">Yemen</option>
+										<option value="x1Zambia" data-alt="ZM">Zambia</option>
+										<option value="x1Zimbabwe" data-alt="ZW">Zimbabwe</option>
+									</select>
+								</div>
+							</div>
+							<div>
+								<div class="field">
+									<label for="filter-ecosystem">
+										<span class="field-label">Business ecosystem</span>
+									</label>
+									<select id="filter-ecosystem" name="filter-ecosystem">
+										<option value="">All</option>
+										<option value="E-commerce">E-commerce</option>
+										<option value="Media and Entertainment">Media &amp; Entertainment</option>
+										<option value="Network and Communications">Network &amp; Communications</option>
+										<option value="Publishing">Publishing</option>
+										<option value="Smart Cities">Smart Cities</option>
+										<option value="Transportation">Transportation</option>
+										<option value="Web Advertising">Web Advertising</option>
+										<option value="Web of Things">Web of Things</option>
+									</select>
+								</div>
+							</div>
+							<div>
+								<div class="input-group">
+									<button class="button" type="submit">Show results</button>
+									<button class="button button--ghost" type="reset">Clear all</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div aria-live="polite" aria-atomic="true">There are 4 members in USA</div>
+			<ul class="clean-list member-list">
+				<li>
+					<div class="l-sidebar card card--member" data-component="card">
+						<div>
+							<div class="not-sidebar card__text">
+								<h2 class="card__heading"><a class="card__link" href="../page.html">Adobe</a></h2>
+								<p>Adobe revolutionizes how the world engages with ideas and information - anytime, anywhere and through any medium. As a leading provider of best-in-class Web technologies, Adobe actively supports the development of W3C standards promoting global interoperability.</p>
+							</div>
+							<div class="sidebar">
+								<div class="logo--member">
+									<img src="dist/assets/images/adobe-transparent.png" alt="Adobe" loading="lazy" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="l-sidebar card card--member" data-component="card">
+						<div>
+							<div class="not-sidebar card__text">
+								<h2 class="card__heading"><a class="card__link" href="../page.html">Amazon</a></h2>
+								<p>Amazon.com, Inc. is an American multinational technology company based in Seattle, Washington, which focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence.</p>
+							</div>
+							<div class="sidebar">
+								<div class="logo--member">
+									<img src="dist/assets/images/amazon.png" alt="Amazon" loading="lazy" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="l-sidebar card card--member" data-component="card">
+						<div>
+							<div class="not-sidebar card__text">
+								<h2 class="card__heading"><a class="card__link" href="../page.html">Apple</a></h2>
+								<p>Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services.</p>
+							</div>
+							<div class="sidebar">
+								<div class="logo--member">
+									<img src="dist/assets/images/apple.png" alt="Apple" loading="lazy" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="l-sidebar card card--member" data-component="card">
+						<div>
+							<div class="not-sidebar card__text">
+								<h2 class="card__heading"><a class="card__link" href="../page.html">Google</a></h2>
+								<p>Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.</p>
+							</div>
+							<div class="sidebar">
+								<div class="logo--member">
+									<img src="dist/assets/images/google.png" alt="Google" loading="lazy" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<nav aria-label="pagination" class="l-cluster pagination">
+				<ul class="pagination__list">
+					<li><a class="pagination__list__first" href="../page.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 8" width="1em" height="1em" focusable="false" aria-hidden="true"><defs/><path class="double-chevron-left" fill-rule="nonzero" d="M16.015 7.85L9.247 4.745v-.747L16.015.475v1.171l-5.391 2.667 5.39 2.358v1.18zm-8.262 0L.985 4.745v-.747L7.753.475v1.171l-5.39 2.667 5.39 2.358v1.18z"/><path class="double-chevron-right" fill-rule="nonzero" d="M.985 7.85l6.768-3.105v-.747L.985.475v1.171l5.391 2.667L.986 6.67v1.18zm8.262 0l6.768-3.105v-.747L9.247.475v1.171l5.39 2.667-5.39 2.358v1.18z"/></svg><span class="visuallyhidden">First</span></a></li>
+					<li><a href="../page.html">Previous</a></li>
+					<li><a href="../page.html">1</a></li>
+					<li><a aria-label="page 2" aria-current="page">2</a></li>
+					<li><a href="../page.html">3</a></li>
+					<li><a href="../page.html">4</a></li>
+					<li><a href="../page.html">5</a></li>
+					<li><a class="ellipsis">&#8230;</a></li>
+					<li><a href="../page.html">20</a></li>
+					<li><a href="../page.html">Next</a></li>
+					<li><a class="pagination__list__last" href="../page.html"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 8" width="1em" height="1em" focusable="false" aria-hidden="true"><defs/><path class="double-chevron-left" fill-rule="nonzero" d="M16.015 7.85L9.247 4.745v-.747L16.015.475v1.171l-5.391 2.667 5.39 2.358v1.18zm-8.262 0L.985 4.745v-.747L7.753.475v1.171l-5.39 2.667 5.39 2.358v1.18z"/><path class="double-chevron-right" fill-rule="nonzero" d="M.985 7.85l6.768-3.105v-.747L.985.475v1.171l5.391 2.667L.986 6.67v1.18zm8.262 0l6.768-3.105v-.747L9.247.475v1.171l5.39 2.667-5.39 2.358v1.18z"/></svg><span class="visuallyhidden">Last</span></a></li>
+				</ul>
+			</nav>
+		</main>
+	</div>
+	<footer class="global-footer">
+		<div class="l-center">
+			<div class="global-footer__links">
+				<div class="l-cluster">
+					<ul class="clean-list" role="list">
+						<li><a href="../page.html">Home</a></li>
+						<li><a href="../page.html">Contact</a></li>
+						<li><a href="../page.html">Help</a></li>
+						<li><a href="../page.html">Sponsor and donate</a></li>
+						<li><a href="../page.html">Privacy policy</a></li>
+						<li><a href="../page.html">Legal</a></li>
+						<li><a href="../page.html">System status</a></li>
+					</ul>
+				</div>
+				<ul class="clean-list" role="list">
+					<li><a class="with-icon--larger" href="https://twitter.com/W3C">
+						<img class="icon icon--larger" src="dist/assets/svg/twitter.svg" width="20" height="20" alt aria-hidden="true" />
+						<span class="visuallyhidden">W3C on Twitter</span></a>
+					</li>
+					<li><a class="with-icon--larger" href="https://github.com/w3c/">
+						<img class="icon icon--larger" src="dist/assets/svg/github.svg" width="20" height="20" alt aria-hidden="true" />
+						<span class="visuallyhidden">W3C on GitHub</span></a>
+					</li>
+				</ul>
+			</div>
+			<p class="copyright">Copyright © 2020 W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+				<a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>
+		</div>
+	</footer>
+</div>
+
+<script src="dist/assets/js/libraries/accessible-autocomplete.min.js"></script>
+
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		/* Instantiate Accessible Autocomplete */
+		var selectEl = document.querySelector('#country')
+		accessibleAutocomplete.enhanceSelectElement({
+			confirmOnBlur: false,
+			defaultValue: '',
+			displayMenu: 'overlay',
+			preserveNullOptions: true,
+			selectElement: selectEl,
+			showAllValues: true,
+			dropdownArrow: function (config) {
+				return '<svg class="' + config.className + '" viewBox="0 0 320 512" focusable="false" aria-hidden="true"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/></svg>'
+			}
+		})
+
+	}
+</script>
+
+</body>
+
+</html>

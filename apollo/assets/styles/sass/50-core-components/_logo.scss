@@ -17,3 +17,34 @@
 	}
 
 }
+
+.logo--member {
+
+	height: rem(84);
+	padding-left: rem(20);
+	padding-right: rem(20);
+	position: relative;
+	width: rem(150);
+
+	> img {
+
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		max-width: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		@supports (object-fit: contain) {
+
+			height: 100%;
+			max-width: none;
+			object-fit: contain;
+			position: static;
+
+		}
+
+	}
+
+}
