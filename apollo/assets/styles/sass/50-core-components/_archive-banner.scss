@@ -1,0 +1,123 @@
+/*------------------------------------*\
+    #Archive banner
+\*------------------------------------*/
+
+#archive-banner {
+
+	background-color: #f9dc4a;
+	padding-bottom: 1.25rem;
+	padding-top: 1.25rem;
+
+}
+
+#archive-banner .centered {
+
+	box-sizing: content-box;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 70rem;
+	overflow: hidden;
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+}
+
+#archive-banner .centered > * {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: -0.75rem;
+
+}
+
+#archive-banner .centered > * > * {
+
+	margin: 0.75rem;
+
+}
+
+#archive-banner .archive-banner__message {
+
+	flex-basis: 0;
+	flex-grow: 999;
+	min-width: calc(80% - 1.5rem);
+
+}
+
+#archive-banner .archive-banner__message > * + * {
+
+	margin-top: 1rem;
+
+}
+
+#archive-banner .archive-banner__message > * {
+
+	max-width: 41.25rem;
+
+}
+
+#archive-banner h2 {
+
+	display: block;
+	font-size: rem(19);
+	line-height: calc(32 / 19);
+
+}
+
+#archive-banner h3 {
+
+	font-size: 1rem;
+	line-height: calc(32 / 24);
+
+}
+
+#archive-banner a {
+
+	color: #024488;
+
+}
+
+#archive-banner a:visited {
+
+	color: #024488;
+
+}
+
+#archive-banner a:focus {
+
+	background-image: none;
+	color: #000;
+	outline: solid 2px #000;
+	outline-offset: 1px;
+	text-decoration: none;
+
+}
+
+#archive-banner .archive-banner__logo {
+
+	flex-basis: auto;
+	flex-grow: 1;
+	order: -1;
+
+}
+
+#archive-banner .archive-banner__logo > span {
+
+	display: block;
+	height: 2.75rem;
+	position: relative;
+	width: 4.125rem;
+
+}
+
+@media screen and (min-width: 64em) {
+
+	#archive-banner .archive-banner__logo > span {
+
+		height: 3.25rem;
+		width: 4.875rem;
+
+	}
+
+}
