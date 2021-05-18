@@ -78,7 +78,8 @@
 
 	}
 
-	.archive-links {
+	.archive-links,
+	.category-links {
 
 		@include stack();
 
@@ -89,9 +90,7 @@
 			background-color: $white;
 			border: solid 1px $border-color;
 			height: rem(180);
-			margin-inline-start: rem(25);
 			overflow-y: scroll;
-			width: rem(180);
 
 			&:focus {
 
@@ -110,11 +109,32 @@
 
 		}
 
+		details[open] ul {
+
+			position: absolute;
+			width: rem(200);
+
+		}
+
+	}
+
+	.archive-links ul {
+
+		width: rem(180);
+
+	}
+
+	.filters .archive-links,
+	.filters .category-links {
+
+		margin-top: 0;
+
 	}
 
 }
 
-.people-list {
+.people-list,
+.post-list {
 
 	> li {
 
@@ -190,6 +210,40 @@
 			flex-basis: auto;
 
 		}
+
+	}
+
+}
+
+.post-list {
+
+	.l-sidebar .sidebar {
+
+		@include mq($bp-tab-large) {
+
+			order: 1;
+
+		}
+
+	}
+
+	.l-sidebar .sidebar .l-frame {
+
+		height: rem(146);
+		width: rem(200);
+
+		img {
+
+			border-radius: rem(4);
+			max-width: none;
+
+		}
+
+	}
+
+	h2 a {
+
+		color: $black;
 
 	}
 

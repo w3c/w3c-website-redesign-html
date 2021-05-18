@@ -21,7 +21,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.20" media="screen"/>
+	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.21" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -29,7 +29,7 @@
     Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
     FF 47+
     -->
-	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.20" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.21" media="
         only print,
         only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
         only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -40,7 +40,7 @@
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
 				var script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js?ver=1.1.20';
+				script.src = 'dist/assets/js/main.js?ver=1.1.21';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
@@ -546,9 +546,8 @@
 							</div>
 							<div class="sidebar">
 								<div class="l-frame card__image">
-									<img src="dist/assets/images/temp-developers-920.jpg"
-									     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w"
-									     sizes="(min-width: 64em) 20vw, (min-width: 48em) 15vw, (min-width: 17em) 50vw"
+									<img src="dist/assets/images/temp-developers-360.jpg"
+									     srcset="dist/assets/images/temp-developers-580.jpg 2x"
 									     loading="lazy"
 									     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
 								</div>
@@ -589,6 +588,7 @@
 									<span>Browse event archive</span>
 								</summary>
 								<ul class="clean-list" role="list" tabindex="0" aria-labelledby="archive-heading">
+									<li><a href="../page.html">All</a></li>
 									<li><a href="../page.html">2020</a></li>
 									<li><a href="../page.html">2019</a></li>
 									<li><a href="../page.html">2018</a></li>

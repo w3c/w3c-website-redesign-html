@@ -79,7 +79,7 @@
 
 }
 
-.card__text a:not([class]) {
+.card__text > a:not([class]) {
 
 	align-self: flex-start;
 	margin-top: rem(6);

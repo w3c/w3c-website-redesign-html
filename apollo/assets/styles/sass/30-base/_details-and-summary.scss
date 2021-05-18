@@ -29,6 +29,12 @@ summary {
 
 	}
 
+	&::-webkit-details-marker {
+
+		display: none;
+
+	}
+
 	&:hover {
 
 		color: $link-color--hover;
@@ -46,14 +52,25 @@ summary {
 
 	}
 
-	&:focus span {
+	&:focus {
 
 		background-color: $focus-color;
 		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
 		color: $black;
+
+	}
+
+	&:focus span {
+
 		text-decoration: none;
 
 	}
+
+}
+
+details[open] > summary::before {
+
+	transform: rotate(90deg);
 
 }
 
