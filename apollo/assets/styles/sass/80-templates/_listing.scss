@@ -226,6 +226,12 @@
 
 .post-list {
 
+	> li:last-child {
+
+		border-bottom: solid 1px $border-color;
+
+	}
+
 	.l-sidebar .sidebar {
 
 		@include mq($bp-tab-large) {
@@ -233,6 +239,12 @@
 			order: 1;
 
 		}
+
+	}
+
+	.l-sidebar .not-sidebar > div {
+
+		margin-bottom: rem(40);
 
 	}
 
