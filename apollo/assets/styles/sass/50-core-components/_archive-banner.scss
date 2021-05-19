@@ -57,7 +57,7 @@
 
 }
 
-#archive-banner h2 {
+#archive-banner .archive-banner__message h2 {
 
 	display: block;
 	font-size: rem(19);
@@ -65,10 +65,16 @@
 
 }
 
-#archive-banner h3 {
+#archive-banner .archive-banner__message h3 {
 
 	font-size: 1rem;
 	line-height: calc(32 / 24);
+
+}
+
+#archive-banner .archive-banner__message h3 + * {
+
+	margin-top: 0;
 
 }
 
