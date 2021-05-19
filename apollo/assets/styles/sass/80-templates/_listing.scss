@@ -186,18 +186,6 @@
 
 	}
 
-	.l-cluster.groups > * > *:first-child {
-
-		flex-basis: 100%;
-
-		@include mq($bp-tab-small) {
-
-			flex-basis: auto;
-
-		}
-
-	}
-
 }
 
 .people-list {
@@ -211,6 +199,20 @@
 			width: rem(100);
 
 		}
+
+	}
+
+	.groups .sidebar {
+
+		flex-basis: auto;
+
+	}
+
+	.groups .sidebar h3 {
+
+		font-size: 1rem;
+		font-weight: normal;
+		line-height: rem(44);
 
 	}
 
