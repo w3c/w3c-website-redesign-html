@@ -9,6 +9,21 @@
 
 }
 
+.l-cluster.pagination > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.l-cluster.pagination > * > * {
+
+	display: inline-block; // IE9
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
 .pagination + * {
 
 	border-top: solid 1px $border-color;
@@ -21,12 +36,6 @@
 	@include mq($bp-tab-large) {
 
 		justify-content: flex-end;
-
-	}
-
-	li {
-
-		display: inline-block; // IE9
 
 	}
 
@@ -73,69 +82,6 @@
 		&:hover {
 
 			color: $white;
-
-		}
-
-	}
-
-}
-
-.pagination__list__first svg,
-.pagination__list__last svg {
-
-	height: rem(22);
-
-}
-
-.pagination__list__first {
-
-	.double-chevron-right {
-
-		display: none;
-
-	}
-
-}
-
-.pagination__list__last {
-
-	.double-chevron-left {
-
-		display: none;
-
-	}
-
-}
-
-[dir="rtl"] {
-
-	.pagination__list__first {
-
-		.double-chevron-left {
-
-			display: none;
-
-		}
-
-		.double-chevron-right {
-
-			display: block;
-
-		}
-
-	}
-
-	.pagination__list__last {
-
-		.double-chevron-left {
-
-			display: block;
-
-		}
-
-		.double-chevron-right {
-
-			display: none;
 
 		}
 
