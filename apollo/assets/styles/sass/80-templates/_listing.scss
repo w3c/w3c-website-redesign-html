@@ -152,13 +152,6 @@
 	.l-sidebar .sidebar {
 
 		flex-basis: auto;
-		order: -1;
-
-		img {
-
-			width: rem(100);
-
-		}
 
 	}
 
@@ -177,14 +170,6 @@
 			margin-top: rem(20);
 
 		}
-
-	}
-
-	.l-cluster > *,
-	.l-cluster.l-cluster > * > * {
-
-		margin-bottom: 0;
-		margin-top: 0;
 
 	}
 
@@ -215,6 +200,30 @@
 
 }
 
+.people-list {
+
+	.l-sidebar .sidebar {
+
+		order: -1;
+
+		img {
+
+			width: rem(100);
+
+		}
+
+	}
+
+	.l-cluster > *,
+	.l-cluster.l-cluster > * > * {
+
+		margin-bottom: 0;
+		margin-top: 0;
+
+	}
+
+}
+
 .post-list {
 
 	.l-sidebar .sidebar {
@@ -235,7 +244,6 @@
 		img {
 
 			border-radius: rem(4);
-			max-width: none;
 
 		}
 
@@ -244,6 +252,13 @@
 	h2 a {
 
 		color: $black;
+
+		.icon {
+
+			height: 0.8em;
+			width: 0.8em;
+
+		}
 
 	}
 
