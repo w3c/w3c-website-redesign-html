@@ -1089,6 +1089,12 @@ Fixed input widths
 .input-width-10 {
   max-width: 23ex; }
 
+.input-width-7 {
+  max-width: 15ex; }
+
+.input-width-5 {
+  max-width: 10.8ex; }
+
 .input-width-5 {
   max-width: 10.8ex; }
 
@@ -2191,14 +2197,17 @@ so that either of these properties is applied instead.
 #archive-banner .archive-banner__message > * {
   max-width: 41.25rem; }
 
-#archive-banner h2 {
+#archive-banner .archive-banner__message h2 {
   display: block;
   font-size: 1.1875rem;
   line-height: calc(32 / 19); }
 
-#archive-banner h3 {
+#archive-banner .archive-banner__message h3 {
   font-size: 1rem;
   line-height: calc(32 / 24); }
+
+#archive-banner .archive-banner__message h3 + * {
+  margin-top: 0; }
 
 #archive-banner a {
   color: #024488; }
@@ -4158,12 +4167,7 @@ dl.family-series-list dt:nth-of-type(2)::before {
 .people-list .l-sidebar .sidebar,
 .post-list .l-sidebar .sidebar {
   -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  -ms-flex-order: -1;
-      order: -1; }
-  .people-list .l-sidebar .sidebar img,
-  .post-list .l-sidebar .sidebar img {
-    max-width: 6.25rem; }
+      flex-basis: auto; }
 
 .people-list .l-sidebar .not-sidebar,
 .post-list .l-sidebar .not-sidebar {
@@ -4175,13 +4179,6 @@ dl.family-series-list dt:nth-of-type(2)::before {
   .people-list .l-sidebar .not-sidebar > div > * + *,
   .post-list .l-sidebar .not-sidebar > div > * + * {
     margin-top: 1.25rem; }
-
-.people-list .l-cluster > *,
-.people-list .l-cluster.l-cluster > * > *,
-.post-list .l-cluster > *,
-.post-list .l-cluster.l-cluster > * > * {
-  margin-bottom: 0;
-  margin-top: 0; }
 
 .people-list .l-cluster > *,
 .post-list .l-cluster > * {
@@ -4203,6 +4200,17 @@ dl.family-series-list dt:nth-of-type(2)::before {
       -ms-flex-preferred-size: auto;
           flex-basis: auto; } }
 
+.people-list .l-sidebar .sidebar {
+  -ms-flex-order: -1;
+      order: -1; }
+  .people-list .l-sidebar .sidebar img {
+    width: 6.25rem; }
+
+.people-list .l-cluster > *,
+.people-list .l-cluster.l-cluster > * > * {
+  margin-bottom: 0;
+  margin-top: 0; }
+
 @media screen and (min-width: 64em) {
   .post-list .l-sidebar .sidebar {
     -ms-flex-order: 1;
@@ -4212,11 +4220,13 @@ dl.family-series-list dt:nth-of-type(2)::before {
   height: 9.125rem;
   width: 12.5rem; }
   .post-list .l-sidebar .sidebar .l-frame img {
-    border-radius: 0.25rem;
-    max-width: none; }
+    border-radius: 0.25rem; }
 
 .post-list h2 a {
   color: #000; }
+  .post-list h2 a .icon {
+    height: 0.8em;
+    width: 0.8em; }
 
 .event-list,
 .member-list {

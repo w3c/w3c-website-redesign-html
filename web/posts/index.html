@@ -21,7 +21,7 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.21" media="screen"/>
+	<link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.1.22" media="screen"/>
 
 	<!--
     CSS Mustard Cut
@@ -29,7 +29,7 @@
     Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
     FF 47+
     -->
-	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.21" media="
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css?ver=1.1.22" media="
         only print,
         only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
         only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
@@ -40,7 +40,7 @@
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
 				var script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js?ver=1.1.21';
+				script.src = 'dist/assets/js/main.js?ver=1.1.22';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
@@ -547,7 +547,7 @@
 					<div>
 						<div class="not-sidebar">
 							<div>
-								<h2 class="txt-mars">In the Media card example</h2>
+								<h2 class="txt-mars"><a class="with-icon--after" href="post.html">In the Media card example <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false" aria-hidden="true"><defs/><path d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"/></svg></a></h2>
 								<div class="l-cluster">
 									<div>
 										<div>
@@ -555,6 +555,9 @@
 										</div>
 										<div>
 											<p>By: Anne Author</p>
+										</div>
+										<div>
+											<p>In: Publication Name</p>
 										</div>
 									</div>
 								</div>
@@ -571,7 +574,6 @@
 										</li>
 									</ul>
 								</div>
-								<a href="../page.html" class="with-icon--before"><img class="icon" src="dist/assets/svg/external-link-alt.svg" width="20" height="20" alt aria-hidden="true" /> Link to article on external website</a>
 							</div>
 						</div>
 					</div>
