@@ -5,11 +5,33 @@
 .translations {
 
 	background-color: $mist-gray;
-	display: flex;
-	flex-wrap: wrap;
-	padding-left: rem(20);
-	padding-right: rem(20);
-	width: fit-content;
+	padding: rem(20);
+
+}
+
+.translations .l-sidebar > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.translations .l-sidebar > * > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.translations .l-sidebar .sidebar {
+
+	flex-basis: auto;
+
+}
+
+.translations .l-sidebar .not-sidebar {
+
+	min-width: 70%;
 
 }
 
