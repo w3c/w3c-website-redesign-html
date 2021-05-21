@@ -123,6 +123,14 @@ li.top-nav-item + li.top-nav-item {
 
 .logo-link {
 
+	&:focus {
+
+		box-shadow: 0 0 0 3px $black;
+		outline: solid 3px $focus-color;
+		outline-offset: 3px;
+
+	}
+
 	@include mq($max-width) {
 
 		margin-inline-end: rem(25);
@@ -139,6 +147,13 @@ li.top-nav-item + li.top-nav-item {
 			left: 0;
 			position: absolute;
 			width: 100%;
+
+		}
+
+		&:focus {
+
+			box-shadow: none;
+			outline-color: transparent;
 
 		}
 
