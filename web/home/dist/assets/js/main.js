@@ -298,7 +298,7 @@ var navigation = function () {
   }; // Media query event handler
 
 
-  var mq = window.matchMedia('(min-width: 71.25em)');
+  var mq = window.matchMedia('(min-width: 70em)');
   mq.addListener(WidthChange);
   WidthChange(mq); // Media query change
 
@@ -318,8 +318,8 @@ var navigation = function () {
       var toggleButton = document.createElement('button');
       var backButton = document.createElement('button');
       var fragment = document.createDocumentFragment();
-      var subNav = item.parentNode.querySelector('.nav__submenu');
-      var submenuFirstChild = item.parentNode.querySelector('.nav__submenu > *');
+      var subNav = item.parentNode.querySelector('.nav__submenu__intro');
+      var submenuFirstChild = subNav.querySelector('.nav__submenu__intro__text');
       toggleButton.setAttribute('type', 'button');
       toggleButton.setAttribute('aria-expanded', 'false');
       toggleButton.setAttribute('data-trigger', 'subnav');
@@ -336,6 +336,7 @@ var navigation = function () {
 
     for (var i = 0; i < subNavArray.length; i++) {
       subNavArray[i].setAttribute('aria-hidden', 'true');
+      subNavArray[i].style = "";
     }
 
     document.addEventListener('click', function (event) {
