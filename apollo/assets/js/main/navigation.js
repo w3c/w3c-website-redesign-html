@@ -90,7 +90,7 @@ var navigation = (function () {
 	}
 
 	// Media query event handler
-	let mq = window.matchMedia('(min-width: 71.25em)');
+	let mq = window.matchMedia('(min-width: 70em)');
 	mq.addListener(WidthChange);
 	WidthChange(mq);
 
@@ -113,8 +113,8 @@ var navigation = (function () {
 			let toggleButton = document.createElement('button');
 			let backButton = document.createElement('button');
 			let fragment = document.createDocumentFragment();
-			let subNav = item.parentNode.querySelector('.nav__submenu');
-			let submenuFirstChild = item.parentNode.querySelector('.nav__submenu > *');
+			let subNav = item.parentNode.querySelector('.nav__submenu__intro');
+			let submenuFirstChild = subNav.querySelector('.nav__submenu__intro__text');
 
 			toggleButton.setAttribute('type', 'button');
 			toggleButton.setAttribute('aria-expanded', 'false');
@@ -137,6 +137,7 @@ var navigation = (function () {
 		for (let i = 0; i < subNavArray.length; i++) {
 
 			subNavArray[i].setAttribute('aria-hidden', 'true');
+			subNavArray[i].style = "";
 
 		}
 

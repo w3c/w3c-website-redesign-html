@@ -125,15 +125,27 @@ li.top-nav-item + li.top-nav-item {
 
 	@include mq($max-width) {
 
-		border-bottom: solid 3px transparent;
 		margin-inline-end: rem(25);
 		padding-bottom: rem(5);
+		position: relative;
 
-		&:hover,
-		&:focus {
+		&::after {
 
-			border-bottom-color: #0079b8;
-			outline: none;
+			background-color: $w3c-blue;
+			bottom: 0;
+			content:'';
+			display: none;
+			height: rem(3);
+			left: 0;
+			position: absolute;
+			width: 100%;
+
+		}
+
+		&:hover::after,
+		&:focus::after {
+
+			display: block;
 
 		}
 
@@ -155,6 +167,12 @@ li.top-nav-item + li.top-nav-item {
 		justify-content: center;
 		height: 100%;
 		min-width: rem(44);
+
+	}
+
+	&::after {
+
+		bottom: 0 !important;
 
 	}
 
@@ -196,20 +214,36 @@ li.top-nav-item + li.top-nav-item {
 
 }
 
-.global-nav__inner .top-nav-item > a {
+.global-nav__inner .top-nav-item > *:first-child {
 
 	@include mq($max-width) {
 
-		border-bottom: solid 3px transparent;
 		font-size: 1rem;
-		padding: rem(10) rem(5) rem(7);
+		padding: rem(10) rem(5) rem(7) !important;
+		position: relative;
 		white-space: nowrap;
+
+		&::after {
+
+			background-color: $w3c-blue;
+			bottom: rem(-2);
+			content:'';
+			display: none;
+			height: rem(3);
+			left: 0;
+			position: absolute;
+			width: 100%;
+
+		}
 
 		&:hover,
 		&:focus {
 
-			border-bottom-color: #0079b8;
-			outline: none;
+			&::after {
+
+				display: block;
+
+			}
 
 		}
 
