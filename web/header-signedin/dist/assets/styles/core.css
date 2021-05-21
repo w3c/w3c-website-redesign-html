@@ -1425,24 +1425,20 @@ a.with-icon--after {
   /* 1 */
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
+  a:not([class]) svg,
+  a.with-icon--before svg,
+  a.with-icon--after svg {
+    fill: currentColor; }
   a:not([class]):visited,
   a.with-icon--before:visited,
   a.with-icon--after:visited {
     color: #920ba6; }
-    a:not([class]):visited svg,
-    a.with-icon--before:visited svg,
-    a.with-icon--after:visited svg {
-      fill: #920ba6; }
   a:not([class]):hover,
   a.with-icon--before:hover,
   a.with-icon--after:hover {
     color: #024488;
     outline-width: 0;
     /* 2 */ }
-    a:not([class]):hover svg,
-    a.with-icon--before:hover svg,
-    a.with-icon--after:hover svg {
-      fill: #024488; }
   a:not([class]):focus,
   a.with-icon--before:focus,
   a.with-icon--after:focus {
@@ -1450,20 +1446,12 @@ a.with-icon--after {
     background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
     color: #000;
     text-decoration: none; }
-    a:not([class]):focus svg,
-    a.with-icon--before:focus svg,
-    a.with-icon--after:focus svg {
-      fill: #000; }
   a:not([class]):active,
   a.with-icon--before:active,
   a.with-icon--after:active {
     color: #000;
     outline-width: 0;
     /* 2 */ }
-    a:not([class]):active svg,
-    a.with-icon--before:active svg,
-    a.with-icon--after:active svg {
-      fill: #000; }
 
 /*------------------------------------*\
     #Lists
@@ -2375,15 +2363,31 @@ so that either of these properties is applied instead.
 .global-nav__inner .top-nav-item > .nav-link {
   font-weight: 600; }
 
+.logo-link:focus {
+  box-shadow: 0 0 0 3px #000;
+  outline: solid 3px #f9dc4a;
+  outline-offset: 3px; }
+
 @media screen and (min-width: 70em) {
   .logo-link {
-    border-bottom: solid 3px transparent;
     -webkit-margin-end: 1.5625rem;
             margin-inline-end: 1.5625rem;
-    padding-bottom: 0.3125rem; }
-    .logo-link:hover, .logo-link:focus {
-      border-bottom-color: #0079b8;
-      outline: none; } }
+    padding-bottom: 0.3125rem;
+    position: relative; }
+    .logo-link::after {
+      background-color: #005a9c;
+      bottom: 0;
+      content: '';
+      display: none;
+      height: 0.1875rem;
+      left: 0;
+      position: absolute;
+      width: 100%; }
+    .logo-link:focus {
+      box-shadow: none;
+      outline-color: transparent; }
+    .logo-link:hover::after, .logo-link:focus::after {
+      display: block; } }
 
 .icon-link {
   -ms-flex-align: center;
@@ -2401,6 +2405,8 @@ so that either of these properties is applied instead.
           justify-content: center;
       height: 100%;
       min-width: 2.75rem; } }
+  .icon-link::after {
+    bottom: 0 !important; }
   .icon-link:visited, .icon-link:hover {
     color: #111 !important; }
   .icon-link:focus {
@@ -2422,14 +2428,22 @@ so that either of these properties is applied instead.
     width: 1.5rem; }
 
 @media screen and (min-width: 70em) {
-  .global-nav__inner .top-nav-item > a {
-    border-bottom: solid 3px transparent;
+  .global-nav__inner .top-nav-item > *:first-child {
     font-size: 1rem;
-    padding: 0.625rem 0.3125rem 0.4375rem;
+    padding: 0.625rem 0.3125rem 0.4375rem !important;
+    position: relative;
     white-space: nowrap; }
-    .global-nav__inner .top-nav-item > a:hover, .global-nav__inner .top-nav-item > a:focus {
-      border-bottom-color: #0079b8;
-      outline: none; } }
+    .global-nav__inner .top-nav-item > *:first-child::after {
+      background-color: #005a9c;
+      bottom: -0.125rem;
+      content: '';
+      display: none;
+      height: 0.1875rem;
+      left: 0;
+      position: absolute;
+      width: 100%; }
+    .global-nav__inner .top-nav-item > *:first-child:hover::after, .global-nav__inner .top-nav-item > *:first-child:focus::after {
+      display: block; } }
 
 .global-nav__inner .nav__submenu {
   display: none; }
