@@ -317,7 +317,8 @@ br {
   font-size: 0.875rem;
   padding: 0.4375rem 0; }
   [data-trigger="mobile-nav"]:focus {
-    border-color: transparent; }
+    background-color: #f9dc4a;
+    border-color: #000; }
   [data-trigger="mobile-nav"][aria-expanded="false"] #close-icon {
     display: none; }
   [data-trigger="mobile-nav"][aria-expanded="true"] #menu-icon {
@@ -473,6 +474,9 @@ svg.nav-wide {
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
   .global-nav__inner .nav__submenu__intro > a:focus {
+    background-color: #f9dc4a;
+    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+    color: #000;
     text-decoration: none; }
   @media screen and (min-width: 70em) {
     .global-nav__inner .nav__submenu__intro > a {

@@ -2363,6 +2363,11 @@ so that either of these properties is applied instead.
 .global-nav__inner .top-nav-item > .nav-link {
   font-weight: 600; }
 
+.logo-link:focus {
+  box-shadow: 0 0 0 3px #000;
+  outline: solid 3px #f9dc4a;
+  outline-offset: 3px; }
+
 @media screen and (min-width: 70em) {
   .logo-link {
     -webkit-margin-end: 1.5625rem;
@@ -2378,6 +2383,9 @@ so that either of these properties is applied instead.
       left: 0;
       position: absolute;
       width: 100%; }
+    .logo-link:focus {
+      box-shadow: none;
+      outline-color: transparent; }
     .logo-link:hover::after, .logo-link:focus::after {
       display: block; } }
 
