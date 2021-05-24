@@ -2374,7 +2374,7 @@ so that either of these properties is applied instead.
             margin-inline-end: 1.5625rem;
     padding-bottom: 0.3125rem;
     position: relative; }
-    .logo-link::after {
+    .logo-link::before {
       background-color: #005a9c;
       bottom: 0;
       content: '';
@@ -2383,10 +2383,7 @@ so that either of these properties is applied instead.
       left: 0;
       position: absolute;
       width: 100%; }
-    .logo-link:focus {
-      box-shadow: none;
-      outline-color: transparent; }
-    .logo-link:hover::after, .logo-link:focus::after {
+    .logo-link:hover::before {
       display: block; } }
 
 .icon-link {
@@ -2405,13 +2402,14 @@ so that either of these properties is applied instead.
           justify-content: center;
       height: 100%;
       min-width: 2.75rem; } }
-  .icon-link::after {
+  .icon-link::before {
     bottom: 0 !important; }
   .icon-link:visited, .icon-link:hover {
     color: #111 !important; }
   .icon-link:focus {
-    background-color: transparent !important;
-    background-image: none !important; }
+    background-color: #f9dc4a;
+    background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+    color: #000; }
 
 .account-login {
   -ms-flex-preferred-size: 100%;
@@ -2433,7 +2431,7 @@ so that either of these properties is applied instead.
     padding: 0.625rem 0.3125rem 0.4375rem !important;
     position: relative;
     white-space: nowrap; }
-    .global-nav__inner .top-nav-item > *:first-child::after {
+    .global-nav__inner .top-nav-item > *:first-child::before {
       background-color: #005a9c;
       bottom: -0.125rem;
       content: '';
@@ -2442,8 +2440,14 @@ so that either of these properties is applied instead.
       left: 0;
       position: absolute;
       width: 100%; }
-    .global-nav__inner .top-nav-item > *:first-child:hover::after, .global-nav__inner .top-nav-item > *:first-child:focus::after {
-      display: block; } }
+    .global-nav__inner .top-nav-item > *:first-child:hover::before {
+      display: block; }
+    .global-nav__inner .top-nav-item > *:first-child:focus {
+      background-color: #f9dc4a;
+      background-image: linear-gradient(to top, #000 3px, #f9dc4a 3px, #f9dc4a);
+      color: #000; }
+    .global-nav__inner .top-nav-item > *:first-child:focus:hover::before {
+      display: none; } }
 
 .global-nav__inner .nav__submenu {
   display: none; }
