@@ -314,6 +314,12 @@ svg.nav-wide {
 		text-decoration-skip-ink: auto; // Not supported by Safari
 		text-underline-offset: 0.25em; // Supported by Safari
 
+		&:hover {
+
+			color: $link-color--hover;
+
+		}
+
 		&:focus {
 
 			background-color: $focus-color;
