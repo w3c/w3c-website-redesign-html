@@ -66,19 +66,9 @@
 
 }
 
-[dir="ltr"] {
+[data-trigger="mobile-nav"] {
 
-	[data-trigger="mobile-nav"] {
-
-		margin-left: auto;
-
-	}
-
-	[data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
-
-		margin-left: rem(10);
-
-	}
+	margin-left: auto;
 
 }
 
@@ -86,12 +76,24 @@
 
 	[data-trigger="mobile-nav"] {
 
+		margin-left: 0;
 		margin-right: auto;
 
 	}
 
+}
+
+[data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
+
+	margin-left: rem(10);
+
+}
+
+[dir="rtl"] {
+
 	[data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
 
+		margin-left: 0;
 		margin-right: rem(10);
 
 	}
@@ -151,23 +153,7 @@ svg.nav-small {
 
 	}
 
-}
-
-svg.nav-wide {
-
-	display: none;
-
-	@include mq($max-width) {
-
-		display: inline;
-
-	}
-
-}
-
-[dir="ltr"] {
-
-	svg.nav-small .angle-left {
+	.angle-left {
 
 		display: none;
 
@@ -177,9 +163,27 @@ svg.nav-wide {
 
 [dir="rtl"] {
 
+	svg.nav-small .angle-left {
+
+		display: block;
+
+	}
+
 	svg.nav-small .angle-right {
 
 		display: none;
+
+	}
+
+}
+
+svg.nav-wide {
+
+	display: none;
+
+	@include mq($max-width) {
+
+		display: inline;
 
 	}
 
@@ -203,6 +207,14 @@ svg.nav-wide {
 	@include mq($max-width) {
 
 		display: inline-flex;
+
+	}
+
+	&:focus {
+
+		background-color: $focus-color;
+		background-image: none !important;
+		border-color: $black;
 
 	}
 
@@ -394,11 +406,7 @@ svg.nav-wide {
 
 	}
 
-}
-
-[dir="ltr"] {
-
-	[data-trigger="mobile-back"] .angle-right {
+	.angle-right {
 
 		display: none;
 
@@ -411,6 +419,12 @@ svg.nav-wide {
 	[data-trigger="mobile-back"] .angle-left {
 
 		display: none;
+
+	}
+
+	[data-trigger="mobile-back"] .angle-right {
+
+		display: block;
 
 	}
 

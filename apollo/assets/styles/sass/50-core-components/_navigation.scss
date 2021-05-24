@@ -137,7 +137,7 @@ li.top-nav-item + li.top-nav-item {
 		padding-bottom: rem(5);
 		position: relative;
 
-		&::after {
+		&::before {
 
 			background-color: $w3c-blue;
 			bottom: 0;
@@ -150,15 +150,7 @@ li.top-nav-item + li.top-nav-item {
 
 		}
 
-		&:focus {
-
-			box-shadow: none;
-			outline-color: transparent;
-
-		}
-
-		&:hover::after,
-		&:focus::after {
+		&:hover::before {
 
 			display: block;
 
@@ -185,7 +177,7 @@ li.top-nav-item + li.top-nav-item {
 
 	}
 
-	&::after {
+	&::before {
 
 		bottom: 0 !important;
 
@@ -200,8 +192,9 @@ li.top-nav-item + li.top-nav-item {
 
 	&:focus {
 
-		background-color: transparent !important;
-		background-image: none !important;
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
 
 	}
 
@@ -238,7 +231,7 @@ li.top-nav-item + li.top-nav-item {
 		position: relative;
 		white-space: nowrap;
 
-		&::after {
+		&::before {
 
 			background-color: $w3c-blue;
 			bottom: rem(-2);
@@ -251,14 +244,23 @@ li.top-nav-item + li.top-nav-item {
 
 		}
 
-		&:hover,
+		&:hover::before {
+
+			display: block;
+
+		}
+
 		&:focus {
 
-			&::after {
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
 
-				display: block;
+		}
 
-			}
+		&:focus:hover::before {
+
+			display: none;
 
 		}
 

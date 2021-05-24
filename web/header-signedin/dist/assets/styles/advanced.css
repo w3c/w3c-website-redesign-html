@@ -210,8 +210,11 @@ br {
       -webkit-margin-start: auto;
               margin-inline-start: auto;
       padding-bottom: 0.25rem; }
-      [data-trigger="account-menu"]:hover, [data-trigger="account-menu"]:focus {
-        border-bottom-color: #0079b8; } }
+      [data-trigger="account-menu"]:hover {
+        border-bottom-color: #0079b8; }
+      [data-trigger="account-menu"]:focus {
+        background-color: #f9dc4a;
+        border-color: #000; } }
   [data-trigger="account-menu"][aria-expanded="false"] + .account-menu {
     display: none; }
   [data-trigger="account-menu"] * {
@@ -334,16 +337,18 @@ br {
     [data-trigger="mobile-nav"] {
       display: none; } }
 
-[dir="ltr"] [data-trigger="mobile-nav"] {
+[data-trigger="mobile-nav"] {
   margin-left: auto; }
 
-[dir="ltr"] [data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
-  margin-left: 0.625rem; }
-
 [dir="rtl"] [data-trigger="mobile-nav"] {
+  margin-left: 0;
   margin-right: auto; }
 
+[data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
+  margin-left: 0.625rem; }
+
 [dir="rtl"] [data-trigger="account-menu"] ~ [data-trigger="mobile-nav"] {
+  margin-left: 0;
   margin-right: 0.625rem; }
 
 #global-nav {
@@ -420,6 +425,10 @@ svg.nav-wide {
     .global-nav__inner [data-trigger="subnav"] {
       display: -ms-inline-flexbox;
       display: inline-flex; } }
+  .global-nav__inner [data-trigger="subnav"]:focus {
+    background-color: #f9dc4a;
+    background-image: none !important;
+    border-color: #000; }
   @media screen and (min-width: 70em) {
     .global-nav__inner [data-trigger="subnav"][aria-expanded="false"] .angle-up {
       display: none; } }
