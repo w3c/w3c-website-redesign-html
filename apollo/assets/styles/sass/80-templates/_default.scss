@@ -17,8 +17,8 @@
 		@include mq($bp-tab-large) {
 
 			display: grid;
-			grid-column-gap: 7.857%;
 			grid-template-columns: 67.143% 25%;
+			grid-column-gap: 7.857%;
 			grid-template-areas: "article related";
 
 		}
