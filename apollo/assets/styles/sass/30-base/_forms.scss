@@ -28,10 +28,15 @@ End of resets for the fieldset element
  */
 
 
-form > * + *,
+fieldset + fieldset {
+
+	margin-top: 2.5rem;
+
+}
+
 fieldset > * + * {
 
-	margin-top: rem(15);
+	margin-top: 1.5rem;
 
 }
 
@@ -61,26 +66,22 @@ Group inputs to line up side-by-side
 
 }
 
-label,
-.faux-label {
-
-	display: block;
-	margin-bottom: rem(7);
-
-}
-
-.field {
-
-	max-width: rem($text-measure);
-
-}
-
 .field-legend {
+
+	@include txt-saturn;
 
 	font-weight: bold;
 
 }
 
+.field {
+
+	margin-top: 1.75rem;
+	max-width: rem($text-measure);
+
+}
+
+label,
 .field-label,
 .field-hint,
 .field-error-msg,
@@ -90,11 +91,41 @@ label,
 
 }
 
+.field-label,
+.faux-label {
+
+	margin-bottom: 0.25rem;
+
+}
+
+.field-label,
+.group-legend {
+
+	font-weight: bold;
+
+	+ .field-hint {
+
+		margin-top: 0.25rem;
+
+	}
+
+}
+
 .field-hint {
 
 	@include txt-pluto;
 
+	color: $storm-gray;
+	margin-bottom: 0.25rem;
 	max-width: rem($text-measure);
+
+
+}
+
+.required {
+
+	color: $storm-gray;
+	font-weight: normal;
 
 }
 
@@ -258,6 +289,7 @@ Radio/checkbox inputs
 
 	clear: left;
 	float: left;
+	margin-top: 0.25rem;
 	padding-left: rem(34);
 	position: relative;
 
@@ -431,7 +463,7 @@ Radio/checkbox inputs
 
 	&::before {
 
-		box-shadow: 0 0 0 8px $blue;
+		box-shadow: 0 0 0 4px $blue;
 
 	}
 
@@ -456,7 +488,7 @@ Radio/checkbox inputs
 
 	&::before {
 
-		box-shadow: 0 0 0 4px $focus-color, 0 0 0 10px $blue;
+		box-shadow: 0 0 0 4px $focus-color;
 
 	}
 
