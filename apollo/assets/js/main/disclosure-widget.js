@@ -6,8 +6,12 @@ var disclosureWidget = (function () {
 
 		toggleButtonArray.forEach(function (btn) {
 
-			btn.setAttribute('aria-expanded', 'false');
-			btn.nextElementSibling.setAttribute('aria-hidden', 'true');
+			if (btn.getAttribute('aria-expanded') === 'true') {
+
+				btn.setAttribute('aria-expanded', 'false');
+				btn.nextElementSibling.setAttribute('aria-hidden', 'true');
+
+			}
 
 		});
 
@@ -45,8 +49,8 @@ var disclosureWidget = (function () {
 
 				} else {
 
-					toggleButton.setAttribute('aria-expanded', 'true');
-					target.setAttribute('aria-hidden', 'false');
+					toggleButton.removeAttribute('aria-expanded');
+					target.removeAttribute('aria-hidden');
 
 				}
 			}
