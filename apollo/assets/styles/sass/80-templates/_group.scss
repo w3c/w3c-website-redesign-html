@@ -64,9 +64,12 @@
 
 .group .group-nav__inner {
 
+	margin-bottom: rem(33);
+
 	@include mq($bp-tab-large) {
 
 		border-inline-start: solid 1px $border-color;
+		margin-bottom: 0;
 		padding-left: rem(20);
 		padding-right: rem(20);
 
@@ -90,28 +93,16 @@
 
 }
 
-#group-nav {
+#group-nav a {
 
-	margin-bottom: rem(33);
+	display: inline-block;
+	padding-bottom: rem(10);
+	padding-top: rem(10);
 
-	@include mq($bp-tab-large) {
+	&[aria-current] {
 
-		margin-bottom: 0;
-
-	}
-
-	a {
-
-		display: inline-block;
-		padding-bottom: rem(10);
-		padding-top: rem(10);
-
-		&[aria-current] {
-
-			color: $off-black;
-			text-decoration: none;
-
-		}
+		color: $off-black;
+		text-decoration: none;
 
 	}
 
