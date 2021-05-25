@@ -366,41 +366,21 @@ svg.nav-wide {
 
 	> a {
 
-		color: $off-black;
+		color: $link-color;
+		display: inline-block;
 		margin-top: 1rem;
 		padding-bottom: rem(9);
 		padding-top: rem(9);
-		text-decoration: none;
-
-		.icon--larger {
-
-			fill: $link-color;
-			height: rem(25);
-			width: rem(25);
-
-		}
 
 		&:hover {
 
 			color: $link-color--hover;
-
-			svg {
-
-				fill: currentColor;
-
-			}
 
 		}
 
 		&:focus {
 
 			color: $black;
-
-			svg {
-
-				fill: currentColor;
-
-			}
 
 		}
 

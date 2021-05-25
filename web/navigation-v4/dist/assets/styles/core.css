@@ -2882,7 +2882,8 @@ main,
 
 .card--event,
 .card--member,
-.card--news {
+.card--news,
+.card--group {
   box-shadow: -1px 1px 4px 0 rgba(55, 70, 95, 0.12); }
 
 .card--event.conference {
@@ -2911,6 +2912,9 @@ main,
   padding-top: 1rem; }
   .card__text > * + * {
     margin-top: 1rem; }
+
+.card--group .card__text {
+  max-width: 41.25rem; }
 
 .card__text > a:not([class]) {
   -ms-flex-item-align: start;
@@ -3145,8 +3149,8 @@ a.tag {
   background-color: #f8f8fb;
   padding-bottom: 3.125rem;
   padding-top: 3.125rem; }
-  .component--group-list h2,
-  .component--group-list h2 + p {
+  .component--group-list > h2,
+  .component--group-list > h2 + p {
     margin-bottom: 1em;
     max-width: 41.25rem; }
   .component--group-list .component--collapsibles > div,
@@ -4280,23 +4284,29 @@ dl.family-series-list dt:nth-of-type(2)::before {
     width: 0.8em; }
 
 .event-list,
-.member-list {
+.member-list,
+.group-list {
   margin-top: 2.5rem; }
   .event-list > li + li,
-  .member-list > li + li {
+  .member-list > li + li,
+  .group-list > li + li {
     margin-top: 1rem; }
   .event-list .card,
-  .member-list .card {
+  .member-list .card,
+  .group-list .card {
     padding: 1rem; }
   .event-list .card.l-sidebar .sidebar,
-  .member-list .card.l-sidebar .sidebar {
+  .member-list .card.l-sidebar .sidebar,
+  .group-list .card.l-sidebar .sidebar {
     -ms-flex-preferred-size: auto;
         flex-basis: auto; }
   .event-list .card.l-sidebar .not-sidebar,
-  .member-list .card.l-sidebar .not-sidebar {
+  .member-list .card.l-sidebar .not-sidebar,
+  .group-list .card.l-sidebar .not-sidebar {
     min-width: calc(70% - 1.5rem); }
   .event-list .card__text,
-  .member-list .card__text {
+  .member-list .card__text,
+  .group-list .card__text {
     padding-top: 0; }
 
 .event-list .card .l-cluster > * {
@@ -4354,6 +4364,9 @@ dl.family-series-list dt:nth-of-type(2)::before {
 
 .js .member-list [data-component="card"] .card__text > :last-child {
   margin-bottom: 2.5rem;
+  margin-top: 0; }
+
+.group-list {
   margin-top: 0; }
 
 /*------------------------------------*\

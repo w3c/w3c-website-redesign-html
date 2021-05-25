@@ -97,8 +97,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
 /* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var _main_collapsible_cards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
-/* harmony import */ var _main_collapsible_checkboxes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
+/* harmony import */ var _main_collapsible_cards__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
+/* harmony import */ var _main_collapsible_checkboxes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(10);
+
 
 
 
@@ -848,6 +850,84 @@ var formErrorSummary = function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "disclosureWidget", function() { return disclosureWidget; });
+var disclosureWidget = function () {
+  var toggleButtonArray = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="true"]'));
+
+  var closeDisclosures = function closeDisclosures() {
+    toggleButtonArray.forEach(function (btn) {
+      if (btn.getAttribute('aria-expanded') === 'true') {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.nextElementSibling.setAttribute('aria-hidden', 'true');
+      }
+    });
+  };
+
+  if (toggleButtonArray.length > 0) {
+    toggleButtonArray.forEach(function (btn) {
+      var content = btn.nextElementSibling;
+      btn.style = "";
+      btn.setAttribute('aria-expanded', 'false');
+      content.setAttribute('aria-hidden', 'true');
+    });
+
+    if (document.body.classList.contains('group')) {
+      // Media query event handler
+      var mq = window.matchMedia('(min-width: 64em)');
+      mq.addListener(WidthChange);
+      WidthChange(mq); // Media query change
+
+      function WidthChange(mq) {
+        var toggleButton = document.querySelector('[data-toggle="true"]');
+        var target = toggleButton.nextElementSibling;
+
+        if (!mq.matches) {
+          toggleButton.setAttribute('aria-expanded', 'false');
+          target.setAttribute('aria-hidden', 'true');
+        } else {
+          toggleButton.removeAttribute('aria-expanded');
+          target.removeAttribute('aria-hidden');
+        }
+      }
+    }
+
+    document.addEventListener('click', function (event) {
+      if (event.target.matches('[data-toggle="true"]')) {
+        var content = event.target.nextElementSibling;
+
+        if (content.getAttribute('aria-hidden') === 'true') {
+          event.target.setAttribute('aria-expanded', 'true');
+          content.setAttribute('aria-hidden', 'false');
+        } else {
+          event.target.setAttribute('aria-expanded', 'false');
+          content.setAttribute('aria-hidden', 'true');
+        }
+      } else {
+        closeDisclosures();
+      }
+    });
+    document.addEventListener('keyup', function (event) {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      var key = event.key || event.keyCode;
+
+      if (key === 'Escape' || key === 'Esc' || key === 27) {
+        closeDisclosures();
+      }
+    });
+  }
+}();
+
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collapsibleCards", function() { return collapsibleCards; });
 /**
  * Collapsible sections
@@ -889,7 +969,7 @@ var collapsibleCards = function () {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

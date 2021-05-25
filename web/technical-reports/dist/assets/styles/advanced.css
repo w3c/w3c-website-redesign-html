@@ -513,23 +513,15 @@ svg.nav-wide {
     .global-nav__inner .nav__submenu__intro__text {
       display: block; } }
   .global-nav__inner .nav__submenu__intro__text > a {
-    color: #111;
+    color: #005797;
+    display: inline-block;
     margin-top: 1rem;
     padding-bottom: 0.5625rem;
-    padding-top: 0.5625rem;
-    text-decoration: none; }
-    .global-nav__inner .nav__submenu__intro__text > a .icon--larger {
-      fill: #005797;
-      height: 1.5625rem;
-      width: 1.5625rem; }
+    padding-top: 0.5625rem; }
     .global-nav__inner .nav__submenu__intro__text > a:hover {
       color: #024488; }
-      .global-nav__inner .nav__submenu__intro__text > a:hover svg {
-        fill: currentColor; }
     .global-nav__inner .nav__submenu__intro__text > a:focus {
       color: #000; }
-      .global-nav__inner .nav__submenu__intro__text > a:focus svg {
-        fill: currentColor; }
 
 .global-nav__inner [data-trigger="mobile-back"] {
   font-size: 1.25rem;
