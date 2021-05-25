@@ -13,6 +13,16 @@
 
 	}
 
+	.global-nav__inner > ul {
+
+		border-bottom: none;
+		box-shadow: none;
+		padding-left: 0;
+		padding-right: 0;
+		position: static;
+
+	}
+
 }
 
 [data-trigger="mobile-nav"] {
