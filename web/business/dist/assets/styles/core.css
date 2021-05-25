@@ -717,9 +717,11 @@ body:not(:-moz-handler-blocked) fieldset {
 /**
 End of resets for the fieldset element
  */
-form > * + *,
+fieldset + fieldset {
+  margin-top: 2.5rem; }
+
 fieldset > * + * {
-  margin-top: 0.9375rem; }
+  margin-top: 1.5rem; }
 
 /**
 Group inputs to line up side-by-side
@@ -735,27 +737,43 @@ Group inputs to line up side-by-side
   margin-left: 0;
   margin-right: 1.875rem; }
 
-label,
-.faux-label {
-  display: block;
-  margin-bottom: 0.4375rem; }
-
-.field {
-  max-width: 41.25rem; }
-
 .field-legend {
+  font-size: 1.125rem;
+  line-height: calc(27 / 18);
   font-weight: bold; }
 
+.field {
+  margin-top: 1.75rem;
+  max-width: 41.25rem; }
+
+label,
 .field-label,
 .field-hint,
 .field-error-msg,
 .faux-label {
   display: block; }
 
+.field-label,
+.faux-label {
+  margin-bottom: 0.25rem; }
+
+.field-label,
+.group-legend {
+  font-weight: bold; }
+  .field-label + .field-hint,
+  .group-legend + .field-hint {
+    margin-top: 0.25rem; }
+
 .field-hint {
   font-size: 0.9375rem;
   line-height: calc(22.5 / 15);
+  color: #545454;
+  margin-bottom: 0.25rem;
   max-width: 41.25rem; }
+
+.required {
+  color: #545454;
+  font-weight: normal; }
 
 textarea,
 [type=date],
@@ -876,6 +894,7 @@ Radio/checkbox inputs
 .checkbox-item {
   clear: left;
   float: left;
+  margin-top: 0.25rem;
   padding-left: 2.125rem;
   position: relative; }
   .radio-item::after,
@@ -973,7 +992,7 @@ Radio/checkbox inputs
 
 .radio-item:hover input:not(:disabled) + label::before,
 .checkbox-item:hover input:not(:disabled) + label::before {
-  box-shadow: 0 0 0 8px #005797; }
+  box-shadow: 0 0 0 4px #005797; }
 
 .radio-item input:focus + label::before,
 .checkbox-item input:focus + label::before {
@@ -982,7 +1001,7 @@ Radio/checkbox inputs
 
 .radio-item:hover input:focus + label::before,
 .checkbox-item:hover input:focus + label::before {
-  box-shadow: 0 0 0 4px #f9dc4a, 0 0 0 10px #005797; }
+  box-shadow: 0 0 0 4px #f9dc4a; }
 
 .radio-item input:checked + label::after,
 .checkbox-item input:checked + label::after {
@@ -3822,9 +3841,9 @@ dl.family-series-list dt:nth-of-type(2)::before {
         display: -ms-grid;
         display: grid;
         grid-column-gap: 7.857%;
+        grid-template-areas: "article related";
         -ms-grid-columns: 67.143% 25%;
-            grid-template-columns: 67.143% 25%;
-        grid-template-areas: "article related"; } }
+            grid-template-columns: 67.143% 25%; } }
   @media screen and (min-width: 64em) {
     .default .content article {
       grid-area: article; } }
@@ -4125,6 +4144,9 @@ dl.family-series-list dt:nth-of-type(2)::before {
   padding: 0.625rem;
   width: calc(920px * 920 - 100% * 920); }
 
+.listing .filters .field {
+  margin-top: 0; }
+
 .listing .filters .button--ghost {
   padding-left: 0.1875rem;
   padding-right: 0.1875rem;
@@ -4333,6 +4355,55 @@ dl.family-series-list dt:nth-of-type(2)::before {
 .js .member-list [data-component="card"] .card__text > :last-child {
   margin-bottom: 2.5rem;
   margin-top: 0; }
+
+/*------------------------------------*\
+    #Group detail
+\*------------------------------------*/
+.group .content {
+  max-width: 47rem; }
+
+@supports (grid-column-gap: 8%) {
+  .group .content {
+    max-width: none; }
+    @media screen and (min-width: 64em) {
+      .group .content {
+        display: -ms-grid;
+        display: grid;
+        grid-column-gap: 7.857%;
+        grid-template-areas: "title nav" "details nav";
+        -ms-grid-columns: 67.143% 25%;
+            grid-template-columns: 67.143% 25%;
+        -ms-grid-rows: auto 1fr;
+            grid-template-rows: auto 1fr; } }
+  @media screen and (min-width: 64em) {
+    .group .content h1 {
+      grid-area: title; } }
+  @media screen and (min-width: 64em) {
+    .group .content #group-nav {
+      grid-area: nav; } }
+  @media screen and (min-width: 64em) {
+    .group .content .details {
+      grid-area: details; } } }
+
+@media screen and (min-width: 64em) {
+  .group .group-nav__inner {
+    -webkit-border-start: solid 1px #bdbdbd;
+            border-inline-start: solid 1px #bdbdbd;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem; } }
+
+#group-nav {
+  margin-bottom: 2.0625rem; }
+  @media screen and (min-width: 64em) {
+    #group-nav {
+      margin-bottom: 0; } }
+  #group-nav a {
+    display: inline-block;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem; }
+    #group-nav a[aria-current] {
+      color: #111;
+      text-decoration: none; }
 
 /*------------------------------------*\
     #Utilities

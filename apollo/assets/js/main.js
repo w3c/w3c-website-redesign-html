@@ -5,6 +5,7 @@ import {accountMenu} from "./main/account-menu";
 import {contentSlider} from "./main/slider";
 import {cardEnhancement} from "./main/cards";
 import {formErrorSummary} from "./main/form-error-summary";
+import {disclosureWidget} from "./main/disclosure-widget";
 import {collapsibleCards} from "./main/collapsible-cards";
 import {collapsibleCheckboxes} from "./main/collapsible-checkboxes";
 

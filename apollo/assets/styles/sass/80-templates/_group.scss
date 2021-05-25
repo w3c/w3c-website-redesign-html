@@ -74,6 +74,22 @@
 
 }
 
+.group [data-toggle="true"] {
+
+	@include mq($bp-tab-large) {
+
+		display: none;
+
+	}
+
+	&[aria-expanded="false"] {
+
+		margin-bottom: rem(33);
+
+	}
+
+}
+
 #group-nav {
 
 	margin-bottom: rem(33);
