@@ -285,7 +285,8 @@
 }
 
 .event-list,
-.member-list {
+.member-list,
+.group-list {
 
 	margin-top: rem(40);
 
@@ -415,5 +416,11 @@
 		margin-top: 0;
 
 	}
+
+}
+
+.group-list {
+
+	margin-top: 0;
 
 }

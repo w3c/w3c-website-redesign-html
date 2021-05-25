@@ -35,7 +35,8 @@
 
 .card--event,
 .card--member,
-.card--news {
+.card--news,
+.card--group {
 
 	box-shadow: -1px 1px 4px 0 rgba(55,70,95,0.12);
 
@@ -76,6 +77,12 @@
 	flex-grow: 1;
 	order: 1;
 	padding-top: 1rem;
+
+}
+
+.card--group .card__text {
+
+	max-width: rem($text-measure);
 
 }
 
