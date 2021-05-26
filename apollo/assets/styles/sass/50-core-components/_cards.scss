@@ -13,13 +13,9 @@
 
 }
 
-[dir="ltr"] {
+.card--event {
 
-	.card--event {
-
-		border-left: solid rem(6);
-
-	}
+	border-left: solid rem(6);
 
 }
 
@@ -27,6 +23,7 @@
 
 	.card--event {
 
+		border-left: 0;
 		border-right: solid rem(6);
 
 	}

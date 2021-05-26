@@ -44,15 +44,19 @@ button,
 
 }
 
-[dir="ltr"] button:not([type="submit"]) {
+button:not([type="submit"]) {
 
 	text-align: left;
 
 }
 
-[dir="rtl"] button:not([type="submit"]) {
+[dir="rtl"] {
 
-	text-align: right;
+	button:not([type="submit"]) {
+
+		text-align: right;
+
+	}
 
 }
 

@@ -55,25 +55,21 @@
 
 }
 
-[dir="ltr"] {
+.slider-controls .previous {
 
-	.slider-controls .previous {
+	.chevron-right {
 
-		.chevron-right {
-
-			display: none;
-
-		}
+		display: none;
 
 	}
 
-	.slider-controls .next {
+}
 
-		.chevron-left {
+.slider-controls .next {
 
-			display: none;
+	.chevron-left {
 
-		}
+		display: none;
 
 	}
 
@@ -89,9 +85,21 @@
 
 		}
 
+		.chevron-right {
+
+			display: block;
+
+		}
+
 	}
 
 	.slider-controls .next {
+
+		.chevron-left {
+
+			display: block;
+
+		}
 
 		.chevron-right {
 

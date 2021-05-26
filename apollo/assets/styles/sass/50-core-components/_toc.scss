@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #Table of contents
+    #Table of contents (TOC)
 \*------------------------------------*/
 
 .toc {
@@ -27,14 +27,10 @@
 
 }
 
-[dir="ltr"] {
+.toc ul {
 
-	.toc ul {
-
-		border-left: solid 3px $deep-yellow;
-		padding-left: rem(15);
-
-	}
+	border-left: solid 3px $deep-yellow;
+	padding-left: rem(15);
 
 }
 
@@ -42,7 +38,9 @@
 
 	.toc ul {
 
+		border-left: 0;
 		border-right: solid 3px $deep-yellow;
+		padding-left: 0;
 		padding-right: rem(15);
 
 	}
