@@ -11,7 +11,7 @@ import {collapsibleCheckboxes} from "./main/collapsible-checkboxes";
 
 responsiveTables();
 
-// Tie the stickyTableHead function to a resize event, and debounce for performance
+// Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
 
 window.addEventListener('resize', function (event) {
