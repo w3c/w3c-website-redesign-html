@@ -1,124 +1,347 @@
-/*------------------------------------*\
-    #Print styles
+/**
+* Print stylesheet
+* @version         1.0
+* @lastmodified    16.06.2016
 
-    We aim to:
-    - Hide everything that is irrelevant for print
-    - Make everything black and white and easy to read
+We aim to:
+- Hide everything that is irrelevant for print
+- Make everything black and white and easy to read
 
-    It is perfectly acceptable to use !important for print styles
-    as they should override everything else.
+It is perfectly acceptable to use !important for print
+styles as they should override everything else.
 
-    IMPORTANT: Anything that uses flexbox or grid on screen
-    and needs to appear in print must be refactored to use
-    block or inline block layout. Otherwise it will not print.
-    You can check this using the print preview in Chrome/Firefox.
-\*------------------------------------*/
+IMPORTANT: Anything that uses flexbox or grid on screen
+and which needs to display correctly in print must be
+refactored to use block or inline block layout. This can
+be checked using the print preview in Chrome/Firefox:
 
-//@TODO Add print styles
+https://css-tricks.com/can-you-view-print-stylesheets-applied-directly-in-the-browser/
+*/
 
+@page {
+	/*
+	Use PA4 (L4) transitional paper size, with a 2cm margin:
+	https://en.wikipedia.org/wiki/Paper_size#Transitional_paper_sizes
+	*/
 
-@media print {
+	margin: 2cm;
+	size: 21cm 28cm;
 
-	*,
-	*:before,
-	*:after,
-	p:first-line,
-	div:first-line,
-	blockquote:first-line,
-	li:first-line {
+}
 
-		background: transparent !important;
-		box-shadow: none !important;
-		color: #000 !important;
-		overflow: visible !important;
-		position: static !important;
-		text-shadow: none !important;
+*,
+*:before,
+*:after,
+blockquote:first-line,
+li:first-line,
+p:first-line {
+
+	background: transparent !important;
+	box-shadow: none !important;
+	color: #000 !important;
+	overflow: visible !important;
+	position: static !important;
+	text-shadow: none !important;
+
+}
+
+body {
+
+	font: 12pt $font-loaded-family;
+	line-height: 1.3;
+
+}
+
+body,
+img {
+
+	display: block !important;
+
+}
+
+img {
+
+	height: auto !important;
+	width: 100% !important;
+
+}
+
+code,
+pre {
+
+	font-family: $mono-family;
+
+}
+
+a,
+blockquote,
+figure,
+h1, h2, h3, h4, h5, h6,
+img,
+li,
+pre,
+table {
+
+	break-inside: avoid;
+	page-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+	font-weight: $emphasis;
+	margin: 0;
+
+}
+
+h1 {
+
+	font-size: 24pt !important;
+	margin-top: 36pt;
+
+}
+
+h2 {
+
+	font-size: 20pt !important;
+	margin-top: 30pt;
+
+}
+
+h3 {
+
+	font-size: 18pt !important;
+	margin-top: 27pt;
+
+}
+
+h4 {
+
+	font-size: 16pt !important;
+	margin-top: 24pt;
+
+}
+
+h5 {
+
+	font-size: 15pt !important;
+	margin-top: 22pt;
+
+}
+
+h6 {
+
+	font-size: 14pt !important;
+	margin-top: 21pt;
+
+}
+
+h1, h2, h3, h4, h5, h6,
+img {
+
+	page-break-after: avoid;
+
+}
+
+dl,
+ol,
+ul {
+
+	page-break-before: avoid;
+
+}
+
+ul:not([class]),
+ol:not([class]),
+.clean-list {
+
+	> * + *,
+	li ul,
+	li ol {
+
+		margin-top: 8pt;
 
 	}
 
-	body,
-	.lazy,
-	.lazyload {
+}
+
+ol:not([class]) {
+
+	counter-reset: count;
+	list-style-type: none;
+	padding-inline-start: 15pt;
+
+	> li {
+
+		counter-increment: count;
+
+		&::before {
+
+			content: counters(count, ".") " ";
+			padding-inline-end: 6pt;
+
+		}
+
+	}
+
+}
+
+a:link, a:visited, a {
+
+	text-decoration: underline;
+	text-decoration-skip-ink: auto;
+
+}
+
+main a[href]::after,
+footer a[href]::after {
+
+	content: ' <' attr(href) '> ';
+
+}
+
+abbr[title]::after {
+
+	content: ' (' attr(title) ')';
+
+}
+
+table {
+
+	border-collapse: collapse;
+	width: 100%;
+
+}
+
+table,
+th,
+td {
+
+	border: 1px solid;
+
+}
+
+th,
+td,
+table caption {
+
+	padding: 9pt;
+	text-align: start;
+
+}
+
+table caption {
+
+	font-size: 14pt;
+	font-weight: $emphasis;
+	padding-left: 0;
+	padding-right: 0;
+
+}
+
+blockquote,
+figure {
+
+	margin-left: 0;
+	margin-right: 0;
+
+}
+
+.l-frame {
+
+	padding: 0 !important;
+
+}
+
+.l-sidebar > div {
+
+	display: block !important;
+
+}
+
+.component + .component {
+
+	margin-top: 42pt;
+
+}
+
+.component--image,
+.component--quote {
+
+	margin-left: auto;
+	margin-right: auto;
+	position: relative !important;
+	width: 70%;
+
+}
+
+.component--quote {
+
+	border-inline-start: solid 4pt;
+	padding-inline-start: 8pt;
+
+	blockquote {
+
+		font-size: 14pt;
+		font-weight: $emphasis;
+
+	}
+
+}
+
+.component--collapsibles [hidden] {
+
+	display: block !important;
+
+}
+
+.js-carousel {
+
+	> * {
 
 		display: block !important;
 
 	}
 
-	.js-object-fit,
-	.responsive-wrapper,
-	picture {
-
-		padding: 0 !important;
-
-		img {
-
-			display: block !important;
-			height: auto !important;
-			width: 100% !important;
-
-		}
-
-	}
-
-	li,
-	.js-object-fit,
-	.responsive-wrapper,
-	picture,
-	figure,
-	img {
-
-		break-inside: avoid;
-		page-break-inside: avoid;
-		-webkit-column-break-inside: avoid;
-
-	}
-
-	.l-sidebar > div {
-
-		display: block !important;
-
-	}
-
-	.js-carousel {
-
-		> * {
-
-			display: block !important;
-
-		}
-
-		ul.carousel-controls {
-
-			display: none !important;
-
-		}
-
-		ul.clean-list {
-
-			li + li {
-
-				margin-top: 1cm !important;
-
-			}
-
-		}
-
-	}
-
-	.component--collapsibles [hidden] {
-
-		display: block !important;
-
-	}
-
-	.skip-link,
-	#cookie-banner,
-	nav,
-	.component--video,
-	.global-footer {
+	ul.carousel-controls {
 
 		display: none !important;
 
 	}
+
+	ul.clean-list {
+
+		li + li {
+
+			margin-top: 1cm !important;
+
+		}
+
+	}
+
+}
+
+footer {
+
+	margin-top: 36pt;
+
+}
+
+.skip-link,
+#cookie-banner,
+.banner,
+#lang-nav,
+.logo-link .visuallyhidden,
+[data-trigger="mobile-nav"],
+#global-nav ul,
+#breadcrumb,
+.translations,
+.toc,
+.component--video,
+.crosslinks,
+.global-footer__links {
+
+	display: none !important;
 
 }

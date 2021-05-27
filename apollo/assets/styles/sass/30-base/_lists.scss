@@ -20,7 +20,7 @@ ol:not([class]) {
 	li ul,
 	li ol {
 
-		margin-block-start: 0.75em;
+		margin-top: 0.75em;
 
 	}
 
@@ -80,14 +80,14 @@ dl {
 
 	dd + dt {
 
-		margin-block-start: 0.5em;
+		margin-top: 0.5em;
 
 	}
 
 	dt + dd,
 	dd + dd {
 
-		margin-block-start: 0.25em;
+		margin-top: 0.25em;
 
 	}
 
@@ -109,7 +109,7 @@ dl.grid {
 		dt + dd,
 		dd + dd {
 
-			margin-block-start: 0;
+			margin-top: 0;
 
 		}
 
