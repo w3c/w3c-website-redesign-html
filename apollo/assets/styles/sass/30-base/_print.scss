@@ -273,7 +273,8 @@ figure {
 
 }
 
-.hero {
+.home .hero,
+.landing .hero {
 
 	margin-top: 36pt;
 	min-height: 6cm;
@@ -680,6 +681,12 @@ figure {
 
 }
 
+.event-list .card__image {
+
+	width: 120pt;
+
+}
+
 footer {
 
 	margin-top: 36pt;
@@ -700,6 +707,10 @@ footer {
 .toc,
 .component--video,
 .calendar-link,
+.filters,
+.date-location img,
+.pre-footer,
+.pagination,
 .crosslinks,
 .global-footer__links {
 
