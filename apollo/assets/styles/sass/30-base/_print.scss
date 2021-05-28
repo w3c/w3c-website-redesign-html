@@ -687,6 +687,12 @@ figure {
 
 }
 
+.group-list a[href]::after {
+
+	display: block;
+
+}
+
 footer {
 
 	margin-top: 36pt;
@@ -709,6 +715,8 @@ footer {
 .calendar-link,
 .filters,
 .date-location img,
+.card--group dl,
+.card--group .l-cluster,
 .pre-footer,
 .pagination,
 .crosslinks,
