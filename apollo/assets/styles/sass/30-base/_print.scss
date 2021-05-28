@@ -302,9 +302,141 @@ figure {
 
 }
 
+.card--event .icon {
+
+	display: none !important;
+
+}
+
 .component + .component {
 
 	margin-top: 42pt;
+
+}
+
+.component--fifty-fifty {
+
+	min-height: 6cm;
+	padding-right: 6cm;
+	position: relative;
+
+	.l-frame {
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 6cm;
+
+	}
+
+	a {
+
+		display: block;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.component--fifty-fifty {
+
+		padding-left: 6cm;
+		padding-right: 0;
+
+		.l-frame {
+
+			left: 0;
+			right: auto;
+
+		}
+
+	}
+
+}
+
+.component--image,
+.component--quote {
+
+	margin-left: auto;
+	margin-right: auto;
+	position: relative !important;
+	width: 70%;
+
+}
+
+.component--quote {
+
+	border-inline-start: solid 4pt;
+	padding-inline-start: 8pt;
+
+	blockquote {
+
+		font-size: 14pt;
+		font-weight: $emphasis;
+
+	}
+
+}
+
+.component--collapsibles {
+
+	button {
+
+		border: 0;
+		display: block !important;
+		text-align: left;
+
+	}
+
+	button > span {
+
+		display: block;
+
+	}
+
+	[aria-hidden] {
+
+		display: block !important;
+
+	}
+
+	.icon {
+
+		display: none !important;
+
+	}
+
+	a {
+
+		display: block;
+		margin: -18pt 0 18pt;
+		visibility: hidden;
+
+	}
+
+	a[href]::after {
+
+		content: ' <' attr(href) '> ';
+		display: block;
+		font-size: 12pt;
+		visibility: visible;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.component--collapsibles {
+
+		button {
+
+			text-align: right;
+
+		}
+
+	}
 
 }
 
@@ -397,7 +529,7 @@ figure {
 .component--columns--icons,
 .component--columns--images {
 
-	a {
+	a:not(.card__link) {
 
 		display: block;
 		margin: -18pt 0 18pt;
@@ -409,104 +541,110 @@ figure {
 
 		content: ' <' attr(href) '> ';
 		display: block;
+		font-size: 12pt;
 		visibility: visible;
 
 	}
 
 }
 
-.component--fifty-fifty {
+.component--slider {
 
-	min-height: 6cm;
-	padding-right: 6cm;
-	position: relative;
+	.clean-list {
 
-	.l-frame {
+		display: block !important;
 
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 6cm;
+		li {
 
-	}
+			visibility: visible !important;
 
-	a {
+		}
 
-		display: block;
+		li[style] {
 
-	}
+			left: 0 !important;
 
-}
+		}
 
-[dir="rtl"] {
+		li + li {
 
-	.component--fifty-fifty {
-
-		padding-left: 6cm;
-		padding-right: 0;
-
-		.l-frame {
-
-			left: 0;
-			right: auto;
+			margin-top: 8pt;
 
 		}
 
 	}
 
-}
+	.slide__logo {
 
-.component--image,
-.component--quote {
-
-	margin-left: auto;
-	margin-right: auto;
-	position: relative !important;
-	width: 70%;
-
-}
-
-.component--quote {
-
-	border-inline-start: solid 4pt;
-	padding-inline-start: 8pt;
-
-	blockquote {
-
-		font-size: 14pt;
-		font-weight: $emphasis;
+		width: 3cm;
 
 	}
 
-}
-
-.component--collapsibles [hidden] {
-
-	display: block !important;
-
-}
-
-.js-carousel {
-
-	> * {
-
-		display: block !important;
-
-	}
-
-	ul.carousel-controls {
+	.slider-controls {
 
 		display: none !important;
 
 	}
 
-	ul.clean-list {
+}
 
-		li + li {
+.component--members__grid {
 
-			margin-top: 1cm !important;
+	> div {
+
+		display: inline-block;
+		width: 3cm;
+
+	}
+
+}
+
+.component--members__cta a {
+
+	display: block;
+
+}
+
+.component--evangelists__list {
+
+	.clean-list {
+
+		padding: 0;
+
+	}
+
+	li {
+
+		display: block;
+
+	}
+
+	.sidebar {
+
+		width: 3cm;
+
+	}
+
+	.avatar {
+
+		border-radius: 50%;
+		height: 75pt;
+		overflow: hidden !important;
+		position: relative;
+		width: 75pt;
+
+		img {
+
+			margin-top: -8pt;
+			width: 100%;
 
 		}
+
+	}
+
+	a[href]::after {
+
+		display: none;
 
 	}
 
