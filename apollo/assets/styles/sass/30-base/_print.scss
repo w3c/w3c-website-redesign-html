@@ -166,6 +166,12 @@ ol:not([class]),
 
 }
 
+.clean-list {
+
+	padding: 0;
+
+}
+
 ol:not([class]) {
 
 	counter-reset: count;
@@ -257,6 +263,13 @@ figure {
 .l-sidebar > div {
 
 	display: block !important;
+
+}
+
+.l-cluster > * > * {
+
+	display: inline-block;
+	padding: 3pt;
 
 }
 
@@ -607,12 +620,6 @@ figure {
 
 .component--evangelists__list {
 
-	.clean-list {
-
-		padding: 0;
-
-	}
-
 	li {
 
 		display: block;
@@ -650,6 +657,29 @@ figure {
 
 }
 
+.meta {
+
+	dt {
+
+		font-weight: bold;
+
+	}
+
+	dd {
+
+		margin-left: 0;
+		margin-right: 0;
+
+	}
+
+	dd + dt {
+
+		margin-top: 8pt;
+
+	}
+
+}
+
 footer {
 
 	margin-top: 36pt;
@@ -668,6 +698,7 @@ footer {
 .translations,
 .toc,
 .component--video,
+.calendar-link,
 .crosslinks,
 .global-footer__links {
 
