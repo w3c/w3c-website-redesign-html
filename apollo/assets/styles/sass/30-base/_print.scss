@@ -40,7 +40,7 @@ p:first-line {
 	box-shadow: none !important;
 	color: #000 !important;
 	overflow: visible !important;
-	position: static !important;
+	position: static;
 	text-shadow: none !important;
 
 }
@@ -97,42 +97,42 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 
-	font-size: 24pt !important;
+	font-size: 24pt;
 	margin-top: 36pt;
 
 }
 
 h2 {
 
-	font-size: 20pt !important;
+	font-size: 20pt;
 	margin-top: 30pt;
 
 }
 
 h3 {
 
-	font-size: 18pt !important;
+	font-size: 18pt;
 	margin-top: 27pt;
 
 }
 
 h4 {
 
-	font-size: 16pt !important;
+	font-size: 16pt;
 	margin-top: 24pt;
 
 }
 
 h5 {
 
-	font-size: 15pt !important;
+	font-size: 15pt;
 	margin-top: 22pt;
 
 }
 
 h6 {
 
-	font-size: 14pt !important;
+	font-size: 14pt;
 	margin-top: 21pt;
 
 }
@@ -260,9 +260,199 @@ figure {
 
 }
 
+.hero {
+
+	margin-top: 36pt;
+	min-height: 6cm;
+	padding-right: 6cm;
+	position: relative;
+
+	h1 {
+
+		margin-top: 0;
+
+	}
+
+	.sidebar {
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 6cm;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.hero {
+
+		padding-left: 6cm;
+		padding-right: 0;
+
+		.sidebar {
+
+			left: 0;
+			right: auto;
+
+		}
+
+	}
+
+}
+
 .component + .component {
 
 	margin-top: 42pt;
+
+}
+
+.component--columns {
+
+	ul {
+
+		padding: 0;
+
+	}
+
+	li {
+
+		display: block;
+
+	}
+
+}
+
+.component--columns--icons {
+
+	.card {
+
+		// Padding to allow room for icon
+		padding-top: 1.5cm;
+		position: relative;
+
+	}
+
+	.card__heading {
+
+		margin-top: 0;
+
+	}
+
+	.icon {
+
+		height: 1cm;
+		position: absolute;
+		top: 0;
+		width: 1cm;
+
+	}
+
+}
+
+.component--columns--images {
+
+	.card {
+
+		min-height: 5cm;
+		padding-right: 6cm;
+		position: relative;
+
+	}
+
+	.card__image {
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 6cm;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.component--columns--images {
+
+		.card {
+
+			padding-left: 6cm;
+			padding-right: 0;
+
+		}
+
+		.card__image {
+
+			left: 0;
+			right: auto;
+
+		}
+
+	}
+
+}
+
+.component--columns--icons,
+.component--columns--images {
+
+	a {
+
+		display: block;
+		margin: -18pt 0 18pt;
+		visibility: hidden;
+
+	}
+
+	a[href]::after {
+
+		content: ' <' attr(href) '> ';
+		display: block;
+		visibility: visible;
+
+	}
+
+}
+
+.component--fifty-fifty {
+
+	min-height: 6cm;
+	padding-right: 6cm;
+	position: relative;
+
+	.l-frame {
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 6cm;
+
+	}
+
+	a {
+
+		display: block;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.component--fifty-fifty {
+
+		padding-left: 6cm;
+		padding-right: 0;
+
+		.l-frame {
+
+			left: 0;
+			right: auto;
+
+		}
+
+	}
 
 }
 
@@ -330,6 +520,7 @@ footer {
 
 .skip-link,
 #cookie-banner,
+[role="status"],
 .banner,
 #lang-nav,
 .logo-link .visuallyhidden,
