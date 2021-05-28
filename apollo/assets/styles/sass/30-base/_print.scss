@@ -619,40 +619,18 @@ figure {
 
 }
 
-.component--evangelists__list {
+.avatar {
 
-	li {
+	border-radius: 50%;
+	height: 75pt;
+	overflow: hidden !important;
+	position: relative;
+	width: 75pt;
 
-		display: block;
+	img {
 
-	}
-
-	.sidebar {
-
-		width: 3cm;
-
-	}
-
-	.avatar {
-
-		border-radius: 50%;
-		height: 75pt;
-		overflow: hidden !important;
-		position: relative;
-		width: 75pt;
-
-		img {
-
-			margin-top: -8pt;
-			width: 100%;
-
-		}
-
-	}
-
-	a[href]::after {
-
-		display: none;
+		margin-top: -8pt;
+		width: 100%;
 
 	}
 
@@ -678,6 +656,72 @@ figure {
 		margin-top: 8pt;
 
 	}
+
+}
+
+.component--evangelists__list {
+
+	li {
+
+		display: block;
+
+	}
+
+	.sidebar {
+
+		width: 3cm;
+
+	}
+
+}
+
+.component--evangelists__list,
+.people-list {
+
+	a[href^=mailto]::after,
+	a[href^=tel]::after {
+
+		display: none;
+
+	}
+
+}
+
+.people-list > li + li {
+
+	margin-top: 30pt;
+
+}
+
+.people-list .l-cluster > * > * {
+
+	display: block;
+
+}
+
+.people-list > li > div:not(.alumni) {
+
+	padding-top: 75pt;
+	position: relative;
+
+	h2, h3 {
+
+		margin-top: 12pt;
+
+	}
+
+	> .sidebar {
+
+		position: absolute;
+		top: 0;
+
+	}
+
+}
+
+.people-list .sidebar {
+
+	width: 75pt;
 
 }
 
@@ -723,6 +767,7 @@ footer {
 .date-location img,
 .card--group dl,
 .card--group .l-cluster,
+.people-list .icon,
 .pre-footer,
 .pagination,
 .crosslinks,
