@@ -20,7 +20,7 @@
     "css:autoprefixer": "autoprefixer-cli -d ${npm_package_config_to}/styles ${npm_package_config_to}/styles/*.css",
     "css": "npm-run-all --sequential css:normalize css:sass css:autoprefixer",
     "images:imagemin": "imagemin ${npm_package_config_from}/images/* --out-dir=${npm_package_config_to}/images",
-    "images:svg": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg --disable='removeViewBox' | true",
+    "images:svg": "svgo --folder=${npm_package_config_from}/svg --output=${npm_package_config_to}/svg --disable='removeViewBox' --disable='cleanupIDs' | true",
     "images": "npm-run-all --parallel images:imagemin images:svg",
     "fonts": "shx cp -r ${npm_package_config_from}/fonts/* ${npm_package_config_to}/fonts",
     "js:copypackages": "copyfiles -f ./node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.js ./node_modules/fontfaceobserver/fontfaceobserver.js ./node_modules/parsleyjs/dist/parsley.js ./node_modules/pikaday/pikaday.js ./node_modules/tabbyjs/dist/js/* ${npm_package_config_from}/js/libraries",
