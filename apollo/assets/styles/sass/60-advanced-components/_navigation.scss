@@ -153,7 +153,7 @@
 
 }
 
-svg.nav-small {
+.nav-small {
 
 	margin-inline-start: auto;
 
@@ -173,13 +173,13 @@ svg.nav-small {
 
 [dir="rtl"] {
 
-	svg.nav-small .angle-left {
+	.nav-small .angle-left {
 
 		display: block;
 
 	}
 
-	svg.nav-small .angle-right {
+	.nav-small .angle-right {
 
 		display: none;
 
@@ -187,7 +187,7 @@ svg.nav-small {
 
 }
 
-svg.nav-wide {
+.nav-wide {
 
 	display: none;
 
