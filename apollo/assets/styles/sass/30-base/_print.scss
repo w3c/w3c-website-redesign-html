@@ -659,6 +659,44 @@ figure {
 
 }
 
+.post .meta .with-icon--before {
+
+	line-height: 1.25cm;
+	padding-left: 1.5cm;
+	position: relative;
+
+	.icon,
+	.avatar {
+
+		height: 1.25cm !important;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 1.25cm !important;
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.post .meta .with-icon--before {
+
+		padding-left: 0;
+		padding-right: 1.5cm;
+
+		.icon,
+		.avatar {
+
+			left: auto;
+			right: 0;
+
+		}
+
+	}
+
+}
+
 .component--evangelists__list {
 
 	li {
@@ -791,6 +829,8 @@ footer {
 }
 
 .skip-link,
+.skip-to-comments,
+.skip-to-comment-form,
 #cookie-banner,
 [role="status"],
 .banner,
@@ -813,6 +853,8 @@ footer {
 .people-list .icon,
 .post-list .icon,
 .post-list .tag,
+.post .rss .icon,
+.comments,
 .pre-footer,
 .pagination,
 .crosslinks,
