@@ -743,6 +743,47 @@ figure {
 
 }
 
+.post-list > li > div {
+
+	min-height: 5cm;
+	padding-right: 6cm;
+	position: relative;
+
+	.l-frame {
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 6cm;
+
+		&::after {
+
+			display: none !important;
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.post-list > li > div {
+
+		padding-right: 0;
+		padding-left: 6cm;
+
+		.l-frame {
+
+			left: 0;
+			right: auto;
+
+		}
+
+	}
+
+}
+
 footer {
 
 	margin-top: 36pt;
@@ -763,11 +804,15 @@ footer {
 .toc,
 .component--video,
 .calendar-link,
-.filters,
+.listing .lead,
+.listing .filters,
+.listing form,
 .date-location img,
 .card--group dl,
 .card--group .l-cluster,
 .people-list .icon,
+.post-list .icon,
+.post-list .tag,
 .pre-footer,
 .pagination,
 .crosslinks,
