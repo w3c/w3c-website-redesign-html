@@ -407,7 +407,7 @@
 						<label for="guests">
 							<span class="field-label">Number of guest tickets required</span>
 						</label>
-						<input type="number" class="input-width-3" id="guests" name="guests">
+						<input type="number" class="input-width-3" id="guests" name="guests" value="0" pattern="[0-9]*">
 					</div>
 				</fieldset>
 				<fieldset>
@@ -553,7 +553,7 @@
 						<span class="field-hint">An example of a select field enhanced into an autocomplete field with JavaScript</span>
 					</label>
 					<select id="destination">
-						<option value="">Select a country</option>
+						<option value="" selected>Select a country</option>
 						<option value="1" data-alt="AF">Afghanistan</option>
 						<option value="2" data-alt="AX Aaland Aland">Åland Islands</option>
 						<option value="3" data-alt="AL">Albania</option>
