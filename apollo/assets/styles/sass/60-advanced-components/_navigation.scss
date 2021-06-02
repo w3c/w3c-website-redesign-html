@@ -38,13 +38,13 @@
 
 	}
 
-	&[aria-expanded="false"] #close-icon {
+	&[aria-expanded="false"] .close-icon {
 
 		display: none;
 
 	}
 
-	&[aria-expanded="true"] #menu-icon {
+	&[aria-expanded="true"] .menu-icon {
 
 		display: none;
 
