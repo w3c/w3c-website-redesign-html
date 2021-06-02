@@ -34,9 +34,10 @@ fieldset + fieldset {
 
 }
 
+form > * + *,
 fieldset > * + * {
 
-	margin-top: 1.5rem;
+	margin-top: 1.75rem;
 
 }
 
@@ -76,7 +77,6 @@ Group inputs to line up side-by-side
 
 .field {
 
-	margin-top: 1.75rem;
 	max-width: rem($text-measure);
 
 }
