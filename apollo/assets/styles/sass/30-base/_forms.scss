@@ -141,6 +141,7 @@ textarea,
 [type=url] {
 
 	appearance: none;
+	-webkit-appearance: none;
 	border: 2px solid;
 	border-radius: 0;
 	line-height: 1.25;
@@ -191,6 +192,17 @@ select,
 		padding-right: rem(5);
 
 	}
+
+}
+
+
+/**
+Search
+ */
+[type="search"]::-webkit-search-decoration,
+[type="search"]::-webkit-search-cancel-button {
+
+	appearance: none;
 
 }
 
