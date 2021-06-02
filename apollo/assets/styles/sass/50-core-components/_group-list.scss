@@ -7,14 +7,6 @@
 	background-color: $mist-gray;
 	padding-bottom: rem(50);
 	padding-top: rem(50);
-	
-	> h2,
-	> h2 + p {
-
-		margin-bottom: 1em;
-		max-width: rem($text-measure);
-
-	}
 
 	.component--collapsibles > div,
 	.component--collapsible-cards > div {
@@ -82,5 +74,14 @@
 		}
 
 	}
+
+}
+
+.component--group-list__intro {
+
+	@include stack(1em);
+
+	max-width: rem($text-measure);
+	margin-bottom: rem(30);
 
 }
