@@ -28,17 +28,12 @@ button,
 
 	}
 
-	&:focus {
+	&:focus,
+	&:active {
 
 		color: $black;
 		background-color: $focus-color;
 		border-color: $black;
-
-	}
-
-	&:active {
-
-		color: $black;
 
 	}
 
@@ -105,7 +100,8 @@ input[type="submit"].button {
 
 	}
 
-	&:focus {
+	&:focus,
+	&:active {
 
 		background-color: $focus-color;
 		border-width: 3px;
