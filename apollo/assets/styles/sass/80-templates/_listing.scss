@@ -89,6 +89,7 @@
 
 		@include stack();
 
+		align-self: flex-start;
 		margin-top: rem(40);
 
 		ul {
@@ -117,7 +118,6 @@
 
 		details[open] ul {
 
-			position: absolute;
 			width: rem(200);
 
 		}
