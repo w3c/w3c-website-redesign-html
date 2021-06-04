@@ -132,6 +132,7 @@ label,
 textarea,
 [type=date],
 [type=email],
+[type=file],
 [type=number],
 [type=password],
 [type=search],
@@ -175,11 +176,7 @@ select,
 
 [type="file"] {
 
-	border: 2px solid transparent;
-	border-radius: 0;
-	line-height: 1.25;
-	padding-bottom: rem(5);
-	padding-top: rem(5);
+	border-color: transparent;
 
 	&:focus {
 
