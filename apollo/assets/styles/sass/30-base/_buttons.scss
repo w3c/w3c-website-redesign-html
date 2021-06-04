@@ -41,17 +41,7 @@ button,
 
 button:not([type="submit"]) {
 
-	text-align: left;
-
-}
-
-[dir="rtl"] {
-
-	button:not([type="submit"]) {
-
-		text-align: right;
-
-	}
+	text-align: start;
 
 }
 
@@ -61,7 +51,6 @@ Remove link styling from links styled as buttons.
  */
 .button {
 
-	display: block;
 	text-decoration: none;
 
 }
