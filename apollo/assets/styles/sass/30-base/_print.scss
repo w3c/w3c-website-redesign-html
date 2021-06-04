@@ -200,6 +200,13 @@ a:link, a:visited, a {
 
 }
 
+.logo {
+
+	display: block;
+	width: 2cm;
+
+}
+
 main a[href]::after,
 footer a[href]::after {
 
