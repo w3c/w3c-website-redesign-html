@@ -571,26 +571,20 @@ button,
   .button:hover {
     background-color: #024488;
     border-color: #024488; }
-  button:focus,
-  .button:focus {
+  button:focus, button:active,
+  .button:focus,
+  .button:active {
     color: #000;
     background-color: #f9dc4a;
     border-color: #000; }
-  button:active,
-  .button:active {
-    color: #000; }
 
-[dir="ltr"] button:not([type="submit"]) {
-  text-align: left; }
-
-[dir="rtl"] button:not([type="submit"]) {
-  text-align: right; }
+button:not([type="submit"]) {
+  text-align: start; }
 
 /**
 Remove link styling from links styled as buttons.
  */
 .button {
-  display: block;
   text-decoration: none; }
 
 /**
@@ -610,7 +604,7 @@ input[type="submit"].button {
   .button--alt:hover {
     background-color: #cbe0fb;
     color: #024488; }
-  .button--alt:focus {
+  .button--alt:focus, .button--alt:active {
     background-color: #f9dc4a;
     border-width: 3px;
     color: #000;
@@ -720,8 +714,9 @@ End of resets for the fieldset element
 fieldset + fieldset {
   margin-top: 2.5rem; }
 
+form > * + *,
 fieldset > * + * {
-  margin-top: 1.5rem; }
+  margin-top: 1.75rem; }
 
 /**
 Group inputs to line up side-by-side
@@ -743,7 +738,6 @@ Group inputs to line up side-by-side
   font-weight: bold; }
 
 .field {
-  margin-top: 1.75rem;
   max-width: 41.25rem; }
 
 label,
@@ -785,9 +779,9 @@ textarea,
 [type=text],
 [type=time],
 [type=url] {
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   border: 2px solid;
   border-radius: 0;
   line-height: 1.25;
@@ -833,6 +827,14 @@ select,
     outline: 3px solid #f9dc4a;
     padding-left: 0.3125rem;
     padding-right: 0.3125rem; }
+
+/**
+Search
+ */
+[type="search"]::-webkit-search-decoration,
+[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+          appearance: none; }
 
 /**
 Select
@@ -1188,6 +1190,133 @@ Error styles
   font-weight: bold;
   margin-top: 0.9375rem; }
 
+/**
+Progress bar
+ */
+.progress-list {
+  margin-bottom: 1.875rem; }
+  @media screen and (min-width: 48em) {
+    .progress-list {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; } }
+
+.progress-list li {
+  position: relative; }
+  .progress-list li::after {
+    background-color: #545454;
+    bottom: -1rem;
+    content: '';
+    height: 0.8125rem;
+    left: 1.1875rem;
+    position: absolute;
+    width: 0.1875rem; }
+    @media screen and (min-width: 48em) {
+      .progress-list li::after {
+        bottom: auto;
+        height: 0.1875rem;
+        left: 50%;
+        top: 2rem;
+        width: 100%;
+        z-index: -1; } }
+  .progress-list li + li {
+    margin-top: 1.25rem; }
+    @media screen and (min-width: 48em) {
+      .progress-list li + li {
+        margin-top: 0; } }
+
+[dir="rtl"] .progress-list li::after {
+  left: auto;
+  right: 1.1875rem; }
+  @media screen and (min-width: 48em) {
+    [dir="rtl"] .progress-list li::after {
+      left: auto;
+      right: 50%; } }
+
+.progress-list li.complete::after {
+  background-color: #237978; }
+
+.progress-list li:last-child::after {
+  display: none; }
+
+.progress-step__inner {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex; }
+  @media screen and (min-width: 48em) {
+    .progress-step__inner {
+      -ms-flex-direction: column;
+          flex-direction: column;
+      padding-top: 0.625rem;
+      text-align: center; } }
+  .progress-step__inner > span {
+    font-size: 0.9375rem;
+    line-height: calc(22.5 / 15);
+    padding: 0.625rem; }
+    @media screen and (min-width: 48em) {
+      .progress-step__inner > span {
+        width: 9.375rem; } }
+
+.progress-step__marker {
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #fff;
+  border: solid 3px #545454;
+  border-radius: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2.75rem;
+  -ms-flex-pack: center;
+      justify-content: center;
+  width: 2.75rem; }
+  @media screen and (min-width: 48em) {
+    .progress-step__marker {
+      box-shadow: 0 0 0 0.625rem #fff; } }
+
+.progress-step__marker.complete {
+  background-color: #237978;
+  border-color: #237978;
+  color: #fff;
+  position: relative; }
+  .progress-step__marker.complete::before, .progress-step__marker.complete::after {
+    background-color: #237978;
+    content: '';
+    position: absolute; }
+  .progress-step__marker.complete::before {
+    border-radius: 50%;
+    height: 2.375rem;
+    left: 0;
+    top: 0;
+    width: 2.375rem; }
+  .progress-step__marker.complete::after {
+    border: solid;
+    border-top-color: transparent;
+    border-width: 0 0 3px 3px;
+    height: 0.5625rem;
+    left: 0.625rem;
+    top: 0.8125rem;
+    transform: rotate(-45deg);
+    width: 1.125rem; }
+
+.progress-list a {
+  color: #545454;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.25em; }
+  .progress-list a:visited {
+    color: #920ba6; }
+  .progress-list a:hover {
+    color: #024488; }
+  .progress-list a:focus {
+    box-shadow: 0 0 0 2px;
+    color: #000;
+    outline: solid 3px #f9dc4a;
+    outline-offset: 2px;
+    text-decoration: none; }
+  .progress-list a:active {
+    color: #000; }
+
 /*------------------------------------*\
     #Hide and show items inclusively
 
@@ -1292,7 +1421,7 @@ small,
 code,
 samp,
 pre {
-  font-family: Monaco, "Lucida Console", monospace;
+  font-family: Monaco, "Lucida Console", "Courier New", monospace;
   font-size: .9em;
   -webkit-hyphens: none;
       -ms-hyphens: none;
@@ -1354,26 +1483,27 @@ Pay attention to whether the icon is before the text or after.
   -ms-flex-align: center;
       align-items: center; }
 
-[dir="ltr"] .with-icon--before .icon {
+.with-icon--before .icon {
   margin-right: 0.5rem; }
   @supports ((-webkit-margin-end: 1em) or (margin-inline-end: 1em)) {
-    [dir="ltr"] .with-icon--before .icon {
+    .with-icon--before .icon {
       margin-right: 0;
       -webkit-margin-end: 0.5rem;
               margin-inline-end: 0.5rem;
       /* 2 */ } }
 
-[dir="ltr"] .with-icon--after .icon {
+.with-icon--after .icon {
   margin-left: 0.5rem; }
   @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
-    [dir="ltr"] .with-icon--after .icon {
+    .with-icon--after .icon {
       margin-left: 0;
       -webkit-margin-start: 0.5rem;
               margin-inline-start: 0.5rem;
       /* 2 */ } }
 
 [dir="rtl"] .with-icon--before .icon {
-  margin-left: 0.5rem; }
+  margin-left: 0.5rem;
+  margin-right: 0; }
   @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
     [dir="rtl"] .with-icon--before .icon {
       margin-left: 0;
@@ -1382,6 +1512,7 @@ Pay attention to whether the icon is before the text or after.
       /* 2 */ } }
 
 [dir="rtl"] .with-icon--after .icon {
+  margin-left: 0;
   margin-right: 0.5rem; }
   @supports ((-webkit-margin-start: 1em) or (margin-inline-start: 1em)) {
     [dir="rtl"] .with-icon--after .icon {
@@ -1489,8 +1620,7 @@ ul:not([class]) li ol,
 ol:not([class]) > * + *,
 ol:not([class]) li ul,
 ol:not([class]) li ol {
-  -webkit-margin-before: 0.75em;
-          margin-block-start: 0.75em; }
+  margin-top: 0.75em; }
 
 ul:not([class]) {
   -webkit-padding-start: 2.4em;
@@ -1518,13 +1648,11 @@ dl dt {
   font-weight: bold; }
 
 dl dd + dt {
-  -webkit-margin-before: 0.5em;
-          margin-block-start: 0.5em; }
+  margin-top: 0.5em; }
 
 dl dt + dd,
 dl dd + dd {
-  -webkit-margin-before: 0.25em;
-          margin-block-start: 0.25em; }
+  margin-top: 0.25em; }
 
 @supports (grid-row-start: auto) {
   dl.grid {
@@ -1539,8 +1667,7 @@ dl dd + dd {
     dl.grid dd + dt,
     dl.grid dt + dd,
     dl.grid dd + dd {
-      -webkit-margin-before: 0;
-              margin-block-start: 0; }
+      margin-top: 0; }
     dl.grid dt {
       -ms-grid-column: 1;
           grid-column-start: 1;
@@ -1769,75 +1896,6 @@ can safely use the web fonts instead of the system fonts.
   font-family: "Noto Sans", "Trebuchet MS", Geneva, sans-serif; }
 
 /*------------------------------------*\
-    #Print styles
-
-    We aim to:
-    - Hide everything that is irrelevant for print
-    - Make everything black and white and easy to read
-
-    It is perfectly acceptable to use !important for print styles
-    as they should override everything else.
-
-    IMPORTANT: Anything that uses flexbox or grid on screen
-    and needs to appear in print must be refactored to use
-    block or inline block layout. Otherwise it will not print.
-    You can check this using the print preview in Chrome/Firefox.
-\*------------------------------------*/
-@media print {
-  *,
-  *:before,
-  *:after,
-  p:first-line,
-  div:first-line,
-  blockquote:first-line,
-  li:first-line {
-    background: transparent !important;
-    box-shadow: none !important;
-    color: #000 !important;
-    overflow: visible !important;
-    position: static !important;
-    text-shadow: none !important; }
-  body,
-  .lazy,
-  .lazyload {
-    display: block !important; }
-  .js-object-fit,
-  .responsive-wrapper,
-  picture {
-    padding: 0 !important; }
-    .js-object-fit img,
-    .responsive-wrapper img,
-    picture img {
-      display: block !important;
-      height: auto !important;
-      width: 100% !important; }
-  li,
-  .js-object-fit,
-  .responsive-wrapper,
-  picture,
-  figure,
-  img {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    -webkit-column-break-inside: avoid; }
-  .l-sidebar > div {
-    display: block !important; }
-  .js-carousel > * {
-    display: block !important; }
-  .js-carousel ul.carousel-controls {
-    display: none !important; }
-  .js-carousel ul.clean-list li + li {
-    margin-top: 1cm !important; }
-  .component--collapsibles [hidden] {
-    display: block !important; }
-  .skip-link,
-  #cookie-banner,
-  nav,
-  .component--video,
-  .global-footer {
-    display: none !important; } }
-
-/*------------------------------------*\
     #Layouts
 \*------------------------------------*/
 /*------------------------------------*\
@@ -1947,6 +2005,7 @@ out, but halve it to to account for 'doubling up' at the edges.
 \*------------------------------------*/
 .l-frame {
   display: block;
+  overflow: hidden;
   position: relative; }
 
 .l-frame > * {
@@ -1958,7 +2017,6 @@ out, but halve it to to account for 'doubling up' at the edges.
   -ms-flex-pack: center;
       justify-content: center;
   left: 0;
-  overflow: hidden;
   position: absolute;
   right: 0;
   top: 0; }
@@ -1967,8 +2025,11 @@ out, but halve it to to account for 'doubling up' at the edges.
 .l-frame > img,
 .l-frame > video {
   height: 100%;
-  object-fit: cover;
   width: 100%; }
+
+.l-frame > img,
+.l-frame > video {
+  object-fit: cover; }
 
 /* Common aspect ratios */
 .l-frame--16-9 {
@@ -2155,10 +2216,11 @@ so that either of these properties is applied instead.
     .global-header .banner__inner a:focus {
       color: #000; }
 
-[dir="ltr"] .banner__inner p {
+.banner__inner p {
   margin-left: 0.625rem; }
 
 [dir="rtl"] .banner__inner p {
+  margin-left: 0;
   margin-right: 0.625rem; }
 
 #lang-nav {
@@ -2180,88 +2242,104 @@ so that either of these properties is applied instead.
 /*------------------------------------*\
     #Archive banner
 \*------------------------------------*/
-#archive-banner {
-  background-color: #f9dc4a;
-  padding-bottom: 1.25rem;
-  padding-top: 1.25rem; }
-
-#archive-banner .centered {
-  box-sizing: content-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 70rem;
-  overflow: hidden;
-  padding-left: 5vw;
-  padding-right: 5vw; }
-
-#archive-banner .centered > * {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: -0.75rem; }
-
-#archive-banner .centered > * > * {
-  margin: 0.75rem; }
-
-#archive-banner .archive-banner__message {
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-  -ms-flex-positive: 999;
-      flex-grow: 999;
-  min-width: calc(80% - 1.5rem); }
-
-#archive-banner .archive-banner__message > * + * {
-  margin-top: 1rem; }
-
-#archive-banner .archive-banner__message > * {
-  max-width: 41.25rem; }
-
-#archive-banner .archive-banner__message h2 {
-  display: block;
-  font-size: 1.1875rem;
-  line-height: calc(32 / 19); }
-
-#archive-banner .archive-banner__message h3 {
-  font-size: 1rem;
-  line-height: calc(32 / 24); }
-
-#archive-banner .archive-banner__message h3 + * {
-  margin-top: 0; }
-
-#archive-banner a {
-  color: #024488; }
-
-#archive-banner a:visited {
-  color: #024488; }
-
-#archive-banner a:focus {
-  background-image: none;
-  color: #000;
-  outline: solid 2px #000;
-  outline-offset: 1px;
-  text-decoration: none; }
-
-#archive-banner .archive-banner__logo {
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  -ms-flex-positive: 1;
-      flex-grow: 1;
-  -ms-flex-order: -1;
-      order: -1; }
-
-#archive-banner .archive-banner__logo > span {
-  display: block;
-  height: 2.75rem;
-  position: relative;
-  width: 4.125rem; }
+@media screen {
+  #archive-banner {
+    background-color: #f9dc4a;
+    padding-bottom: 1.25rem;
+    padding-top: 1.25rem; }
+  #archive-banner .centered {
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70rem;
+    overflow: hidden;
+    padding-left: 5vw;
+    padding-right: 5vw; }
+  #archive-banner .centered > * {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: -0.75rem; }
+  #archive-banner .centered > * > * {
+    margin: 0.75rem; }
+  #archive-banner .archive-banner__message {
+    -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+    -ms-flex-positive: 999;
+        flex-grow: 999;
+    min-width: calc(80% - 1.5rem); }
+  #archive-banner .archive-banner__message > * + * {
+    margin-top: 1rem; }
+  #archive-banner .archive-banner__message > * {
+    max-width: 41.25rem; }
+  #archive-banner .archive-banner__message h2 {
+    display: block;
+    font-size: 1.1875rem;
+    line-height: calc(32 / 19); }
+  #archive-banner .archive-banner__message h3 {
+    font-size: 1rem;
+    line-height: calc(32 / 24); }
+  #archive-banner .archive-banner__message h3 + * {
+    margin-top: 0; }
+  #archive-banner a {
+    color: #024488; }
+  #archive-banner a:visited {
+    color: #024488; }
+  #archive-banner a:focus {
+    background-image: none;
+    color: #000;
+    outline: solid 2px #000;
+    outline-offset: 1px;
+    text-decoration: none; }
+  #archive-banner .archive-banner__logo {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    -ms-flex-order: -1;
+        order: -1; }
+  #archive-banner .archive-banner__logo > span {
+    display: block;
+    height: 2.75rem;
+    position: relative;
+    width: 4.125rem; } }
 
 @media screen and (min-width: 64em) {
   #archive-banner .archive-banner__logo > span {
     height: 3.25rem;
     width: 4.875rem; } }
+
+@media print {
+  #archive-banner {
+    border: solid 2.25pt;
+    font-family: 'Noto Sans', 'Trebuchet MS', Geneva, sans-serif;
+    margin: 1cm;
+    padding: 8pt;
+    position: relative; }
+  #archive-banner a:link,
+  #archive-banner a:visited,
+  #archive-banner a {
+    color: #000; }
+  #archive-banner a[href]::after {
+    content: " <" attr(href) "> "; }
+  .archive-banner__message {
+    min-height: 40pt;
+    padding-left: 62pt; }
+  .archive-banner__message > * + * {
+    margin-top: 8pt; }
+  [dir="rtl"] .archive-banner__message {
+    padding-left: 0;
+    padding-right: 60pt; }
+  .archive-banner__logo {
+    left: 8pt;
+    position: absolute;
+    top: 8pt; }
+  [dir="rtl"] .archive-banner__logo {
+    left: auto;
+    right: 8pt; } }
 
 /*------------------------------------*\
     #Logo
@@ -2302,9 +2380,6 @@ so that either of these properties is applied instead.
 \*------------------------------------*/
 #global-nav svg {
   pointer-events: none; }
-
-[data-trigger="mobile-nav"] {
-  display: none; }
 
 #global-nav {
   border-bottom: solid 1px #bdbdbd;
@@ -2641,7 +2716,7 @@ main,
   padding-top: 0.625rem; }
 
 /*------------------------------------*\
-    #Table of contents
+    #Table of contents (TOC)
 \*------------------------------------*/
 .toc {
   display: -ms-flexbox;
@@ -2663,12 +2738,14 @@ main,
   font-size: 1rem;
   font-weight: normal; }
 
-[dir="ltr"] .toc ul {
+.toc ul {
   border-left: solid 3px #f9c818;
   padding-left: 0.9375rem; }
 
 [dir="rtl"] .toc ul {
+  border-left: 0;
   border-right: solid 3px #f9c818;
+  padding-left: 0;
   padding-right: 0.9375rem; }
 
 .toc ul a {
@@ -2874,10 +2951,11 @@ main,
   height: 100%;
   overflow: hidden; }
 
-[dir="ltr"] .card--event {
+.card--event {
   border-left: solid 0.375rem; }
 
 [dir="rtl"] .card--event {
+  border-left: 0;
   border-right: solid 0.375rem; }
 
 .card--event,
@@ -3149,10 +3227,6 @@ a.tag {
   background-color: #f8f8fb;
   padding-bottom: 3.125rem;
   padding-top: 3.125rem; }
-  .component--group-list > h2,
-  .component--group-list > h2 + p {
-    margin-bottom: 1em;
-    max-width: 41.25rem; }
   .component--group-list .component--collapsibles > div,
   .component--group-list .component--collapsible-cards > div {
     display: -ms-flexbox;
@@ -3203,6 +3277,18 @@ a.tag {
       max-width: 41.25rem; }
     .component--group-list [data-heading="collapsibles"] + * > .component--collapsible-cards {
       max-width: none; }
+
+.component--group-list__intro {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  max-width: 41.25rem;
+  margin-bottom: 1.875rem; }
+  .component--group-list__intro > * + * {
+    margin-top: 1em; }
 
 /*------------------------------------*\
     #Members grid
@@ -3604,7 +3690,7 @@ input[type=search] {
       order: -1; }
   .l-sidebar.comment .sidebar img,
   .l-sidebar.comment-form-wrap .sidebar img {
-    max-width: 3.125rem; }
+    width: 3.125rem; }
 
 .l-sidebar.comment .not-sidebar,
 .l-sidebar.comment-form-wrap .not-sidebar {
@@ -4174,6 +4260,8 @@ dl.family-series-list dt:nth-of-type(2)::before {
       flex-direction: column;
   -ms-flex-pack: start;
       justify-content: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   margin-top: 2.5rem; }
   .listing .archive-links > * + *,
   .listing .category-links > * + * {
@@ -4195,7 +4283,6 @@ dl.family-series-list dt:nth-of-type(2)::before {
     padding: 0.625rem; }
   .listing .archive-links details[open] ul,
   .listing .category-links details[open] ul {
-    position: absolute;
     width: 12.5rem; }
 
 .listing .archive-links ul {

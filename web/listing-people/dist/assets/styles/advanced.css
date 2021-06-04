@@ -329,9 +329,9 @@ br {
   [data-trigger="mobile-nav"]:focus {
     background-color: #f9dc4a;
     border-color: #000; }
-  [data-trigger="mobile-nav"][aria-expanded="false"] #close-icon {
+  [data-trigger="mobile-nav"][aria-expanded="false"] .close-icon {
     display: none; }
-  [data-trigger="mobile-nav"][aria-expanded="true"] #menu-icon {
+  [data-trigger="mobile-nav"][aria-expanded="true"] .menu-icon {
     display: none; }
   [data-trigger="mobile-nav"][aria-expanded="false"] ~ .account-login {
     display: none; }
@@ -394,25 +394,25 @@ br {
 .signed-in .global-nav__inner > ul > li:last-child {
   display: none; }
 
-svg.nav-small {
+.nav-small {
   -webkit-margin-start: auto;
           margin-inline-start: auto; }
   @media screen and (min-width: 70em) {
-    svg.nav-small {
+    .nav-small {
       display: none; } }
-  svg.nav-small .angle-left {
+  .nav-small .angle-left {
     display: none; }
 
-[dir="rtl"] svg.nav-small .angle-left {
+[dir="rtl"] .nav-small .angle-left {
   display: block; }
 
-[dir="rtl"] svg.nav-small .angle-right {
+[dir="rtl"] .nav-small .angle-right {
   display: none; }
 
-svg.nav-wide {
+.nav-wide {
   display: none; }
   @media screen and (min-width: 70em) {
-    svg.nav-wide {
+    .nav-wide {
       display: inline; } }
 
 .global-nav__inner [data-trigger="subnav"] {
@@ -878,14 +878,20 @@ svg.nav-wide {
   [data-component="slider"] .js-slider > ul > li + li {
     margin-top: 0; }
 
-[dir="ltr"] .slider-controls .previous .chevron-right {
+.slider-controls .previous .chevron-right {
   display: none; }
 
-[dir="ltr"] .slider-controls .next .chevron-left {
+.slider-controls .next .chevron-left {
   display: none; }
 
 [dir="rtl"] .slider-controls .previous .chevron-left {
   display: none; }
+
+[dir="rtl"] .slider-controls .previous .chevron-right {
+  display: block; }
+
+[dir="rtl"] .slider-controls .next .chevron-left {
+  display: block; }
 
 [dir="rtl"] .slider-controls .next .chevron-right {
   display: none; }
@@ -895,8 +901,7 @@ svg.nav-wide {
   color: #111; }
   .slider-controls .previous:hover,
   .slider-controls .next:hover {
-    background-color: #fff;
-    border-color: #000; }
+    box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25); }
   .slider-controls .previous:focus,
   .slider-controls .next:focus {
     background-color: #fff;
@@ -909,7 +914,7 @@ svg.nav-wide {
   color: #545454; }
   .slider-controls button[disabled]:hover {
     background-color: transparent;
-    border-color: transparent;
+    box-shadow: none;
     color: #545454; }
 
 /*------------------------------------*\
@@ -1030,7 +1035,8 @@ svg.nav-wide {
   right: 8px;
   width: 24px;
   height: 24px;
-  top: 12px; }
+  top: 12px;
+  pointer-events: none; }
 
 [dir="rtl"] .autocomplete__dropdown-arrow-down {
   right: auto;
