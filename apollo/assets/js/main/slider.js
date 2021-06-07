@@ -103,8 +103,8 @@ let contentSlider = (function () {
 					let controls = document.createElement('ul');
 					controls.setAttribute('class', 'slider-controls');
 					controls.setAttribute('aria-label', controlsDescription);
-					controls.innerHTML = '<li><button class="button button--ghost previous with-icon--larger" aria-label="' + previousSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>'
-						+ '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost next with-icon--larger" aria-label="' + nextSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>';
+					controls.innerHTML = '<li><button class="button button--ghost js-previous with-icon--larger" aria-label="' + previousSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>'
+						+ '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost js-next with-icon--larger" aria-label="' + nextSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>';
 					controls.style.display = 'inline-flex';
 
 					return controls;
@@ -132,8 +132,8 @@ let contentSlider = (function () {
 
 				let wrap = createControlsWrap();
 				let controls = createControls();
-				let prev = controls.querySelector('.previous');
-				let next = controls.querySelector('.next');
+				let prev = controls.querySelector('.js-previous');
+				let next = controls.querySelector('.js-next');
 				prev.disabled = true;
 				let liveRegion = createLiveRegion();
 
@@ -225,17 +225,25 @@ let contentSlider = (function () {
 
 				}
 
-				next.addEventListener('click', function (event) {
-					let currentSlideIndex = getCurrentSlideIndex();
-					let nextSlideIndex = currentSlideIndex + 1;
-					switchSlide(currentSlideIndex, nextSlideIndex);
-				});
+				document.addEventListener('click', function (event) {
 
-				prev.addEventListener('click', function (event) {
-					let currentSlideIndex = getCurrentSlideIndex();
-					let previousSlideIndex = currentSlideIndex - 1;
-					switchSlide(currentSlideIndex, previousSlideIndex);
-				});
+					if (event.target.matches('.js-next')) {
+
+						let currentSlideIndex = getCurrentSlideIndex();
+						let nextSlideIndex = currentSlideIndex + 1;
+						switchSlide(currentSlideIndex, nextSlideIndex);
+
+					}
+
+					if (event.target.matches('.js-previous')) {
+
+						let currentSlideIndex = getCurrentSlideIndex();
+						let previousSlideIndex = currentSlideIndex - 1;
+						switchSlide(currentSlideIndex, previousSlideIndex);
+
+					}
+
+				}, false);
 
 				list.addEventListener('keydown', function (event) {
 					let key = event.key;
