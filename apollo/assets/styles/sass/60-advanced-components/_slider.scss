@@ -55,7 +55,14 @@
 
 }
 
-.slider-controls .previous {
+.slider-controls .js-previous svg,
+.slider-controls .js-next svg {
+
+	pointer-events: none;
+
+}
+
+.slider-controls .js-previous {
 
 	.chevron-right {
 
@@ -65,7 +72,7 @@
 
 }
 
-.slider-controls .next {
+.slider-controls .js-next {
 
 	.chevron-left {
 
@@ -77,7 +84,7 @@
 
 [dir="rtl"] {
 
-	.slider-controls .previous {
+	.slider-controls .js-previous {
 
 		.chevron-left {
 
@@ -93,7 +100,7 @@
 
 	}
 
-	.slider-controls .next {
+	.slider-controls .js-next {
 
 		.chevron-left {
 
@@ -113,8 +120,8 @@
 
 .slider-controls {
 
-	.previous,
-	.next {
+	.js-previous,
+	.js-next {
 
 		color: $off-black;
 
