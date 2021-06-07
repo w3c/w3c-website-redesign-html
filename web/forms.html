@@ -550,11 +550,11 @@
 					</div>
 				</fieldset>
 				<div class="field">
-					<label for="destination">
-						<span class="field-label">Destination</span>
+					<label for="country">
+						<span class="field-label">Country</span>
 						<span class="field-hint">An example of a select field enhanced into an autocomplete field with JavaScript</span>
 					</label>
-					<select id="destination">
+					<select id="country">
 						<option value="">Select a country</option>
 						<option value="1" data-alt="AF">Afghanistan</option>
 						<option value="2" data-alt="AX Aaland Aland">Åland Islands</option>
@@ -871,27 +871,7 @@
 	</footer>
 </div>
 
-<script src="dist/assets/js/libraries/accessible-autocomplete.min.js"></script>
-
-<script>
-	if (document.documentElement.classList.contains('js')) {
-
-		/* Instantiate Accessible Autocomplete */
-		var selectEl = document.querySelector('#destination')
-		accessibleAutocomplete.enhanceSelectElement({
-			confirmOnBlur: false,
-			defaultValue: '',
-			displayMenu: 'overlay',
-			preserveNullOptions: true,
-			selectElement: selectEl,
-			showAllValues: true,
-			dropdownArrow: function (config) {
-				return '<svg class="' + config.className + '" viewBox="0 0 320 512" focusable="false" aria-hidden="true"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/></svg>'
-			}
-		})
-
-	}
-</script>
+<script src="dist/assets/js/country-autocomplete.js"></script>
 
 </body>
 
