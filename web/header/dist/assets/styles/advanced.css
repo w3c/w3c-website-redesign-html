@@ -878,32 +878,36 @@ br {
   [data-component="slider"] .js-slider > ul > li + li {
     margin-top: 0; }
 
-.slider-controls .previous .chevron-right {
+.slider-controls .js-previous svg,
+.slider-controls .js-next svg {
+  pointer-events: none; }
+
+.slider-controls .js-previous .chevron-right {
   display: none; }
 
-.slider-controls .next .chevron-left {
+.slider-controls .js-next .chevron-left {
   display: none; }
 
-[dir="rtl"] .slider-controls .previous .chevron-left {
+[dir="rtl"] .slider-controls .js-previous .chevron-left {
   display: none; }
 
-[dir="rtl"] .slider-controls .previous .chevron-right {
+[dir="rtl"] .slider-controls .js-previous .chevron-right {
   display: block; }
 
-[dir="rtl"] .slider-controls .next .chevron-left {
+[dir="rtl"] .slider-controls .js-next .chevron-left {
   display: block; }
 
-[dir="rtl"] .slider-controls .next .chevron-right {
+[dir="rtl"] .slider-controls .js-next .chevron-right {
   display: none; }
 
-.slider-controls .previous,
-.slider-controls .next {
+.slider-controls .js-previous,
+.slider-controls .js-next {
   color: #111; }
-  .slider-controls .previous:hover,
-  .slider-controls .next:hover {
+  .slider-controls .js-previous:hover,
+  .slider-controls .js-next:hover {
     box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25); }
-  .slider-controls .previous:focus,
-  .slider-controls .next:focus {
+  .slider-controls .js-previous:focus,
+  .slider-controls .js-next:focus {
     background-color: #fff;
     border-color: #000;
     box-shadow: 0 0 0 3px #f9dc4a; }

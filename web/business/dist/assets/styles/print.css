@@ -213,6 +213,10 @@ a:link, a:visited, a {
   text-decoration: underline;
   text-decoration-skip-ink: auto; }
 
+.logo {
+  display: block;
+  width: 2cm; }
+
 main a[href]::after,
 footer a[href]::after {
   content: " <" attr(href) "> "; }
