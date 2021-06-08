@@ -81,25 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
-/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
-/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
-/* harmony import */ var _main_collapsible_cards__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
-/* harmony import */ var _main_collapsible_checkboxes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(10);
+/* harmony import */ var _main_responsive_tables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var _main_collapsibles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var _main_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _main_account_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _main_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var _main_cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
+/* harmony import */ var _main_form_error_summary__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12);
+/* harmony import */ var _main_disclosure_widget__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(13);
+/* harmony import */ var _main_collapsible_cards__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(14);
+/* harmony import */ var _main_collapsible_checkboxes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(15);
 
 
 
@@ -127,7 +132,7 @@ window.addEventListener('resize', function (event) {
 }, false);
 
 /***/ }),
-/* 1 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,7 +176,7 @@ var responsiveTables = function responsiveTables() {
 
 
 /***/ }),
-/* 2 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -216,7 +221,7 @@ var collapsibles = function () {
 
 
 /***/ }),
-/* 3 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -275,7 +280,6 @@ var navigation = function () {
     subNavTriggers.forEach(function (trigger) {
       trigger.setAttribute('aria-expanded', 'false');
       trigger.removeAttribute('class');
-      trigger.nextElementSibling.setAttribute('aria-hidden', 'true');
     });
   }; // Toggle mobile navigation
 
@@ -284,15 +288,12 @@ var navigation = function () {
     if (mobileNavToggler && nav) {
       mobileNavToggler.innerHTML = menuText + menuIcon;
       mobileNavToggler.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
       document.addEventListener('click', function (event) {
         if (event.target.matches('[data-trigger="mobile-nav"]')) {
           if (event.target.getAttribute('aria-expanded') === 'false') {
             event.target.setAttribute('aria-expanded', 'true');
-            nav.setAttribute('aria-hidden', 'false');
           } else {
             event.target.setAttribute('aria-expanded', 'false');
-            nav.setAttribute('aria-hidden', 'true');
             closeSubNavs();
           }
         }
@@ -310,7 +311,6 @@ var navigation = function () {
       toggleMobileNav();
     } else {
       mobileNavToggler.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
     }
   }
 
@@ -338,26 +338,20 @@ var navigation = function () {
     });
 
     for (var i = 0; i < subNavArray.length; i++) {
-      subNavArray[i].setAttribute('aria-hidden', 'true');
       subNavArray[i].style = "";
     }
 
     document.addEventListener('click', function (event) {
       if (event.target.matches('[data-trigger="subnav"]')) {
-        var targetNav = event.target.nextElementSibling;
-
-        if (targetNav.getAttribute('aria-hidden') === 'true') {
+        if (event.target.matches('[aria-expanded="false"]')) {
           closeSubNavs();
           event.target.setAttribute('aria-expanded', 'true');
           event.target.setAttribute('class', 'js-active');
-          targetNav.setAttribute('aria-hidden', 'false');
         } else {
           event.target.setAttribute('aria-expanded', 'false');
           event.target.removeAttribute('class');
-          targetNav.setAttribute('aria-hidden', 'true');
         }
       } else if (event.target.matches('[data-trigger="mobile-back"]')) {
-        event.target.parentElement.setAttribute('aria-hidden', 'true');
         event.target.closest('li').querySelector('[data-trigger="subnav"]').setAttribute('aria-expanded', 'false');
       } else {
         closeSubNavs();
@@ -380,7 +374,7 @@ var navigation = function () {
 
 
 /***/ }),
-/* 4 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -394,6 +388,18 @@ var accountMenu = function () {
 
 
   if (document.querySelector('.signed-in')) {
+    var insertAccountBtn = function insertAccountBtn(mq) {
+      if (!mq.matches) {
+        domTargetSmall.parentNode.insertBefore(toggleButton, domTargetSmall.nextSibling);
+        toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
+        status.textContent = statusText;
+      } else {
+        domTargetWide.parentNode.insertBefore(toggleButton, domTargetWide.nextSibling);
+        toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
+        status.textContent = statusText;
+      }
+    };
+
     // @todo Need JS to make API call to return JSON object with these properties
     var profile = {
       name: 'Simon Jones',
@@ -471,19 +477,6 @@ var accountMenu = function () {
     var mq = window.matchMedia('(min-width: 71.25em)');
     mq.addListener(insertAccountBtn);
     insertAccountBtn(mq);
-
-    function insertAccountBtn(mq) {
-      if (!mq.matches) {
-        domTargetSmall.parentNode.insertBefore(toggleButton, domTargetSmall.nextSibling);
-        toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
-        status.textContent = statusText;
-      } else {
-        domTargetWide.parentNode.insertBefore(toggleButton, domTargetWide.nextSibling);
-        toggleButton.parentNode.insertBefore(accMenu, toggleButton.nextSibling);
-        status.textContent = statusText;
-      }
-    }
-
     var accountToggler = document.querySelector('[data-trigger="account-menu"]');
 
     if (exists(accountToggler)) {
@@ -529,7 +522,7 @@ var accountMenu = function () {
 
 
 /***/ }),
-/* 5 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -585,54 +578,38 @@ var contentSlider = function () {
       var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
 
       if (slides.length > 1) {
-        list.setAttribute('tabindex', '0');
-        list.setAttribute('aria-label', slideListDescription);
-
-        for (var slide = 1; slide < slides.length; slide++) {
-          slides[slide].classList.add('js-hidden');
-        }
-
-        slides.forEach(function (slide, index) {
-          var group = slide.querySelector('.slide');
-          group.setAttribute('role', 'group');
-          group.setAttribute('aria-roledescription', 'slide');
-          group.setAttribute('aria-label', index + 1 + ofText + slides.length);
-        }); // Add current class to first slide
-
-        slides[0].classList.add('js-current');
         /**
          * Create container to hold slider controls and aria-live region
          * @return {HTMLDivElement}
          */
-
-        function createControlsWrap() {
+        var createControlsWrap = function createControlsWrap() {
           var wrap = document.createElement('div');
           wrap.style.display = 'flex';
           wrap.style.alignItems = 'center';
           wrap.style.marginTop = '0.625rem';
           return wrap;
-        }
+        };
         /**
          * Create previous and next button controls for slider
          * @return {HTMLUListElement}
          */
 
 
-        function createControls() {
+        var createControls = function createControls() {
           var controls = document.createElement('ul');
           controls.setAttribute('class', 'slider-controls');
           controls.setAttribute('aria-label', controlsDescription);
-          controls.innerHTML = '<li><button class="button button--ghost previous with-icon--larger" aria-label="' + previousSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>' + '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost next with-icon--larger" aria-label="' + nextSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>';
+          controls.innerHTML = '<li><button class="button button--ghost js-previous with-icon--larger" aria-label="' + previousSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>' + '<li style="margin-top:0;margin-inline-start:0.25rem;"><button class="button button--ghost js-next with-icon--larger" aria-label="' + nextSlide + '" style="padding:0.4375rem;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg></button></li>';
           controls.style.display = 'inline-flex';
           return controls;
-        }
+        };
         /**
          * Create ARIA live region for slider
          * @return {HTMLDivElement}
          */
 
 
-        function createLiveRegion() {
+        var createLiveRegion = function createLiveRegion() {
           var liveRegion = document.createElement('div');
           liveRegion.setAttribute('role', 'status');
           liveRegion.setAttribute('aria-live', 'polite');
@@ -642,38 +619,25 @@ var contentSlider = function () {
           liveRegion.style.paddingRight = '0.625rem';
           liveRegion.textContent = slideText + 1 + ofText + slides.length;
           return liveRegion;
-        }
+        };
 
-        var wrap = createControlsWrap();
-        var controls = createControls();
-        var prev = controls.querySelector('.previous');
-        var next = controls.querySelector('.next');
-        prev.disabled = true;
-        var liveRegion = createLiveRegion();
-        slider.setAttribute('class', 'js-slider');
-        slider.parentNode.insertBefore(wrap, slider.nextElementSibling);
-        wrap.appendChild(controls);
-        wrap.appendChild(liveRegion);
         /**
          * Set slide positions, which are used in the switchSlide function
          */
-
-        function setSlidePositions() {
+        var setSlidePositions = function setSlidePositions() {
           var slideWidth = slides[0].getBoundingClientRect().width;
 
           for (var _slide = 0; _slide < slides.length; _slide++) {
             slides[_slide].style.left = slideWidth * _slide + 'px';
           }
-        }
+        };
 
-        setSlidePositions();
         /**
          * Switch between slides
          * @param {number} currentSlideIndex
          * @param {number} targetSlideIndex
          */
-
-        function switchSlide(currentSlideIndex, targetSlideIndex) {
+        var switchSlide = function switchSlide(currentSlideIndex, targetSlideIndex) {
           var currentSlide = slides[currentSlideIndex];
           var targetSlide = slides[targetSlideIndex]; // Switches to the correct slide
 
@@ -706,30 +670,72 @@ var contentSlider = function () {
 
 
           liveRegion.textContent = slideText + (targetSlideIndex + 1) + ofText + slides.length;
-        }
+        };
         /**
          * Get the current slide index
          * @return {number}
          */
 
 
-        function getCurrentSlideIndex() {
+        var getCurrentSlideIndex = function getCurrentSlideIndex() {
           var currentSlide = list.querySelector('.js-current');
           return slides.findIndex(function (slide) {
             return slide === currentSlide;
           });
+        };
+
+        var callback = function callback() {
+          setSlidePositions();
+          var targetSlide = slider.querySelector('.js-current');
+          var destination = getComputedStyle(targetSlide).left;
+
+          if (dir === 'rtl') {
+            list.style.transform = 'translateX(' + destination + ')';
+          } else {
+            list.style.transform = 'translateX(-' + destination + ')';
+          }
+        };
+
+        list.setAttribute('tabindex', '0');
+        list.setAttribute('aria-label', slideListDescription);
+
+        for (var slide = 1; slide < slides.length; slide++) {
+          slides[slide].classList.add('js-hidden');
         }
 
-        next.addEventListener('click', function (event) {
-          var currentSlideIndex = getCurrentSlideIndex();
-          var nextSlideIndex = currentSlideIndex + 1;
-          switchSlide(currentSlideIndex, nextSlideIndex);
-        });
-        prev.addEventListener('click', function (event) {
-          var currentSlideIndex = getCurrentSlideIndex();
-          var previousSlideIndex = currentSlideIndex - 1;
-          switchSlide(currentSlideIndex, previousSlideIndex);
-        });
+        slides.forEach(function (slide, index) {
+          var group = slide.querySelector('.slide');
+          group.setAttribute('role', 'group');
+          group.setAttribute('aria-roledescription', 'slide');
+          group.setAttribute('aria-label', index + 1 + ofText + slides.length);
+        }); // Add current class to first slide
+
+        slides[0].classList.add('js-current');
+        var wrap = createControlsWrap();
+        var controls = createControls();
+        var prev = controls.querySelector('.js-previous');
+        var next = controls.querySelector('.js-next');
+        prev.disabled = true;
+        var liveRegion = createLiveRegion();
+        slider.setAttribute('class', 'js-slider');
+        slider.parentNode.insertBefore(wrap, slider.nextElementSibling);
+        wrap.appendChild(controls);
+        wrap.appendChild(liveRegion);
+        setSlidePositions();
+        document.addEventListener('click', function (event) {
+          if (event.target.matches('.js-next')) {
+            var currentSlideIndex = getCurrentSlideIndex();
+            var nextSlideIndex = currentSlideIndex + 1;
+            switchSlide(currentSlideIndex, nextSlideIndex);
+          }
+
+          if (event.target.matches('.js-previous')) {
+            var _currentSlideIndex = getCurrentSlideIndex();
+
+            var previousSlideIndex = _currentSlideIndex - 1;
+            switchSlide(_currentSlideIndex, previousSlideIndex);
+          }
+        }, false);
         list.addEventListener('keydown', function (event) {
           var key = event.key;
           if (key !== 'ArrowLeft' && key !== 'ArrowRight') return;
@@ -766,19 +772,6 @@ var contentSlider = function () {
         }); // Use resize Observer API to reset slide positions and move current slide fully into view
 
         var slideObserver = new ResizeObserver(callback);
-
-        function callback() {
-          setSlidePositions();
-          var targetSlide = slider.querySelector('.js-current');
-          var destination = getComputedStyle(targetSlide).left;
-
-          if (dir === 'rtl') {
-            list.style.transform = 'translateX(' + destination + ')';
-          } else {
-            list.style.transform = 'translateX(-' + destination + ')';
-          }
-        }
-
         slideObserver.observe(slider);
       }
     }
@@ -788,7 +781,7 @@ var contentSlider = function () {
 
 
 /***/ }),
-/* 6 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -829,7 +822,7 @@ var cardEnhancement = function () {
 
 
 /***/ }),
-/* 7 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -851,7 +844,7 @@ var formErrorSummary = function () {
 
 
 /***/ }),
-/* 8 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -878,12 +871,8 @@ var disclosureWidget = function () {
     });
 
     if (document.body.classList.contains('group')) {
-      // Media query event handler
-      var mq = window.matchMedia('(min-width: 64em)');
-      mq.addListener(WidthChange);
-      WidthChange(mq); // Media query change
-
-      function WidthChange(mq) {
+      // Media query change
+      var WidthChange = function WidthChange(mq) {
         var toggleButton = document.querySelector('[data-toggle="true"]');
         var target = toggleButton.nextElementSibling;
 
@@ -894,7 +883,12 @@ var disclosureWidget = function () {
           toggleButton.removeAttribute('aria-expanded');
           target.removeAttribute('aria-hidden');
         }
-      }
+      };
+
+      // Media query event handler
+      var mq = window.matchMedia('(min-width: 64em)');
+      mq.addListener(WidthChange);
+      WidthChange(mq);
     }
 
     document.addEventListener('click', function (event) {
@@ -929,7 +923,7 @@ var disclosureWidget = function () {
 
 
 /***/ }),
-/* 9 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -975,7 +969,7 @@ var collapsibleCards = function () {
 
 
 /***/ }),
-/* 10 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
