@@ -356,16 +356,16 @@
 					<div class="field">
 						<label for="name">
 							<span class="field-label">Name <span class="required">(Required)</span></span>
-							<span class="field-hint">E.g. Robin Smith</span>
 						</label>
-						<input type="text" id="name" name="name" autocomplete="name">
+						<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
+						<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name">
 					</div>
 					<div class="field">
 						<label for="email">
 							<span class="field-label">Email</span>
-							<span class="field-hint">E.g. robin.smith@example.co.uk</span>
 						</label>
-						<input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email">
+						<div class="field-hint" id="hint-email">E.g. robin.smith@example.co.uk</div>
+						<input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email" aria-describedby="hint-email">
 					</div>
 					<div class="field">
 						<label for="website">
@@ -376,9 +376,9 @@
 					<div class="field">
 						<label for="password">
 							<span class="field-label">Password</span>
-							<span class="field-hint">Must contain 8+ characters with at least 1 number</span>
 						</label>
-						<input type="password" id="password" name="password" autocapitalize="none" autocorrect="off" spellcheck="false">
+						<div class="field-hint" id="hint-password">Must contain 8+ characters with at least 1 number</div>
+						<input type="password" id="password" name="password" autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="hint-password">
 					</div>
 					<div class="field">
 						<label for="message">
@@ -394,16 +394,16 @@
 					<div class="field">
 						<label for="account-number">
 							<span class="field-label">Account number</span>
-							<span class="field-hint">Must be between 6 and 8 numbers long</span>
 						</label>
-						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" inputmode="numeric">
+						<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
+						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" inputmode="numeric" aria-describedby="hint-account-number">
 					</div>
 					<div class="field">
 						<label for="telephone-number">
 							<span class="field-label">Phone number</span>
-							<span class="field-hint">Please include your country code</span>
 						</label>
-						<input type="tel" class="input-width-20" id="telephone-number" name="telephone-number" autocomplete="tel" inputmode="tel">
+						<div class="field-hint" id="hint-telephone-number">Please include your country code</div>
+						<input type="tel" class="input-width-20" id="telephone-number" name="telephone-number" autocomplete="tel" inputmode="tel" aria-describedby="hint-telephone-number">
 					</div>
 					<div class="field">
 						<label for="guests">
@@ -419,16 +419,16 @@
 					<div class="field">
 						<label for="arrival-date">
 							<span class="field-label">Date of arrival</span>
-							<span class="field-hint">DD MM YYYY</span>
 						</label>
-						<input type="date" class="input-width-10" id="arrival-date" name="arrival-date">
+						<div class="field-hint" id="hint-arrival-date">DD MM YYYY</div>
+						<input type="date" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date">
 					</div>
 					<div class="field">
-						<fieldset>
+						<fieldset role="group" aria-describedby="hint-date-of-birth">
 							<legend>
 								<span class="field-label">Date of birth (an example of a memorable date)</span>
-								<span class="field-hint">DD MM YYYY</span>
 							</legend>
+							<div class="field-hint u-no-margin-top" id="hint-date-of-birth">For example 20 07 1972</div>
 							<div class="memorable-date">
 								<label for="bday-day" class="faux-label">Day</label>
 								<input type="text" class="input-width-2" id="bday-day" name="bday-day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" min="0" max="31">
@@ -446,9 +446,9 @@
 					<div class="field">
 						<label for="meeting-time">
 							<span class="field-label">Choose a start time for your meeting</span>
-							<span class="field-hint">Office hours are 9am to 6pm</span>
 						</label>
-						<input type="time" class="input-width-7" id="meeting-time" name="meeting-time" min="09:00" max="18:00">
+						<div class="field-hint" id="hint-meeting-time">Office hours are 9am to 6pm</div>
+						<input type="time" class="input-width-7" id="meeting-time" name="meeting-time" min="09:00" max="18:00" aria-describedby="hint-meeting-time">
 					</div>
 				</fieldset>
 				<fieldset>
@@ -485,9 +485,9 @@
 						</fieldset>
 					</div>
 					<div class="field segmented-group-wrapper">
-						<fieldset>
+						<fieldset role="group" aria-describedby="hint-segmented-options">
 							<legend class="group-legend">Segmented options (Radio)</legend>
-							<span class="field-hint">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</span>
+							<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</div>
 							<div class="segmented-group">
 								<div>
 									<input type="radio" class="input--radio" id="segmented-option-1" name="segmented-options">
@@ -552,7 +552,6 @@
 				<div class="field">
 					<label for="country">
 						<span class="field-label">Country</span>
-						<span class="field-hint">An example of a select field enhanced into an autocomplete field with JavaScript</span>
 					</label>
 					<select id="country">
 						<option value="">Select a country</option>

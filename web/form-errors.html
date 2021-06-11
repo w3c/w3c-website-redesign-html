@@ -391,10 +391,10 @@
 					<div class="field field--error">
 						<label for="name">
 							<span class="field-label">Name (Required)</span>
-							<span class="field-hint">E.g. Robin Smith</span>
 							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter a name</span>
 						</label>
-						<input type="text" id="name" name="name" autocomplete="name">
+						<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
+						<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name">
 					</div>
 					<div class="field field--error">
 						<label for="message">
@@ -411,10 +411,10 @@
 					<div class="field field--error">
 						<label for="account-number">
 							<span class="field-label">Account number (Required)</span>
-							<span class="field-hint">Must be between 6 and 8 numbers long</span>
 							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter an account number</span>
 						</label>
-						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" inputmode="numeric">
+						<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
+						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" inputmode="numeric" aria-describedby="hint-account-number">
 					</div>
 				</fieldset>
 				<fieldset>
@@ -424,18 +424,18 @@
 					<div class="field field--error">
 						<label for="arrival-date">
 							<span class="field-label">Date of arrival (Required)</span>
-							<span class="field-hint">DD MM YYYY</span>
 							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter an arrival date</span>
 						</label>
-						<input type="date" class="input-width-10" id="arrival-date" name="arrival-date">
+						<div class="field-hint" id="hint-arrival-date">DD MM YYYY</div>
+						<input type="date" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date">
 					</div>
 					<div class="field field--error">
-						<fieldset>
+						<fieldset role="group" aria-describedby="hint-date-of-birth">
 							<legend>
 								<span class="field-label">Date of birth (Required) (an example of a memorable date)</span>
-								<span class="field-hint">DD MM YYYY</span>
 								<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter a date of birth</span>
 							</legend>
+							<div class="field-hint u-no-margin-top" id="hint-date-of-birth">For example 20 07 1972</div>
 							<div class="memorable-date">
 								<label for="bday-day" class="field-label">Day</label>
 								<input type="text" class="input-width-2" id="bday-day" name="bday-day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" min="0" max="31">
@@ -458,10 +458,10 @@
 					<div class="field field--error">
 						<label for="file">
 							<span class="field-label">Upload an image</span>
-							<span class="field-hint">Maximum file size 2MB</span>
 							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> The file must be 2MB or smaller</span>
 						</label>
-						<input type="file" id="file" name="file">
+						<div class="field-hint" id="hint-file">Maximum file size 2MB</div>
+						<input type="file" id="file" name="file" aria-describedby="hint-file">
 					</div>
 					<div class="field field--error">
 						<fieldset>
@@ -488,10 +488,10 @@
 						</fieldset>
 					</div>
 					<div class="field field--error segmented-group-wrapper">
-						<fieldset>
+						<fieldset role="group" aria-describedby="hint-segmented-options">
 							<legend class="group-legend">Segmented options (Radio)</legend>
-							<span class="field-hint">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</span>
 							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose an option</span>
+							<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</div>
 							<div class="segmented-group">
 								<div>
 									<input type="radio" class="input--radio" id="segmented-option-1" name="segmented-options">
@@ -557,7 +557,6 @@
 				<div class="field field--error">
 					<label for="country">
 						<span class="field-label">Country</span>
-						<span class="field-hint">An example of a select field enhanced into an autocomplete field with JavaScript</span>
 						<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose a country</span>
 					</label>
 					<select id="country">

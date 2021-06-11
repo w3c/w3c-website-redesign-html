@@ -381,16 +381,16 @@
 				<div class="field">
 					<label for="name">
 						<span class="field-label">Name <span class="required">(Required)</span></span>
-						<span class="field-hint">E.g. Robin Smith</span>
 					</label>
-					<input type="text" id="name" name="name" autocomplete="name">
+					<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
+					<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name">
 				</div>
 				<div class="field">
 					<label for="email">
 						<span class="field-label">Email</span>
-						<span class="field-hint">E.g. robin.smith@example.co.uk</span>
 					</label>
-					<input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email">
+					<div class="field-hint" id="hint-email">E.g. robin.smith@example.co.uk</div>
+					<input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email" aria-describedby="hint-email">
 				</div>
 				<div class="field">
 					<a href class="button">Continue to step 3</a>
