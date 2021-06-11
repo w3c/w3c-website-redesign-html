@@ -349,10 +349,8 @@
 			<h1>Forms</h1>
 			<h2>Example form showcasing available styles</h2>
 			<form onsubmit="return false" novalidate>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Dealing with text</span>
-					</legend>
+				<div class="field-group">
+					<h3 class="field-legend">Dealing with text</h3>
 					<div class="field">
 						<label for="name">
 							<span class="field-label">Name <span class="required">(Required)</span></span>
@@ -386,11 +384,9 @@
 						</label>
 						<textarea id="message" name="message"></textarea>
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Dealing with numbers</span>
-					</legend>
+				</div>
+				<div class="field-group">
+					<h3 class="field-legend">Dealing with numbers</h3>
 					<div class="field">
 						<label for="account-number">
 							<span class="field-label">Account number</span>
@@ -411,11 +407,9 @@
 						</label>
 						<input type="number" class="input-width-3" id="guests" name="guests" value="0" pattern="[0-9]*">
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Dealing with dates and times</span>
-					</legend>
+				</div>
+				<div class="field-group">
+					<h3 class="field-legend">Dealing with dates and times</h3>
 					<div class="field">
 						<label for="arrival-date">
 							<span class="field-label">Date of arrival</span>
@@ -450,11 +444,9 @@
 						<div class="field-hint" id="hint-meeting-time">Office hours are 9am to 6pm</div>
 						<input type="time" class="input-width-7" id="meeting-time" name="meeting-time" min="09:00" max="18:00" aria-describedby="hint-meeting-time">
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Other input types</span>
-					</legend>
+				</div>
+				<div class="field-group">
+					<h3 class="field-legend">Other input types</h3>
 					<div class="field">
 						<label for="file">
 							<span class="field-label">Choose a file</span>
@@ -548,7 +540,7 @@
 							</div>
 						</fieldset>
 					</div>
-				</fieldset>
+				</div>
 				<div class="field">
 					<label for="country">
 						<span class="field-label">Country</span>

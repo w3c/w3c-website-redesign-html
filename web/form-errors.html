@@ -384,10 +384,8 @@
 			<h1>Forms</h1>
 			<h2>Example form showcasing error messages</h2>
 			<form onsubmit="return false" novalidate>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Dealing with text</span>
-					</legend>
+				<div class="field-group">
+					<h3 class="field-legend">Dealing with text</h3>
 					<div class="field field--error">
 						<label for="name">
 							<span class="field-label">Name (Required)</span>
@@ -403,11 +401,9 @@
 						</label>
 						<textarea id="message" name="message"></textarea>
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Dealing with numbers</span>
-					</legend>
+				</div>
+				<div class="field-group">
+					<h3 class="field-legend">Dealing with numbers</h3>
 					<div class="field field--error">
 						<label for="account-number">
 							<span class="field-label">Account number (Required)</span>
@@ -416,11 +412,9 @@
 						<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
 						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" inputmode="numeric" aria-describedby="hint-account-number">
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Dealing with dates and times</span>
-					</legend>
+				</div>
+				<div class="field-group">
+					<h3 class="field-legend">Dealing with dates and times</h3>
 					<div class="field field--error">
 						<label for="arrival-date">
 							<span class="field-label">Date of arrival (Required)</span>
@@ -450,11 +444,9 @@
 							</div>
 						</fieldset>
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="field-legend">Other input types</span>
-					</legend>
+				</div>
+				<div class="field-group">
+					<h3 class="field-legend">Other input types</h3>
 					<div class="field field--error">
 						<label for="file">
 							<span class="field-label">Upload an image</span>
@@ -553,7 +545,7 @@
 							</div>
 						</fieldset>
 					</div>
-				</fieldset>
+				</div>
 				<div class="field field--error">
 					<label for="country">
 						<span class="field-label">Country</span>

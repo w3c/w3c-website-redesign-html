@@ -28,14 +28,14 @@ End of resets for the fieldset element
  */
 
 
-fieldset + fieldset {
+.field-group + .field-group {
 
 	margin-top: 2.5rem;
 
 }
 
 form > * + *,
-fieldset > * + * {
+.field-group > * + * {
 
 	margin-top: 1.75rem;
 
