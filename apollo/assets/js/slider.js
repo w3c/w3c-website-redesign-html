@@ -324,6 +324,3 @@ let contentSlider = (function () {
 	}
 
 })();
-
-
-export {contentSlider};

@@ -4352,12 +4352,8 @@ dl.family-series-list dt:nth-of-type(2)::before {
   border-bottom: solid 1px #bdbdbd; }
 
 @media screen and (min-width: 64em) {
-  .post-list .l-sidebar .sidebar {
-    -ms-flex-order: 1;
-        order: 1; } }
-
-.post-list .l-sidebar .not-sidebar > div {
-  margin-bottom: 2.5rem; }
+  .post-list .l-sidebar .not-sidebar > div {
+    margin-bottom: 2.5rem; } }
 
 .post-list .l-sidebar .sidebar .l-frame {
   height: 9.125rem;

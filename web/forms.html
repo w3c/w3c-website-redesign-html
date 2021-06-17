@@ -39,10 +39,13 @@
 		(function() {
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-				var script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js?ver=1.2.2';
-				script.defer = true;
-				document.querySelector('head').appendChild(script);
+				var head = document.querySelector('head');
+				// Add main JS
+				var jsMain = document.createElement('script');
+				jsMain.src = 'dist/assets/js/main.js?ver=1.2.2';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 			}
 		})();
@@ -864,7 +867,15 @@
 	</footer>
 </div>
 
-<script src="dist/assets/js/country-autocomplete.js"></script>
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		var jsAutocompleteCountry = document.createElement('script');
+		jsAutocompleteCountry.src = 'dist/assets/js/country-autocomplete.js';
+		document.querySelector('body').appendChild(jsAutocompleteCountry);
+
+	}
+</script>
 
 </body>
 

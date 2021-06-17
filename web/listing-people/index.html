@@ -39,10 +39,13 @@
 		(function() {
 			var linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-				var script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js?ver=1.2.2';
-				script.defer = true;
-				document.querySelector('head').appendChild(script);
+				var head = document.querySelector('head');
+				// Add main JS
+				var jsMain = document.createElement('script');
+				jsMain.src = 'dist/assets/js/main.js?ver=1.2.2';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 			}
 		})();
@@ -352,7 +355,7 @@
 										<span class="faux-label">Working Group</span>
 									</label>
 									<select id="filter-wg" name="filter-wg">
-										<option value="">Filter the list</option>
+										<option value="">All Working Groups</option>
 										<option value="CWIG">Chinese Web Interest Group</option>
 										<option value="IIG">Internationalization Interest Group</option>
 										<option value="MEIG">Media and Entertainment Interest Group</option>
@@ -553,7 +556,15 @@
 	</footer>
 </div>
 
-<script src="dist/assets/js/working-group-autocomplete.js"></script>
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		var jsAutocompleteWG = document.createElement('script');
+		jsAutocompleteWG.src = 'dist/assets/js/working-group-autocomplete.js';
+		document.querySelector('body').appendChild(jsAutocompleteWG);
+
+	}
+</script>
 
 </body>
 
