@@ -543,18 +543,15 @@ show all available options outright, rather than hide them behind a <select>
 
 }
 
-.segmented-group {
+.segmented-group.l-switcher {
 
-	display: flex;
-	flex-flow: row wrap;
 	margin-top: 0;
 
-	> div {
+	> * > * {
 
-		flex: 1 1 33.333%; // Modify the percentage according to the number of choices and what looks best
 		max-width: 100%;
-		min-width: rem(155); // Prevent the options from becoming too narrow to read
-		position: relative;
+		min-width: 33.333%; // Modify the percentage according to the number of choices and what looks best
+		position: relative; // Required for the absolutely positioned input indicator
 
 	}
 
@@ -637,7 +634,7 @@ show all available options outright, rather than hide them behind a <select>
 	}
 
 	// Input with hover
-	> div:hover label {
+	> * > *:hover label {
 
 		background-color: $light-blue;
 
