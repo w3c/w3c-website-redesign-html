@@ -240,19 +240,13 @@
 
 	}
 
-	.l-sidebar .sidebar {
+	.l-sidebar .not-sidebar > div {
 
 		@include mq($bp-tab-large) {
 
-			order: 1;
+			margin-bottom: rem(40);
 
 		}
-
-	}
-
-	.l-sidebar .not-sidebar > div {
-
-		margin-bottom: rem(40);
 
 	}
 
