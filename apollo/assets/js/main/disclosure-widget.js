@@ -56,6 +56,7 @@ var disclosureWidget = (function () {
 
 				if (event.target.matches('[aria-expanded="false"]')) {
 
+					closeDisclosures();
 					event.target.setAttribute('aria-expanded', 'true');
 
 				} else {
