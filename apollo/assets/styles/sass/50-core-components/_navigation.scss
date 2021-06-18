@@ -271,6 +271,7 @@ li.top-nav-item + li.top-nav-item {
 #archive-nav ul,
 #category-nav ul {
 
+	background-color: $white;
 	border: solid 1px $border-color;
 	height: rem(180);
 	overflow: auto;
