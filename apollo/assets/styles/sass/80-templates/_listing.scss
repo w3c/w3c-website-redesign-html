@@ -126,14 +126,14 @@
 .people-list,
 .post-list {
 
-	> li {
+	> * {
 
 		padding-bottom: rem(30);
 		padding-top: rem(40);
 
 	}
 
-	> li + li {
+	> * + * {
 
 		border-top: solid 1px $border-color;
 
