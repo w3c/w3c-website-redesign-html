@@ -4,7 +4,7 @@
     N.B. `.js-slider` is added by JS
 \*------------------------------------*/
 
-[data-component="slider"] {
+.js [data-component="slider"] {
 
 	.js-slider {
 
@@ -20,32 +20,32 @@
 
 	}
 
-	.js-slider > ul {
+	.slide-list {
 
 		display: flex;
 		padding-bottom: rem(10);
 		padding-top: rem(10);
 		position: relative;
 
-		> li {
+		.slide {
 
 			flex: 0 0 100%;
 
 		}
 
-		> li.js-current {
+		.js-current {
 
 			visibility: visible;
 
 		}
 
-		> li.js-hidden {
+		.js-hidden {
 
 			visibility: hidden;
 
 		}
 
-		> li + li {
+		.slide + .slide {
 
 			margin-top: 0;
 

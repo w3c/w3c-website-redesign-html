@@ -43,7 +43,6 @@ let contentSlider = (function () {
 
 		}
 
-		//let timeout;
 		const slider = document.querySelector('[data-component="slider"] section');
 		let dir = document.documentElement.getAttribute('dir');
 
@@ -51,8 +50,8 @@ let contentSlider = (function () {
 
 			slider.setAttribute('aria-roledescription', sliderDescription);
 
-			let list = slider.querySelector('ul');
-			let slides = Array.prototype.slice.call(list.querySelectorAll('li'));
+			let list = slider.querySelector('.slide-list');
+			let slides = Array.prototype.slice.call(list.querySelectorAll('.slide'));
 
 			if (slides.length > 1) {
 
@@ -64,10 +63,9 @@ let contentSlider = (function () {
 
 				slides.forEach(function (slide, index) {
 
-					let group = slide.querySelector('.slide');
-					group.setAttribute('role', 'group');
-					group.setAttribute('aria-roledescription', 'slide');
-					group.setAttribute('aria-label', (index + 1) + ofText + slides.length);
+					slide.setAttribute('role', 'group');
+					slide.setAttribute('aria-roledescription', 'slide');
+					slide.setAttribute('aria-label', (index + 1) + ofText + slides.length);
 
 				});
 
