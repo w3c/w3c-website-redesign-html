@@ -123,16 +123,15 @@ var contentSlider = function () {
       nextSlide = 'next slide';
       slideText = 'Slide ';
       ofText = ' of ';
-    } //let timeout;
-
+    }
 
     var slider = document.querySelector('[data-component="slider"] section');
     var dir = document.documentElement.getAttribute('dir');
 
     if (slider) {
       slider.setAttribute('aria-roledescription', sliderDescription);
-      var list = slider.querySelector('ul');
-      var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
+      var list = slider.querySelector('.slide-list');
+      var slides = Array.prototype.slice.call(list.querySelectorAll('.slide'));
 
       if (slides.length > 1) {
         /**
@@ -260,10 +259,9 @@ var contentSlider = function () {
         }
 
         slides.forEach(function (slide, index) {
-          var group = slide.querySelector('.slide');
-          group.setAttribute('role', 'group');
-          group.setAttribute('aria-roledescription', 'slide');
-          group.setAttribute('aria-label', index + 1 + ofText + slides.length);
+          slide.setAttribute('role', 'group');
+          slide.setAttribute('aria-roledescription', 'slide');
+          slide.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
         }); // Add current class to first slide
 
         slides[0].classList.add('js-current');
