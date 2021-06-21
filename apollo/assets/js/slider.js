@@ -65,7 +65,7 @@ let contentSlider = (function () {
 
 					slide.setAttribute('role', 'group');
 					slide.setAttribute('aria-roledescription', 'slide');
-					slide.setAttribute('aria-label', (index + 1) + ofText + slides.length);
+					slide.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
 
 				});
 
