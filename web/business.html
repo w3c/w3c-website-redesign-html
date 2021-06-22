@@ -14,7 +14,7 @@
 	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
-		var myFont = new FontFaceObserver('Noto Sans');
+		let myFont = new FontFaceObserver('Noto Sans');
 
 		Promise.all([myFont.load()]).then(function () {
 			document.documentElement.className += " fonts-loaded";
@@ -39,11 +39,11 @@
 
 	<script>
 		(function() {
-			var linkEl = document.getElementById('advanced-stylesheet');
+			let linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-				var head = document.querySelector('head');
+				let head = document.querySelector('head');
 				// Add main JS
-				var jsMain = document.createElement('script');
+				let jsMain = document.createElement('script');
 				jsMain.src = 'dist/assets/js/main.js';
 				jsMain.defer = true;
 				head.appendChild(jsMain);
@@ -683,7 +683,7 @@
 <script>
 	if (document.documentElement.classList.contains('js')) {
 
-		var sliderScript = document.createElement('script');
+		let sliderScript = document.createElement('script');
 		sliderScript.src = 'dist/assets/js/slider.js';
 		document.querySelector('body').appendChild(sliderScript);
 

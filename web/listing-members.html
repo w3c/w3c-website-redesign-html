@@ -14,7 +14,7 @@
 	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
-		var myFont = new FontFaceObserver('Noto Sans');
+		let myFont = new FontFaceObserver('Noto Sans');
 
 		Promise.all([myFont.load()]).then(function () {
 			document.documentElement.className += " fonts-loaded";
@@ -39,12 +39,12 @@
 
 	<script>
 		(function() {
-			var linkEl = document.getElementById('advanced-stylesheet');
+			let linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-				var head = document.querySelector('head');
+				let head = document.querySelector('head');
 				// Add main JS
-				var jsMain = document.createElement('script');
-				jsMain.src = 'dist/assets/js/main.js?ver=1.2.2';
+				let jsMain = document.createElement('script');
+				jsMain.src = 'dist/assets/js/main.js?ver=1.3';
 				jsMain.defer = true;
 				head.appendChild(jsMain);
 				// Update classname to show JS is available
@@ -790,7 +790,7 @@
 <script>
 	if (document.documentElement.classList.contains('js')) {
 
-		var jsAutocompleteCountry = document.createElement('script');
+		let jsAutocompleteCountry = document.createElement('script');
 		jsAutocompleteCountry.src = 'dist/assets/js/country-autocomplete.js';
 		document.querySelector('body').appendChild(jsAutocompleteCountry);
 
