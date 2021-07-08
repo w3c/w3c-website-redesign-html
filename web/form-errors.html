@@ -397,17 +397,17 @@
 					<div class="field field--error">
 						<label for="name">
 							<span class="field-label">Name (Required)</span>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter a name</span>
+							<span class="field-error-msg" id="error-name"><span class="visuallyhidden">Error:</span> Enter a name</span>
 						</label>
 						<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
-						<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name">
+						<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name error-name">
 					</div>
 					<div class="field field--error">
 						<label for="message">
 							<span class="field-label">Your message (Required)</span>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter a message</span>
+							<span class="field-error-msg" id="error-msg"><span class="visuallyhidden">Error:</span> Enter a message</span>
 						</label>
-						<textarea id="message" name="message"></textarea>
+						<textarea id="message" name="message" aria-describedby="error-msg"></textarea>
 					</div>
 				</div>
 				<div class="field-group">
@@ -415,10 +415,10 @@
 					<div class="field field--error">
 						<label for="account-number">
 							<span class="field-label">Account number (Required)</span>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter an account number</span>
+							<span class="field-error-msg" id="error-account-number"><span class="visuallyhidden">Error:</span> Enter an account number</span>
 						</label>
 						<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
-						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number">
+						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number error-account-number">
 					</div>
 				</div>
 				<div class="field-group">
@@ -426,16 +426,16 @@
 					<div class="field field--error">
 						<label for="arrival-date">
 							<span class="field-label">Date of arrival (Required)</span>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter an arrival date</span>
+							<span class="field-error-msg" id="error-arrival-date"><span class="visuallyhidden">Error:</span> Enter an arrival date</span>
 						</label>
 						<div class="field-hint" id="hint-arrival-date">For example 30/05/2021</div>
-						<input type="text" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date">
+						<input type="text" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date error-arrival-date">
 					</div>
 					<div class="field field--error">
-						<fieldset role="group" aria-describedby="hint-date-of-birth">
+						<fieldset role="group" aria-describedby="hint-date-of-birth error-date-of-birth">
 							<legend>
 								<span class="field-label">Date of birth (Required) (an example of a memorable date)</span>
-								<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter a date of birth</span>
+								<span class="field-error-msg" id="error-date-of-birth"><span class="visuallyhidden">Error:</span> Enter a date of birth</span>
 							</legend>
 							<div class="field-hint u-no-margin-top" id="hint-date-of-birth">For example 20 07 1972</div>
 							<div class="memorable-date">
@@ -453,10 +453,10 @@
 						</fieldset>
 					</div>
 					<div class="field field--error">
-						<fieldset role="group" aria-describedby="hint-meeting-time">
+						<fieldset role="group" aria-describedby="hint-meeting-time error-meeting-time">
 							<legend>
 								<span class="field-label">Specify a start time for your meeting</span>
-								<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Enter a start time</span>
+								<span class="field-error-msg" id="error-meeting-time"><span class="visuallyhidden">Error:</span> Enter a start time</span>
 							</legend>
 							<div class="field-hint u-no-margin-top" id="hint-meeting-time">Use <dfn id="utc"><abbr title="Coordinated Universal Time">UTC</abbr></dfn> and your local time zone</div>
 							<div class="input-group">
@@ -516,15 +516,15 @@
 					<div class="field field--error">
 						<label for="file">
 							<span class="field-label">Upload an image</span>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> The file must be 2MB or smaller</span>
+							<span class="field-error-msg" id="error-file"><span class="visuallyhidden">Error:</span> The file must be 2MB or smaller</span>
 						</label>
 						<div class="field-hint" id="hint-file">Maximum file size 2MB</div>
-						<input type="file" id="file" name="file" aria-describedby="hint-file">
+						<input type="file" id="file" name="file" aria-describedby="hint-file error-file">
 					</div>
 					<div class="field field--error">
-						<fieldset>
+						<fieldset aria-describedby="error-pets">
 							<legend class="group-legend">Do you own any pets? (Required)</legend>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Select yes if you do own pets</span>
+							<span class="field-error-msg" id="error-pets"><span class="visuallyhidden">Error:</span> Select yes if you do own pets</span>
 							<div class="radio-item">
 								<input type="radio" id="pets_yes" name="pets" value="yes">
 								<label for="pets_yes">
@@ -546,9 +546,9 @@
 						</fieldset>
 					</div>
 					<div class="field field--error segmented-group-wrapper">
-						<fieldset role="group" aria-describedby="hint-segmented-options">
+						<fieldset role="group" aria-describedby="hint-segmented-options error-segmented-options">
 							<legend class="group-legend">Segmented options (Radio)</legend>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose an option</span>
+							<span class="field-error-msg" id="error-segmented-options"><span class="visuallyhidden">Error:</span> Choose an option</span>
 							<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</div>
 							<div class="l-switcher segmented-group">
 								<div>
@@ -584,9 +584,9 @@
 						</fieldset>
 					</div>
 					<div class="field field--error">
-						<fieldset>
+						<fieldset aria-describedby="error-like">
 							<legend class="group-legend">Things you like</legend>
-							<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose at least one item</span>
+							<span class="field-error-msg" id="error-like"><span class="visuallyhidden">Error:</span> Choose at least one item</span>
 							<div class="checkbox-item">
 								<input type="checkbox" name="chocolate" id="chocolate" appearance="base">
 								<label for="chocolate">
