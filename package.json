@@ -59,7 +59,7 @@
     "tabbyjs": "^12.0.3",
     "tunnel-agent": "^0.6.0",
     "watch": "^0.13.0",
-    "webpack": "^4.44.2"
+    "webpack": "^5.43.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
