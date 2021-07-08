@@ -3482,7 +3482,7 @@ a.tag {
     font-size: 1rem;
     font-weight: normal;
     margin-bottom: 1.5rem; }
-  .component--slider .slide + .slide {
+  .component--slider ul > li + li {
     margin-top: 2rem; }
 
 /*------------------------------------*\
