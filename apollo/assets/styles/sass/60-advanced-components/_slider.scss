@@ -20,32 +20,32 @@
 
 	}
 
-	.slide-list {
+	.js-slider > ul {
 
 		display: flex;
 		padding-bottom: rem(10);
 		padding-top: rem(10);
 		position: relative;
 
-		.slide {
+		> li {
 
 			flex: 0 0 100%;
 
 		}
 
-		.js-current {
+		> li.js-current {
 
 			visibility: visible;
 
 		}
 
-		.js-hidden {
+		> li.js-hidden {
 
 			visibility: hidden;
 
 		}
 
-		.slide + .slide {
+		> li + li {
 
 			margin-top: 0;
 
