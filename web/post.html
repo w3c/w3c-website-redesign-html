@@ -1,0 +1,769 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>A post (Post template) | W3C Redesign Prototypes</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<meta property="og:description" name="description" content="Post template prototype for the W3C website redesign"/>
+
+	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		let myFont = new FontFaceObserver('Noto Sans');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+	</script>
+
+	<link rel="stylesheet" href="dist/assets/styles/core.css" media="screen"/>
+
+	<!--
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="../dist/assets/styles/advanced.css" media="
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
+
+	<link rel="stylesheet" href="dist/assets/styles/print.css" media="print"/>
+
+	<script>
+		(function() {
+			let linkEl = document.getElementById('advanced-stylesheet');
+			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = 'dist/assets/js/main.js?ver=1.3';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
+				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+			}
+		})();
+	</script>
+
+</head>
+
+<body class="post">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-wrap">
+	<div class="wrap">
+		<header class="global-header">
+			<span role="status" aria-live="polite"></span>
+			<div class="banner">
+				<div class="banner__inner l-center">
+					<img src="dist/assets/svg/beta.svg" class="icon icon--beta" alt="Beta icon" role="img"/>
+					<p>This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us improve it.</p>
+				</div>
+			</div>
+			<nav id="lang-nav" aria-label="Language options">
+				<div class="l-center">
+					<div class="l-cluster">
+						<ul class="clean-list" role="list">
+							<li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页</a></li>
+							<li><a href="/ja" hreflang="ja" lang="ja">日本語ホームページ</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<nav id="global-nav" aria-label="Main">
+				<div class="global-nav__inner l-center">
+					<a class="logo-link" href="../page.html">
+						<span class="logo">
+							<img src="dist/assets/svg/w3c-logo.svg" alt="W3C logo" role="img"/>
+						</span>
+						<span class="visuallyhidden">W3C homepage</span>
+					</a>
+					<button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav" style="display: none;"></button>
+					<ul class="clean-list">
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Standards</a>
+							<div class="nav__submenu" style="display: none;">
+								<div class="l-center">
+									<div class="nav__submenu__intro">
+										<div class="nav__submenu__intro__text">
+											<p>Understand the various specifications, their maturity levels on the Web Standards track, and their adoption.</p>
+											<a href="../page.html" aria-hidden="true" tabindex="-1">Explore Web Standards</a>
+										</div>
+									</div>
+									<ul class="clean-list" role="list">
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Technical reports</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Translations of technical reports</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Liaisons</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Promote web standards</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Groups</a>
+							<div class="nav__submenu" style="display: none;">
+								<div class="l-center">
+									<div class="nav__submenu__intro">
+										<div class="nav__submenu__intro__text">
+											<p>A variety of groups develop Web Standards, guidelines, or supporting materials.</p>
+											<a href="../page.html" aria-hidden="true" tabindex="-1">Discover W3C groups</a>
+										</div>
+									</div>
+									<ul class="clean-list" role="list">
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Working groups</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Interest groups</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Community groups</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Business groups</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Technical architecture group</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Advisory Board</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Invited experts</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Participant guidebook</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Mailing lists</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Get involved</a>
+							<div class="nav__submenu" style="display: none;">
+								<div class="l-center">
+									<div class="nav__submenu__intro">
+										<div class="nav__submenu__intro__text">
+											<p>W3C works at the nexus of core technology, industry needs, and societal needs.</p>
+											<a href="../page.html" aria-hidden="true" tabindex="-1">Find ways to get involved</a>
+										</div>
+									</div>
+									<ul class="clean-list" role="list">
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Working in business ecosystems</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> E-commerce</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Media & Entertainment</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Network & Communications</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Publishing</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Smart Cities</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Transportation</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Web Advertising</a>
+										</li>
+										<li class="break-after">
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Web of Things</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> W3C Membership</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Donate</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Sponsoring W3C</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">Resources</a>
+							<div class="nav__submenu" style="display: none;">
+								<div class="l-center">
+									<div class="nav__submenu__intro">
+										<div class="nav__submenu__intro__text">
+											<p>Master Web technology fundamentals, use our developer tools, or contribute code.</p>
+											<a href="../page.html" aria-hidden="true" tabindex="-1">Learn from W3C resources</a>
+										</div>
+									</div>
+									<ul class="clean-list" role="list">
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Validators and tools</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Accessibility fundamentals</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Internationalization</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Learn CSS</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">News and events</a>
+							<div class="nav__submenu" style="display: none;">
+								<div class="l-center">
+									<div class="nav__submenu__intro">
+										<div class="nav__submenu__intro__text">
+											<p>Recent content across news, blogs, press releases, media; upcoming events.</p>
+											<a href="../page.html" aria-hidden="true" tabindex="-1">Follow news and events</a>
+										</div>
+									</div>
+									<ul class="clean-list" role="list">
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> News</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Blog</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Press releases</a>
+										</li>
+										<li class="break-after">
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> In the media</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Events</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Talks</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Workshops</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Meetings</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Conferences</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="top-nav-item has-children">
+							<a href="../page.html" class="nav-link">About</a>
+							<div class="nav__submenu" style="display: none;">
+								<div class="l-center">
+									<div class="nav__submenu__intro">
+										<div class="nav__submenu__intro__text">
+											<p>Understand our values and principles, learn our history, look into our policies, meet our people.</p>
+											<a href="../page.html" aria-hidden="true" tabindex="-1">Find out more about us</a>
+										</div>
+									</div>
+									<ul class="clean-list" role="list">
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Our mission</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Sponsoring W3C</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> History</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Leadership</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Staff</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Evangelists</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Careers</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Press and media</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Contact</a>
+										</li>
+										<li>
+											<a class="with-icon--before with-icon--larger" href="../page.html"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use><use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use></svg> Policies and legal information</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="top-nav-item">
+							<a href="../page.html" class="nav-link icon-link"><span class="visuallyhidden">Search</span> <img class="icon" src="dist/assets/svg/search.svg" width="24" height="24" alt aria-hidden="true" /></a>
+						</li>
+						<li class="top-nav-item">
+							<a href="../page.html" class="account-login icon-link with-icon--after">My account <img class="icon" src="dist/assets/svg/avatar.svg" width="24" height="24" alt aria-hidden="true" /></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<nav id="breadcrumb" aria-label="Breadcrumb">
+			<div class="l-center">
+				<div class="l-cluster">
+					<ol class="breadcrumbs clean-list" role="list">
+						<li><a href="/">Home</a></li>
+						<li><a href="page.html">Page</a></li>
+						<li><a href="page.html">Another page</a></li>
+						<li><a href="page.html">Page</a></li>
+						<li><a href="#" aria-current="page">Post template</a></li>
+					</ol>
+				</div>
+			</div>
+		</nav>
+		<main id="main">
+			<div class="content">
+				<article>
+					<h1>Here is a nice long post title that is really engaging and makes us want to read the full article</h1>
+					<div class="sub-head">Part of <a href="../page.html">W3C life</a></div>
+					<section class="l-box l-box--no-border translations">
+						<div class="l-sidebar">
+							<div>
+								<div class="sidebar">
+									<h2>Read this page in:</h2>
+								</div>
+								<div class="not-sidebar">
+									<div class="l-cluster">
+										<ul class="clean-list">
+											<li><a href="/fr" hreflang="fr" lang="fr">Français</a></li>
+											<li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section class="meta">
+						<h2 class="visuallyhidden">Author(s) and publish date</h2>
+						<dl>
+							<dt>By:</dt>
+							<dd class="l-cluster">
+								<ul class="clean-list" role="presentation">
+									<li>
+										<p class="with-icon--before with-icon--larger"><img class="icon" src="dist/assets/svg/avatar.svg" width="24" height="24" alt aria-hidden="true"> Bert Boss</p>
+									</li>
+									<li>
+										<p class="with-icon--before with-icon--larger"><img class="icon" src="dist/assets/svg/avatar.svg" width="24" height="24" alt aria-hidden="true"> Coralie Mercier</p>
+									</li>
+								</ul>
+							</dd>
+							<dt>Published:</dt>
+							<dd>4 January 2021</dd>
+						</dl>
+						<a href="#comments" class="skip-to-comments txt-pluto">Skip to 6 Comments</a>
+					</section>
+					<figure class="component component--image">
+						<div class="l-frame l-frame--16-9">
+							<img src="dist/assets/images/temp-developers-920.jpg"
+							     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
+							     sizes="100vw"
+							     loading="lazy"
+							     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
+						</div>
+						<figcaption><p>The figcaption is not a replacement for the image's <code>alt</code> attribute. It should be used for providing relevant supporting content.</p></figcaption>
+					</figure>
+					<div class="component component--text">
+						<h2>Overview</h2>
+						<p>The social value of the Web is that it enables human communication, commerce, and opportunities to share knowledge. One of W3C's primary goals is to make these benefits available to all people, whatever their hardware, software, network infrastructure, native language, culture, geographical location, or physical or mental ability.</p>
+						<p>The number of different kinds of devices that can access the Web has grown immensely. Mobile phones, smart phones, personal digital assistants, interactive television systems, voice response systems, kiosks and even certain domestic appliances can all access the Web. Learn more about:</p>
+					</div>
+					<div class="component component--text">
+						<h2>Vision</h2>
+						<p>W3C's vision for the Web involves participation, sharing knowledge, and thereby building trust on a global scale.</p>
+						<h3>Web for Rich Interaction</h3>
+						<p>The Web was invented as a communications tool intended to allow anyone, anywhere to share information. For many years, the Web was a "read-only" tool for many. Blogs and wikis brought more authors to the Web, and social networking emerged from the flourishing market for content and personalized Web experiences. W3C standards have supported this evolution thanks to strong architecture and design principles. Learn more about:</p>
+						<ul>
+							<li><a href="page.html">Web Design and Applications</a></li>
+							<li><a href="page.html">Web Architecture</a></li>
+						</ul>
+						<h3>Web of Data and Services</h3>
+						<p>Some people view the Web as a giant repository of linked data while others as a giant set of services that exchange messages. The two views are complementary, and which to use often depends on the application. Learn more about:</p>
+						<ul>
+							<li><a href="page.html">Essential XML Technologies</a></li>
+							<li><a href="page.html">Semantic Web</a></li>
+							<li><a href="page.html">Web of Services</a></li>
+						</ul>
+						<h3>Web of Trust</h3>
+						<p>The Web has transformed the way we communicate with each other. In doing so, it has also modified the nature of our social relationships. People now "meet on the Web" and carry out commercial and personal relationships, in some cases without ever meeting in person. W3C recognizes that trust is a social phenomenon, but technology design can foster trust and confidence. As more activity moves on-line, it will become even more important to support complex interactions among parties around the globe. Learn more about:</p>
+						<ul>
+							<li><a href="page.html">Semantic Web</a></li>
+							<li><a href="page.html">XML Security</a>, <a href="page.html">Web of Services Security</a></li>
+							<li><a href="page.html">Privacy</a></li>
+						</ul>
+					</div>
+					<blockquote class="component component--quote">
+						<p>The goal of the Web is to serve humanity. We build it now so that those who come to it later will be able to create things we cannot ourselves imagine.</p>
+						<cite>Sir Tim Berners-Lee</cite>
+					</blockquote>
+					<figure class="component component--video">
+						<div class="l-frame l-frame--16-9">
+							<iframe title="Video title" loading="lazy" width="560" height="315" src="https://www.youtube-nocookie.com/embed/sw-j75MQtQU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<figcaption><p>Note: embed code from Vimeo/YouTube does not include the <code>title</code> attribute, but this is a WCAG requirement so needs to be added manually.</p>
+							<a href="page.html">Download video transcript</a></figcaption>
+					</figure>
+					<section class="post__notes component--text">
+						<h2 class="visuallyhidden">Notes</h2>
+						<h3 class="txt-saturn">1 February 2021</h3>
+						<p>Updated to clarify the guidance on widgets.</p>
+						<h3 class="txt-saturn">28 January 2021</h3>
+						<p>Updated paragraph about images.</p>
+					</section>
+				</article>
+				<section class="related">
+					<div class="related__inner">
+						<h2 class="txt-jupiter">Related to this post</h2>
+						<div>
+							<h3>Tags</h3>
+							<ul class="clean-list" role="list">
+								<li><a href="page.html">Tag 1</a></li>
+								<li><a href="page.html">Tag 2</a></li>
+								<li><a href="page.html">Tag 3</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Ecosystems</h3>
+							<ul class="clean-list" role="list">
+								<li><a href="page.html">Web payments</a></li>
+								<li><a href="page.html">Another ecosystem</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Groups</h3>
+							<ul class="clean-list" role="list">
+								<li><a href="page.html">Working Group X</a></li>
+								<li><a href="page.html">Working Group Y</a></li>
+								<li><a href="page.html">Working Group Z</a></li>
+							</ul>
+						</div>
+						<div>
+							<h3>Specifications</h3>
+							<ul class="clean-list" role="list">
+								<li><a href="page.html">Specification X</a></li>
+								<li><a href="page.html">Specification Y</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+			<section class="rss">
+				<h2 class="txt-jupiter">Related RSS feed</h2>
+				<p class="with-icon--before with-icon--larger">
+					<img class="icon icon--larger" src="dist/assets/svg/rss.svg" width="30" height="30" alt aria-hidden="true" />
+					<a href="https://www.w3.org/blog/feed">Subscribe to our Blog feed</a>
+				</p>
+			</section>
+		</main>
+		<aside class="crosslinks">
+			<div class="l-center">
+				<div class="component component--columns component--columns--images">
+					<div class="component--columns__intro">
+						<h2>Section heading for these teasers</h2>
+						<p>Highlights from across our News, Press Releases and Blog</p>
+					</div>
+					<ul class="clean-list" role="presentation">
+						<li>
+							<div class="card" data-component="card">
+								<div class="card__text">
+									<h3 class="card__heading"><a href="../page.html" class="card__link">W3C starts web payments standards work</a></h3>
+									<p>New working group launched to make payments easier and more secure.</p>
+									<p class="txt-pluto">News</p>
+								</div>
+								<div class="l-frame l-frame--16-9 card__image">
+									<img src="dist/assets/images/temp-developers-920.jpg"
+									     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
+									     sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+									     loading="lazy"
+									     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="card" data-component="card">
+								<div class="card__text">
+									<h3 class="card__heading"><a href="../page.html" class="card__link">Work begins on extensions to WCAG 2.0</a></h3>
+									<p>A new charter for the Working Group was formally approved by W3C.</p>
+									<p class="txt-pluto">Blog</p>
+								</div>
+								<div class="l-frame l-frame--16-9 card__image">
+									<img src="dist/assets/images/temp-developers-920.jpg"
+									     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
+									     sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+									     loading="lazy"
+									     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="card" data-component="card">
+								<div class="card__text">
+									<h3 class="card__heading"><a href="../page.html" class="card__link">Contributions to ISOC report on mobile internet</a></h3>
+									<p>The HTML5Apps team contributed significantly to the report.</p>
+									<p class="txt-pluto">Press release</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="card" data-component="card">
+								<div class="card__text">
+									<h3 class="card__heading"><a href="../page.html" class="card__link">W3C starts web payments standards work</a></h3>
+									<p>New working group launched to make payments easier and more secure.</p>
+									<p class="txt-pluto">News</p>
+								</div>
+								<div class="l-frame l-frame--16-9 card__image">
+									<img src="dist/assets/images/temp-developers-920.jpg"
+									     srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
+									     sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+									     loading="lazy"
+									     alt="A Macbook screen with code, as seen from over the developer's shoulder" />
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</aside>
+		<section class="comments">
+			<div class="l-center">
+				<h2 id="comments">Comments <span>(6)</span></h2>
+				<a class="skip-to-comment-form" href="#respond">Skip to comment form</a>
+				<ol class="clean-list comment-list" role="list">
+					<li>
+						<article id="comment-106895" class="l-sidebar comment">
+							<div>
+								<div class="not-sidebar">
+									<div class="comment__author">Joseph Lorem-Ipsum - 6 months ago</div>
+									<div class="comment__body">
+										<p>The work achieved by the W3C community is really helpful for developers and users alike :)</p>
+										<p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+									</div>
+									<a rel="nofollow" href="post.html?replytocom=106895#respond" data-replylink data-commentid="106895" data-postid="18930" data-belowelement="comment-106895" data-replyto="Reply to Joseph Lorem-Ipsum">Reply <span class="visuallyhidden">to Joseph Lorem-Ipsum</span></a>
+								</div>
+								<div class="sidebar comment__img">
+									<div class="avatar avatar--med">
+										<img alt="" src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg" loading="lazy">
+									</div>
+								</div>
+							</div>
+						</article>
+						<ul class="clean-list reply-list" role="list">
+							<li>
+								<article id="comment-204687" class="l-sidebar comment">
+									<div>
+										<div class="not-sidebar">
+											<div class="comment__author">Jake Weary - 6 months ago</div>
+											<div class="comment__body">
+												<p>Hear hear!!</p>
+											</div>
+											<a rel="nofollow" href="post.html?replytocom=204687#respond" data-replylink data-commentid="204687" data-postid="18930" data-belowelement="comment-204687" data-replyto="Reply to Jake Weary">Reply <span class="visuallyhidden">to Jake Weary</span></a>
+										</div>
+										<div class="sidebar">
+											<div class="avatar avatar--med">
+												<img alt="" src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg" loading="lazy">
+											</div>
+										</div>
+									</div>
+								</article>
+							</li>
+							<li>
+								<article id="comment-345071" class="l-sidebar comment">
+									<div>
+										<div class="not-sidebar">
+											<div class="comment__author">Celeste Magritte - 5 months ago</div>
+											<div class="comment__body">
+												<p>I second that!</p>
+												<p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+											</div>
+											<a rel="nofollow" href="post.html?replytocom=345071#respond" data-replylink data-commentid="345071" data-postid="18930" data-belowelement="comment-345071" data-replyto="Reply to Celeste Magritte">Reply <span class="visuallyhidden">to Celeste Magritte</span></a>
+										</div>
+										<div class="sidebar">
+											<div class="avatar avatar--med">
+												<img alt="" src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg" loading="lazy">
+											</div>
+										</div>
+									</div>
+								</article>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<article id="comment-854034" class="l-sidebar comment">
+							<div>
+								<div class="not-sidebar">
+									<div class="comment__author">Beatrice Willow - 1 month ago</div>
+									<div class="comment__body">
+										<p>Where can I find out details about the CSS Working Group?</p>
+									</div>
+									<a rel="nofollow" href="post.html?replytocom=854034#respond" data-replylink data-commentid="854034" data-postid="18930" data-belowelement="comment-854034" data-replyto="Reply to Beatrice Willow">Reply <span class="visuallyhidden">to Beatrice Willow</span></a>
+								</div>
+								<div class="sidebar">
+									<div class="avatar avatar--med">
+										<img alt="" src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg" loading="lazy">
+									</div>
+								</div>
+							</div>
+						</article>
+						<ul class="clean-list reply-list" role="list">
+							<li>
+								<article id="comment-120738" class="l-sidebar comment">
+									<div>
+										<div class="not-sidebar">
+											<div class="comment__author">Deidre De Veloper - 3 weeks ago</div>
+											<div class="comment__body">
+												<p>Here is a link: <a href="https://www.w3.org/groups/wg/css">https://www.w3.org/groups/wg/css</a></p>
+											</div>
+											<a rel="nofollow" href="post.html?replytocom=120738#respond" data-replylink data-commentid="120738" data-postid="18930" data-belowelement="comment-120738" data-replyto="Reply to Deidre De Veloper">Reply <span class="visuallyhidden">to Deidre De Veloper</span></a>
+										</div>
+										<div class="sidebar">
+											<div class="avatar avatar--med">
+												<img alt="" src="https://www.w3.org/2006/05/u/1682ihk1hqqo-sm.jpg" loading="lazy">
+											</div>
+										</div>
+									</div>
+								</article>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<article id="comment-306724" class="l-sidebar comment">
+							<div>
+								<div class="not-sidebar">
+									<div class="comment__author">Nadia Brown - 1 week ago</div>
+									<div class="comment__body">
+										<p>This was a very interesting and informative article</p>
+									</div>
+									<a rel="nofollow" href="post.html?replytocom=306724#respond" data-replylink data-commentid="306724" data-postid="18930" data-belowelement="comment-306724" data-replyto="Reply to Nadia Brown">Reply <span class="visuallyhidden">to Nadia Brown</span></a>
+								</div>
+								<div class="sidebar">
+									<img src="dist/assets/svg/avatar.svg" width="50" height="50" alt aria-hidden="true" />
+								</div>
+							</div>
+						</article>
+					</li>
+				</ol>
+				<div id="respond" class="l-box l-box--no-border l-box--no-padding" data-respondelement>
+					<div>
+						<h3 class="txt-saturn" data-title="reply">Post a new comment</h3>
+					</div>
+					<div class="l-sidebar comment-form-wrap">
+						<div>
+							<div class="not-sidebar">
+								<form id="comment-form" name="comment-form" onsubmit="return false" novalidate>
+									<div class="field">
+										<label for="comment">
+											<span class="field-label">Comment</span>
+											<span class="field-hint">Your email address will not be published.</span>
+										</label>
+										<textarea id="comment" name="comment"></textarea>
+									</div>
+									<div class="l-switcher">
+										<div>
+											<div>
+												<div class="field">
+													<label for="name">
+														<span class="field-label">Name</span>
+													</label>
+													<input type="text" id="name" name="name" autocomplete="name">
+												</div>
+											</div>
+											<div>
+												<div class="field">
+													<label for="email">
+														<span class="field-label">Email address</span>
+													</label>
+													<input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="email">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="field">
+										<button class="button" type="submit">Post comment</button>
+									</div>
+								</form>
+							</div>
+							<div class="sidebar">
+								<img src="dist/assets/svg/avatar.svg" width="50" height="50" alt aria-hidden="true" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer class="global-footer">
+		<div class="l-center">
+			<div class="global-footer__links">
+				<div class="l-cluster">
+					<ul class="clean-list" role="list">
+						<li><a href="../page.html">Home</a></li>
+						<li><a href="../page.html">Contact</a></li>
+						<li><a href="../page.html">Help</a></li>
+						<li><a href="../page.html">Sponsor and donate</a></li>
+						<li><a href="../page.html">Privacy policy</a></li>
+						<li><a href="../page.html">Legal</a></li>
+						<li><a href="../page.html">System status</a></li>
+					</ul>
+				</div>
+				<ul class="clean-list" role="list">
+					<li><a class="with-icon--larger" href="https://twitter.com/W3C">
+						<img class="icon icon--larger" src="dist/assets/svg/twitter.svg" width="20" height="20" alt aria-hidden="true" />
+						<span class="visuallyhidden">W3C on Twitter</span></a>
+					</li>
+					<li><a class="with-icon--larger" href="https://github.com/w3c/">
+						<img class="icon icon--larger" src="dist/assets/svg/github.svg" width="20" height="20" alt aria-hidden="true" />
+						<span class="visuallyhidden">W3C on GitHub</span></a>
+					</li>
+				</ul>
+			</div>
+			<p class="copyright">Copyright © 2020 W3C <sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+				<a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>
+		</div>
+	</footer>
+</div>
+
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		let commentScript = document.createElement('script');
+		commentScript.src = 'dist/assets/js/comments.js';
+		document.querySelector('body').appendChild(commentScript);
+
+	}
+</script>
+
+</body>
+
+</html>

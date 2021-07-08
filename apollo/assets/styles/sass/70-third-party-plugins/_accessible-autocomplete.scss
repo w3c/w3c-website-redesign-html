@@ -55,13 +55,14 @@
 }
 
 .autocomplete__dropdown-arrow-down {
-	z-index: -1;
 	display: inline-block;
 	position: absolute;
 	right: 8px;
 	width: 24px;
 	height: 24px;
 	top: 12px;
+	pointer-events: none; // To account for removal of negative z-index
+	//z-index: -1;
 }
 
 [dir="rtl"] {

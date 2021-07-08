@@ -4,21 +4,59 @@
 
 [data-trigger="account-menu"] {
 
-	border: none;
 	border-radius: 0;
+	margin-left: auto;
 	padding: rem(7);
 	position: relative;
 
+	&::before {
+
+		background-color: $w3c-blue;
+		bottom: rem(-2);
+		content:'';
+		display: none;
+		height: rem(3);
+		left: 0;
+		position: absolute;
+		width: 100%;
+
+	}
+
+	&.js-has-msg::after {
+
+		background-color: $red;
+		border: solid 3px $white;
+		border-radius: 50%;
+		content: '';
+		height: 15px;
+		position: absolute;
+		right: 3px;
+		top: 3px;
+		width: 15px;
+
+	}
+
 	@include mq($max-width) {
 
-		border-bottom: solid 3px transparent;
 		margin-inline-start: auto;
 		padding-bottom: rem(4);
 
-		&:hover,
+		&:hover::before {
+
+			display: block;
+
+		}
+
 		&:focus {
 
-			border-bottom-color: #0079b8;
+			background-color: $focus-color;
+			border-color: $black;
+
+		}
+
+		&:focus:hover::before {
+
+			display: none;
 
 		}
 
@@ -71,47 +109,17 @@
 
 }
 
-[dir="ltr"] {
-
-	[data-trigger="account-menu"] {
-
-		margin-left: auto;
-
-		&.js-has-msg::after {
-
-			background-color: $red;
-			border: solid 3px $white;
-			border-radius: 50%;
-			content: '';
-			height: 15px;
-			position: absolute;
-			right: 3px;
-			top: 3px;
-			width: 15px;
-
-		}
-
-	}
-
-}
-
 [dir="rtl"] {
 
 	[data-trigger="account-menu"] {
 
+		margin-left: 0;
 		margin-right: auto;
 
 		&.js-has-msg::after {
 
-			background-color: $red;
-			border: solid 3px $white;
-			border-radius: 50%;
-			content: '';
-			height: 15px;
 			left: 3px;
-			position: absolute;
-			top: 3px;
-			width: 15px;
+			right: auto;
 
 		}
 
@@ -125,19 +133,10 @@
 	border: solid 1px $border-color;
 	box-shadow: 0 8px 16px 0 rgba(55,70,95,0.07);
 	position: absolute;
+	right: 5vw;
 	top: 100%;
 	width: rem(250);
 	z-index: 10;
-
-}
-
-[dir="ltr"] {
-
-	.account-menu {
-
-		right: 5vw;
-
-	}
 
 }
 
@@ -146,6 +145,7 @@
 	.account-menu {
 
 		left: 5vw;
+		right: auto;
 
 	}
 
@@ -169,6 +169,7 @@
 	font-weight: $emphasis;
 
 }
+
 // @todo this statement not needed if the todo for account-menu.js is resolved
 .account-menu li:nth-child(3),
 .account-menu li:nth-child(4) {

@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #Collapsible sections
+    #Collapsible sections advanced
 \*------------------------------------*/
 
 .js .component--collapsibles {
@@ -10,11 +10,27 @@
 		align-items: flex-start;
 		border-radius: 0;
 		display: flex;
+		flex-wrap: wrap;
+		font-size: rem(18);
+		font-weight: bold;
+		line-height: calc(27 / 18);
 		justify-content: space-between;
+		margin-top: 0;
 		padding: 0;
 		width: 100%;
 
-		&:hover h3 {
+		> span {
+
+			font-size: rem(15);
+			font-weight: normal;
+			line-height: calc(22.5 / 15);
+			margin-top: 1rem;
+			order: 2;
+			width: 100%;
+
+		}
+
+		&:hover {
 
 			text-decoration: underline; /* 1 */
 			text-decoration-skip-ink: auto; // Not supported by Safari
@@ -24,15 +40,9 @@
 
 		&:focus {
 
-			border-color: transparent;
-
-			h3 {
-
-				background-color: $focus-color;
-				background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
-				text-decoration: none;
-
-			}
+			border-color: inherit;
+			background-color: $focus-color;
+			text-decoration: none;
 
 		}
 
@@ -51,16 +61,8 @@
 		svg {
 
 			flex-shrink: 0;
-			//height: 1em;
-			//width: 1em;
 
 		}
-
-	}
-
-	[data-heading="collapsibles"] button span {
-
-		align-items: flex-start;
 
 	}
 
@@ -73,12 +75,6 @@
 			display: none;
 
 		}
-
-	}
-
-	* + [data-heading="collapsibles"] {
-
-		margin-top: 1rem;
 
 	}
 

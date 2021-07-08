@@ -4,8 +4,34 @@
 
 .translations {
 
-	display: flex;
-	flex-wrap: wrap;
+	background-color: $mist-gray;
+	padding: rem(20);
+
+}
+
+.translations .l-sidebar > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.translations .l-sidebar > * > * {
+
+	margin-bottom: 0;
+	margin-top: 0;
+
+}
+
+.translations .l-sidebar .sidebar {
+
+	flex-basis: auto;
+
+}
+
+.translations .l-sidebar .not-sidebar {
+
+	min-width: 70%;
 
 }
 
@@ -50,26 +76,5 @@
 	display: block;
 	padding-bottom: rem(10);
 	padding-top: rem(10);
-
-}
-
-.translations [aria-current] {
-
-	color: $off-black;
-	text-decoration: none;
-
-	&:visited {
-
-		color: $off-black;
-
-	}
-
-	&:hover,
-	&:focus {
-
-		color: $off-black;
-		outline-color: $off-black;
-
-	}
 
 }

@@ -14,6 +14,7 @@
 .l-frame {
 
 	display: block;
+	overflow: hidden;
 	position: relative;
 
 }
@@ -26,7 +27,6 @@
 	display: flex;
 	justify-content: center;
 	left: 0;
-	overflow: hidden;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -39,8 +39,14 @@
 .l-frame > video {
 
 	height: 100%;
-	object-fit: cover;
 	width: 100%;
+
+}
+
+.l-frame > img,
+.l-frame > video {
+
+	object-fit: cover;
 
 }
 

@@ -8,12 +8,6 @@
 
 }
 
-[data-trigger="mobile-nav"] {
-
-	display: none;
-
-}
-
 #global-nav {
 
 	border-bottom: solid 1px $border-color;
@@ -123,17 +117,36 @@ li.top-nav-item + li.top-nav-item {
 
 .logo-link {
 
+	&:focus {
+
+		box-shadow: 0 0 0 3px $black;
+		outline: solid 3px $focus-color;
+		outline-offset: 3px;
+
+	}
+
 	@include mq($max-width) {
 
-		border-bottom: solid 3px transparent;
 		margin-inline-end: rem(25);
 		padding-bottom: rem(5);
+		position: relative;
 
-		&:hover,
-		&:focus {
+		&::before {
 
-			border-bottom-color: #0079b8;
-			outline: none;
+			background-color: $w3c-blue;
+			bottom: 0;
+			content:'';
+			display: none;
+			height: rem(3);
+			left: 0;
+			position: absolute;
+			width: 100%;
+
+		}
+
+		&:hover::before {
+
+			display: block;
 
 		}
 
@@ -158,6 +171,12 @@ li.top-nav-item + li.top-nav-item {
 
 	}
 
+	&::before {
+
+		bottom: 0 !important;
+
+	}
+
 	&:visited,
 	&:hover {
 
@@ -167,8 +186,9 @@ li.top-nav-item + li.top-nav-item {
 
 	&:focus {
 
-		background-color: transparent !important;
-		background-image: none !important;
+		background-color: $focus-color;
+		background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+		color: $black;
 
 	}
 
@@ -196,20 +216,45 @@ li.top-nav-item + li.top-nav-item {
 
 }
 
-.global-nav__inner .top-nav-item > a {
+.global-nav__inner .top-nav-item > *:first-child {
 
 	@include mq($max-width) {
 
-		border-bottom: solid 3px transparent;
 		font-size: 1rem;
-		padding: rem(10) rem(5) rem(7);
+		padding: rem(10) rem(5) rem(7) !important;
+		position: relative;
 		white-space: nowrap;
 
-		&:hover,
+		&::before {
+
+			background-color: $w3c-blue;
+			bottom: rem(-2);
+			content:'';
+			display: none;
+			height: rem(3);
+			left: 0;
+			position: absolute;
+			width: 100%;
+
+		}
+
+		&:hover::before {
+
+			display: block;
+
+		}
+
 		&:focus {
 
-			border-bottom-color: #0079b8;
-			outline: none;
+			background-color: $focus-color;
+			background-image: linear-gradient(to top, $black 3px, $focus-color 3px, $focus-color);
+			color: $black;
+
+		}
+
+		&:focus:hover::before {
+
+			display: none;
 
 		}
 
@@ -220,5 +265,22 @@ li.top-nav-item + li.top-nav-item {
 .global-nav__inner .nav__submenu {
 
 	display: none;
+
+}
+
+#archive-nav ul,
+#category-nav ul {
+
+	background-color: $white;
+	border: solid 1px $border-color;
+	height: rem(180);
+	overflow: auto;
+
+	a {
+
+		display: block;
+		padding: rem(10);
+
+	}
 
 }

@@ -14,7 +14,7 @@
 	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
-		var myFont = new FontFaceObserver('Noto Sans');
+		let myFont = new FontFaceObserver('Noto Sans');
 
 		Promise.all([myFont.load()]).then(function () {
 			document.documentElement.className += " fonts-loaded";
@@ -37,9 +37,9 @@
 
 	<script>
 		(function() {
-			var linkEl = document.getElementById('advanced-stylesheet');
+			let linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-				var script = document.createElement('script');
+				let script = document.createElement('script');
 				script.src = 'dist/assets/js/main.js';
 				script.defer = true;
 				document.querySelector('head').appendChild(script);

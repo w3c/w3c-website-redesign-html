@@ -31,9 +31,37 @@
 
 	}
 
+	.browse {
+
+		margin: rem(-10);
+		overflow: visible;
+
+	}
+
+	.browse > * {
+
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+	.browse > * > * {
+
+		padding: rem(10);
+
+	}
+
+	.browse h2 {
+
+		font-size: 1rem;
+		font-weight: normal;
+
+	}
+
 	.filters.l-switcher {
 
 		margin: rem(-10);
+		overflow: visible;
 
 	}
 
@@ -51,16 +79,24 @@
 
 	}
 
+	.filters .field {
+
+		margin-top: 0;
+
+	}
+
 	.filters .button--ghost {
 
 		padding-left: rem(3);
 		padding-right: rem(3);
+		text-decoration: underline; /* 1 */
+		text-decoration-skip-ink: auto; // Not supported by Safari
+		text-underline-offset: 0.25em; // Supported by Safari
+
 
 		&:hover {
 
-			text-decoration: underline;
-			text-decoration-skip-ink: auto; // Not supported by Safari
-			text-underline-offset: 0.25em; // Supported by Safari
+			box-shadow: 0 0 4px 2px rgba(84,84,84,0.25);
 
 		}
 
@@ -75,57 +111,29 @@
 
 	}
 
-	.feed,
-	.archive-links {
+}
 
-		@include stack();
+.js .listing .browse {
 
-		margin-top: rem(40);
+	h2 {
 
-	}
-
-	.feed {
-
-		a {
-
-			display: block;
-			padding-bottom: rem(10);
-			padding-top: rem(10);
-
-		}
-
-	}
-
-	.archive-links {
-
-		ul {
-
-			margin-inline-start: rem(25);
-
-		}
-
-		ul a {
-
-			display: inline-block;
-			padding-bottom: rem(10);
-			padding-top: rem(10);
-
-		}
+		display: none;
 
 	}
 
 }
 
-.people-list {
+.people-list,
+.post-list {
 
-	> li {
+	> * {
 
 		padding-bottom: rem(30);
 		padding-top: rem(40);
 
 	}
 
-	> li + li {
+	> * + * {
 
 		border-top: solid 1px $border-color;
 
@@ -134,13 +142,6 @@
 	.l-sidebar .sidebar {
 
 		flex-basis: auto;
-		order: -1;
-
-		img {
-
-			max-width: rem(100);
-
-		}
 
 	}
 
@@ -162,14 +163,6 @@
 
 	}
 
-	.l-cluster > *,
-	.l-cluster.l-cluster > * > * {
-
-		margin-bottom: 0;
-		margin-top: 0;
-
-	}
-
 	.l-cluster > * {
 
 		align-items: center;
@@ -183,13 +176,85 @@
 
 	}
 
-	.l-cluster.groups > * > *:first-child {
+}
 
-		flex-basis: 100%;
+.people-list {
 
-		@include mq($bp-tab-small) {
+	.l-sidebar .sidebar {
 
-			flex-basis: auto;
+		order: -1;
+
+		img {
+
+			width: rem(100);
+
+		}
+
+	}
+
+	.groups .sidebar {
+
+		flex-basis: auto;
+
+	}
+
+	.groups .sidebar h3 {
+
+		font-size: 1rem;
+		font-weight: normal;
+		line-height: rem(44);
+
+	}
+
+	.l-cluster > *,
+	.l-cluster.l-cluster > * > * {
+
+		margin-bottom: 0;
+		margin-top: 0;
+
+	}
+
+}
+
+.post-list {
+
+	> li:last-child {
+
+		border-bottom: solid 1px $border-color;
+
+	}
+
+	.l-sidebar .not-sidebar > div {
+
+		@include mq($bp-tab-large) {
+
+			margin-bottom: rem(40);
+
+		}
+
+	}
+
+	.l-sidebar .sidebar .l-frame {
+
+		height: rem(146);
+		width: rem(200);
+
+		img {
+
+			border-radius: rem(4);
+
+		}
+
+	}
+
+	h2 a {
+
+		color: $black;
+
+		.icon {
+
+			height: 0.8em;
+			width: 0.8em;
 
 		}
 
@@ -197,11 +262,13 @@
 
 }
 
-.event-list {
+.event-list,
+.member-list,
+.group-list {
 
 	margin-top: rem(40);
 
-	> li + li {
+	> * + * {
 
 		margin-top: 1rem;
 
@@ -209,10 +276,6 @@
 
 	.card {
 
-		background-color: $white;
-		border-radius: rem(4);
-		box-shadow: -1px 1px 4px 0 rgba(55,70,95,0.12);
-		overflow: hidden;
 		padding: 1rem;
 
 	}
@@ -229,17 +292,15 @@
 
 	}
 
-	.card.l-sidebar .l-sidebar .sidebar {
+	.card__text {
 
-		flex-basis: rem(320);
-
-	}
-
-	.card.l-sidebar .l-sidebar .not-sidebar {
-
-		min-width: calc(55% - 1.5rem);
+		padding-top: 0;
 
 	}
+
+}
+
+.event-list {
 
 	.card .l-cluster > * {
 
@@ -249,9 +310,15 @@
 
 	}
 
-	.card__text {
+	.card.l-sidebar .l-sidebar .sidebar {
 
-		padding-top: 0;
+		flex-basis: rem(320);
+
+	}
+
+	.card.l-sidebar .l-sidebar .not-sidebar {
+
+		min-width: calc(55% - 1.5rem);
 
 	}
 
@@ -299,5 +366,45 @@
 		padding-inline-start: rem(12);
 
 	}
+
+}
+
+.member-list {
+
+	.card__text > * {
+
+		max-width: rem($text-measure);
+
+	}
+
+	.logo--member {
+
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
+}
+
+.js .member-list {
+
+	[data-component="card"] .card__text > :last-child {
+
+		margin-bottom: rem(40);
+		margin-top: 0;
+
+	}
+
+}
+
+.group-list {
+
+	margin-top: 0;
+
+}
+
+.archive-links h2 + * {
+
+	margin-top: 0.8em;
 
 }

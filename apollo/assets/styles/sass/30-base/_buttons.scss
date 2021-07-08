@@ -28,7 +28,8 @@ button,
 
 	}
 
-	&:focus {
+	&:focus,
+	&:active {
 
 		color: $black;
 		background-color: $focus-color;
@@ -36,23 +37,11 @@ button,
 
 	}
 
-	&:active {
-
-		color: $black;
-
-	}
-
 }
 
-[dir="ltr"] button:not([type="submit"]) {
+button:not([type="submit"]) {
 
-	text-align: left;
-
-}
-
-[dir="rtl"] button:not([type="submit"]) {
-
-	text-align: right;
+	text-align: start;
 
 }
 
@@ -62,7 +51,6 @@ Remove link styling from links styled as buttons.
  */
 .button {
 
-	display: block;
 	text-decoration: none;
 
 }
@@ -101,7 +89,8 @@ input[type="submit"].button {
 
 	}
 
-	&:focus {
+	&:focus,
+	&:active {
 
 		background-color: $focus-color;
 		border-width: 3px;

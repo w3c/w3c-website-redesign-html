@@ -59,13 +59,9 @@
 
 }
 
-[dir="ltr"] {
+.banner__inner p {
 
-	.banner__inner p {
-
-		margin-left: rem(10);
-
-	}
+	margin-left: rem(10);
 
 }
 
@@ -73,6 +69,7 @@
 
 	.banner__inner p {
 
+		margin-left: 0;
 		margin-right: rem(10);
 
 	}

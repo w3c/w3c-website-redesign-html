@@ -39,16 +39,19 @@
 
 	}
 
-	[data-heading="collapsibles"] h3 {
+  [data-heading="collapsibles"] h3 {
 
 		@include txt-saturn;
 
 	}
 
-
-	[data-heading="collapsibles"] h3 + * {
+	[data-heading="collapsibles"] > * {
 
 		@include txt-pluto;
+
+		display: block;
+		font-weight: normal;
+		margin-top: 1rem;
 
 	}
 
@@ -74,10 +77,11 @@
 
 }
 
-.component--group-list h2,
-.component--group-list h2 + p {
+.component--group-list__intro {
 
-	margin-bottom: 1em;
+	@include stack(1em);
+
 	max-width: rem($text-measure);
+	margin-bottom: rem(30);
 
 }
