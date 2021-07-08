@@ -40,7 +40,7 @@
     "watch": "npm-run-all --parallel watch:* watch:*:*"
   },
   "dependencies": {
-    "@babel/cli": "^7.12.1",
+    "@babel/cli": "^7.14.5",
     "accessible-autocomplete": "^2.0.3",
     "autoprefixer-cli": "^1.0.0",
     "copyfiles": "^2.3.0",
