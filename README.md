@@ -58,6 +58,7 @@ It then runs the required build commands and then deploys the built site to the 
 Deploy to development
 
 ```
+nvm use
 dep deploy development
 ```
 
