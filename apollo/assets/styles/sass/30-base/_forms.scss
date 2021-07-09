@@ -27,6 +27,12 @@ End of resets for the fieldset element
  */
 
 
+.field-group__heading {
+
+
+}
+
+
 .field-group + .field-group {
 
 	margin-top: 2.5rem;
@@ -46,6 +52,7 @@ Group inputs to line up side-by-side
 .input-group {
 
 	display: flex;
+	align-items: center;
 
 }
 
