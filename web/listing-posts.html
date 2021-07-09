@@ -44,7 +44,7 @@
 				let head = document.querySelector('head');
 				// Add main JS
 				let jsMain = document.createElement('script');
-				jsMain.src = 'dist/assets/js/main.js?ver=1.3';
+				jsMain.src = 'dist/assets/js/main.js';
 				jsMain.defer = true;
 				head.appendChild(jsMain);
 				// Update classname to show JS is available
@@ -64,7 +64,7 @@
 			<div class="banner">
 				<div class="banner__inner l-center">
 					<img src="dist/assets/svg/beta.svg" class="icon icon--beta" alt="Beta icon" role="img"/>
-					<p>This is a new website. <a href="mailto:team-website-redesign@w3.org">Give feedback</a> to help us improve it.</p>
+					<p>This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us improve it.</p>
 				</div>
 			</div>
 			<nav id="lang-nav" aria-label="Language options">
@@ -348,11 +348,12 @@
 			<div class="u-full-width hero hero--listing">
 				<div class="l-center">
 					<h1>Posts</h1>
-					<p class="lead">Browse our posts by search, category or archive.</p>
+					<p class="lead">Search for posts, or browse posts by category or archive.</p>
 					<div class="l-sidebar search">
 						<form role="search" onsubmit="return false" novalidate>
 							<div class="not-sidebar">
-								<input type="search" id="search" name="search" aria-label="search">
+								<h2 class="visuallyhidden">Search posts</h2>
+								<input type="search" id="search" name="search" aria-label="Search posts">
 							</div>
 							<div class="sidebar">
 								<button type="submit" class="button" name="search">Show results</button>
@@ -421,7 +422,7 @@
 					<div>
 						<div class="not-sidebar">
 							<div>
-								<h2 class="txt-mars"><a href="post.html">Blog post card example</a></h2>
+								<h3 class="txt-mars"><a href="post.html">Blog post card example</a></h3>
 								<div class="l-cluster">
 									<div>
 										<div>
@@ -452,7 +453,7 @@
 					<div>
 						<div class="not-sidebar">
 							<div>
-								<h2 class="txt-mars"><a href="post.html">News article card example</a></h2>
+								<h3 class="txt-mars"><a href="post.html">News article card example</a></h3>
 								<div class="l-cluster">
 									<div>
 										<div>
@@ -480,7 +481,7 @@
 					<div>
 						<div class="not-sidebar">
 							<div>
-								<h2 class="txt-mars"><a href="post.html">Press release card example</a></h2>
+								<h3 class="txt-mars"><a href="post.html">Press release card example</a></h3>
 								<div class="l-cluster">
 									<div>
 										<div>
@@ -508,7 +509,7 @@
 					<div>
 						<div class="not-sidebar">
 							<div>
-								<h2 class="txt-mars"><a class="with-icon--after" href="post.html">In the Media card example <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false" aria-hidden="true"><defs/><path d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"/></svg></a></h2>
+								<h3 class="txt-mars"><a class="with-icon--after" href="post.html">In the Media card example <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" focusable="false" aria-hidden="true"><defs/><path d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"/></svg></a></h3>
 								<div class="l-cluster">
 									<div>
 										<div>
