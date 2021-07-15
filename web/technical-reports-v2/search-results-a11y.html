@@ -1,0 +1,2486 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Technical Reports (TR) initial state | W3C Redesign
+        Prototypes</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta property="og:description" name="description" content="Technical reports initial state prototype for the W3C website redesign"/>
+
+    <script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
+
+    <script>
+        let myFont = new FontFaceObserver('Noto Sans');
+
+        Promise.all([myFont.load()]).then(function () {
+            document.documentElement.className += " fonts-loaded";
+        });
+    </script>
+
+    <link rel="stylesheet" href="dist/assets/styles/core.css?ver=1.3" media="screen"/>
+
+    <!--
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+    <link rel="stylesheet" id="advanced-stylesheet" href="dist/assets/styles/advanced.css?ver=1.3" media="
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
+
+    <script>
+        (function () {
+            let linkEl = document.getElementById('advanced-stylesheet');
+            if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+                let head = document.querySelector('head');
+                // Add main JS
+                let jsMain = document.createElement('script');
+                jsMain.src = 'dist/assets/js/main.js?ver=1.3';
+                jsMain.defer = true;
+                head.appendChild(jsMain);
+                // Update classname to show JS is available
+                (function (H) {
+                    H.className = H.className.replace(/\bno-js\b/, 'js')
+                })(document.documentElement);
+            }
+        })();
+    </script>
+
+</head>
+
+<body class="listing">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-wrap">
+    <div class="wrap">
+        <header class="global-header">
+            <span role="status" aria-live="polite"></span>
+            <div class="banner">
+                <div class="banner__inner l-center">
+                    <img src="dist/assets/svg/beta.svg" class="icon icon--beta" alt="Beta icon" role="img"/>
+                    <p>This is a new website.
+                        <a href="mailto:team-website-redesign@w3.org">Give
+                            feedback</a> to help us improve it.</p>
+                </div>
+            </div>
+            <nav id="lang-nav" aria-label="Language options">
+                <div class="l-center">
+                    <div class="l-cluster">
+                        <ul class="clean-list" role="list">
+                            <li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页</a>
+                            </li>
+                            <li>
+                                <a href="/ja" hreflang="ja" lang="ja">日本語ホームページ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav id="global-nav" aria-label="Main">
+                <div class="global-nav__inner l-center">
+                    <a class="logo-link" href="../page.html">
+						<span class="logo">
+							<img src="dist/assets/svg/w3c-logo.svg" alt="W3C logo" role="img"/>
+						</span> <span class="visuallyhidden">W3C homepage</span>
+                    </a>
+                    <button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav" style="display: none;"></button>
+                    <ul class="clean-list">
+                        <li class="top-nav-item has-children">
+                            <a href="../page.html" class="nav-link">Standards</a>
+                            <div class="nav__submenu" style="display: none;">
+                                <div class="l-center">
+                                    <div class="nav__submenu__intro">
+                                        <div class="nav__submenu__intro__text">
+                                            <p>Understand the various
+                                                specifications, their maturity
+                                                levels on the Web Standards
+                                                track, and their adoption.</p>
+                                            <a href="../page.html" aria-hidden="true" tabindex="-1">Explore
+                                                Web Standards</a>
+                                        </div>
+                                    </div>
+                                    <ul class="clean-list" role="list">
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Technical reports</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Translations of technical
+                                                reports</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Liaisons</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Promote web standards</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-nav-item has-children">
+                            <a href="../page.html" class="nav-link">Groups</a>
+                            <div class="nav__submenu" style="display: none;">
+                                <div class="l-center">
+                                    <div class="nav__submenu__intro">
+                                        <div class="nav__submenu__intro__text">
+                                            <p>A variety of groups develop Web
+                                                Standards, guidelines, or
+                                                supporting materials.</p>
+                                            <a href="../page.html" aria-hidden="true" tabindex="-1">Discover
+                                                W3C groups</a>
+                                        </div>
+                                    </div>
+                                    <ul class="clean-list" role="list">
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Working groups</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Interest groups</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Community groups</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Business groups</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Technical architecture group</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Advisory Board</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Invited experts</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Participant guidebook</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Mailing lists</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-nav-item has-children">
+                            <a href="../page.html" class="nav-link">Get
+                                involved</a>
+                            <div class="nav__submenu" style="display: none;">
+                                <div class="l-center">
+                                    <div class="nav__submenu__intro">
+                                        <div class="nav__submenu__intro__text">
+                                            <p>W3C works at the nexus of core
+                                                technology, industry needs, and
+                                                societal needs.</p>
+                                            <a href="../page.html" aria-hidden="true" tabindex="-1">Find
+                                                ways to get involved</a>
+                                        </div>
+                                    </div>
+                                    <ul class="clean-list" role="list">
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Working in business
+                                                ecosystems</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                E-commerce</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Media & Entertainment</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Network & Communications</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Publishing</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Smart Cities</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Transportation</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Web Advertising</a>
+                                        </li>
+                                        <li class="break-after">
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Web of Things</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                W3C Membership</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Donate</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Sponsoring W3C</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-nav-item has-children">
+                            <a href="../page.html" class="nav-link">Resources</a>
+                            <div class="nav__submenu" style="display: none;">
+                                <div class="l-center">
+                                    <div class="nav__submenu__intro">
+                                        <div class="nav__submenu__intro__text">
+                                            <p>Master Web technology
+                                                fundamentals, use our developer
+                                                tools, or contribute code.</p>
+                                            <a href="../page.html" aria-hidden="true" tabindex="-1">Learn
+                                                from W3C resources</a>
+                                        </div>
+                                    </div>
+                                    <ul class="clean-list" role="list">
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Validators and tools</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Accessibility fundamentals</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Internationalization</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Learn CSS</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-nav-item has-children">
+                            <a href="../page.html" class="nav-link">News and
+                                events</a>
+                            <div class="nav__submenu" style="display: none;">
+                                <div class="l-center">
+                                    <div class="nav__submenu__intro">
+                                        <div class="nav__submenu__intro__text">
+                                            <p>Recent content across news,
+                                                blogs, press releases, media;
+                                                upcoming events.</p>
+                                            <a href="../page.html" aria-hidden="true" tabindex="-1">Follow
+                                                news and events</a>
+                                        </div>
+                                    </div>
+                                    <ul class="clean-list" role="list">
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                News</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Blog</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Press releases</a>
+                                        </li>
+                                        <li class="break-after">
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                In the media</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Events</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Talks</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Workshops</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Meetings</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Conferences</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-nav-item has-children">
+                            <a href="../page.html" class="nav-link">About</a>
+                            <div class="nav__submenu" style="display: none;">
+                                <div class="l-center">
+                                    <div class="nav__submenu__intro">
+                                        <div class="nav__submenu__intro__text">
+                                            <p>Understand our values and
+                                                principles, learn our history,
+                                                look into our policies, meet our
+                                                people.</p>
+                                            <a href="../page.html" aria-hidden="true" tabindex="-1">Find
+                                                out more about us</a>
+                                        </div>
+                                    </div>
+                                    <ul class="clean-list" role="list">
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Our mission</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Sponsoring W3C</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                History</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Leadership</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Staff</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Evangelists</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Careers</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Press and media</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Contact</a>
+                                        </li>
+                                        <li>
+                                            <a class="with-icon--before with-icon--larger" href="../page.html">
+                                                <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em">
+                                                    <use class="chevron-left" href="dist/assets/svg/nav-icons.svg#chevron-left"></use>
+                                                    <use class="chevron-right" href="dist/assets/svg/nav-icons.svg#chevron-right"></use>
+                                                </svg>
+                                                Policies and legal
+                                                information</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="top-nav-item">
+                            <a href="../page.html" class="nav-link icon-link"><span class="visuallyhidden">Search</span>
+                                <img class="icon" src="dist/assets/svg/search.svg" width="24" height="24" alt aria-hidden="true"/></a>
+                        </li>
+                        <li class="top-nav-item">
+                            <a href="../page.html" class="account-login icon-link with-icon--after">My
+                                account
+                                <img class="icon" src="dist/assets/svg/avatar.svg" width="24" height="24" alt aria-hidden="true"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <nav id="breadcrumb" aria-label="Breadcrumb">
+            <div class="l-center">
+                <div class="l-cluster">
+                    <ol class="breadcrumbs clean-list" role="list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="../page.html">Page</a></li>
+                        <li><a href="../page.html">Another page</a></li>
+                        <li><a href="../page.html">Page</a></li>
+                        <li><a href="#" aria-current="page">Technical reports
+                                (TR)</a></li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+
+
+        <main id="main">
+
+
+            <div class="u-full-width hero hero--tr">
+                <div class="l-center">
+
+                    <div class="l-sidebar">
+                        <div>
+                            <div class="not-sidebar">
+
+                                <h1>Technical reports</h1>
+                                <p class="lead">W3C publishes a range of
+                                    technical reports (Standards and supporting
+                                    Notes) which help move the web forward.
+                                    <a href="../page.html">Join us and
+                                        shape future reports</a>.</p>
+
+                            </div>
+                            <div class="sidebar">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <form class="--l-switcher" onsubmit="return false" novalidate>
+
+                        <div>
+                            <div>
+                                <div class="field">
+                                    <label for="filter-tr-name">
+                                        <span class="field-label">Search</span>
+                                    </label>
+                                    <input type="search" name="filter-tr-name" id="filter-tr-name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+
+
+                                <details>
+                                    <summary><strong>Advanced filters</strong> (Draft Standards, Candidate Standards, Standards, Draft Notes, Notes — Accessibility)</summary>
+
+                                    <!--<p>Not sure how to search? <a href="../page.html">Find out what Families are</a>.</p>-->
+
+
+
+                                    <div class="field-group">
+
+                                        <h2 class="field-group__heading txt-mars">Filter by reports</h2>
+
+                                        <div class="field">
+                                            <fieldset role="group" aria-describedby="hint-standards">
+                                                <legend class="group-legend">
+                                                    Standards
+                                                </legend>
+
+                                                <div class="field-hint u-no-margin-top" id="hint-standards">Standards are normative. They are widely reviewed and legal requirements. Learn about <a href="../page.html">our Standards process</a>.</div>
+
+                                                <div>
+
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" name="filterByTagsOptions" id="draftstandards" appearance="base" checked>
+                                                        <label for="draftstandards">
+                                                            <span class="field-label">Draft Standards (288)</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" name="filterByTagsOptions" id="candidatestandard" appearance="base" checked>
+                                                        <label for="candidatestandard">
+                                                            <span class="field-label">Candidate Standards (62)</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" name="filterByTagsOptions" id="standard" appearance="base" checked>
+                                                        <label for="standard">
+                                                            <span class="field-label">Standards (298)</span>
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="field">
+                                            <fieldset role="group" aria-describedby="hint-notes">
+                                                <legend class="group-legend">
+                                                    Supporting Notes
+                                                </legend>
+
+                                                <div class="field-hint u-no-margin-top" id="hint-notes">Notes are informative. They give you use cases, practices, and code examples.</div>
+
+                                                <div>
+
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" name="filterByTagsOptions" id="draftnote" appearance="base" checked>
+                                                        <label for="draftnote">
+                                                            <span class="field-label">Draft Notes</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" name="filterByTagsOptions" id="notes" appearance="base" checked>
+                                                        <label for="notes">
+                                                            <span class="field-label">Notes (369)</span>
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="field-group">
+
+                                        <h2 class="field-group__heading txt-mars">Filter by tags</h2>
+
+                                        <div class="field">
+                                            <fieldset role="group" aria-describedby="hint-tags">
+                                                <legend class="group-legend">
+                                                    Tags
+                                                </legend>
+
+
+                                                <div class="field-hint u-no-margin-top" id="hint-tags">Tags are broad groups of web technologies.</div>
+
+                                                <div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="accessibility" appearance="base" checked>
+                                                            <label for="accessibility">
+                                                                <span class="field-label">Accessibility</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="css" appearance="base">
+                                                            <label for="css">
+                                                                <span class="field-label">CSS</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="data" appearance="base">
+                                                            <label for="data">
+                                                                <span class="field-label">Data</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="dom" appearance="base">
+                                                            <label for="dom">
+                                                                <span class="field-label">DOM</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="graphics" appearance="base">
+                                                            <label for="graphics">
+                                                                <span class="field-label">Graphics</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="html" appearance="base">
+                                                            <label for="html">
+                                                                <span class="field-label">HTML</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="http" appearance="base">
+                                                            <label for="http">
+                                                                <span class="field-label">HTTP</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="i18n" appearance="base">
+                                                            <label for="i18n">
+                                                                <span class="field-label">i18n</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="media" appearance="base">
+                                                            <label for="media">
+                                                                <span class="field-label">Media</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="performance" appearance="base">
+                                                            <label for="performance">
+                                                                <span class="field-label">Performance</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="privacy" appearance="base">
+                                                            <label for="privacy">
+                                                                <span class="field-label">Privacy</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="security" appearance="base">
+                                                            <label for="security">
+                                                                <span class="field-label">Security</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="webapi" appearance="base">
+                                                            <label for="webapi">
+                                                                <span class="field-label">Web API</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="wot" appearance="base">
+                                                            <label for="wot">
+                                                                <span class="field-label">WoT</span>
+                                                            </label>
+                                                        </div>
+                                                                                                            <div class="checkbox-item">
+                                                            <input type="checkbox" name="filterByTagsOptions" id="xml" appearance="base">
+                                                            <label for="xml">
+                                                                <span class="field-label">XML</span>
+                                                            </label>
+                                                        </div>
+
+                                                </div>
+
+                                            </fieldset>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </details>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div>
+                            <div class="input-group">
+                                <button class="button" type="submit">Show
+                                    reports
+                                </button>
+                                <a href="../page.html">Clear all</a>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div aria-live="polite" aria-atomic="true">Showing <strong>85</strong>
+                reports across 18 families, filtered by Draft Standards, Candidate Standards, Standards, Draft Notes, Notes — Accessibility
+            </div>
+
+
+            <div class="u-full-width component component--group-list tr-list">
+                <div class="l-center">
+
+                                            <section class="family-grouping">
+
+                            <h2>WAI-ARIA</h2>
+                                                                                                <span class="maturity-level">Candidate Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/CRD-html-aria-20210707/">ARIA in HTML</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>7 July 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Steve Faulkner, Scott O&#039;Hara, Patrick Lauke</p>
+                                                                                                                                                                <span class="maturity-level">Candidate Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/CR-wai-aria-1.2-20210302/">Accessible Rich Internet Applications (WAI-ARIA) 1.2</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 March 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joanmarie Diggs, James Nurthen, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-html-aam-1.0-20200817/">HTML Accessibility API Mappings 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>17 August 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Steve Faulkner, Alexander Surkov, Scott O&#039;Hara, Bogdan Brinza, Jason Kiss, Cynthia Shelly</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/WD-wai-aria-practices-1.2-20191218/">WAI-ARIA Authoring Practices 1.2</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>18 December 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Matthew King, JaEun Jemma Ku, James Nurthen, Zoë Bijl, Michael Cooper, Joseph Scheuhammer, Lisa Pappas, Richard Schwerdtfeger</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/WD-core-aam-1.2-20191218/">Core Accessibility API Mappings 1.2</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>18 December 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joanmarie Diggs, Michael Cooper, Richard Schwerdtfeger, Joseph Scheuhammer, Andi Snow-Weaver, Aaron Leventhal, Melanie Richards, James Craig, Alexander Surkov</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190814/">WAI-ARIA Authoring Practices 1.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>14 August 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/WD-accname-1.2-20190711/">Accessible Name and Description Computation 1.2</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>11 July 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Bryan Garaventa, Joanmarie Diggs, Michael Cooper</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/REC-accname-1.1-20181218/">Accessible Name and Description Computation 1.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>18 December 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joanmarie Diggs, Bryan Garaventa, Michael Cooper</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/REC-graphics-aam-1.0-20181002/">Graphics Accessibility API Mappings</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 October 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, Graphics</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Amelia Bellamy-Royds, Joanmarie Diggs, Michael Cooper</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/REC-graphics-aria-1.0-20181002/">WAI-ARIA Graphics Module</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 October 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, Graphics</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Amelia Bellamy-Royds, Joanmarie Diggs, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/WD-using-aria-20180927/">Using ARIA</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>27 September 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Steve Faulkner, David MacDonald</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/WD-svg-aam-1.0-20180510/">SVG Accessibility API Mappings</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>10 May 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, Graphics</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Amelia Bellamy-Royds, Ian Pouncey</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/REC-core-aam-1.1-20171214/">Core Accessibility API Mappings 1.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>14 December 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joanmarie Diggs, Joseph Scheuhammer, Richard Schwerdtfeger, Michael Cooper, Andi Snow-Weaver, Aaron Leventhal</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/REC-dpub-aria-1.0-20171214/">Digital Publishing WAI-ARIA Module 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>14 December 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Matt Garrish, Tzviya Siegman, Markus Gylling, Shane McCarron</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/REC-wai-aria-1.1-20171214/">Accessible Rich Internet Applications (WAI-ARIA) 1.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>14 December 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joanmarie Diggs, Shane McCarron, Michael Cooper, Richard Schwerdtfeger, James Craig</p>
+                                                                                                <p><a href="">1 translation for Accessible Rich Internet Applications (WAI-ARIA) 1.1</a></p>
+                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/REC-dpub-aam-1.0-20171214/">Digital Publishing Accessibility API Mappings</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>14 December 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Richard Schwerdtfeger, Joanmarie Diggs</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2014/REC-wai-aria-implementation-20140320/">WAI-ARIA 1.0 User Agent Implementation Guide</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>20 March 2014
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joseph Scheuhammer, Michael Cooper</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2014/REC-wai-aria-20140320/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>20 March 2014
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: James Craig, Michael Cooper</p>
+                                                                                                <p><a href="">3 translations for Accessible Rich Internet Applications (WAI-ARIA) 1.0</a></p>
+                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2013/REC-role-attribute-20130328/">Role Attribute 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>28 March 2013
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Shane McCarron</p>
+                                                                                                <p><a href="">1 translation for Role Attribute 1.0</a></p>
+                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2008/WD-wai-aria-roadmap-20080204/">Roadmap for Accessible Rich Internet Applications (WAI-ARIA Roadmap)</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>4 February 2008
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Richard Schwerdtfeger</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Presentation Characteristics</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/NOTE-epub-a11y-eaa-mapping-20210629/">EPUB Accessibility - EU Accessibility Act Mapping</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>29 June 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/WD-spoken-html-20210518/">Specification for Spoken Presentation in HTML</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>18 May 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Irfan Ali, Markku Hakkinen, Paul Grenier, Ruoxi Ran</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>WCAG</h2>
+                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/WD-wcag-3.0-20210608/">W3C Accessibility Guidelines (WCAG) 3.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>8 June 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Jeanne F Spellman, Rachael Bradley Montgomery, Shawn Lauriat, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/WD-WCAG22-20210521/">Web Content Accessibility Guidelines (WCAG) 2.2</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>21 May 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Charles Adams, Alastair Campbell, Rachael Bradley Montgomery, Michael Cooper, Andrew Kirkpatrick</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/WD-wcag-3.0-requirements-20210121/">Requirements for WCAG 3.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>21 January 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Jeanne F Spellman, Shawn Lauriat, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-accessibility-conformance-challenges-20200619/">Challenges with Accessibility Guidelines Conformance and Testing, and Approaches for Mitigating Them</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>19 June 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Michael Cooper, Peter Korn, Charles Hall</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/WD-coga-gap-analysis-20181211/">Cognitive Accessibility Roadmap and Gap Analysis</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>11 December 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Michael Cooper</p>
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/REC-WCAG21-20180605/">Web Content Accessibility Guidelines (WCAG) 2.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>5 June 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Andrew Kirkpatrick, Joshue O Connor, Alastair Campbell, Michael Cooper</p>
+                                                                                                <p><a href="">19 translations for Web Content Accessibility Guidelines (WCAG) 2.1</a></p>
+                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/">Understanding WCAG 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>7 October 2016
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/">Techniques for WCAG 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>7 October 2016
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2016/WD-wcag2-ext-req-20160105/">Requirements for WCAG 2.0 Extensions</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>5 January 2016
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Michael Cooper, Andrew Kirkpatrick, Joshue O Connor</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/WD-mobile-accessibility-mapping-20150226/">Mobile Accessibility: How WCAG 2.0 and Other W3C/WAI Guidelines Apply to Mobile</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>26 February 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Kimberly Patch, Jeanne F Spellman, Kathleen Wahlbin</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2014/NOTE-WCAG-EM-20140710/">Website Accessibility Conformance Evaluation Methodology (WCAG-EM) 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>10 July 2014
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2013/NOTE-wcag2ict-20130905/">Guidance on Applying WCAG 2.0 to Non-Web Information and Communications Technologies (WCAG2ICT)</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>5 September 2013
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/">Web Content Accessibility Guidelines (WCAG) 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>11 December 2008
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Ben Caldwell, Michael Cooper, Loretta Guarino Reid, Gregg Vanderheiden</p>
+                                                                                                <p><a href="">19 translations for Web Content Accessibility Guidelines (WCAG) 2.0</a></p>
+                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2008/WD-wai-age-literature-20080514/">Web Accessibility for Older Users: A Literature Review</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>14 May 2008
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Andrew Arch</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2006/NOTE-wcag2-req-20060425/">Requirements for WCAG 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>25 April 2006
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2000/NOTE-WCAG10-TECHS-20001106/">Techniques for Web Content Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>6 November 2000
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2000/NOTE-WCAG10-CORE-TECHS-20001106/">Core Techniques for Web Content Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>6 November 2000
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2000/NOTE-WCAG10-CSS-TECHS-20001106/">CSS Techniques for Web Content Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>6 November 2000
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, CSS</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                <p><a href="">1 translation for CSS Techniques for Web Content Accessibility Guidelines 1.0</a></p>
+                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2000/NOTE-WCAG10-HTML-TECHS-20001106/">HTML Techniques for Web Content Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>6 November 2000
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Accessibility User Requirements</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/NOTE-raur-20210525/">RTC Accessibility User Requirements</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>25 May 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-xaur-20200916/">XR Accessibility User Requirements</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>16 September 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Joshue O Connor, Janina Sajka, Jason White, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2016/WD-low-vision-needs-20160317/">Accessibility Requirements for People with Low Vision</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>17 March 2016
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Jim Allan, Andrew Kirkpatrick, Shawn Lawton Henry (TAdER)</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/NOTE-media-accessibility-reqs-20151203/">Media Accessibility User Requirements</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>3 December 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTML, Media</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/WD-coga-user-research-20150115/">Cognitive Accessibility User Research</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>15 January 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Michael Cooper</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>EPUB</h2>
+                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/WD-epub-a11y-11-20210525/">EPUB Accessibility 1.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>25 May 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Matt Garrish, George Kerscher, Charles LaPierre, Gregorio Pellegrino, Avneesh Singh</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/NOTE-epub-a11y-tech-11-20210525/">EPUB Accessibility Techniques 1.1</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>25 May 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>TBD</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/NOTE-coga-usable-20210429/">Making Content Usable for People with Cognitive and Learning Disabilities</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>29 April 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>TTML</h2>
+                                                                                                <span class="maturity-level">Candidate Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2021/CR-ttml2-20210309/">Timed Text Markup Language 2 (TTML2) (2nd Edition)</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>9 March 2021
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, CSS, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Glenn Adams, Cyril Concolato</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/NOTE-ttml-profile-registry-20201119/">TTML Media Type Definition and Profile Registry</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>19 November 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, CSS, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2018/REC-ttml2-20181108/">Timed Text Markup Language 2 (TTML2)</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>8 November 2018
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, CSS, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Glenn Adams, Cyril Concolato</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Personalization semantics</h2>
+                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-personalization-semantics-requirements-1.0-20201028/">Requirements for Personalization Semantics</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>28 October 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Charles LaPierre, Michael Cooper, Ruoxi Ran</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-personalization-semantics-1.0-20200127/">Personalization Semantics Explainer 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>27 January 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Charles LaPierre, Michael Cooper, Ruoxi Ran, Richard Schwerdtfeger</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-personalization-semantics-content-1.0-20200127/">Personalization Semantics Content Module 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>27 January 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Charles LaPierre, Michael Cooper, Ruoxi Ran, Richard Schwerdtfeger</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/WD-personalization-semantics-help-1.0-20190711/">Personalization Help and Support 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>11 July 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Charles LaPierre, Michael Cooper, Ruoxi Ran, Richard Schwerdtfeger</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/WD-personalization-semantics-tools-1.0-20190711/">Personalization Tools 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>11 July 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Lisa Seeman-Horwitz, Charles LaPierre, Michael Cooper, Ruoxi Ran, Richard Schwerdtfeger</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Pronunciation</h2>
+                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-pronunciation-gap-analysis-and-use-cases-20200310/">Pronunciation Gap Analysis and Use Cases</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>10 March 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Markku Hakkinen, Steve Noble, Dee Dyer, Irfan Ali, Paul Grenier, Ruoxi Ran</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2020/WD-pronunciation-explainer-20200310/">Explainer: Improving Spoken Presentation on the Web</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>10 March 2020
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Markku Hakkinen, Irfan Ali</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/WD-pronunciation-user-scenarios-20190905/">Pronunciation User Scenarios</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>5 September 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Irfan Ali, Sam Kanta, Christine Loew, Paul Grenier, Ruoxi Ran</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Inaccessibility of CAPTCHA</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/NOTE-turingtest-20191209/">Inaccessibility of CAPTCHA</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>9 December 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Accessibility Conformance Testing</h2>
+                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/REC-act-rules-format-1.0-20191031/">Accessibility Conformance Testing (ACT) Rules Format 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>31 October 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Wilco Fiers, Maureen Kraft, Mary Jo Mueller, Shadi Abou-Zahra</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2019/NOTE-act-rules-aspects-20190416/">Accessibility Conformance Testing (ACT) Rules: Common Input Aspects</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>16 April 2019
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>EARL</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/NOTE-EARL10-Guide-20170202/">Developer Guide for Evaluation and Report Language (EARL) 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 February 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/NOTE-WAET-20170202/">Developers&#039; Guide to Features of Web Accessibility Evaluation Tools</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 February 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/NOTE-EARL10-Schema-20170202/">Evaluation and Report Language (EARL) 1.0 Schema</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 February 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/NOTE-HTTP-in-RDF10-20170202/">HTTP Vocabulary in RDF 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 February 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTTP</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/NOTE-Pointers-in-RDF10-20170202/">Pointer Methods in RDF 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 February 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2017/NOTE-Content-in-RDF10-20170202/">Representing Content in RDF 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>2 February 2017
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTTP</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2012/WD-accessibility-metrics-report-20120830/">Research Report on Web Accessibility Metrics</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>30 August 2012
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Markel Vigo, Giorgio Brajnik, Joshue O Connor</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Digital Publishing</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2016/NOTE-dpub-accessibility-20160503/">Digital Publishing and Accessibility in W3C Documents</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>3 May 2016
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>UAAG</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/NOTE-UAAG20-20151215/">User Agent Accessibility Guidelines (UAAG) 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>15 December 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/NOTE-UAAG20-Reference-20151215/">UAAG 2.0 Reference: Explanations, Examples, and Resources for User Agent Accessibility Guidelines 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>15 December 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2007/WD-UAAG20-requirements-20071031/">User Agent Accessibility Guidelines 2.0 Requirements</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>31 October 2007
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Jim Allan, Jan Richards</p>
+                                                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2002/NOTE-UAAG10-TECHS-20021217/">Techniques for User Agent Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>17 December 2002
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility, HTML</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2002/REC-UAAG10-20021217/">User Agent Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>17 December 2002
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Ian Jacobs, Jon Gunderson, Eric Hansen</p>
+                                                                                                <p><a href="">1 translation for User Agent Accessibility Guidelines 1.0</a></p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>ATAG</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/NOTE-IMPLEMENTING-ATAG20-20150924/">Implementing ATAG 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>24 September 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/REC-ATAG20-20150924/">Authoring Tool Accessibility Guidelines (ATAG) 2.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>24 September 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Jan Richards, Jeanne F Spellman, Jutta Treviranus</p>
+                                                                                                <p><a href="">1 translation for Authoring Tool Accessibility Guidelines (ATAG) 2.0</a></p>
+                                                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2002/NOTE-ATAG10-TECHS-20021029/">Techniques for Authoring Tool Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>29 October 2002
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                                                                                                                <strong class="maturity-level-highlighted">Standard</strong>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2000/REC-ATAG10-20000203/">Authoring Tool Accessibility Guidelines 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>3 February 2000
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Jutta Treviranus, Charles McCathieNevile, Ian Jacobs, Jan Richards</p>
+                                                                                                <p><a href="">4 translations for Authoring Tool Accessibility Guidelines 1.0</a></p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>IndieUI</h2>
+                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/WD-indie-ui-context-20150430/">IndieUI: User Context 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>30 April 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: James Craig, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2015/WD-indie-ui-events-20150430/">IndieUI: Events 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>30 April 2015
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: James Craig, Michael Cooper</p>
+                                                                                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2014/WD-indie-ui-requirements-20140422/">Requirements for IndieUI: Events 1.0 and IndieUI: User Context 1.0</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>22 April 2014
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Michael Cooper</p>
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>Mobile Best Practices</h2>
+                                                                                                <em class="maturity-level">Note</em>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2009/NOTE-mwbp-wcag-20090709/">Relationship between Mobile Web Best Practices (MWBP) and Web Content Accessibility Guidelines (WCAG)</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>9 July 2009
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+
+                        </section>
+                                            <section class="family-grouping">
+
+                            <h2>XML Accessibility Guidelines</h2>
+                                                                                                <span class="maturity-level">Draft Standard</span>
+                                                                <h3>
+                                    <a href="https://www.w3.org/TR/2002/WD-xag-20021003">XML Accessibility Guidelines</a></h3>
+
+                                <div class="">
+                                    <ul class="tr-meta">
+                                        <li>
+                                            <time>3 October 2002
+                                            </time>
+                                        </li>
+                                        <li>
+                                            <span>Accessibility</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                                                <p>Editors: Daniel Dardailler, Sean Palmer, Charles McCathieNevile</p>
+
+
+
+                        </section>
+
+
+                </div>
+            </div>
+
+
+        </main>
+
+
+    </div>
+    <footer class="global-footer">
+        <div class="l-center">
+            <div class="global-footer__links">
+                <div class="l-cluster">
+                    <ul class="clean-list" role="list">
+                        <li><a href="../page.html">Home</a></li>
+                        <li><a href="../page.html">Contact</a></li>
+                        <li><a href="../page.html">Help</a></li>
+                        <li><a href="../page.html">Sponsor and donate</a></li>
+                        <li><a href="../page.html">Privacy policy</a></li>
+                        <li><a href="../page.html">Legal</a></li>
+                        <li><a href="../page.html">System status</a></li>
+                    </ul>
+                </div>
+                <ul class="clean-list" role="list">
+                    <li>
+                        <a class="with-icon--larger" href="https://twitter.com/W3C">
+                            <img class="icon icon--larger" src="dist/assets/svg/twitter.svg" width="20" height="20" alt aria-hidden="true"/>
+                            <span class="visuallyhidden">W3C on Twitter</span></a>
+                    </li>
+                    <li>
+                        <a class="with-icon--larger" href="https://github.com/w3c/">
+                            <img class="icon icon--larger" src="dist/assets/svg/github.svg" width="20" height="20" alt aria-hidden="true"/>
+                            <span class="visuallyhidden">W3C on GitHub</span></a>
+                    </li>
+                </ul>
+            </div>
+            <p class="copyright">Copyright © 2020 W3C <sup>®</sup>
+                (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+                <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+                <a href="https://www.keio.ac.jp/">Keio</a>,
+                <a href="https://ev.buaa.edu.cn/">Beihang</a>)
+                <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+            </p>
+        </div>
+    </footer>
+</div>
+
+</body>
+
+</html>
