@@ -2656,6 +2656,16 @@ main,
     margin-right: auto;
     max-width: 31.25rem; }
 
+/*
+ * Hero variant for TR listing page
+ */
+.hero--tr {
+  background-color: #fff;
+  margin-bottom: 1.25rem;
+  padding-bottom: 2.5rem; }
+  .hero--tr .l-sidebar .not-sidebar > * {
+    max-width: none; }
+
 .hero + * {
   margin-top: 3.125rem; }
 
@@ -3484,7 +3494,7 @@ a.tag {
     font-size: 1rem;
     font-weight: normal;
     margin-bottom: 1.5rem; }
-  .component--slider .slide + .slide {
+  .component--slider ul > li + li {
     margin-top: 2rem; }
 
 /*------------------------------------*\
@@ -3856,21 +3866,24 @@ input[type=search] {
 \*------------------------------------*/
 .maturity-level,
 .maturity-level-highlighted {
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
   display: inline-block; }
 
 .maturity-level-highlighted {
-  background-color: rgba(206, 205, 205, 0.75);
+  background-color: #005a9c;
+  color: #fff;
   border-radius: 0.25rem;
-  padding: 0.15625rem 0.46875rem 0.15625rem 0.46875rem;
-  margin-bottom: 4px; }
+  padding: 0.15625em 0.46875em 0.15625em 0.46875em;
+  margin-bottom: 0.25em; }
 
 * + .maturity-level,
 * + .maturity-level-highlighted {
-  margin-top: 2rem; }
+  margin-top: 2.25rem; }
 
 h2 + .maturity-level,
 h2 + .maturity-level-highlighted {
-  margin-top: 1rem; }
+  margin-top: 2rem; }
 
 /*------------------------------------*\
     #Family/Series list
@@ -3916,8 +3929,14 @@ dl.family-series-list dt:nth-of-type(2)::before {
   border: 2px solid #979797;
   border-width: 0 0 2px 2px; }
 
+.family-grouping {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem; }
+  .family-grouping > * {
+    max-width: 41.25rem; }
+
 .family-grouping + .family-grouping {
-  margin-top: 4rem; }
+  border-top: 1px solid #bdbdbd; }
 
 /*------------------------------------*\
     #Templates

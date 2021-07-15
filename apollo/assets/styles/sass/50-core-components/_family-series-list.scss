@@ -65,10 +65,19 @@ dl.family-series-list {
 
 .family-grouping {
 
+    padding-top: rem(40);
+    padding-bottom: rem(40);
+
+    > * {
+        max-width: 41.25rem;
+    }
+
 }
 
 .family-grouping + .family-grouping {
 
-    margin-top: rem(64);
+    //margin-top: rem(64);
+
+    border-top:1px solid #bdbdbd;
 
 }

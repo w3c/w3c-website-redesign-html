@@ -130,8 +130,8 @@ var contentSlider = function () {
 
     if (slider) {
       slider.setAttribute('aria-roledescription', sliderDescription);
-      var list = slider.querySelector('.slide-list');
-      var slides = Array.prototype.slice.call(list.querySelectorAll('.slide'));
+      var list = slider.querySelector('ul');
+      var slides = Array.prototype.slice.call(list.querySelectorAll('li'));
 
       if (slides.length > 1) {
         list.setAttribute('tabindex', '0');
@@ -141,9 +141,10 @@ var contentSlider = function () {
         }
 
         slides.forEach(function (slide, index) {
-          slide.setAttribute('role', 'group');
-          slide.setAttribute('aria-roledescription', 'slide');
-          slide.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
+          var group = slide.querySelector('.slide');
+          group.setAttribute('role', 'group');
+          group.setAttribute('aria-roledescription', 'slide');
+          group.setAttribute('aria-label', slideText + (index + 1) + ofText + slides.length);
         }); // Add current class to first slide
 
         slides[0].classList.add('js-current');

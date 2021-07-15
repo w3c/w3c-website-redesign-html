@@ -683,20 +683,20 @@ br {
     outline: 0.125rem solid #111;
     outline-offset: -0.125rem; }
 
-.js [data-component="slider"] .slide-list {
+.js [data-component="slider"] .js-slider > ul {
   display: -ms-flexbox;
   display: flex;
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
   position: relative; }
-  .js [data-component="slider"] .slide-list .slide {
+  .js [data-component="slider"] .js-slider > ul > li {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%; }
-  .js [data-component="slider"] .slide-list .js-current {
+  .js [data-component="slider"] .js-slider > ul > li.js-current {
     visibility: visible; }
-  .js [data-component="slider"] .slide-list .js-hidden {
+  .js [data-component="slider"] .js-slider > ul > li.js-hidden {
     visibility: hidden; }
-  .js [data-component="slider"] .slide-list .slide + .slide {
+  .js [data-component="slider"] .js-slider > ul > li + li {
     margin-top: 0; }
 
 .slider-controls .js-previous svg,
@@ -806,6 +806,9 @@ br {
 /*------------------------------------*\
     #TR Meta
 \*------------------------------------*/
+.tr-list {
+  padding-top: 0; }
+
 .tr-meta.tr-meta {
   margin-top: 0.5rem; }
 
