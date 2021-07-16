@@ -22,11 +22,17 @@ The cover layout creates a container with a minimum height to hold vertically ce
 
 ## Cover with optional header and footer content
 
-This example uses an inline style to change the default alignment of the "header". In practice, you should use the CSS stylesheet to target the element directly or via a custom class to achieve this.
+The following example shows how we might change the default alignment of the &quot;header&quot;:
 
 ```
-<div class="l-cover">
-    <p style="align-self: flex-end;">&quot;Header&quot; content, e.g. a close button</p>
+<style>
+    .highlight__header {
+        align-self: flex-end;
+    }
+</style>
+
+<div class="l-cover highlight">
+    <p class="highlight__header">&quot;Header&quot; content, e.g. a close button</p>
     <h1 class="principal txt-venus u-center">The principal content</h1>
     <p>&quot;Footer&quot; content</p>
 </div> 
