@@ -8,7 +8,7 @@ The web font chosen for this design system is [Noto Sans from Google](https://ww
 
 Use the appropriate semantic `<h#>` to mark up headings. Check that headings are ordered hierarchically, without missing any numbers: `<h2>` is the next level down from `<h1>`, `<h3>` is the next level down from `<h2>`, etc.
 
-A set of font override classes is available, with each class tied to a mixin setting a specific combination of font size and line-height, which have been designed to work together. Headings `<h1>` - `<h5>` have been matched to the following classes (`<h6>` takes the default body text size of `1rem`.):
+A set of [font override classes](#font-override-classes) is available, with each class tied to a mixin setting a specific combination of font size and line-height, which have been designed to work together. Headings `<h1>` - `<h5>` have been matched to the classes as detailed in the following table, but can be overridden if desired. `<h6>` takes the default body text size of `1rem`.
 
 Heading | Class
 ------- | -----
