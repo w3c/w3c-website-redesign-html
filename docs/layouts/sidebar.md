@@ -38,13 +38,26 @@ Nesting a [box layout](box.md) inside the panels allows us to space content away
 
 ## Using intrinsic content width for the sidebar
 
-We can choose to not specify a width on the narrow "sidebar" panel (by not declaring a `flex-basis` value) and let the content of the sidebar determine its width. The following example uses inline styles to demonstrate this effect. In practice, you should apply an additional class to override any of the default styles in a specific context.
+We can choose to not specify a width on the narrow "sidebar" panel (by not declaring a `flex-basis` value) and let the content of the sidebar determine how wide it is. The following example shows how to override the default styles by using an additional class and omitting the `.sidebar` class.
 
 ``` 
-<div class="l-sidebar l-sidebar--tight">
+<style>
+    // Overriding the default min-width of the wider panel
+    .search-bar .not-sidebar {
+        min-width: 70%;
+    }
+    
+    // To omit the `flex-basis` we have not used the `.sidebar` class on this element.
+    // So we must manually re-apply the required `flex-grow` property.
+    .search-bar button {
+        flex-grow: 1;
+    }
+</style>
+
+<div class="l-sidebar search-bar">
     <form onsubmit="return false;">
-        <input type="text" class="not-sidebar" style="min-width: 70%;">
-        <button type="submit" style="flex-grow: 1;">Search</button>
+        <input type="text" class="not-sidebar" aria-label="Search the site">
+        <button type="submit">Search</button>
     </form>
 </div>
 ```
