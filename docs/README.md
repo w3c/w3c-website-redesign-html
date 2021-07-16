@@ -16,7 +16,7 @@ More generic and wide-reaching styles sit within the lower numbered levels, with
 - Functions (global [Sass functions](https://sass-lang.com/documentation/values/functions) e.g. em/rem calculation, unit stripping)
 - Mixins (global [Sass mixins](https://sass-lang.com/documentation/at-rules/mixin) for font size/line-height combinations, media queries and vertical spacing)
 - [Base]() (styles related to the basic styles of your project, like typography, reset and global elements like links and lists. Print styles also reside here.)
-- [Layouts](layouts/README.md)
+- [Layouts](layouts/README.md) (styles for the basic layout types, which can be combined and customised to make a variety of components and templates)
 - Core components
 - Advanced components
 - Third-party plugins
