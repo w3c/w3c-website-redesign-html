@@ -11,7 +11,21 @@ Links can be made to look more like buttons by adding the classes used for styli
 ```
 <a href="#1" class="button">Text link with button styling</a>
 
-<a href="#1" class="button button--alt">Text link with alternative button style</a>
+<a href="#1" class="button button--alt">Text link with alternate button style</a>
+```
+
+## Grouping links
+
+Links can be arranged in groups using the [cluster layout](../layouts/cluster.md). The following example is from the Business Ecosystem template.
+
+```
+<div class="l-cluster component--members__cta">
+    <div>
+        <p>Ways to get involved:</p>
+        <a class="button button--alt" href="#1">Join</a>
+        <a class="button button--alt" href="#2">Donate</a>
+    </div>
+</div>
 ```
 
 ## Opening links in a new tab
