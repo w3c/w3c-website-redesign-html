@@ -5,3 +5,4 @@ Styles related to the basic styles of your project, like typography, reset and g
 - [Typography](typography.md)
 - [Links](links.md)
 - [Buttons](buttons.md)
+- [Lists](lists.md)
