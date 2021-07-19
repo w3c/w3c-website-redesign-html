@@ -4,6 +4,18 @@
 
 The web font chosen for this design system is [Noto Sans from Google](https://www.google.com/get/noto/).
 
+## Paragraphs
+
+The default paragraph font size is 1rem, equivalent to 16px unless a user has changed their default browser settings.
+
+### Lead paragraph
+
+A lead paragraph is an introductory paragraph that you can use at the top of a page to summarise the content. The lead paragraph font size is 1.5rem, equivalent to 24px, and should only be used once per page if needed.
+
+```
+<p class="lead">This is a lead paragraph.</p>
+```
+
 ## Headings
 
 Use the appropriate semantic `<h#>` to mark up headings. Check that headings are ordered hierarchically, without missing any numbers: `<h2>` is the next level down from `<h1>`, `<h3>` is the next level down from `<h2>`, etc.
