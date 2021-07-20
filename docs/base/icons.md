@@ -18,7 +18,7 @@ The default `.icon` class uses the relative em unit and is ideal for using icons
 
 ## Controlling icon spacing
 
-If you want control over the spacing between the icon and text, add the `.with-icon--before` or `.with-icon--after` class to the parent element. This applies inline-flex and alignment styles to help things line up nicely, and uses margin for the spacing. It also handles right-to-left text. Choose the class which reflects the correct order of icon and text.
+If you want control over the spacing between the icon and text, add the `.with-icon--before` or `.with-icon--after` class to the parent element. This applies inline-flex and alignment styles to help things line up nicely, and uses margin for the spacing. It also handles right-to-left text if applicable. Choose the class which reflects the correct order of icon and text.
 
 ```
 <p class="with-icon--before">
@@ -48,7 +48,21 @@ If there is a need for an inline icon that is distinctly larger than the default
 </button>
 ```
 
-## SVG accessibility
+## SVG usage
+
+The preceding examples show how to include icons as inline SVGs. The benefits of doing this are:
+
+- It eliminates a separate HTTP request
+- SVGs added as background images as part of an icon font may not show properly for high contrast mode users
+- We have full CSS control of the SVG in terms of colour, animations/transitions and manipulating paths.
+
+However, inline SVGs are not cached. An alternative is to [use the `<use>` element of SVG to reference code from an external file](https://css-tricks.com/svg-use-with-external-reference-take-2/), which the browser can cache. It also improves the readability of the markup. [CSS styling is still possible](https://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/), although it has some limitations - be sure to add an extra class and target .
+
+### Considerations
+
+There is no Internet Explorer support for using SVGs with `<use>` and an external source. A JavaScript workaround - [SVG for Everybody](https://github.com/jonathantneal/svg4everybody) - is available if support for this browser is important.
+
+## SVG Accessibility
 
 It is highly recommended to read the advice from Scott O'Hara on [Contextually marking up accessible images and SVGs](https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html). The following summarises that advice.
 
