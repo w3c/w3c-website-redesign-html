@@ -6,3 +6,4 @@ Styles related to the basic styles of your project, like typography, reset and g
 - [Links](links.md)
 - [Buttons](buttons.md)
 - [Lists](lists.md)
+- [Icons](icons.md)
