@@ -56,7 +56,7 @@ The preceding examples show how to include icons as inline SVGs. The benefits of
 - SVGs added as background images as part of an icon font may not show properly for high contrast mode users
 - We have full CSS control of the SVG in terms of colour, animations/transitions and manipulating paths.
 
-However, inline SVGs are not cached. An alternative is to [use the `<use>` element of SVG to reference code from an external file](https://css-tricks.com/svg-use-with-external-reference-take-2/), which the browser can cache. It also improves the readability of the markup. [CSS styling is still possible](https://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/), although it has some limitations - be sure to add an extra class and target .
+However, inline SVGs are not cached. An alternative is to [use the `<use>` element of SVG to reference code from an external file](https://css-tricks.com/svg-use-with-external-reference-take-2/), which the browser can cache. It also improves the readability of the markup. [CSS styling is still possible](https://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/), although it has some limitations - be sure to add an extra class and target this in the CSS.
 
 ### Considerations
 
