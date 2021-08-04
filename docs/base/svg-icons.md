@@ -1,4 +1,6 @@
-# Icons
+# SVG icons
+
+This section specifically covers using inline SVG files as icons. [Using an SVG file as the `src` of an `<img>`](svg-images.md) is covered separately.
 
 Iconography uses SVGs from [Font Awesome](https://github.com/FortAwesome/Font-Awesome).
 
