@@ -68,7 +68,7 @@ There is no Internet Explorer support for using SVGs with `<use>` and an externa
 
 It is highly recommended to read the advice from Scott O'Hara on [Contextually marking up accessible images and SVGs](https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html). The following summarises that advice.
 
-In all the preceding examples, the SVG has acted as a **decorative item**, and uses the following markup pattern, which hides the SVG from screen readers and prevents the <kbd>Tab</kbd> key from navigation in the SVG in Internet Explorer:
+In all the preceding examples, the SVG has acted as a **decorative item**, and uses the following markup pattern, which hides the SVG from screen readers and prevents the <kbd>Tab</kbd> key from navigation inside the SVG in Internet Explorer:
 
 ```
 <svg aria-hidden="true" focusable="false" ... >
