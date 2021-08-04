@@ -9,4 +9,5 @@ Styles related to the basic styles of your project, like typography, reset and g
 - [SVG icons](svg-icons.md)
 - [SVG images](svg-images.md)
 - [Tables](tables.md)
+- [Forms](forms.md)
 - [How to hide and show items inclusively](how-to-hide-and-show-things.md)
