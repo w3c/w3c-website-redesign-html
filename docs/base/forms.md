@@ -12,6 +12,12 @@ The examples on this page show how we manage forms and their fields. Recommendat
 - The `<select>` element should be a last resort as they’re really hard to use. Try radio buttons instead. If there’s a long list of options, use JavaScript to enhance the `<select>` into an [auto-complete field](#auto-complete) (not to be confused with the `autocomplete` attribute).
 - If you have to use a `<select>`, don't submit a form when its value changes. Select boxes that submit the form automatically when the user selects an option cause problems for keyboard and screen reader users.
 
+## Required fields
+
+It is best practice to only ask questions that are strictly necessary.
+
+In the event that a form contains both optional and required fields, to clearly identify the required fields to all users add `<span class="required">(Required)</span>` within the `<label>`.
+
 ## How to add hint text
 
 To provide hint text advising how to complete a field, add a `<div class="field-hint">`. Check the examples that follow to see where this should be added. The pattern differs slightly for checkbox and radio inputs compared to other input types.
@@ -28,7 +34,7 @@ Provide hint text when users are more likely to make a mistake, such as when hav
 <form>
     <div class="field">
         <label for="name">
-            <span class="field-label">Name</span>
+            <span class="field-label">Name <span class="required">(Required)</span></span>
         </label>
         <div class="field-hint" id="hint-name">E.g. Robin Smith</div>
         <input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name">
@@ -466,4 +472,41 @@ Apollo includes several CSS classes which, when added to an `<input>`, will redu
         <input type="text" class="input-width-2" id="width-2" name="width-2">
     </div>
 </form>
+```
+
+## Progress indicators
+
+While it is [recommended not to use progress indicators](https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators) for forms, Apollo does cater for one:
+
+```
+<section>
+    <h2 class="visuallyhidden">Form progress</h2>
+    <ol class="clean-list progress-list" role="list">
+        <li class="progress-step complete">
+            <span class="visuallyhidden">Completed: </span>
+            <a href="" class="progress-step__inner">
+                <div class="progress-step__marker complete" aria-hidden="true">1</div>
+                <span>Delivery address</span>
+            </a>
+        </li>
+        <li class="progress-step" aria-current="step">
+            <div class="progress-step__inner">
+                <div class="progress-step__marker" aria-hidden="true">2</div>
+                <span>Billing address</span>
+            </div>
+        </li>
+        <li class="progress-step">
+            <div class="progress-step__inner">
+                <div class="progress-step__marker" aria-hidden="true">3</div>
+                <span>Payment details</span>
+            </div>
+        </li>
+        <li class="progress-step">
+            <div class="progress-step__inner">
+                <div class="progress-step__marker" aria-hidden="true">4</div>
+                <span>Confirmation</span>
+            </div>
+        </li>
+    </ol>
+</section>
 ```
