@@ -1,6 +1,6 @@
 # Components
 
-Examples of the individual components, the building blocks that house page content.
+Examples of the individual components, the building blocks of your web pages.
 
 In the CSS architecture, there are two directories relating to components. The **core components** directory handles the minimum required styles for all components. They are compiled into `core.css`, which is served to all browsers (along with `print.css`). 
 
@@ -23,7 +23,8 @@ FF 47+
 This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/). It can be done via a JavaScript query, but Apollo, inspired by the [Springer Nature Frontend Playbook](https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md), uses the [CSS Only Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut).
 
 
-## Index of components4
+## Index of components
+- [Breadcrumbs](breadcrumbs.md)
 - [Text](text.md)
 - [Quote](quote.md)
 - [Image](image.md)
