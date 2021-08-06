@@ -29,6 +29,7 @@ This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2
 - [Footer](footer.md)
 - [Navigation](navigation.md)
 - [Breadcrumbs](breadcrumbs.md)
+- [Hero](hero.md)
 - [Text](text.md)
 - [Quote](quote.md)
 - [Image](image.md)
