@@ -35,3 +35,7 @@ The beta banner is contained within `<div class="banner">` and can be removed wh
     </nav>
 </header>
 ```
+
+## Considerations
+
+Note the inclusion of `<span role="status" aria-live="polite"></span>`. This will hold notifications for Assistive Technology users who have logged into their account. Such messages are injected via JavaScript.
