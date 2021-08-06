@@ -7,3 +7,5 @@ Examples of the basic layout types, which can be combined and customised to make
 - [Cluster](cluster.md)
 - [Cover](cover.md)
 - [Frame](frame.md)
+- [Sidebar](sidebar.md)
+- [Switcher](switcher.md)
