@@ -45,6 +45,15 @@ These are found on the landing page template. The following examples show cards 
 
 ### Considerations
 
+Additional modifier classes can be added to cards:
+
+- `.card--event`, `.card--member`, `.card--news` and `.card--group` add a `box-shadow` style.
+- For event cards, the following additional classes change the color strip:
+  - `.conference`,
+  - `.meeting`,
+  - `.talk`,
+  - `.workshop`
+
 In the markup, the card text is first in the source order to prioritise it over the icon/image. Flexbox is used to place the icon/image ahead of the card text visually, via the `order` property.
 
 Where generic link text is used visually, this is enhanced for Assistive Technology users with the `<span class="visuallyhidden">` providing descriptive link text.
