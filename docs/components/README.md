@@ -37,3 +37,5 @@ This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2
 - [Image](image.md)
 - [Video](video.md)
 - [Fifty-fifty](fifty-fifty.md)
+- [Cards](cards.md)
+- [Columns](columns.md)
