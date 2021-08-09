@@ -3,7 +3,7 @@
 ```
 <figure class="component component--image">
     <div class="l-frame l-frame--16-9">
-        <img src="dist/assets/images/temp-developers-920.jpg"
+        <img src="/dist/assets/images/temp-developers-920.jpg"
              srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
              sizes="100vw"
              loading="lazy"

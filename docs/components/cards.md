@@ -34,7 +34,7 @@ These are found on the landing page template. The following examples show cards 
         <a href="path/to/page"><span class="visuallyhidden">W3C starts web payments standards work</span> Learn more</a>
     </div>
     <div class="l-frame l-frame--3-2 card__image">
-        <img src="dist/assets/images/temp-developers-920.jpg"
+        <img src="/dist/assets/images/temp-developers-920.jpg"
              srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
              sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
              loading="lazy"
@@ -72,7 +72,7 @@ Do not wrap the contents of a card inside a singular `<a>` element. This can res
         <p class="txt-pluto">News</p>
     </div>
     <div class="l-frame l-frame--16-9 card__image">
-        <img src="dist/assets/images/temp-developers-920.jpg"
+        <img src="/dist/assets/images/temp-developers-920.jpg"
              srcset="dist/assets/images/temp-developers-360.jpg 360w, dist/assets/images/temp-developers-580.jpg 580w, dist/assets/images/temp-developers-700.jpg 700w, dist/assets/images/temp-developers-920.jpg 920w, dist/assets/images/temp-developers-1520.jpg 1520w"
              sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
              loading="lazy"
@@ -97,7 +97,7 @@ It is possible for a block link card to have one link as the main link while als
                 <div class="sidebar">
                     <div class="date-location">
                         <div>
-                            <img src="dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true" />
+                            <img src="/dist/assets/svg/calendar.svg" width="18" height="20" alt aria-hidden="true" />
                         </div>
                         <div>
                             <p><time datetime="2021-01-28T18:00Z">28 January 2021, 18:00 - 19:30 UTC</time></p>
