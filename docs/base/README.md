@@ -8,6 +8,7 @@ Styles related to the basic styles of your project, like typography, reset and g
 - [Lists](lists.md)
 - [SVG icons](svg-icons.md)
 - [SVG images](svg-images.md)
+- [Avatars](avatars.md)
 - [Tables](tables.md)
 - [Forms](forms.md)
 - [Vertical spacing](vertical-spacing.md)
