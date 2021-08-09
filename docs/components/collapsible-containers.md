@@ -36,3 +36,7 @@ The collapsible containers component is used within the [group list](group-list.
     </div>
 </div>
 ```
+
+## Considerations
+
+[Buttons shouldn't use the pointer cursor](https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor/), so ensure the buttons have sufficient affordance by other visual means, such as background colour, border and/or box-shadow styles.
