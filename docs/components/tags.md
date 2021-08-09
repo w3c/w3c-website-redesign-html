@@ -1,6 +1,7 @@
 # Tag list
 
 ## Simple tags
+
 ```
 <div class="l-cluster">
     <ul class="clean-list">
@@ -18,6 +19,7 @@
 ```
 
 ## Linked tags
+
 ```
 <div class="l-cluster">
     <ul class="clean-list">
