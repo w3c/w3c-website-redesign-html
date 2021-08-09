@@ -5,6 +5,8 @@ Cards are used in multiple places. Although the visual appearance may vary, they
 1. Simple cards with a distinct link that can be selected
 2. Block link cards, where the entire surface area can act as a link
 
+For both types of card, it is important to check that the heading level used fits in with the card's location in the page hierarchy.
+
 ## Simple cards
 
 These are found on the landing page template. The following examples show cards with either an image or icon to accompany the text. Cards can be text-only by omitting the icon markup/`<div class="card__image">`
@@ -50,6 +52,8 @@ Where generic link text is used visually, this is enhanced for Assistive Technol
 ## Block link cards
 
 A simple card is enhanced into a selectable card by adding the data attribute `data-component="card"`. When this is present, JavaScript will [enhance the card into a block link](https://css-tricks.com/block-links-the-search-for-a-perfect-solution/).
+
+Do not wrap the contents of a card inside a singular `<a>` element. This can result in the entire contents of the card being read out to screen reader users.
 
 ```
 <div class="card" data-component="card">
