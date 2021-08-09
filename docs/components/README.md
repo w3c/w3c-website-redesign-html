@@ -40,6 +40,6 @@ This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2
 - [Cards](cards.md)
 - [Columns](columns.md)
 - [Crosslinks](crosslinks.md)
-- Activity
+- [Activity](activity.md)
 - [Collapsible containers](collapsible-containers.md)
 - [Group list](group-list.md)
