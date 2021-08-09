@@ -26,8 +26,6 @@ This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2
 ## Index of components
 - [Archived content](archived-content.md)
 - [Header](header.md)
-- [Pre-footer](pre-footer.md)
-- [Footer](footer.md)
 - [Navigation](navigation.md)
 - [Breadcrumbs](breadcrumbs.md)
 - [Hero](hero.md)
@@ -49,3 +47,5 @@ This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2
 - [Evangelists](evangelists.md)
 - [Content slider (carousel)](slider.md)
 - [Pagination](pagination.md)
+- [Pre-footer](pre-footer.md)
+- [Footer](footer.md)
