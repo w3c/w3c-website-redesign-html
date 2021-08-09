@@ -45,3 +45,4 @@ This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2
 - [Group list](group-list.md)
 - [Members](members.md)
 - [Evangelists](evangelists.md)
+- [Content slider (carousel)](slider.md)
