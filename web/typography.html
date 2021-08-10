@@ -1,5 +1,5 @@
 <!doctype html>
-<html dir="ltr" lang="en" class="no-js">
+<html lang="en" class="no-js">
 
 <head>
 	<meta charset="utf-8"/>
@@ -10,8 +10,9 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<meta property="og:description" name="description" content="Typography prototype for the W3C website redesign"/>
+	<meta property="og:image" name="image" content="/dist/assets/images/w3c-opengraph-image.png">
 
-	<script src="dist/assets/js/libraries/fontfaceobserver.js"></script>
+	<script src="/dist/assets/js/libraries/fontfaceobserver.js"></script>
 
 	<script>
 		let myFont = new FontFaceObserver('Noto Sans');
@@ -21,49 +22,38 @@
 		});
 	</script>
 
-	<link rel="stylesheet" href="dist/assets/styles/core.css" media="screen"/>
+	<link rel="stylesheet" href="/dist/assets/styles/core.css" media="screen"/>
 
 	<!--
-		CSS Mustard Cut
-		Print (Edge doesn't apply to print otherwise)
-		Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
-		FF 47+
-		-->
-	<link rel="stylesheet" id="advanced-stylesheet" href="dist/assets/styles/advanced.css" media="
-    only print,
-    only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
-    only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
-">
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+	<link rel="stylesheet" id="advanced-stylesheet" href="/dist/assets/styles/advanced.css" media="
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
+
+	<link rel="stylesheet" href="/dist/assets/styles/print.css" media="print"/>
+
 	<script>
 		(function() {
 			let linkEl = document.getElementById('advanced-stylesheet');
 			if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
-				let script = document.createElement('script');
-				script.src = 'dist/assets/js/main.js';
-				script.defer = true;
-				document.querySelector('head').appendChild(script);
+				let head = document.querySelector('head');
+				// Add main JS
+				let jsMain = document.createElement('script');
+				jsMain.src = 'dist/assets/js/main.js';
+				jsMain.defer = true;
+				head.appendChild(jsMain);
+				// Update classname to show JS is available
 				(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
 			}
 		})();
 	</script>
 
-	<style>
-		/* Temporary prototype styles */
-		main {
-			margin-left: auto;
-			margin-right: auto;
-			max-width: 1120px;
-			position: relative;
-		}
-		
-		.measure {
-			max-width: 729px;
-		}
-
-		.global-footer {
-			display: none;
-		}
-	</style>
 </head>
 
 <body>
