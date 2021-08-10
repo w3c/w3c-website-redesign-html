@@ -106,6 +106,8 @@ The beta banner is contained within `<div class="banner">` and can be removed wh
             
             <main id="main">
                 <h1>Page title</h1>
+                
+                [Basic page content...]
             </main>
         
         </div>
