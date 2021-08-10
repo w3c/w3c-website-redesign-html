@@ -29,6 +29,7 @@ The **advanced components** directory handles the styles for those few component
 - [Members](members.md)
 - [Evangelists](evangelists.md)
 - [Content slider (carousel)](slider.md)
+- [RSS](rss.md)
 - [Pagination](pagination.md)
 - [Pre-footer](pre-footer.md)
 - [Footer](footer.md)
