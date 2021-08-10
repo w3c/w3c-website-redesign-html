@@ -122,7 +122,7 @@ An example of the default template. It is very similar to the basic page, with t
                         
                         [Optional table of contents goes here]
                         
-                        [Content goes here...]
+                        [Default page content...]
                     </article>
                     
                     <section class="related">
