@@ -387,7 +387,7 @@ Before using the `<select>` element, try asking users questions which will allow
 
 ## Auto-complete
 
-A `<select>` can be enhanced into an accessible autocomplete via JavaScript. Apollo uses [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete) to achieve this, and there are a number of [example customisations](https://alphagov.github.io/accessible-autocomplete/examples/) which can be followed.
+A `<select>` can be enhanced into an accessible auto-complete via JavaScript. Apollo uses [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete) to achieve this, and there are a number of [example customisations](https://alphagov.github.io/accessible-autocomplete/examples/) which can be followed.
 
 Follow the default markup for a `<select>`, making sure to give it a unique ID which can be referenced in the JavaScript.
 
