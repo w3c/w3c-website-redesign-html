@@ -3,6 +3,7 @@
 This example shows the minimum required for a basic page. It does not include:
 
 - the complete [global navigation](../components/navigation.md)
+- the [breadcrumbs component](../components/breadcrumbs.md)
 - the complete list of site links for the [footer](../components/footer.md).
   
 The beta banner is contained within `<div class="banner">` and can be removed when no longer required.
@@ -100,6 +101,8 @@ The beta banner is contained within `<div class="banner">` and can be removed wh
                     </div>
                 </nav>
             </header>
+            
+            [Breadcrumbs go here...]
             
             <main id="main">
                 <h1>Page title</h1>
