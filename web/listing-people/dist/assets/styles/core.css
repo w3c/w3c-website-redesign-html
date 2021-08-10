@@ -462,11 +462,17 @@ template {
 /*
  * Respect the choices of users who do not want animations.
  */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-play-state: paused !important;
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
     scroll-behavior: auto !important;
-    transition: none !important; } }
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important; } }
 
 /*------------------------------------*\
     #Background colours
@@ -723,7 +729,9 @@ Group inputs to line up side-by-side
  */
 .input-group {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
 
 .input-group > * + * {
   margin-left: 1.875rem; }
@@ -1725,6 +1733,9 @@ summary {
   summary:focus span {
     text-decoration: none; }
 
+details[open] > summary {
+  margin-bottom: 1rem; }
+
 details[open] > summary::before {
   transform: rotate(90deg); }
 
@@ -1944,10 +1955,6 @@ to our global box-sizing rule.
     are liable to wrap. Use the Cluster to align any groups of horizontally
     laid out elements to the left or right, or in the center, with even
     spacing between elements.
-
-    The size variable used below defines the desired spacing between
-    elements inside `.l-cluster` (currently 1rem). Sizes are defined
-    in /10-settings/sizes
 \*------------------------------------*/
 /**
 Suppress horizontal scrolling caused by the negative margin
@@ -2652,6 +2659,16 @@ main,
     margin-left: auto;
     margin-right: auto;
     max-width: 31.25rem; }
+
+/*
+ * Hero variant for TR listing page
+ */
+.hero--tr {
+  background-color: #fff;
+  margin-bottom: 1.25rem;
+  padding-bottom: 2.5rem; }
+  .hero--tr .l-sidebar .not-sidebar > * {
+    max-width: none; }
 
 .hero + * {
   margin-top: 3.125rem; }
@@ -3852,10 +3869,26 @@ input[type=search] {
 /*------------------------------------*\
     #Maturity levels
 \*------------------------------------*/
+.maturity-level,
 .maturity-level-highlighted {
-  background-color: #f9dc4a;
+  font-size: 0.9375rem;
+  line-height: calc(22.5 / 15);
+  display: inline-block; }
+
+.maturity-level-highlighted {
+  background-color: #005a9c;
+  color: #fff;
   border-radius: 0.25rem;
-  padding: 0.625rem; }
+  padding: 0.15625em 0.46875em 0.15625em 0.46875em;
+  margin-bottom: 0.25em; }
+
+* + .maturity-level,
+* + .maturity-level-highlighted {
+  margin-top: 2.25rem; }
+
+h2 + .maturity-level,
+h2 + .maturity-level-highlighted {
+  margin-top: 2rem; }
 
 /*------------------------------------*\
     #Family/Series list
@@ -3902,24 +3935,13 @@ dl.family-series-list dt:nth-of-type(2)::before {
   border-width: 0 0 2px 2px; }
 
 .family-grouping {
-  -webkit-padding-start: 1.25rem;
-          padding-inline-start: 1.25rem;
-  position: relative; }
-  .family-grouping::before {
-    background-color: #D8D8D8;
-    border-radius: 0.3125rem;
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 0.375rem; }
-  .family-grouping [dir="rtl"] blockquote::before {
-    left: auto;
-    right: 0; }
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem; }
+  .family-grouping > * {
+    max-width: 41.25rem; }
 
 .family-grouping + .family-grouping {
-  margin-top: 2.75rem; }
+  border-top: 1px solid #bdbdbd; }
 
 /*------------------------------------*\
     #Templates

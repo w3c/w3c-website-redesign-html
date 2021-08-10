@@ -462,11 +462,17 @@ template {
 /*
  * Respect the choices of users who do not want animations.
  */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-play-state: paused !important;
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
     scroll-behavior: auto !important;
-    transition: none !important; } }
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important; } }
 
 /*------------------------------------*\
     #Background colours
@@ -1949,10 +1955,6 @@ to our global box-sizing rule.
     are liable to wrap. Use the Cluster to align any groups of horizontally
     laid out elements to the left or right, or in the center, with even
     spacing between elements.
-
-    The size variable used below defines the desired spacing between
-    elements inside `.l-cluster` (currently 1rem). Sizes are defined
-    in /10-settings/sizes
 \*------------------------------------*/
 /**
 Suppress horizontal scrolling caused by the negative margin
@@ -2021,7 +2023,8 @@ out, but halve it to to account for 'doubling up' at the edges.
 
 .l-frame > img,
 .l-frame > video {
-  object-fit: cover; }
+  -o-object-fit: cover;
+     object-fit: cover; }
 
 /* Common aspect ratios */
 .l-frame--16-9 {
@@ -2360,11 +2363,12 @@ so that either of these properties is applied instead.
     position: absolute;
     right: 0;
     top: 0; }
-    @supports (object-fit: contain) {
+    @supports ((-o-object-fit: contain) or (object-fit: contain)) {
       .logo--member > img {
         height: 100%;
         max-width: none;
-        object-fit: contain;
+        -o-object-fit: contain;
+           object-fit: contain;
         position: static; } }
 
 /*------------------------------------*\
@@ -3476,11 +3480,12 @@ a.tag {
     position: absolute;
     right: 0;
     top: 0; }
-    @supports (object-fit: contain) {
+    @supports ((-o-object-fit: contain) or (object-fit: contain)) {
       .slide__logo > img {
         height: 100%;
         max-width: none;
-        object-fit: contain;
+        -o-object-fit: contain;
+           object-fit: contain;
         position: static; } }
 
 /*------------------------------------*\
