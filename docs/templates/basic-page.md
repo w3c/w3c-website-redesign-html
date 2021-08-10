@@ -1,6 +1,10 @@
 # Basic page
 
-This example shows the minimum required for a basic page. It does not include the [global navigation](../components/navigation.md), nor the complete list of site links for the [footer](../components/footer.md).
+This example shows the minimum required for a basic page. It does not include:
+
+- the beta banner from the [header](../components/header.md),
+- the [global navigation](../components/navigation.md)
+- the complete list of site links for the [footer](../components/footer.md).
 
 ```
 <!doctype html>
