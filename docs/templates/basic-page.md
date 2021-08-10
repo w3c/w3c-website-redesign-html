@@ -2,9 +2,10 @@
 
 This example shows the minimum required for a basic page. It does not include:
 
-- the beta banner from the [header](../components/header.md),
 - the [global navigation](../components/navigation.md)
 - the complete list of site links for the [footer](../components/footer.md).
+  
+The beta banner is contained within `<div class="banner">` and can be removed when no longer required.
 
 ```
 <!doctype html>
@@ -133,3 +134,9 @@ This example shows the minimum required for a basic page. It does not include:
     </div>
 </body>
 ```
+
+## Considerations
+
+Note the inclusion of a skip link for accessibility.
+
+`<div class="grid-wrap">` is required for a sticky footer using CSS Grid. The technique is similar to that explained at [Sticky Footer, Five Ways](https://css-tricks.com/couple-takes-sticky-footer/#there-is-grid), except that Apollo applies `<div class="grid-wrap">` as the grid container, rather than placing this on `<body>`.
