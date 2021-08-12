@@ -4,3 +4,4 @@
 - [Default](default.md)
 - [Landing](landing.md)
 - [Business ecosystem](business-ecosystem.md)
+- [Post](post.md)
