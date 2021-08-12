@@ -20,7 +20,7 @@ More generic and wide-reaching styles sit within the lower numbered levels, with
 - Core [components](components/README.md) (the basic components available for use, un-enhanced by JavaScript)
 - Advanced [components](components/README.md) (styles required for components that are enhanced in some way with JavaScript)
 - [Third-party plugins](third-party-plugins/README.md)
-- Templates
+- [Templates](templates/README.md)
 - Utilities
 
 ### CSS compilation
