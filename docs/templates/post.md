@@ -4,6 +4,7 @@ This example shows the minimum markup of a post template. It does not include:
 
 - the complete [global navigation](../components/navigation.md)
 - the [breadcrumbs component](../components/breadcrumbs.md)
+- the optional [translations component](../components/translations.md)
 - the complete list of site links for the [footer](../components/footer.md).
 
 It does show the markup of the post meta details, the sidebar links to related content, and the comments section.
