@@ -21,7 +21,7 @@ More generic and wide-reaching styles sit within the lower numbered levels, with
 - Advanced [components](components/README.md) (styles required for components that are enhanced in some way with JavaScript)
 - [Third-party plugins](third-party-plugins/README.md)
 - [Templates](templates/README.md)
-- Utilities
+- [Utilities](utilities/README.md)
 
 ### CSS compilation
 
