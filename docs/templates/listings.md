@@ -1,14 +1,13 @@
 # Listing templates
 
-The following example shows the minimum required for a listing page.
+The following example shows the minimum required for a listing page. This example does not include:
 
 - the complete [global navigation](../components/navigation.md)
 - the [breadcrumbs component](../components/breadcrumbs.md)
+- the exact markup of any search and filters and the listings themselves (variations for [posts](#posts), [events](#events), [members](#members), [groups](#groups) and [people](#people) are covered separately)
 - the [pagination component](../components/pagination.md)
 - the optional [pre-footer component](../components/pre-footer.md)
 - the complete list of site links for the [footer](../components/footer.md).
-
-Individual variations on this markup are covered in the [considerations](#considerations) that follow.
 
 ```
 <!doctype html>
