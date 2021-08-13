@@ -7,3 +7,4 @@
 - [Post](post.md)
 - [Event](event.md)
 - [Listing templates](listings.md)
+- [Group details](group-details.md)
