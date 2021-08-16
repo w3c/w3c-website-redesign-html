@@ -38,7 +38,6 @@
 \*------------------------------------*/
 @import "sass/30-base/normalize";
 @import "sass/30-base/animation";
-@import "sass/30-base/bg-color";
 @import "sass/30-base/quotes";
 @import "sass/30-base/body";
 @import "sass/30-base/box-sizing";
@@ -88,6 +87,7 @@
 @import "sass/50-core-components/quotes";
 @import "sass/50-core-components/images";
 @import "sass/50-core-components/video";
+@import "sass/50-core-components/notes";
 @import "sass/50-core-components/columns";
 @import "sass/50-core-components/cards";
 @import "sass/50-core-components/tag-list";

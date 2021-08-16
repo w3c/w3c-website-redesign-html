@@ -60,18 +60,17 @@ $yellow: #f9dc4a;
 Sass variables.
  */
 $border-color:                  $twiki-gray;
+$input-border-color:            $storm-gray;
 $focus-color:                   $yellow;
 
 $link-color:                    $blue;
 $link-color--visited:           $purple;
 $link-color--hover:             $deep-blue;
 
-$input-border-color:            $storm-gray;
-$input-error-color:             #a82615;
-
-$success-color:                 $green;
-$warning-color:                 $yellow;
-$alert-color:                   $red;
+$success-color:                 #046704;
+$info-color:                    #005a9c;
+$warning-color:                 #C28605;
+$error-color:                   #a82615;
 
 
 /**
