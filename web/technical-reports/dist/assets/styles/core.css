@@ -475,21 +475,6 @@ template {
     transition-delay: 0s !important; } }
 
 /*------------------------------------*\
-    #Background colours
-\*------------------------------------*/
-.bg--alert {
-  background-color: #e93737;
-  color: #000; }
-
-.bg--success {
-  background-color: #2ecc40;
-  color: #000; }
-
-.bg--warning {
-  background-color: #f9dc4a;
-  color: #000; }
-
-/*------------------------------------*\
     #Quotes
 \*------------------------------------*/
 blockquote {
@@ -646,37 +631,6 @@ input[type="submit"].button {
     background-color: #bdbdbd;
     color: #303030;
     outline: 0; }
-
-/**
-Double specificity so links as buttons keep their styling even within
-elements that would otherwise override it, without using !important
- */
-.button--alert.button--alert {
-  background-color: #e93737;
-  color: #000; }
-  .button--alert.button--alert:visited {
-    background-color: #e93737;
-    color: #000; }
-  .button--alert.button--alert:hover, .button--alert.button--alert:focus, .button--alert.button--alert:active {
-    background-color: #ee6565; }
-
-.button--success.button--success {
-  background-color: #2ecc40;
-  color: #000; }
-  .button--success.button--success:visited {
-    background-color: #2ecc40;
-    color: #000; }
-  .button--success.button--success:hover, .button--success.button--success:focus, .button--success.button--success:active {
-    background-color: #54d964; }
-
-.button--warning.button--warning {
-  background-color: #f9dc4a;
-  color: #000; }
-  .button--warning.button--warning:visited {
-    background-color: #f9dc4a;
-    color: #000; }
-  .button--warning.button--warning:hover, .button--warning.button--warning:focus, .button--warning.button--warning:active {
-    background-color: #fbe67b; }
 
 /*------------------------------------*\
     #Focus
@@ -1140,27 +1094,16 @@ Fixed input widths
 /**
 Error styles
  */
-.error-summary.error-summary {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  border-color: #a82615;
-  border-width: 0.3125rem; }
-  .error-summary.error-summary > * + * {
-    margin-top: 1rem; }
-  .error-summary.error-summary a {
-    color: #a82615;
-    display: inline-block;
-    font-weight: bold;
-    padding-bottom: 0.625rem;
-    padding-top: 0.625rem; }
-    .error-summary.error-summary a:hover, .error-summary.error-summary a:visited {
-      color: #a82615; }
-    .error-summary.error-summary a:focus {
-      color: #000; }
+[data-component="error-summary"] li a {
+  color: #a82615;
+  display: inline-block;
+  font-weight: bold;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem; }
+  [data-component="error-summary"] li a:hover, [data-component="error-summary"] li a:visited {
+    color: #a82615; }
+  [data-component="error-summary"] li a:focus {
+    color: #000; }
 
 .field--error {
   border-left: solid 0.3125rem #a82615;
@@ -2885,6 +2828,34 @@ main,
     margin: 0;
     padding-bottom: 0.625rem;
     padding-top: 0.625rem; }
+
+/*------------------------------------*\
+    #Notes
+\*------------------------------------*/
+.note {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  border-width: 5px; }
+  .note > * + * {
+    margin-top: 1rem; }
+  .note > * {
+    max-width: 41.25rem; }
+
+.note--error {
+  border-color: #a82615; }
+
+.note--info {
+  border-color: #005a9c; }
+
+.note--success {
+  border-color: #046704; }
+
+.note--warning {
+  border-color: #C28605; }
 
 /*------------------------------------*\
     #Columns
