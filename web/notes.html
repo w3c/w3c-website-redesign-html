@@ -5,11 +5,11 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Error: Forms | W3C Redesign Prototypes</title>
+	<title>Notes | W3C Redesign Prototypes</title>
 
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<meta property="og:description" name="description" content="Demonstrating form error messaging for the W3C website redesign"/>
+	<meta property="og:description" name="description" content="Prototyping notes for the W3C website redesign"/>
 	<meta property="og:image" name="image" content="/dist/assets/images/w3c-opengraph-image.png">
 
 	<script src="/dist/assets/js/libraries/fontfaceobserver.js"></script>
@@ -53,6 +53,13 @@
 			}
 		})();
 	</script>
+
+	<style>
+		/* Temporary prototype styles */
+
+		main > * + * {margin-top: 1rem;}
+
+	</style>
 
 </head>
 
@@ -340,537 +347,34 @@
 						<li><a href="page.html">Page</a></li>
 						<li><a href="page.html">Another page</a></li>
 						<li><a href="page.html">Page</a></li>
-						<li><a href="#" aria-current="page">Forms</a></li>
+						<li><a href="#" aria-current="page">Notes</a></li>
 					</ol>
 				</div>
 			</div>
 		</nav>
 		<main id="main">
-			<div class="l-box note note--error" role="alert" aria-labelledby="error-summary-title" tabindex="-1" data-component="error-summary">
-				<h2 id="error-summary-title" class="txt-mars">There is a problem</h2>
-				<ul class="clean-list" role="list">
-					<li>
-						<a href="#name">Enter a name</a>
-					</li>
-					<li>
-						<a href="#message">Enter a message</a>
-					</li>
-					<li>
-						<a href="#account-number">Enter an account number</a>
-					</li>
-					<li>
-						<a href="#arrival-date">Enter an arrival date</a>
-					</li>
-					<li>
-						<a href="#meeting-time">Enter a start time</a>
-					</li>
-					<li>
-						<a href="#bday-day">Enter a date of birth</a>
-					</li>
-					<li>
-						<a href="#file">The file must be 2MB or smaller</a>
-					</li>
-					<li>
-						<a href="#pets_yes">Select yes if you do own pets</a>
-					</li>
-					<li>
-						<a href="#segmented-option-1">Choose a segmented option</a>
-					</li>
-					<li>
-						<a href="#chocolate">Choose at least one item you like</a>
-					</li>
-					<li>
-						<a href="#country">Choose a country</a>
-					</li>
-				</ul>
+			<h1>Notes</h1>
+
+			<div class="l-box note note--info" role="status">
+				<h2 class="txt-mars">Informative note heading</h2>
+				<p>Group calendering is currently in beta-test. We encourage everyone to use it and report feedback and issues to its <a href="#1">dedicated GitHub repository</a>.</p>
 			</div>
-			<h1>Forms</h1>
-			<h2>Example form showcasing error messages</h2>
-			<form onsubmit="return false" novalidate>
-				<div class="field-group">
-					<h3 class="field-legend">Dealing with text</h3>
-					<div class="field field--error">
-						<label for="name">
-							<span class="field-label">Name (Required)</span>
-							<span class="field-error-msg" id="error-name"><span class="visuallyhidden">Error:</span> Enter a name</span>
-						</label>
-						<div class="field-hint" id="hint-name">E.g. Robin Smith</div>
-						<input type="text" id="name" name="name" autocomplete="name" aria-describedby="hint-name error-name">
-					</div>
-					<div class="field field--error">
-						<label for="message">
-							<span class="field-label">Your message (Required)</span>
-							<span class="field-error-msg" id="error-msg"><span class="visuallyhidden">Error:</span> Enter a message</span>
-						</label>
-						<textarea id="message" name="message" aria-describedby="error-msg"></textarea>
-					</div>
-				</div>
-				<div class="field-group">
-					<h3 class="field-legend">Dealing with numbers</h3>
-					<div class="field field--error">
-						<label for="account-number">
-							<span class="field-label">Account number (Required)</span>
-							<span class="field-error-msg" id="error-account-number"><span class="visuallyhidden">Error:</span> Enter an account number</span>
-						</label>
-						<div class="field-hint" id="hint-account-number">Must be between 6 and 8 numbers long</div>
-						<input type="text" class="input-width-10" id="account-number" name="account-number" pattern="[0-9]*" maxlength="8" inputmode="numeric" aria-describedby="hint-account-number error-account-number">
-					</div>
-				</div>
-				<div class="field-group">
-					<h3 class="field-legend">Dealing with dates and times</h3>
-					<div class="field field--error">
-						<label for="arrival-date">
-							<span class="field-label">Date of arrival (Required)</span>
-							<span class="field-error-msg" id="error-arrival-date"><span class="visuallyhidden">Error:</span> Enter an arrival date</span>
-						</label>
-						<div class="field-hint" id="hint-arrival-date">For example 30/05/2021</div>
-						<input type="text" class="input-width-10" id="arrival-date" name="arrival-date" aria-describedby="hint-arrival-date error-arrival-date">
-					</div>
-					<div class="field field--error">
-						<fieldset role="group" aria-describedby="hint-date-of-birth error-date-of-birth">
-							<legend>
-								<span class="field-label">Date of birth (Required) (an example of a memorable date)</span>
-								<span class="field-error-msg" id="error-date-of-birth"><span class="visuallyhidden">Error:</span> Enter a date of birth</span>
-							</legend>
-							<div class="field-hint u-no-margin-top" id="hint-date-of-birth">For example 20 07 1972</div>
-							<div class="memorable-date">
-								<label for="bday-day" class="field-label">Day</label>
-								<input type="text" class="input-width-2" id="bday-day" name="bday-day" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric" min="0" max="31">
-							</div>
-							<div class="memorable-date">
-								<label for="bday-month" class="field-label">Month</label>
-								<input type="text" class="input-width-2" id="bday-month" name="bday-month" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric" min="1" max="12">
-							</div>
-							<div class="memorable-date">
-								<label for="bday-year" class="field-label">Year</label>
-								<input type="text" class="input-width-4" id="bday-year" name="bday-year" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric" min="1900" max="2050">
-							</div>
-						</fieldset>
-					</div>
-					<div class="field field--error">
-						<fieldset role="group" aria-describedby="hint-meeting-time error-meeting-time">
-							<legend>
-								<span class="field-label">Specify a start time for your meeting</span>
-								<span class="field-error-msg" id="error-meeting-time"><span class="visuallyhidden">Error:</span> Enter a start time</span>
-							</legend>
-							<div class="field-hint u-no-margin-top" id="hint-meeting-time">Use <dfn id="utc"><abbr title="Coordinated Universal Time">UTC</abbr></dfn> and your local time zone</div>
-							<div class="input-group">
-								<div>
-									<label for="meeting-time" class="faux-label">Start time</label>
-									<input type="text" class="input-width-5" id="meeting-time" name="meeting-time">
-								</div>
-								<div>
-									<label for="meeting-time" class="faux-label">Time zone</label>
-									<select id="timezone" name="timezone">
-										<option value="UTC−12:00">UTC−12:00</option>
-										<option value="UTC−11:00">UTC−11:00</option>
-										<option value="UTC−10:00">UTC−10:00</option>
-										<option value="UTC−09:30">UTC−09:30</option>
-										<option value="UTC−09:00">UTC−09:00</option>
-										<option value="UTC−08:00">UTC−08:00</option>
-										<option value="UTC−07:00">UTC−07:00</option>
-										<option value="UTC−06:00">UTC−06:00</option>
-										<option value="UTC−05:00">UTC−05:00</option>
-										<option value="UTC−04:00">UTC−04:00</option>
-										<option value="UTC−03:30">UTC−03:30</option>
-										<option value="UTC−03:00">UTC−03:00</option>
-										<option value="UTC−02:00">UTC−02:00</option>
-										<option value="UTC−01:00">UTC−01:00</option>
-										<option value="UTC±00:00" selected>UTC±00:00</option>
-										<option value="UTC+01:00">UTC+01:00</option>
-										<option value="UTC+02:00">UTC+02:00</option>
-										<option value="UTC+03:00">UTC+03:00</option>
-										<option value="UTC+03:30">UTC+03:30</option>
-										<option value="UTC+04:00">UTC+04:00</option>
-										<option value="UTC+04:30">UTC+04:30</option>
-										<option value="UTC+05:00">UTC+05:00</option>
-										<option value="UTC+05:30">UTC+05:30</option>
-										<option value="UTC+05:45">UTC+05:45</option>
-										<option value="UTC+06:00">UTC+06:00</option>
-										<option value="UTC+06:30">UTC+06:30</option>
-										<option value="UTC+07:00">UTC+07:00</option>
-										<option value="UTC+08:00">UTC+08:00</option>
-										<option value="UTC+08:45">UTC+08:45</option>
-										<option value="UTC+09:00">UTC+09:00</option>
-										<option value="UTC+09:30">UTC+09:30</option>
-										<option value="UTC+10:00">UTC+10:00</option>
-										<option value="UTC+10:30">UTC+10:30</option>
-										<option value="UTC+11:00">UTC+11:00</option>
-										<option value="UTC+12:00">UTC+12:00</option>
-										<option value="UTC+12:45">UTC+12:45</option>
-										<option value="UTC+13:00">UTC+13:00</option>
-										<option value="UTC+14:00">UTC+14:00</option>
-									</select>
-								</div>
-							</div>
-						</fieldset>
-					</div>
-				</div>
-				<div class="field-group">
-					<h3 class="field-legend">Other input types</h3>
-					<div class="field field--error">
-						<label for="file">
-							<span class="field-label">Upload an image</span>
-							<span class="field-error-msg" id="error-file"><span class="visuallyhidden">Error:</span> The file must be 2MB or smaller</span>
-						</label>
-						<div class="field-hint" id="hint-file">Maximum file size 2MB</div>
-						<input type="file" id="file" name="file" aria-describedby="hint-file error-file">
-					</div>
-					<div class="field field--error">
-						<fieldset aria-describedby="error-pets">
-							<legend class="group-legend">Do you own any pets? (Required)</legend>
-							<span class="field-error-msg" id="error-pets"><span class="visuallyhidden">Error:</span> Select yes if you do own pets</span>
-							<div class="radio-item">
-								<input type="radio" id="pets_yes" name="pets" value="yes">
-								<label for="pets_yes">
-									<span class="field-label">Yes</span>
-								</label>
-							</div>
-							<div class="radio-item">
-								<input type="radio" id="pets_no" name="pets" value="no">
-								<label for="pets_no">
-									<span class="field-label">No</span>
-								</label>
-							</div>
-							<div class="radio-item">
-								<input type="radio" id="pets_none" name="pets" value="none">
-								<label for="pets_none">
-									<span class="field-label">Prefer not to say</span>
-								</label>
-							</div>
-						</fieldset>
-					</div>
-					<div class="field field--error segmented-group-wrapper">
-						<fieldset role="group" aria-describedby="hint-segmented-options error-segmented-options">
-							<legend class="group-legend">Segmented options (Radio)</legend>
-							<span class="field-error-msg" id="error-segmented-options"><span class="visuallyhidden">Error:</span> Choose an option</span>
-							<div class="field-hint" id="hint-segmented-options">We understand that different people enjoy books in different ways, which is why we&rsquo;re giving you lots of options.</div>
-							<div class="l-switcher segmented-group">
-								<div>
-									<div>
-										<input type="radio" class="input--radio" id="segmented-option-1" name="segmented-options">
-										<label for="segmented-option-1">
-									<span class="segmented-label">
-										<span>Budget option</span>
-										<span>Copy to explain this option in more detail.</span>
-									</span>
-										</label>
-									</div>
-									<div>
-										<input type="radio" class="input--radio" id="segmented-option-2" name="segmented-options">
-										<label for="segmented-option-2">
-									<span class="segmented-label">
-										<span>Value option</span>
-										<span>Copy to explain this option in more detail.</span>
-									</span>
-										</label>
-									</div>
-									<div>
-										<input type="radio" class="input--radio" id="segmented-option-3" name="segmented-options">
-										<label for="segmented-option-3">
-									<span class="segmented-label">
-										<span>Expensive option</span>
-										<span>Copy to explain this option in more detail.</span>
-									</span>
-										</label>
-									</div>
-								</div>
-							</div>
-						</fieldset>
-					</div>
-					<div class="field field--error">
-						<fieldset aria-describedby="error-like">
-							<legend class="group-legend">Things you like</legend>
-							<span class="field-error-msg" id="error-like"><span class="visuallyhidden">Error:</span> Choose at least one item</span>
-							<div class="checkbox-item">
-								<input type="checkbox" name="chocolate" id="chocolate" appearance="base">
-								<label for="chocolate">
-									<span class="field-label">Chocolate</span>
-								</label>
-							</div>
-							<div class="checkbox-item">
-								<input type="checkbox" name="coffee" id="coffee" appearance="base">
-								<label for="coffee">
-									<span class="field-label">Coffee</span>
-								</label>
-							</div>
-							<div class="checkbox-item">
-								<input type="checkbox" name="cake" id="cake" appearance="base">
-								<label for="cake">
-									<span class="field-label">Cake</span>
-								</label>
-							</div>
-							<div class="checkbox-item">
-								<input type="checkbox" name="chips" id="chips" appearance="base">
-								<label for="chips">
-									<span class="field-label">Chips</span>
-								</label>
-							</div>
-						</fieldset>
-					</div>
-				</div>
-				<div class="field field--error">
-					<label for="country">
-						<span class="field-label">Country</span>
-						<span class="field-error-msg"><span class="visuallyhidden">Error:</span> Choose a country</span>
-					</label>
-					<select id="country">
-						<option value="">Select a country</option>
-						<option value="1" data-alt="AF">Afghanistan</option>
-						<option value="2" data-alt="AX Aaland Aland">Åland Islands</option>
-						<option value="3" data-alt="AL">Albania</option>
-						<option value="4" data-alt="DZ">Algeria</option>
-						<option value="5" data-alt="AS">American Samoa</option>
-						<option value="6" data-alt="AD">Andorra</option>
-						<option value="7" data-alt="AO">Angola</option>
-						<option value="8" data-alt="AI">Anguilla</option>
-						<option value="8" data-alt="AQ">Antarctica</option>
-						<option value="10" data-alt="AG">Antigua And Barbuda</option>
-						<option value="11" data-alt="AR">Argentina</option>
-						<option value="12" data-alt="AM">Armenia</option>
-						<option value="13" data-alt="AW">Aruba</option>
-						<option value="14" data-alt="AU">Australia</option>
-						<option value="15" data-alt="AT Österreich Osterreich Oesterreich ">Austria</option>
-						<option value="16" data-alt="AZ">Azerbaijan</option>
-						<option value="17" data-alt="BS">Bahamas</option>
-						<option value="18" data-alt="BH">Bahrain</option>
-						<option value="19" data-alt="BD">Bangladesh</option>
-						<option value="20" data-alt="BB">Barbados</option>
-						<option value="21" data-alt="BY">Belarus</option>
-						<option value="22" data-alt="BE België Belgie Belgien Belgique">Belgium</option>
-						<option value="23" data-alt="BZ">Belize</option>
-						<option value="24" data-alt="BJ">Benin</option>
-						<option value="25" data-alt="BM">Bermuda</option>
-						<option value="26" data-alt="BT">Bhutan</option>
-						<option value="27" data-alt="BO">Bolivia</option>
-						<option value="28" data-alt="BQ">Bonaire, Sint Eustatius and Saba</option>
-						<option value="29" data-alt="BA">Bosnia and Herzegovina</option>
-						<option value="30" data-alt="BW">Botswana</option>
-						<option value="31" data-alt="BV">Bouvet Island</option>
-						<option value="32" data-alt="BR Brasil">Brazil</option>
-						<option value="33" data-alt="IO">British Indian Ocean Territory</option>
-						<option value="34" data-alt="BN">Brunei Darussalam</option>
-						<option value="35" data-alt="BG">Bulgaria</option>
-						<option value="36" data-alt="BF">Burkina Faso</option>
-						<option value="37" data-alt="BI">Burundi</option>
-						<option value="38" data-alt="KH">Cambodia</option>
-						<option value="39" data-alt="CM">Cameroon</option>
-						<option value="40" data-alt="CA">Canada</option>
-						<option value="41" data-alt="CV">Cape Verde</option>
-						<option value="42" data-alt="KY">Cayman Islands</option>
-						<option value="43" data-alt="CF">Central African Republic</option>
-						<option value="44" data-alt="TD">Chad</option>
-						<option value="45" data-alt="CL">Chile</option>
-						<option value="46" data-alt="CN Zhongguo Zhonghua Peoples Republic">China</option>
-						<option value="47" data-alt="CX">Christmas Island</option>
-						<option value="48" data-alt="CC">Cocos (Keeling) Islands</option>
-						<option value="49" data-alt="CO">Colombia</option>
-						<option value="50" data-alt="KM">Comoros</option>
-						<option value="51" data-alt="CG">Congo</option>
-						<option value="52" data-alt="CD">Congo, the Democratic Republic of the</option>
-						<option value="53" data-alt="CK">Cook Islands</option>
-						<option value="54" data-alt="CR">Costa Rica</option>
-						<option value="55" data-alt="CI Cote dIvoire">Côte d'Ivoire</option>
-						<option value="x1Croatia" data-alt="HR Hrvatska">Croatia</option>
-						<option value="x1Cuba" data-alt="CU">Cuba</option>
-						<option value="x1Curaçao" data-alt="CW Curacao">Curaçao</option>
-						<option value="x1Cyprus" data-alt="CY">Cyprus</option>
-						<option value="x1Czech Republic" data-alt="CZ Česká Ceska">Czech Republic</option>
-						<option value="x1Denmark" data-alt="DK Danmark">Denmark</option>
-						<option value="x1Djibouti" data-alt="DJ">Djibouti</option>
-						<option value="x1Dominica" data-alt="DM">Dominica</option>
-						<option value="x1Dominican Republic" data-alt="DO">Dominican Republic</option>
-						<option value="x1Ecuador" data-alt="EC">Ecuador</option>
-						<option value="x1Egypt" data-alt="EG">Egypt</option>
-						<option value="x1El Salvador" data-alt="SV">El Salvador</option>
-						<option value="x1Equatorial Guinea" data-alt="GQ">Equatorial Guinea</option>
-						<option value="x1Eritrea" data-alt="ER">Eritrea</option>
-						<option value="x1Estonia" data-alt="EE Eesti">Estonia</option>
-						<option value="x1Ethiopia" data-alt="ET">Ethiopia</option>
-						<option value="x1Falkland Islands (Malvinas)" data-alt="FK">Falkland Islands (Malvinas)</option>
-						<option value="x1Faroe Islands" data-alt="FO Føroyar Færøerne">Faroe Islands</option>
-						<option value="x1Fiji" data-alt="FJ">Fiji</option>
-						<option value="x1Finland" data-alt="FI Suomi">Finland</option>
-						<option value="x1France" data-alt="FR République française">France</option>
-						<option value="x1French Guiana" data-alt="GF">French Guiana</option>
-						<option value="x1French Polynesia" data-alt="PF">French Polynesia</option>
-						<option value="x1French Southern Territories" data-alt="TF">French Southern Territories</option>
-						<option value="x1Gabon" data-alt="GA">Gabon</option>
-						<option value="x1Gambia" data-alt="GM">Gambia</option>
-						<option value="x1Georgia" data-alt="GE">Georgia</option>
-						<option value="x1Germany" data-alt="DE Bundesrepublik Deutschland">Germany</option>
-						<option value="x1Ghana" data-alt="GH">Ghana</option>
-						<option value="x1Gibraltar" data-alt="GI">Gibraltar</option>
-						<option value="x1Greece" data-alt="GR">Greece</option>
-						<option value="x1Greenland" data-alt="GL grønland">Greenland</option>
-						<option value="x1Grenada" data-alt="GD">Grenada</option>
-						<option value="x1Guadeloupe" data-alt="GP">Guadeloupe</option>
-						<option value="x1Guam" data-alt="GU">Guam</option>
-						<option value="x1Guatemala" data-alt="GT">Guatemala</option>
-						<option value="x1Guernsey" data-alt="GG">Guernsey</option>
-						<option value="x1Guinea" data-alt="GN">Guinea</option>
-						<option value="x1Guinea-Bissau" data-alt="GW">Guinea-Bissau</option>
-						<option value="x1Guyana" data-alt="GY">Guyana</option>
-						<option value="x1Haiti" data-alt="HT">Haiti</option>
-						<option value="x1Heard Island and McDonald Islands" data-alt="HM">Heard Island and McDonald Islands</option>
-						<option value="x1Holy See (Vatican City State)" data-alt="VA">Holy See (Vatican City State)</option>
-						<option value="x1Honduras" data-alt="HN">Honduras</option>
-						<option value="x1Hong Kong" data-alt="HK">Hong Kong</option>
-						<option value="x1Hungary" data-alt="HU">Hungary</option>
-						<option value="x1Iceland" data-alt="IS Island">Iceland</option>
-						<option value="x1India" data-alt="IN">India</option>
-						<option value="x1Indonesia" data-alt="ID">Indonesia</option>
-						<option value="x1Iran, Islamic Republic of" data-alt="IR">Iran, Islamic Republic of</option>
-						<option value="x1Iraq" data-alt="IQ">Iraq</option>
-						<option value="x1Ireland" data-alt="IE Éire">Ireland</option>
-						<option value="x1Isle of Man" data-alt="IM">Isle of Man</option>
-						<option value="x1Israel" data-alt="IL">Israel</option>
-						<option value="x1Italy" data-alt="IT Italia">Italy</option>
-						<option value="x1Jamaica" data-alt="JM">Jamaica</option>
-						<option value="x1Japan" data-alt="JP Nippon Nihon">Japan</option>
-						<option value="x1Jersey" data-alt="JE">Jersey</option>
-						<option value="x1Jordan" data-alt="JO">Jordan</option>
-						<option value="x1Kazakhstan" data-alt="KZ">Kazakhstan</option>
-						<option value="x1Kenya" data-alt="KE">Kenya</option>
-						<option value="x1Kiribati" data-alt="KI">Kiribati</option>
-						<option value="x1Korea, Democratic People's Republic of" data-alt="KP North Korea">Korea, Democratic People's Republic of</option>
-						<option value="x1Korea, Republic of" data-alt="KR South Korea">Korea, Republic of</option>
-						<option value="x1Kuwait" data-alt="KW">Kuwait</option>
-						<option value="x1Kyrgyzstan" data-alt="KG">Kyrgyzstan</option>
-						<option value="x1Lao People's Democratic Republic" data-alt="LA">Lao People's Democratic Republic</option>
-						<option value="x1Latvia" data-alt="LV">Latvia</option>
-						<option value="x1Lebanon" data-alt="LB">Lebanon</option>
-						<option value="x1Lesotho" data-alt="LS">Lesotho</option>
-						<option value="x1Liberia" data-alt="LR">Liberia</option>
-						<option value="x1Libyan Arab Jamahiriya" data-alt="LY">Libyan Arab Jamahiriya</option>
-						<option value="x1Liechtenstein" data-alt="LI">Liechtenstein</option>
-						<option value="x1Lithuania" data-alt="LT">Lithuania</option>
-						<option value="x1Luxembourg" data-alt="LU">Luxembourg</option>
-						<option value="x1Macao" data-alt="MO">Macao</option>
-						<option value="x1Madagascar" data-alt="MG">Madagascar</option>
-						<option value="x1Malawi" data-alt="MW">Malawi</option>
-						<option value="x1Malaysia" data-alt="MY">Malaysia</option>
-						<option value="x1Maldives" data-alt="MV">Maldives</option>
-						<option value="x1Mali" data-alt="ML">Mali</option>
-						<option value="x1Malta" data-alt="MT">Malta</option>
-						<option value="x1Marshall Islands" data-alt="MH">Marshall Islands</option>
-						<option value="x1Martinique" data-alt="MQ">Martinique</option>
-						<option value="x1Mauritania" data-alt="MR">Mauritania</option>
-						<option value="x1Mauritius" data-alt="MU">Mauritius</option>
-						<option value="x1Mayotte" data-alt="YT">Mayotte</option>
-						<option value="x1Mexico" data-alt="MX Mexicanos">Mexico</option>
-						<option value="x1Micronesia, Federated States of" data-alt="FM">Micronesia, Federated States of</option>
-						<option value="x1Moldova, Republic of" data-alt="MD">Moldova, Republic of</option>
-						<option value="x1Monaco" data-alt="MC">Monaco</option>
-						<option value="x1Mongolia" data-alt="MN">Mongolia</option>
-						<option value="x1Montenegro" data-alt="ME">Montenegro</option>
-						<option value="x1Montserrat" data-alt="MS">Montserrat</option>
-						<option value="x1Morocco" data-alt="MA">Morocco</option>
-						<option value="x1Mozambique" data-alt="MZ">Mozambique</option>
-						<option value="x1Myanmar" data-alt="MM">Myanmar</option>
-						<option value="x1Namibia" data-alt="NA">Namibia</option>
-						<option value="x1Nauru" data-alt="NR">Nauru</option>
-						<option value="x1Nepal" data-alt="NP">Nepal</option>
-						<option value="x1Netherlands" data-alt="NL Holland Nederland">Netherlands</option>
-						<option value="x1New Caledonia" data-alt="NC">New Caledonia</option>
-						<option value="x1New Zealand" data-alt="NZ">New Zealand</option>
-						<option value="x1Nicaragua" data-alt="NI">Nicaragua</option>
-						<option value="x1Niger" data-alt="NE">Niger</option>
-						<option value="x1Nigeria" data-alt="NG">Nigeria</option>
-						<option value="x1Niue" data-alt="NU">Niue</option>
-						<option value="x1Norfolk Island" data-alt="NF">Norfolk Island</option>
-						<option value="x1North Macedonia" data-alt="MK">North Macedonia</option>
-						<option value="x1Northern Mariana Islands" data-alt="MP">Northern Mariana Islands</option>
-						<option value="x1Norway" data-alt="NO Norge Noreg">Norway</option>
-						<option value="x1Oman" data-alt="OM">Oman</option>
-						<option value="x1Pakistan" data-alt="PK">Pakistan</option>
-						<option value="x1Palau" data-alt="PW">Palau</option>
-						<option value="x1Palestinian Territory, Occupied" data-alt="PS">Palestinian Territory, Occupied</option>
-						<option value="x1Panama" data-alt="PA">Panama</option>
-						<option value="x1Papua New Guinea" data-alt="PG">Papua New Guinea</option>
-						<option value="x1Paraguay" data-alt="PY">Paraguay</option>
-						<option value="x1Peru" data-alt="PE">Peru</option>
-						<option value="x1Philippines" data-alt="PH">Philippines</option>
-						<option value="x1Pitcairn" data-alt="PN">Pitcairn</option>
-						<option value="x1Poland" data-alt="PL">Poland</option>
-						<option value="x1Portugal" data-alt="PT">Portugal</option>
-						<option value="x1Puerto Rico" data-alt="PR">Puerto Rico</option>
-						<option value="x1Qatar" data-alt="QA">Qatar</option>
-						<option value="x1Réunion" data-alt="RE Reunion">Réunion</option>
-						<option value="x1Romania" data-alt="RO">Romania</option>
-						<option value="x1Russian Federation" data-alt="RU Russia Rossiya">Russian Federation</option>
-						<option value="x1Rwanda" data-alt="RW">Rwanda</option>
-						<option value="x1Saint Barthélemy" data-alt="BL">Saint Barthélemy</option>
-						<option value="x1Saint Helena" data-alt="SH">Saint Helena</option>
-						<option value="x1Saint Kitts and Nevis" data-alt="KN">Saint Kitts and Nevis</option>
-						<option value="x1Saint Lucia" data-alt="LC">Saint Lucia</option>
-						<option value="x1Saint Martin (French Part)" data-alt="MF">Saint Martin (French Part)</option>
-						<option value="x1Saint Pierre and Miquelon" data-alt="PM">Saint Pierre and Miquelon</option>
-						<option value="x1Saint Vincent and the Grenadines" data-alt="VC">Saint Vincent and the Grenadines</option>
-						<option value="x1Samoa" data-alt="WS">Samoa</option>
-						<option value="x1San Marino" data-alt="SM">San Marino</option>
-						<option value="x1Sao Tome and Principe" data-alt="ST">Sao Tome and Principe</option>
-						<option value="x1Saudi Arabia" data-alt="SA">Saudi Arabia</option>
-						<option value="x1Senegal" data-alt="SN">Senegal</option>
-						<option value="x1Serbia" data-alt="RS">Serbia</option>
-						<option value="x1Seychelles" data-alt="SC">Seychelles</option>
-						<option value="x1Sierra Leone" data-alt="SL">Sierra Leone</option>
-						<option value="x1Singapore" data-alt="SG">Singapore</option>
-						<option value="x1Sint Maarten (Dutch Part)" data-alt="SX">Sint Maarten (Dutch Part)</option>
-						<option value="x1Slovakia" data-alt="SK">Slovakia</option>
-						<option value="x1Slovenia" data-alt="SI">Slovenia</option>
-						<option value="x1Solomon Islands" data-alt="SB">Solomon Islands</option>
-						<option value="x1Somalia" data-alt="SO">Somalia</option>
-						<option value="x1South Africa" data-alt="ZA">South Africa</option>
-						<option value="x1South Georgia and the South Sandwich Islands" data-alt="GS">South Georgia and the South Sandwich Islands</option>
-						<option value="x1South Sudan" data-alt="SS">South Sudan</option>
-						<option value="x1Spain" data-alt="ES España">Spain</option>
-						<option value="x1Sri Lanka" data-alt="LK">Sri Lanka</option>
-						<option value="x1Sudan" data-alt="SD">Sudan</option>
-						<option value="x1Suriname" data-alt="SR">Suriname</option>
-						<option value="x1Svalbard and Jan Mayen" data-alt="SJ">Svalbard and Jan Mayen</option>
-						<option value="x1Swaziland" data-alt="SZ">Swaziland</option>
-						<option value="x1Sweden" data-alt="SE Sverige">Sweden</option>
-						<option value="x1Switzerland" data-alt="CH Swiss Confederation Schweiz Suisse Svizzera Svizra">Switzerland</option>
-						<option value="x1Syrian Arab Republic" data-alt="SY Syria">Syrian Arab Republic</option>
-						<option value="x1Taiwan, Province of China" data-alt="TW">Taiwan, Province of China</option>
-						<option value="x1Tajikistan" data-alt="TJ">Tajikistan</option>
-						<option value="x1Tanzania, United Republic of" data-alt="TZ">Tanzania, United Republic of</option>
-						<option value="x1Thailand" data-alt="TH">Thailand</option>
-						<option value="x1Timor-Leste" data-alt="TL">Timor-Leste</option>
-						<option value="x1Togo" data-alt="TG">Togo</option>
-						<option value="x1Tokelau" data-alt="TK">Tokelau</option>
-						<option value="x1Tonga" data-alt="TO">Tonga</option>
-						<option value="x1Trinidad and Tobago" data-alt="TT">Trinidad and Tobago</option>
-						<option value="x1Tunisia" data-alt="TN">Tunisia</option>
-						<option value="x1Turkey" data-alt="TR Türkiye Turkiye">Turkey</option>
-						<option value="x1Turkmenistan" data-alt="TM">Turkmenistan</option>
-						<option value="x1Turks and Caicos Islands" data-alt="TC">Turks and Caicos Islands</option>
-						<option value="x1Tuvalu" data-alt="TV">Tuvalu</option>
-						<option value="x1Uganda" data-alt="UG">Uganda</option>
-						<option value="x1Ukraine" data-alt="UA Ukrayina">Ukraine</option>
-						<option value="x1United Arab Emirates" data-alt="AE UAE Emirates">United Arab Emirates</option>
-						<option value="x1United Kingdom" data-alt="GB Great Britain England UK Wales Scotland Northern Ireland">United Kingdom</option>
-						<option value="x1United States" data-alt="US USA United States of America">United States</option>
-						<option value="x1United States Minor Outlying Islands" data-alt="UM">United States Minor Outlying Islands</option>
-						<option value="x1Uruguay" data-alt="UY">Uruguay</option>
-						<option value="x1Uzbekistan" data-alt="UZ">Uzbekistan</option>
-						<option value="x1Vanuatu" data-alt="VU">Vanuatu</option>
-						<option value="x1Venezuela" data-alt="VE">Venezuela</option>
-						<option value="x1Vietnam" data-alt="VN">Vietnam</option>
-						<option value="x1Virgin Islands, British" data-alt="VG">Virgin Islands, British</option>
-						<option value="x1Virgin Islands, U.S." data-alt="VI">Virgin Islands, U.S.</option>
-						<option value="x1Wallis and Futuna" data-alt="WF">Wallis and Futuna</option>
-						<option value="x1Western Sahara" data-alt="EH">Western Sahara</option>
-						<option value="x1Yemen" data-alt="YE">Yemen</option>
-						<option value="x1Zambia" data-alt="ZM">Zambia</option>
-						<option value="x1Zimbabwe" data-alt="ZW">Zimbabwe</option>
-					</select>
-				</div>
-				<div class="field">
-					<button class="button" type="submit">Submit</button>
-				</div>
-			</form>
+
+			<div class="l-box note note--success" role="status">
+				<h2 class="txt-mars">Success note heading</h2>
+				<p>Main profile successfully updated.</p>
+			</div>
+
+			<div class="l-box note note--warning" role="status">
+				<h2 class="txt-mars">Warning note heading</h2>
+				<p>We could not detect your affiliation based on your email address. Please select your affiliation below or <a href="#2">go back to use your corporate email address.</a></p>
+			</div>
+
+			<div class="l-box note note--error" role="alert">
+				<h2 class="txt-mars">Error note heading</h2>
+				<p>There has been an error.</p>
+			</div>
+
 		</main>
 	</div>
 	<footer class="global-footer">
@@ -903,16 +407,6 @@
 		</div>
 	</footer>
 </div>
-
-<script>
-	if (document.documentElement.classList.contains('js')) {
-
-		let jsAutocompleteCountry = document.createElement('script');
-		jsAutocompleteCountry.src = 'dist/assets/js/country-autocomplete.js';
-		document.querySelector('body').appendChild(jsAutocompleteCountry);
-
-	}
-</script>
 
 </body>
 
