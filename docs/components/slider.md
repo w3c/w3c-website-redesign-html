@@ -49,4 +49,18 @@ An unordered list of slides which, when enhanced with JavaScript, acts as a cont
 
 ## Considerations
 
-Carousels are highly interactive components, requiring a solid, semantic HTML base, and considered use of JavaScript and ARIA to make them accessible. The patterns above have been tested in 2021 by the [Digital Accessibility Centre](https://digitalaccessibilitycentre.org/)
+Carousels are highly interactive components, requiring a solid, semantic HTML base, and considered use of JavaScript and ARIA to make them accessible. The patterns above were tested in 2021 by the [Digital Accessibility Centre](https://digitalaccessibilitycentre.org/)
+
+The following script must be added before the closing body tag `</body>` for the carousel to work correctly:
+
+```
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		let sliderScript = document.createElement('script');
+		sliderScript.src = 'dist/assets/js/slider.js';
+		document.querySelector('body').appendChild(sliderScript);
+
+	}
+</script>
+```
