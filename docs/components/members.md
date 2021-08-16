@@ -1,6 +1,6 @@
 # Members
 
-A component for displaying a grid of member logos, and linking to the members area of the website. It is part of the business ecosystem template.
+A component for displaying a grid of member logos, and linking to the members area of the website. It is part of the [business ecosystem](../templates/business-ecosystem.md) template.
 
 ```
 <div class="component component--members u-full-width">

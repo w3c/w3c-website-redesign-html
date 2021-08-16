@@ -9,7 +9,7 @@ For both types of card, it is important to check that the heading level used fit
 
 ## Simple cards
 
-These are found on the landing page template. The following examples show cards with either an image or icon to accompany the text. Cards can be text-only by omitting the icon markup/`<div class="card__image">`
+These are found on the [landing page](../templates/landing.md) template. The following examples show cards with either an image or icon to accompany the text. Cards can be text-only by omitting the icon markup/`<div class="card__image">`
 
 ### Simple card with icon
 

@@ -1,6 +1,6 @@
 # Group list
 
-Used on the business ecosystem template. This component makes use of [collapsible containers](collapsible-containers.md).
+Used on the [business ecosystem](../templates/business-ecosystem.md) template. This component makes use of [collapsible containers](collapsible-containers.md).
 
 ```
 <div class="u-full-width component component--group-list">

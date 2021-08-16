@@ -1,6 +1,6 @@
 # Activity
 
-A variation of the [columns component](columns.md), which has a parent container with the class `.component--activity`. This is used on the business ecosystem template.
+A variation of the [columns component](columns.md), which has a parent container with the class `.component--activity`. This is used on the [business ecosystem](../templates/business-ecosystem.md) template.
 
 ```
 <div class="component component--activity u-full-width">

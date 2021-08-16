@@ -1,6 +1,6 @@
 # Table of contents
 
-Part of the default page template.
+Part of the [default page](../templates/default.md) template.
 
 ```
 <section class="toc">

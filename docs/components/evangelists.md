@@ -1,6 +1,6 @@
 # Evangelists
 
-Found on the business ecosystem page template.
+Found on the [business ecosystem](../templates/business-ecosystem.md) template.
 
 ```
 <div class="component component--evangelists">

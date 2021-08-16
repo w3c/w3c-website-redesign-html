@@ -1,6 +1,6 @@
 # Content slider (carousel)
 
-An unordered list of slides which, when enhanced with JavaScript, acts as a content slider. It is used specifically for sharing quotations from W3C members as part of the business ecosystem template.
+An unordered list of slides which, when enhanced with JavaScript, acts as a content slider. It is used specifically for sharing quotations from W3C members as part of the [business ecosystem](../templates/business-ecosystem.md) template.
 
 ## Markup for a single slide
 ```

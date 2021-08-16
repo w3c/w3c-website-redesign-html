@@ -34,7 +34,7 @@ Disabled buttons can confuse some users, so avoid them if possible. Only use dis
 
 ## Grouping buttons
 
-Buttons (and links styled as buttons) can be arranged in groups using the [cluster layout](../layouts/cluster.md). The following example is from the Business Ecosystem template.
+Buttons (and links styled as buttons) can be arranged in groups using the [cluster layout](../layouts/cluster.md). The following example is from the [business ecosystem](../templates/business-ecosystem.md) template.
 
 ```
 <div class="l-cluster component--members__cta">
