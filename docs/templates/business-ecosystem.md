@@ -165,3 +165,17 @@ An example of the business ecosystem page template. This example does not includ
 ## Considerations
 
 Note the `.ecosystem` class applied to `<body>`.
+
+If the carousel is being used, the following script must be added before the closing body tag `</body>`:
+
+```
+<script>
+	if (document.documentElement.classList.contains('js')) {
+
+		let sliderScript = document.createElement('script');
+		sliderScript.src = 'dist/assets/js/slider.js';
+		document.querySelector('body').appendChild(sliderScript);
+
+	}
+</script>
+```
