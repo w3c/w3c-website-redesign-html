@@ -8,6 +8,8 @@ CSS is based on [Sass](http://sass-lang.com/) (using the [SCSS syntax](https://s
 
 ### Architecture
 
+All CSS is found within `/apollo/assets/styles/sass`.
+
 The architecture is split into a series of levels, each level representing a folder that contains our SASS split out into different files. CSS is organised in specificity order and, with the exception of print styles, the SASS files should be included in the order denoted by this structure.
 
 More generic and wide-reaching styles sit within the lower numbered levels, with specificity increasing with each level:
@@ -41,6 +43,8 @@ The SASS files are compiled into three separate CSS stylesheets:
   - Third party plugins involving JavaScript
 - `print.css` (print stylesheet)
 
+The files `core.scss`, `advanced.scss` and `print.scss` determine which SASS files will be compiled into which stylesheets.
+
 Both `core.css` and `print.css` are served to all browsers. `advanced.css`, is only served to browsers that meet the following CSS media query that sits within `<head>`:
 
 ```
@@ -59,4 +63,25 @@ FF 47+
 
 This technique is known as [‘cutting the mustard’](https://www.zeldman.com/2015/09/01/youre-welcome-cutting-the-mustard-then-and-now/). It can be done via a JavaScript query but Apollo, inspired by the [Springer Nature Frontend Playbook](https://github.com/springernature/frontend-playbook/blob/main/practices/graded-browser-support.md), uses the [CSS Only Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut).
 
-## JavaScript
+## JavaScript (JS)
+
+There are two general rules for JS within Apollo:
+
+- `data-attributes` are preferred as hooks within the HTML for applying JS functionality. They are less likely to be accidentally over-written than classes. In the case of some third-party scripts, it may be necessary to use `id` instead.
+- If a class is added to the HTML by a script, prefix it with `.js-`, e.g. `.js-slider`. This helps provide context within the stylesheets.
+
+### Architecture
+
+The architecture takes inspiration from Chris Ferdinandi's [How I structure my vanilla JS projects](https://gomakethings.com/how-i-structure-my-vanilla-js-projects/).
+
+All JS is found within `/apollo/assets/js`. This directory contains a mixture of individual files, and the following subdirectories:
+
+- `/libraries`: contains third party scripts, e.g. [Font Face Observer](https://fontfaceobserver.com/) and [Accessible autocomplete](https://github.com/alphagov/accessible-autocomplete).
+- `/libraries-extensions`: contains any custom implementations for the third party scripts that may be required for Apollo.
+- `/main`: contains code used on most/all pages.
+
+Scripts within `/main` are concatenated together into `main.js` and `main.min.js`, which is loaded everywhere.
+
+Individual files are minified into files of the same name, but are kept separate. They are typically used on only one or two templates.
+
+Webpack is used to concatenate and minify JS. the configuration files sit within the project root: `webpack.config.js` and `webpack.config.min.js`
