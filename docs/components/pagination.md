@@ -1,6 +1,6 @@
 # Pagination
 
-Used on various listing pages.
+Used on various [listing pages](../templates/listings.md).
 
 ```
 <nav aria-label="pagination" class="l-cluster pagination">

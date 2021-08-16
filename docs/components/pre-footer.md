@@ -1,6 +1,6 @@
 # Pre-footer
 
-Used on the post and events listing page templates.
+Used on the post and events [listing pages](../templates/listings.md).
 
 ## Post listing (generic) pre-footer
 

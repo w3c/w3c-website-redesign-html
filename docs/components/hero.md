@@ -26,7 +26,7 @@ Note the use of the [center layout](../layouts/center.md) and [sidebar layout](.
 
 ## Listing page hero
 
-On listing pages, the hero is used to hold any markup required for searching and filtering listing items. Add the modifier class `.hero--listing`.
+On [listing pages](../templates/listings.md), the hero is used to hold any markup required for searching and filtering listing items. Add the modifier class `.hero--listing`.
 
 ```
 <div class="u-full-width hero hero--listing">
