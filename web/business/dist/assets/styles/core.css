@@ -1541,8 +1541,8 @@ img {
     margin-top: 0; }
 
 .avatar--small {
-  height: 1.875rem;
-  width: 1.875rem; }
+  height: 2rem;
+  width: 2rem; }
   .avatar--small img {
     margin-top: 0; }
 
@@ -2482,7 +2482,7 @@ so that either of these properties is applied instead.
   color: #111;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.875rem 0;
+  min-height: 2.75rem;
   text-decoration: none !important; }
   @media screen and (min-width: 70em) {
     .icon-link {
@@ -2511,13 +2511,11 @@ so that either of these properties is applied instead.
           flex-basis: auto;
       padding-bottom: 0.625rem;
       padding-top: 0.625rem; } }
-  .account-login .icon {
-    height: 1.5rem;
-    width: 1.5rem; }
 
 @media screen and (min-width: 70em) {
   .global-nav__inner .top-nav-item > *:first-child {
     font-size: 1rem;
+    height: 100%;
     padding: 0.625rem 0.3125rem 0.4375rem !important;
     position: relative;
     white-space: nowrap; }
@@ -3608,10 +3606,6 @@ input[type=search] {
   padding-bottom: 0.625rem;
   padding-top: 0.625rem; }
 
-.meta .icon {
-  height: 1.5rem;
-  width: 1.5rem; }
-
 /*------------------------------------*\
     #Pagination
 \*------------------------------------*/
@@ -3680,7 +3674,6 @@ input[type=search] {
   .rss > * + * {
     margin-top: 1em; }
   .rss a {
-    display: block;
     padding-bottom: 0.625rem;
     padding-top: 0.625rem; }
 
@@ -3807,6 +3800,12 @@ input[type=search] {
   min-width: 33.333%;
   padding: 1.25rem;
   width: calc(920px * 920 - 100% * 920); }
+
+.pre-footer h2 + * {
+  margin-top: 1em; }
+
+.pre-footer a {
+  display: block; }
 
 /*------------------------------------*\
     #Global footer
@@ -4100,15 +4099,14 @@ dl.family-series-list dt:nth-of-type(2)::before {
     .post .related__inner a:focus {
       color: #000; }
 
-.post .related__inner > div {
+.post .related__inner > div,
+.post .related__inner h3 + * {
   margin-top: 1.125rem; }
-  .post .related__inner > div + div {
-    border-top: solid 1px #bdbdbd;
-    margin-top: 1.5rem;
-    padding-top: 0.9375rem; }
 
-.post .related__inner ul {
-  margin-top: 0.375rem; }
+.post .related__inner > div + div {
+  border-top: solid 1px #bdbdbd;
+  margin-top: 1.5rem;
+  padding-top: 0.9375rem; }
 
 .post .related__inner li {
   font-size: 0.9375rem;
@@ -4131,8 +4129,11 @@ dl.family-series-list dt:nth-of-type(2)::before {
 
 .post .meta dl dd, .post .meta dl dt {
   margin: 0;
-  padding-bottom: 0.3125rem;
+  padding-bottom: 0.5rem;
   padding-top: 0.3125rem; }
+
+.post .meta dl dt:first-of-type {
+  padding-top: 0.5rem; }
 
 .post .meta dl dt {
   float: left;
