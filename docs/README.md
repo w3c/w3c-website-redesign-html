@@ -80,6 +80,8 @@ All JS is found within `/apollo/assets/js`. This directory contains a mixture of
 - `/libraries-extensions`: contains any custom implementations for the third party scripts that may be required for Apollo.
 - `/main`: contains code used on most/all pages.
 
+### JS compilation
+
 Scripts within `/main` are concatenated together into `main.js` and `main.min.js`, which is loaded everywhere.
 
 Individual files are minified into files of the same name, but are kept separate. They are typically used on only one or two templates.
