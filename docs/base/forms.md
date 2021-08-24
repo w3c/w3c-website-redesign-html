@@ -267,8 +267,8 @@ Again, due to inconsistencies with how different browsers and Assistive Technolo
                 </label>
                 <div class="field-hint" id="hint-chips">Fries or frites, not crisps.</div>
             </div>
-		</fieldset>
-	</div>
+        </fieldset>
+    </div>
 </form>
 ```
 
