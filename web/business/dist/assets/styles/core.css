@@ -4252,56 +4252,52 @@ dl.family-series-list dt:nth-of-type(2)::before {
 .listing #main {
   padding-top: 0; }
 
-.listing .browse {
+.hero--listing .browse {
   margin: -0.625rem;
   overflow: visible; }
+  .hero--listing .browse > * {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .hero--listing .browse > * > * {
+    padding: 0.625rem; }
+  .hero--listing .browse h2 {
+    font-size: 1rem;
+    font-weight: normal; }
 
-.listing .browse > * {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+.js .hero--listing .browse h2 {
+  display: none; }
 
-.listing .browse > * > * {
-  padding: 0.625rem; }
-
-.listing .browse h2 {
-  font-size: 1rem;
-  font-weight: normal; }
-
-.listing .filters.l-switcher {
+.hero--listing .filters.l-switcher {
   margin: -0.625rem;
   overflow: visible; }
+  .hero--listing .filters.l-switcher > * > * {
+    min-width: 33.333%;
+    padding: 0.625rem;
+    width: calc(920px * 920 - 100% * 920); }
 
-.listing .filters > div {
+.hero--listing .filters > div {
   -ms-flex-align: end;
       align-items: flex-end; }
 
-.listing .filters.l-switcher > * > * {
-  min-width: 33.333%;
-  padding: 0.625rem;
-  width: calc(920px * 920 - 100% * 920); }
-
-.listing .filters .field {
+.hero--listing .filters .field {
   margin-top: 0; }
 
-.listing .filters .button--ghost {
+.hero--listing .filters .button--ghost {
   padding-left: 0.1875rem;
   padding-right: 0.1875rem;
   text-decoration: underline;
   /* 1 */
   text-decoration-skip-ink: auto;
   text-underline-offset: 0.25em; }
-  .listing .filters .button--ghost:hover {
+  .hero--listing .filters .button--ghost:hover {
     box-shadow: 0 0 4px 2px rgba(84, 84, 84, 0.25); }
-  .listing .filters .button--ghost:focus {
+  .hero--listing .filters .button--ghost:focus {
     border-color: inherit;
     box-shadow: inset 0 0 0 2px;
     outline: solid 3px #f9dc4a;
     outline-offset: 0; }
-
-.js .listing .browse h2 {
-  display: none; }
 
 .people-list > *,
 .post-list > * {
