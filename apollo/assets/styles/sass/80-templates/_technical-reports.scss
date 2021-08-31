@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    #Technical reports (TR)
+\*------------------------------------*/
+
+.technical-reports {
+
+	.wrap {
+
+		background-color: $white;
+
+	}
+
+	.hero {
+
+		background-color: $white;
+		margin-bottom: rem(20);
+		padding-bottom: rem(40);
+
+		.l-box {
+
+			background-color: #f3f3f6;
+			border-radius: rem(4);
+
+		}
+
+		form > div:first-child {
+
+			max-width: none;
+
+		}
+
+		.field-hint {
+
+			color: $off-black;
+
+		}
+
+	}
+
+	.checkbox-item label::before,
+	.radio-item label::before {
+
+		background-color: $white;
+
+	}
+
+}
