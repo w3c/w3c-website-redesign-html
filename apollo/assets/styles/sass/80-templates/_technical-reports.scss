@@ -45,3 +45,64 @@
 	}
 
 }
+
+.tr-list {
+
+	.tr-list__item {
+
+		@include stack;
+
+		@include txt-pluto;
+
+		padding-bottom: rem(24);
+		padding-top: rem(24);
+
+		> * {
+
+			max-width: 41.25rem;
+
+		}
+
+	}
+
+	.tr-list__item h3 {
+
+		@include txt-mars;
+
+	}
+
+	.tr-list__item + .tr-list__item {
+
+		border-top: 1px solid $twiki-gray;
+
+	}
+
+	.tr-list__item__header {
+
+		@include stack;
+
+		align-items: flex-start;
+
+		h3 {
+
+			margin-top: rem(5);
+
+		}
+
+		h3 + * {
+
+			margin-top: 0;
+			order: -1;
+
+		}
+
+	}
+
+	dl.grid {
+
+		column-gap: 0.25em;
+		row-gap: 0.25em;
+
+	}
+
+}
