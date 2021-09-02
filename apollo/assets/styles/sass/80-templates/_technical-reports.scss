@@ -50,7 +50,7 @@
 
 	.tr-list__item {
 
-		@include stack;
+		@include stack(0.5em);
 
 		@include txt-pluto;
 
@@ -59,7 +59,7 @@
 
 		> * {
 
-			max-width: 41.25rem;
+			max-width: rem(820);
 
 		}
 
@@ -95,13 +95,6 @@
 			order: -1;
 
 		}
-
-	}
-
-	dl.grid {
-
-		column-gap: 0.25em;
-		row-gap: 0.25em;
 
 	}
 
