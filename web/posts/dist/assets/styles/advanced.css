@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*------------------------------------*\
     #Apollo: advanced styles for browsers selected by mustard cut
 \*------------------------------------*/
@@ -802,27 +801,6 @@ br {
 #js-cancel-reply {
   -webkit-margin-start: 0.625rem;
           margin-inline-start: 0.625rem; }
-
-/*------------------------------------*\
-    #TR Meta
-\*------------------------------------*/
-.tr-list {
-  padding-top: 0; }
-
-.tr-meta.tr-meta {
-  margin-top: 0.5rem; }
-
-.tr-meta li {
-  display: inline-block; }
-
-.tr-meta li:first-child:after {
-  content: " — "; }
-
-.tr-meta li:nth-child(1n+2) span::after {
-  content: ", "; }
-
-.tr-meta li:nth-last-child(1) span::after {
-  content: none; }
 
 /*------------------------------------*\
     #Plugins
