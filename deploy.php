@@ -26,7 +26,7 @@ set('allow_anonymous_stats', false);
 
 // Custom
 set('keep_releases', 10);
-set('build_root', getenv('HOME') . '/.deployer');
+set('build_root', '~/sites/');
 
 // Hosts
 
@@ -39,53 +39,6 @@ host('development')
 
 // Tasks
 desc('W3C Website redesign - HTML prototype');
-task('local:build', function () {
-
-    //  Set local Deployment directory
-    $buildRoot = get('build_root');
-
-    //  Create local Deployment directory
-    if (!file_exists($buildRoot)) {
-        writeln('Creating Deployment Directory');
-        mkdir($buildRoot);
-    } else {
-        writeln('Deployment Directory exists, skipping');
-    }
-
-    //  Set project root directory for build
-    $buildPath = $buildRoot.'/'.run('basename {{repository}} .git');
-
-    //  Remove previous local build
-    if (!file_exists($buildPath)) {
-        writeln('No previous build');
-    } else {
-        run('rm -rf '.$buildPath);
-        writeln('Removed previous build');
-    }
-
-    writeln('Cloning Repository (Branch: <info>{{branch}}</info>)');
-
-    //  Clone the required branch to the local build directory
-    run('git clone --single-branch --branch {{branch}} {{repository}} '.$buildPath);
-
-    writeln('Clone complete');
-
-    cd($buildPath);
-
-    writeln('Installing NPM build dependencies');
-
-    //  Set NVM via the .nvmrc file and run NPM build commands.
-    run('source ~/.nvm/nvm.sh && nvm use');
-    run('npm install');
-
-    writeln('Running NPM tasks');
-
-    run('npm run build');
-
-    writeln('Build complete.');
-
-})->local();
-
 
 task('deploy:update_code', function () {
 
@@ -102,7 +55,6 @@ task('deploy', [
     'deploy:prepare',
     'deploy:lock',
     'deploy:release',
-    'local:build',
     'deploy:update_code',
     'deploy:clear_paths',
     'deploy:symlink',
