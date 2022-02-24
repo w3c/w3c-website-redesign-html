@@ -79,7 +79,8 @@
 
 }
 
-.landing .translations {
+.landing .translations,
+.ecosystem .translations {
 
 	padding: 0;
 	margin-top: 0;
@@ -98,8 +99,15 @@
 
 	+ * {
 
-		margin-top: 1em;
+		margin-top: 2em;
 
 	}
+
+}
+
+.landing h1 + .translations,
+.ecosystem h1 + .translations {
+
+	margin-top: rem(-20);
 
 }

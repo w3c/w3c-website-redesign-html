@@ -2713,16 +2713,24 @@ main,
   padding-bottom: 0.625rem;
   padding-top: 0.625rem; }
 
-.landing .translations {
+.landing .translations,
+.ecosystem .translations {
   padding: 0;
   margin-top: 0; }
-  .landing .translations h2 {
+  .landing .translations h2,
+  .ecosystem .translations h2 {
     -webkit-padding-end: 1em;
             padding-inline-end: 1em; }
-  .landing .translations .l-sidebar .not-sidebar {
+  .landing .translations .l-sidebar .not-sidebar,
+  .ecosystem .translations .l-sidebar .not-sidebar {
     min-width: 70%; }
-  .landing .translations + * {
-    margin-top: 1em; }
+  .landing .translations + *,
+  .ecosystem .translations + * {
+    margin-top: 2em; }
+
+.landing h1 + .translations,
+.ecosystem h1 + .translations {
+  margin-top: -1.25rem; }
 
 /*------------------------------------*\
     #Table of contents (TOC)
@@ -4158,16 +4166,6 @@ input[type=search] {
 /*------------------------------------*\
     #Landing page
 \*------------------------------------*/
-.landing h1,
-.ecosystem h1 {
-  font-size: 2.125rem;
-  line-height: calc(43 / 34); }
-  @media screen and (min-width: 48em) {
-    .landing h1,
-    .ecosystem h1 {
-      font-size: 3.75rem;
-      line-height: calc(72 / 60); } }
-
 .landing #breadcrumb,
 .ecosystem #breadcrumb {
   background-color: #f8f8fb; }
