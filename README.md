@@ -7,7 +7,7 @@ Development: https://w3c-dev.studio24.dev
 
 ### Requirements
 
-- Node v11.10.0
+- Node v12
 - [NPM](https://www.npmjs.com/)
 - [NVM](https://github.com/creationix/nvm)
 - [Deployer](https://deployer.org/docs/installation)
@@ -15,6 +15,9 @@ Development: https://w3c-dev.studio24.dev
 ### Installing locally
 
 A step-by-step set of instructions that tell you how to get your local dev environment running.
+
+> [!IMPORTANT]
+> This site uses a very old version of Node (v12). In order to install the packages and run the following commands on M1 Macs, you may need to switch your terminal to i386 architecture while working on this site. See https://sensidev.net/blog/nvm-node-versions-apple-silicon/
 
 Clone repo:
 
