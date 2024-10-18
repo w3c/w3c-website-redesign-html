@@ -5,7 +5,7 @@ namespace Deployer;
 require 'recipe/common.php';
 
 
-set('http_user', 'apache');
+set('http_user', 'production');
 
 // Project name
 set('application', 'W3C Website redesign - HTML prototype');
@@ -26,15 +26,15 @@ set('allow_anonymous_stats', false);
 
 // Custom
 set('keep_releases', 10);
-set('build_root', '~/sites/');
+set('build_root', 'web');
 
 // Hosts
 
-host('development')
-    ->stage('development')
-    ->hostname('128.30.54.149')
-    ->user('studio24')
-    ->set('deploy_path','/var/www/vhosts/w3c-redesign-prototype/development');
+host('production')
+    ->stage('production')
+    ->hostname('studio24.vs.mythic-beasts.com')
+    ->user('deploy')
+    ->set('deploy_path','/var/www/vhosts/w3c-redesign-html/production');
 
 
 // Tasks
@@ -46,7 +46,7 @@ task('deploy:update_code', function () {
     $directory = run('basename {{repository}} .git');
 
     writeln("<info>Uploading files to server</info>");
-    upload($buildRoot.'/'.$directory.'/', '{{release_path}}');
+    upload($buildRoot.'/', '{{release_path}}'.'/web');
 });
 
 
